@@ -3,37 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Lady Luz Loayza Rodriguez — Software Engineering & Inclusión Tecnológica. Portafolio profesional con enfoque en desarrollo accesible y datos." />
+  <meta name="description" content="Lady Luz Loayza Rodriguez — Software Engineering & Tecnología Inclusiva. Creando soluciones accesibles, datos y sistemas con impacto real." />
   <meta name="author" content="Lady Luz Loayza Rodriguez" />
-  <meta property="og:title" content="Lady Luz Loayza Rodriguez | Software & Accessibility" />
-  <meta property="og:description" content="Diseño y desarrollo de software con propósito social y accesibilidad universal." />
+  <meta property="og:title" content="Lady Luz Loayza Rodriguez | Software Engineer & Accessibility" />
+  <meta property="og:description" content="Creando software inclusivo con propósito y precisión." />
   <meta property="og:image" content="./assets/profile_hd.png" />
   <meta property="og:type" content="website" />
-  <title>Lady Luz Loayza Rodriguez — Software Engineer</title>
+  <title>Lady Luz Loayza Rodriguez — Software & Inclusión Tecnológica</title>
 
-  <!-- Google Fonts & Icons -->
+  <!-- Google Fonts & Lucide Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     :root {
+      /* Palette */
       --bg: #F8F9FA;
-      --bg-subtle: #F1F3F5;
+      --bg-alt: #F1F3F5;
       --card-bg: #FFFFFF;
-      --text-main: #2D2D2D;
-      --text-muted: #6C757D;
-      --text-light: #949CA4;
+      --text-main: #1A1A1A;
+      --text-body: #374151;
+      --text-muted: #6B7280;
+      --text-light: #9CA3AF;
       --accent: #03154E;
-      --accent-soft: rgba(3, 21, 78, 0.06);
-      --border: rgba(0, 0, 0, 0.08);
-      --border-focus: rgba(3, 21, 78, 0.25);
+      --accent-hover: #0a2168;
+      --accent-glow: rgba(3, 21, 78, 0.18);
+      --teal: #2B7E84;
+      --sky: #59A3D6;
+      --lavender: #C3C6F6;
+      --border: rgba(0, 0, 0, 0.07);
+      --border-subtle: rgba(0, 0, 0, 0.04);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 8px;
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-      --shadow-float: 0 24px 48px -12px rgba(15, 23, 42, 0.12), 0 12px 24px -8px rgba(15, 23, 42, 0.06);
-      --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.04), 0 0 1px 1px rgba(0, 0, 0, 0.02);
-      --radius: 20px;
-      --radius-sm: 10px;
+      --shadow-card: 0 12px 36px -8px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.03);
+      --shadow-float: 0 28px 60px -15px rgba(3, 21, 78, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
       --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -50,11 +58,15 @@
     body {
       background-color: var(--bg);
       color: var(--text-main);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
       line-height: 1.7;
-      letter-spacing: -0.01em;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      background-image: 
+        radial-gradient(at 15% 10%, rgba(89, 163, 214, 0.07) 0px, transparent 45%),
+        radial-gradient(at 85% 20%, rgba(195, 198, 246, 0.12) 0px, transparent 50%),
+        radial-gradient(at 50% 90%, rgba(43, 126, 132, 0.05) 0px, transparent 60%);
+      background-attachment: fixed;
     }
 
     ::selection {
@@ -62,22 +74,50 @@
       color: #FFFFFF;
     }
 
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D1D5DB;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
     /* Container */
     .container {
-      max-width: 1200px;
+      max-width: 1220px;
       margin: 0 auto;
       padding: 0 32px;
     }
 
-    /* Header / Nav */
+    /* Noise / Grain Subtle Overlay */
+    .ambient-glow {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    /* NAVBAR */
     header.site-header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(248, 249, 250, 0.88);
+      background: rgba(248, 249, 250, 0.85);
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
-      padding: 22px 0;
+      padding: 20px 0;
       transition: var(--transition);
     }
 
@@ -89,12 +129,15 @@
 
     .brand-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 500;
+      font-size: 1.25rem;
+      font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-main);
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .brand-logo span {
@@ -112,9 +155,9 @@
     .nav-menu a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 400;
-      letter-spacing: 0.02em;
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
       transition: var(--transition);
       position: relative;
     }
@@ -123,360 +166,454 @@
       color: var(--text-main);
     }
 
-    .btn-quiet {
+    .nav-menu a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    /* Buttons */
+    .btn-cal-main {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 22px;
+      gap: 10px;
+      padding: 12px 24px;
       background: var(--accent);
       color: #FFFFFF !important;
       border-radius: 999px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
+      font-size: 0.9rem;
+      font-weight: 600;
       text-decoration: none;
       transition: var(--transition);
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 4px 14px var(--accent-glow);
+      border: 1px solid transparent;
+      cursor: pointer;
     }
 
-    .btn-quiet:hover {
+    .btn-cal-main:hover {
+      background: var(--accent-hover);
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(3, 21, 78, 0.2);
-      opacity: 0.95;
+      box-shadow: 0 8px 25px rgba(3, 21, 78, 0.28);
     }
 
-    .btn-outline-dark {
+    .btn-outline-minimal {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 22px;
-      background: transparent;
+      padding: 11px 22px;
+      background: #FFFFFF;
       color: var(--text-main);
       border: 1px solid var(--border);
       border-radius: 999px;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 500;
       text-decoration: none;
       transition: var(--transition);
-    }
-
-    .btn-outline-dark:hover {
-      border-color: var(--text-main);
-      background: #FFFFFF;
-      transform: translateY(-2px);
       box-shadow: var(--shadow-sm);
     }
 
-    /* HERO SECTION: Asymmetric 60 / 40 Split Screen */
+    .btn-outline-minimal:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    /* HERO SECTION: Asymmetric 60/40 Split Screen */
     .hero-section {
-      padding: 80px 0 100px;
+      padding: 85px 0 95px;
       position: relative;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 64px;
+      gap: 56px;
       align-items: center;
     }
 
-    .hero-meta {
+    .hero-badge-meta {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      font-size: 0.8rem;
+      gap: 12px;
+      font-size: 0.82rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-weight: 600;
+      letter-spacing: 0.16em;
+      font-weight: 700;
       color: var(--accent);
       margin-bottom: 24px;
     }
 
-    .hero-meta::before {
+    .hero-badge-meta::before {
       content: "";
-      width: 28px;
-      height: 1px;
+      width: 32px;
+      height: 2px;
       background: var(--accent);
+      border-radius: 2px;
     }
 
-    .hero-title {
+    .hero-heading {
       font-family: 'Playfair Display', serif;
-      font-size: 3.8rem;
+      font-size: 4rem;
       font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
       color: var(--text-main);
       margin-bottom: 24px;
     }
 
-    .hero-title em {
+    .hero-heading em {
       font-style: italic;
-      font-weight: 400;
-      color: var(--accent);
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--accent) 0%, #1e3a8a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding-right: 4px;
     }
 
-    .hero-bio {
+    .hero-desc {
       font-size: 1.12rem;
       color: var(--text-muted);
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.8;
       max-width: 580px;
-      margin-bottom: 40px;
-      text-align: left;
+      margin-bottom: 38px;
     }
 
-    .hero-bio strong {
+    .hero-desc strong {
       color: var(--text-main);
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    .hero-actions {
+    .hero-actions-wrap {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       align-items: center;
       flex-wrap: wrap;
     }
 
-    /* Photo Frame: Floating 3D Geometric Mask */
-    .hero-photo-wrap {
+    /* Floating Status Pill */
+    .status-badge-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--teal);
+      background: rgba(43, 126, 132, 0.08);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--teal);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(43, 126, 132, 0.25);
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.7; }
+    }
+
+    /* PHOTO CONTAINER: Quiet Luxury 3D Floating Aesthetic */
+    .hero-photo-column {
       position: relative;
       display: flex;
       justify-content: center;
-      align-items: center;
+      perspective: 1000px;
     }
 
-    .photo-backdrop-decor {
+    .photo-ambient-blur {
       position: absolute;
-      width: 105%;
-      height: 105%;
-      border: 1px solid var(--border);
-      border-radius: 28px;
+      width: 90%;
+      height: 90%;
+      background: linear-gradient(135deg, rgba(89, 163, 214, 0.25), rgba(195, 198, 246, 0.35));
+      border-radius: var(--radius-xl);
+      filter: blur(40px);
+      z-index: 1;
+      top: 5%;
+      left: 5%;
+      transform: translate3d(0, 10px, 0);
+    }
+
+    .photo-outer-frame {
+      position: absolute;
+      width: 102%;
+      height: 102%;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 32px;
       top: 14px;
-      left: 14px;
+      right: -10px;
       z-index: 1;
       pointer-events: none;
+      background: rgba(255, 255, 255, 0.4);
       transition: var(--transition);
     }
 
-    .photo-card {
+    .photo-glass-card {
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 420px;
-      aspect-ratio: 4 / 5;
-      border-radius: 24px;
+      max-width: 440px;
+      aspect-ratio: 4 / 4.9;
+      border-radius: 28px;
       overflow: hidden;
-      background: #EAEBED;
+      background: #FFFFFF;
       box-shadow: var(--shadow-float);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
     }
 
-    .photo-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 32px 64px -16px rgba(15, 23, 42, 0.16);
+    .photo-glass-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 36px 70px -18px rgba(3, 21, 78, 0.22);
     }
 
-    .photo-card:hover + .photo-backdrop-decor {
-      transform: translate(6px, 6px);
+    .photo-glass-card:hover ~ .photo-outer-frame {
+      transform: translate(-4px, -4px);
     }
 
-    .photo-img {
+    .photo-glass-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center top;
       display: block;
-      filter: contrast(102%) brightness(100%);
+      filter: contrast(101%) brightness(100%);
+      transition: transform 0.6s ease;
     }
 
-    .photo-badge-overlay {
+    .photo-glass-card:hover img {
+      transform: scale(1.03);
+    }
+
+    /* Floating Trophy Card inside Photo */
+    .photo-award-dock {
       position: absolute;
       bottom: 20px;
       left: 20px;
       right: 20px;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      border-radius: 14px;
-      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      border-radius: 18px;
+      padding: 14px 18px;
       display: flex;
       align-items: center;
-      gap: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      gap: 14px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      transition: var(--transition);
     }
 
-    .badge-icon {
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 8px;
-      border-radius: 8px;
+    .photo-glass-card:hover .photo-award-dock {
+      background: rgba(255, 255, 255, 0.98);
+      transform: translateY(-2px);
+    }
+
+    .award-medal-icon {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #03154E, #1e3a8a);
+      color: #FFFFFF;
+      border-radius: 12px;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(3, 21, 78, 0.2);
     }
 
-    .badge-text-primary {
-      font-size: 0.82rem;
-      font-weight: 600;
+    .award-dock-title {
+      font-size: 0.88rem;
+      font-weight: 700;
       color: var(--text-main);
+      line-height: 1.3;
     }
 
-    .badge-text-secondary {
-      font-size: 0.72rem;
+    .award-dock-sub {
+      font-size: 0.76rem;
       color: var(--text-muted);
+      font-weight: 500;
     }
 
-    /* MONOTONE TECH STACK (Turns to color on hover) */
-    .stack-section {
-      padding: 40px 0 80px;
+    /* MONOTONE TECH STACK CAROUSEL */
+    .stack-section-wrap {
+      padding: 48px 0;
+      background: #FFFFFF;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      background: var(--card-bg);
     }
 
-    .stack-header {
+    .stack-intro {
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
-    .stack-label {
+    .stack-tag {
       font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       color: var(--text-light);
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .stack-carousel {
+    .stack-pill-grid {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
-    .tech-pill {
+    .tech-pill-quiet {
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: var(--bg);
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 500;
       color: var(--text-muted);
       filter: grayscale(100%);
-      opacity: 0.75;
+      opacity: 0.7;
       transition: var(--transition);
       cursor: default;
+      user-select: none;
     }
 
-    .tech-pill:hover {
+    .tech-pill-quiet:hover {
       filter: grayscale(0%);
       opacity: 1;
       border-color: var(--accent);
       color: var(--accent);
       background: #FFFFFF;
       transform: translateY(-3px);
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     }
 
-    .tech-icon-svg {
-      width: 20px;
-      height: 20px;
+    /* BENTO / EDITORIAL SECTION */
+    .section-spacing {
+      padding: 95px 0;
     }
 
-    /* ABOUT & EDITORIAL SECTION */
-    .section-wrap {
-      padding: 100px 0;
+    .editorial-header {
+      margin-bottom: 56px;
+      max-width: 680px;
     }
 
-    .section-header-editorial {
-      margin-bottom: 60px;
-      max-width: 700px;
-    }
-
-    .section-num {
-      font-size: 0.8rem;
+    .editorial-counter {
+      font-size: 0.82rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 12px;
       display: block;
     }
 
-    .section-heading {
+    .editorial-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2.7rem;
       font-weight: 400;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       color: var(--text-main);
       line-height: 1.2;
     }
 
-    .about-editorial-grid {
+    .bento-editorial-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
     }
 
-    .about-card-editorial {
+    .bento-bio-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: var(--radius-lg);
       padding: 44px;
       box-shadow: var(--shadow-card);
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .about-card-editorial p {
-      color: #4A5568;
+    .bento-bio-card p {
+      color: var(--text-body);
       font-size: 1.05rem;
       line-height: 1.85;
       margin-bottom: 22px;
-      font-weight: 350;
+      font-weight: 400;
     }
 
-    .about-card-editorial p strong {
+    .bento-bio-card p strong {
       color: var(--text-main);
       font-weight: 600;
     }
 
-    .values-column {
+    .bento-cards-stack {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
 
-    .value-card {
+    .bento-subcard {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 24px;
+      border-radius: var(--radius-md);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
       transition: var(--transition);
     }
 
-    .value-card:hover {
+    .bento-subcard:hover {
       border-color: var(--accent);
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-card);
       transform: translateX(4px);
     }
 
-    .value-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-bottom: 6px;
+    .subcard-head {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
+      margin-bottom: 8px;
     }
 
-    .value-desc {
-      font-size: 0.9rem;
+    .subcard-icon {
+      color: var(--accent);
+      background: rgba(3, 21, 78, 0.06);
+      padding: 8px;
+      border-radius: 10px;
+      display: flex;
+    }
+
+    .subcard-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .subcard-text {
+      font-size: 0.92rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     /* PROJECTS SECTION (GitHub API) */
@@ -486,10 +623,10 @@
       gap: 28px;
     }
 
-    .project-item-quiet {
+    .project-card-quiet {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: var(--radius-lg);
       padding: 32px;
       display: flex;
       flex-direction: column;
@@ -499,65 +636,64 @@
       position: relative;
     }
 
-    .project-item-quiet:hover {
-      transform: translateY(-5px);
+    .project-card-quiet:hover {
+      transform: translateY(-6px);
       border-color: var(--accent);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
     }
 
     .proj-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 500;
+      font-size: 1.45rem;
+      font-weight: 600;
       color: var(--text-main);
       margin-bottom: 12px;
     }
 
     .proj-desc {
       color: var(--text-muted);
-      font-size: 0.94rem;
+      font-size: 0.95rem;
       line-height: 1.65;
       margin-bottom: 24px;
-      font-weight: 350;
     }
 
-    .proj-footer {
+    .proj-footer-quiet {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding-top: 18px;
       border-top: 1px solid var(--border);
-      font-size: 0.82rem;
+      font-size: 0.85rem;
     }
 
-    .proj-link {
+    .proj-link-action {
       font-weight: 600;
       color: var(--accent);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       transition: var(--transition);
     }
 
-    .proj-link:hover {
-      gap: 8px;
+    .proj-link-action:hover {
+      gap: 9px;
     }
 
-    /* LINKEDIN EMBEDS SECTION */
-    .linkedin-grid-editorial {
+    /* LINKEDIN POSTS */
+    .linkedin-grid-quiet {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 32px;
       justify-items: center;
     }
 
-    .linkedin-frame-wrap {
+    .linkedin-wrapper {
       width: 100%;
       max-width: 504px;
       background: #FFFFFF;
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: var(--radius-lg);
       padding: 12px;
       box-shadow: var(--shadow-card);
       display: flex;
@@ -566,41 +702,51 @@
       transition: var(--transition);
     }
 
-    .linkedin-frame-wrap:hover {
+    .linkedin-wrapper:hover {
       box-shadow: var(--shadow-float);
     }
 
-    .linkedin-frame-wrap iframe {
-      border-radius: 12px;
+    .linkedin-wrapper iframe {
+      border-radius: 14px;
       width: 100%;
     }
 
     /* CAL.COM CALLOUT */
-    .cal-quiet-callout {
+    .cal-callout-luxury {
       background: #FFFFFF;
       border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 70px 48px;
+      border-radius: var(--radius-xl);
+      padding: 75px 48px;
       text-align: center;
       box-shadow: var(--shadow-card);
       position: relative;
-      margin: 40px 0 100px;
+      margin: 30px 0 90px;
+      overflow: hidden;
     }
 
-    .cal-quiet-callout h3 {
+    .cal-callout-luxury::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--sky), var(--accent));
+    }
+
+    .cal-callout-luxury h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       font-weight: 400;
       color: var(--text-main);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
-    .cal-quiet-callout p {
+    .cal-callout-luxury p {
       color: var(--text-muted);
-      font-size: 1.1rem;
-      max-width: 540px;
+      font-size: 1.15rem;
+      max-width: 580px;
       margin: 0 auto 36px;
-      font-weight: 350;
     }
 
     /* FOOTER */
@@ -609,18 +755,18 @@
       padding: 48px 0;
       background: #FFFFFF;
       text-align: center;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--text-light);
     }
 
-    .footer-links {
+    .footer-social-links {
       display: flex;
       justify-content: center;
       gap: 28px;
       margin-bottom: 18px;
     }
 
-    .footer-links a {
+    .footer-social-links a {
       color: var(--text-muted);
       text-decoration: none;
       transition: var(--transition);
@@ -630,37 +776,52 @@
       font-weight: 500;
     }
 
-    .footer-links a:hover {
+    .footer-social-links a:hover {
       color: var(--accent);
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 960px) {
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 992px) {
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 50px;
       }
-      .hero-photo-wrap {
+      .hero-photo-column {
         order: -1;
       }
-      .photo-card {
-        max-width: 320px;
+      .photo-glass-card {
+        max-width: 360px;
       }
-      .hero-title {
-        font-size: 2.8rem;
+      .hero-heading {
+        font-size: 3.2rem;
       }
-      .about-editorial-grid {
+      .bento-editorial-grid {
         grid-template-columns: 1fr;
       }
       .nav-menu {
         display: none;
       }
     }
+
+    @media (max-width: 640px) {
+      .hero-heading {
+        font-size: 2.5rem;
+      }
+      .bento-bio-card {
+        padding: 28px;
+      }
+      .cal-callout-luxury {
+        padding: 45px 24px;
+      }
+      .cal-callout-luxury h3 {
+        font-size: 2.1rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- NAVBAR -->
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="#" class="brand-logo">
@@ -672,8 +833,8 @@
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#impacto">Impacto</a></li>
         <li>
-          <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-quiet">
-            <i data-lucide="calendar" style="width:15px;height:15px;"></i> Agendar Reunión
+          <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-cal-main">
+            <i data-lucide="calendar" style="width:16px;height:16px;"></i> Agendar Reunión
           </a>
         </li>
       </ul>
@@ -686,45 +847,51 @@
     <section class="hero-section">
       <div class="hero-grid">
         
-        <!-- Left: Editorial Content -->
+        <!-- Left: Text & Pitch -->
         <div class="hero-content">
-          <div class="hero-meta">
+          <div class="hero-badge-meta">
             Ingeniería de Software & Accesibilidad
           </div>
-          <h1 class="hero-title">
+          <h1 class="hero-heading">
             Creando software <em>inclusivo</em> con propósito y precisión.
           </h1>
-          <p class="hero-bio">
+          <p class="hero-desc">
             Soy <strong>Lady Luz Loayza Rodriguez</strong>. Desarrollo tecnología accesible y sistemas de datos orientados a reducir la brecha de inclusión, brindando autonomía real a personas con discapacidad a través de interfaces universales.
           </p>
-          <div class="hero-actions">
-            <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-quiet" style="padding: 13px 28px; font-size: 0.95rem;">
-              <i data-lucide="calendar" style="width:16px;height:16px;"></i> Agendar 30 min en Cal.com
+
+          <div class="hero-actions-wrap">
+            <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-cal-main" style="padding: 13px 28px; font-size: 0.95rem;">
+              <i data-lucide="calendar" style="width:17px;height:17px;"></i> Agendar 30 min en Cal.com
             </a>
-            <a href="https://github.com/luzylay" target="_blank" class="btn-outline-dark">
-              <i data-lucide="github" style="width:16px;height:16px;"></i> GitHub
+            <a href="https://github.com/luzylay" target="_blank" class="btn-outline-minimal">
+              <i data-lucide="github" style="width:17px;height:17px;"></i> GitHub
             </a>
-            <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" class="btn-outline-dark">
-              <i data-lucide="linkedin" style="width:16px;height:16px;"></i> LinkedIn
+            <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" class="btn-outline-minimal">
+              <i data-lucide="linkedin" style="width:17px;height:17px;"></i> LinkedIn
             </a>
+          </div>
+
+          <div class="status-badge-inline">
+            <span class="status-dot"></span> Disponible para nuevos proyectos & consultorías
           </div>
         </div>
 
-        <!-- Right: Focal Floating 3D Portrait -->
-        <div class="hero-photo-wrap">
-          <div class="photo-card">
-            <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez" class="photo-img" />
-            <div class="photo-badge-overlay">
-              <div class="badge-icon">
-                <i data-lucide="award" style="width:18px;height:18px;"></i>
+        <!-- Right: 3D Floating Portrait Card -->
+        <div class="hero-photo-column">
+          <div class="photo-ambient-blur"></div>
+          <div class="photo-glass-card">
+            <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez" />
+            <div class="photo-award-dock">
+              <div class="award-medal-icon">
+                <i data-lucide="award" style="width:20px;height:20px;"></i>
               </div>
               <div>
-                <div class="badge-text-primary">1.ᵉʳ Puesto Hackathon INSNSB</div>
-                <div class="badge-text-secondary">Proyecto "Crecer Mejor"</div>
+                <div class="award-dock-title">1.ᵉʳ Puesto Hackathon INSNSB</div>
+                <div class="award-dock-sub">Proyecto "Crecer Mejor" • Inclusión Social</div>
               </div>
             </div>
           </div>
-          <div class="photo-backdrop-decor"></div>
+          <div class="photo-outer-frame"></div>
         </div>
 
       </div>
@@ -732,36 +899,36 @@
 
   </main>
 
-  <!-- MONOTONE TECH STACK CAROUSEL (Turns Color on Hover) -->
-  <section id="stack" class="stack-section">
+  <!-- MONOTONE TECH STACK CAROUSEL -->
+  <section id="stack" class="stack-section-wrap">
     <div class="container">
-      <div class="stack-header">
-        <span class="stack-label">Stack Tecnológico & Herramientas</span>
+      <div class="stack-intro">
+        <span class="stack-tag">Stack Tecnológico & Estándares</span>
       </div>
-      <div class="stack-carousel">
-        <div class="tech-pill">
-          <i data-lucide="code" class="tech-icon-svg"></i>
+      <div class="stack-pill-grid">
+        <div class="tech-pill-quiet">
+          <i data-lucide="code" style="width:18px;height:18px;"></i>
           <span>TypeScript / JS</span>
         </div>
-        <div class="tech-pill">
-          <i data-lucide="database" class="tech-icon-svg"></i>
+        <div class="tech-pill-quiet">
+          <i data-lucide="database" style="width:18px;height:18px;"></i>
           <span>SQL / Data Eng</span>
         </div>
-        <div class="tech-pill">
-          <i data-lucide="layout" class="tech-icon-svg"></i>
+        <div class="tech-pill-quiet">
+          <i data-lucide="layout" style="width:18px;height:18px;"></i>
           <span>React / Next.js</span>
         </div>
-        <div class="tech-pill">
-          <i data-lucide="cloud" class="tech-icon-svg"></i>
+        <div class="tech-pill-quiet">
+          <i data-lucide="cloud" style="width:18px;height:18px;"></i>
           <span>Cloudflare Pages</span>
         </div>
-        <div class="tech-pill">
-          <i data-lucide="git-branch" class="tech-icon-svg"></i>
+        <div class="tech-pill-quiet">
+          <i data-lucide="git-branch" style="width:18px;height:18px;"></i>
           <span>Git & GitHub</span>
         </div>
-        <div class="tech-pill">
-          <i data-lucide="accessibility" class="tech-icon-svg"></i>
-          <span>WCAG / A11y</span>
+        <div class="tech-pill-quiet">
+          <i data-lucide="accessibility" style="width:18px;height:18px;"></i>
+          <span>WCAG / A11y Universal</span>
         </div>
       </div>
     </div>
@@ -770,87 +937,99 @@
   <main class="container">
 
     <!-- ABOUT SECTION -->
-    <section id="sobre-mi" class="section-wrap">
-      <div class="section-header-editorial">
-        <span class="section-num">01 / Filosofía & Trayectoria</span>
-        <h2 class="section-heading">Tecnología concebida para no dejar a nadie atrás.</h2>
+    <section id="sobre-mi" class="section-spacing">
+      <div class="editorial-header">
+        <span class="editorial-counter">01 / Filosofía & Propósito</span>
+        <h2 class="editorial-title">Tecnología concebida para no dejar a nadie atrás.</h2>
       </div>
 
-      <div class="about-editorial-grid">
-        <div class="about-card-editorial">
-          <p>
-            ✨ <strong>¿De qué sirve el avance de la tecnología si deja atrás a quienes más la necesitan?</strong> Como estudiante de Ingeniería de Software apasionada por los datos y el impacto social, mi misión es convertir el código en una herramienta de equidad y empoderamiento real.
-          </p>
-          <p>
-            💡 Esta convicción me llevó a obtener el <strong>1er puesto en la Hackathon INSNSB "Crecer Mejor"</strong>, desarrollando soluciones diseñadas para reducir activamente la brecha de accesibilidad donde las herramientas convencionales aún no llegan. Me enfoco en crear software accesible e intuitivo que devuelva la autonomía y fomente la participación plena de personas con discapacidad en entornos educativos, laborales y comunitarios.
-          </p>
-          <p>
-            🚀 Creo firmemente en la colaboración interdisciplinaria y en la innovación con propósito. Si compartes la visión de una tecnología verdaderamente universal: <strong>¡Conectemos y construyamos soluciones inclusivas juntos!</strong>
-          </p>
+      <div class="bento-editorial-grid">
+        <div class="bento-bio-card">
+          <div>
+            <p>
+              ✨ <strong>¿De qué sirve el avance de la tecnología si deja atrás a quienes más la necesitan?</strong> Como estudiante de Ingeniería de Software apasionada por los datos y el impacto social, mi misión es convertir el código en una herramienta de equidad y empoderamiento real.
+            </p>
+            <p>
+              💡 Esta convicción me llevó a obtener el <strong>1er puesto en la Hackathon INSNSB "Crecer Mejor"</strong>, desarrollando soluciones diseñadas para reducir activamente la brecha de accesibilidad donde las herramientas convencionales aún no llegan. Me enfoco en crear software accesible e intuitivo que devuelva la autonomía y fomente la participación plena de personas con discapacidad en entornos educativos, laborales y comunitarios.
+            </p>
+            <p>
+              🚀 Creo firmemente en la colaboración interdisciplinaria y en la innovación con propósito. Si compartes la visión de una tecnología verdaderamente universal: <strong>¡Conectemos y construyamos soluciones inclusivas juntos!</strong>
+            </p>
+          </div>
+          <div style="padding-top: 20px; border-top: 1px solid var(--border); display: flex; gap: 20px; align-items: center;">
+            <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="proj-link-action" style="font-size: 0.95rem;">
+              Agendar conversación directa →
+            </a>
+          </div>
         </div>
 
-        <div class="values-column">
-          <div class="value-card">
-            <div class="value-title">
-              <i data-lucide="sparkles" style="width:18px;height:18px;color:var(--accent);"></i> Accesibilidad por Diseño
+        <div class="bento-cards-stack">
+          <div class="bento-subcard">
+            <div class="subcard-head">
+              <div class="subcard-icon"><i data-lucide="sparkles" style="width:18px;height:18px;"></i></div>
+              <h3 class="subcard-title">Accesibilidad por Diseño</h3>
             </div>
-            <p class="value-desc">Implementación rigurosa de estándares de accesibilidad universal desde las etapas tempranas de arquitectura.</p>
+            <p class="subcard-text">Implementación de estándares internacionales WCAG 2.1 (AA/AAA) desde las primeras etapas de arquitectura y diseño de interfaces.</p>
           </div>
-          <div class="value-card">
-            <div class="value-title">
-              <i data-lucide="bar-chart-3" style="width:18px;height:18px;color:var(--accent);"></i> Datos con Propósito
+
+          <div class="bento-subcard">
+            <div class="subcard-head">
+              <div class="subcard-icon"><i data-lucide="bar-chart-3" style="width:18px;height:18px;"></i></div>
+              <h3 class="subcard-title">Datos con Propósito</h3>
             </div>
-            <p class="value-desc">Modelado y análisis de datos para entender patrones de uso y resolver problemas reales de inclusión.</p>
+            <p class="subcard-text">Modelado analítico e inteligencia de negocio para identificar brechas de acceso y optimizar la toma de decisiones inclusiva.</p>
           </div>
-          <div class="value-card">
-            <div class="value-title">
-              <i data-lucide="trophy" style="width:18px;height:18px;color:var(--accent);"></i> Innovación Competitiva
+
+          <div class="bento-subcard">
+            <div class="subcard-head">
+              <div class="subcard-icon"><i data-lucide="trophy" style="width:18px;height:18px;"></i></div>
+              <h3 class="subcard-title">Liderazgo & Hackathons</h3>
             </div>
-            <p class="value-desc">Experiencia galardonada en hackathons nacionales resolviendo desafíos de salud e inclusión social.</p>
+            <p class="subcard-text">1.ᵉʳ Puesto Hackathon INSNSB y roles de coordinación estudiantil internacional como Deputy Campus Director en Hult Prize.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- GITHUB REPOSITORIES -->
-    <section id="proyectos" class="section-wrap" style="padding-top: 0;">
-      <div class="section-header-editorial">
-        <span class="section-num">02 / Código & Repositorios</span>
-        <h2 class="section-heading">Proyectos Destacados en GitHub</h2>
+    <section id="proyectos" class="section-spacing" style="padding-top: 0;">
+      <div class="editorial-header">
+        <span class="editorial-counter">02 / Código Abierto</span>
+        <h2 class="editorial-title">Proyectos en GitHub</h2>
       </div>
 
       <div id="lista-proyectos" class="projects-grid-quiet">
         <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-light);">
           <i data-lucide="loader" style="animation: spin 1s linear infinite; margin-bottom: 8px;"></i>
-          <p>Cargando repositorios desde @luzylay...</p>
+          <p>Conectando con la API de GitHub (@luzylay)...</p>
         </div>
       </div>
     </section>
 
-    <!-- LINKEDIN IMPACT SECTION -->
-    <section id="impacto" class="section-wrap" style="padding-top: 0;">
-      <div class="section-header-editorial">
-        <span class="section-num">03 / Liderazgo & Comunidad</span>
-        <h2 class="section-heading">Publicaciones de Impacto</h2>
+    <!-- LINKEDIN IMPACT -->
+    <section id="impacto" class="section-spacing" style="padding-top: 0;">
+      <div class="editorial-header">
+        <span class="editorial-counter">03 / Trayectoria & Comunidad</span>
+        <h2 class="editorial-title">Publicaciones Destacadas en LinkedIn</h2>
       </div>
 
-      <div class="linkedin-grid-editorial">
-        <!-- Hackathon INSNSB -->
-        <div class="linkedin-frame-wrap">
+      <div class="linkedin-grid-quiet">
+        <!-- Post 1: Hackathon INSNSB -->
+        <div class="linkedin-wrapper">
           <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7498032689288073216?collapsed=1"
                   height="627" width="504" frameborder="0" allowfullscreen
                   title="Ganamos el 1er puesto en Hackatón Niño San Borja"></iframe>
         </div>
 
-        <!-- Hackathon Sin Barreras MINCETUR -->
-        <div class="linkedin-frame-wrap">
+        <!-- Post 2: Hackathon Sin Barreras MINCETUR -->
+        <div class="linkedin-wrapper">
           <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7474145608497500161?collapsed=1"
                   height="627" width="504" frameborder="0" allowfullscreen
                   title="Equipo destacado en Hackathon Sin Barreras MINCETUR"></iframe>
         </div>
 
-        <!-- Hult Prize -->
-        <div class="linkedin-frame-wrap">
+        <!-- Post 3: Hult Prize -->
+        <div class="linkedin-wrapper">
           <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7420281179368501248?collapsed=1"
                   height="627" width="504" frameborder="0" allowfullscreen
                   title="Nuevo rol como Deputy Campus Director en Hult Prize"></iframe>
@@ -858,12 +1037,12 @@
       </div>
     </section>
 
-    <!-- CAL.COM CALLOUT -->
-    <section class="cal-quiet-callout">
+    <!-- CAL.COM CALLOUT BANNER -->
+    <section class="cal-callout-luxury">
       <h3>¿Conversamos sobre tu próximo proyecto?</h3>
-      <p>Hablemos sobre desarrollo de software, tecnologías accesibles o posibles sinergias e iniciativas conjuntas.</p>
-      <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-quiet" style="padding: 14px 36px; font-size: 1rem;">
-        <i data-lucide="calendar" style="width:18px;height:18px;"></i> Agendar sesión de 30 minutos
+      <p>Hablemos sobre desarrollo de software, tecnologías accesibles o posibles sinergias e iniciativas de alto impacto.</p>
+      <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-cal-main" style="padding: 15px 36px; font-size: 1.02rem;">
+        <i data-lucide="calendar" style="width:18px;height:18px;"></i> Agendar sesión de 30 minutos en Cal.com
       </a>
     </section>
 
@@ -872,17 +1051,17 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-links">
+      <div class="footer-social-links">
         <a href="https://github.com/luzylay" target="_blank"><i data-lucide="github" style="width:16px;"></i> GitHub</a>
         <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank"><i data-lucide="linkedin" style="width:16px;"></i> LinkedIn</a>
         <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank"><i data-lucide="calendar" style="width:16px;"></i> Cal.com</a>
       </div>
-      <p>© 2026 Lady Luz Loayza Rodriguez • Diseñado con estética Quiet Luxury y estándares de accesibilidad.</p>
+      <p>© 2026 Lady Luz Loayza Rodriguez • Diseñado con estética Quiet Luxury & estándares de accesibilidad.</p>
     </div>
   </footer>
 
   <script>
-    // Inicializar iconos
+    // Inicializar iconos de Lucide
     lucide.createIcons();
 
     // Fetch dinámico de proyectos de GitHub
@@ -891,7 +1070,7 @@
 
     fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`)
       .then(response => {
-        if (!response.ok) throw new Error('Error al consultar repos');
+        if (!response.ok) throw new Error('Error al consultar repositorios');
         return response.json();
       })
       .then(repos => {
@@ -903,10 +1082,10 @@
 
         repos.forEach(repo => {
           const card = document.createElement('div');
-          card.className = 'project-item-quiet';
+          card.className = 'project-card-quiet';
           
           const language = repo.language || 'Software Dev';
-          const description = repo.description || 'Proyecto de software enfocado en resolver desafíos prácticos con arquitectura limpia y accesible.';
+          const description = repo.description || 'Proyecto de desarrollo de software con arquitectura limpia y enfoque en accesibilidad.';
           
           card.innerHTML = `
             <div>
@@ -918,16 +1097,16 @@
             </div>
             <div>
               <div style="margin-bottom: 14px;">
-                <span style="font-size:0.75rem; background:var(--bg-subtle); color:var(--text-main); padding:4px 12px; border-radius:999px; border:1px solid var(--border); font-weight:500;">
-                  ${language}
+                <span style="font-size:0.75rem; background:var(--bg-alt); color:var(--text-main); padding:4px 12px; border-radius:999px; border:1px solid var(--border); font-weight:600;">
+                  💻 ${language}
                 </span>
               </div>
-              <div class="proj-footer">
+              <div class="proj-footer-quiet">
                 <div style="display: flex; gap: 12px; color: var(--text-light);">
                   <span>⭐ ${repo.stargazers_count}</span>
                   <span>🍴 ${repo.forks_count}</span>
                 </div>
-                <a href="${repo.html_url}" target="_blank" class="proj-link">
+                <a href="${repo.html_url}" target="_blank" class="proj-link-action">
                   Ver código →
                 </a>
               </div>
