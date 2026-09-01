@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portafolio Profesional de Lady Luz Loayza Rodriguez | Software Engineering, Data & Accesibilidad Tecnológica." />
+  <meta name="author" content="Lady Luz Loayza Rodriguez" />
+  <meta property="og:title" content="Lady Luz Loayza Rodriguez | Software & Accessibility Dev" />
+  <meta property="og:description" content="Desarrollando tecnología inclusiva y software accesible para reducir barreras sociales." />
+  <meta property="og:type" content="website" />
   <title>Lady Luz Loayza Rodriguez | Software & Accessibility Dev</title>
   
   <!-- Google Fonts & Lucide Icons -->
@@ -15,14 +19,14 @@
   <style>
     :root {
       /* PALETA DE COLORES PERSONALIZADA */
-      --c-navy-dark: #03154E;      /* Verde azulado oscuro / cian muy oscuro / Navy base */
+      --c-navy-dark: #03154E;      /* Navy base profundo */
       --c-turquoise-dark: #013D4B; /* Turquesa oscuro */
       --c-turquoise-mid: #2B7E84;  /* Turquesa medio */
       --c-sky-blue: #59A3D6;       /* Celeste / azul claro */
       --c-lavender-blue: #6E8EE4;  /* Azul lavanda / azul medio */
       --c-lavender-light: #C3C6F6; /* Lavanda claro / lila pálido */
 
-      /* Mapeo de tokens de diseño */
+      /* Tokens de diseño */
       --bg: #03154E;
       --bg-card: rgba(1, 61, 75, 0.45);
       --bg-card-hover: rgba(1, 61, 75, 0.75);
@@ -44,6 +48,10 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -145,8 +153,27 @@
 
     /* Hero Section */
     .hero {
-      padding: 90px 0 60px;
+      padding: 70px 0 50px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      margin-bottom: 24px;
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--c-sky-blue);
+      box-shadow: 0 0 25px rgba(89, 163, 214, 0.5);
     }
 
     .hero-badge {
@@ -160,7 +187,7 @@
       color: var(--c-lavender-light);
       font-size: 0.85rem;
       font-weight: 600;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       animation: pulse 3s infinite;
     }
 
@@ -170,10 +197,11 @@
     }
 
     .hero-title {
-      font-size: 3.1rem;
+      font-size: 3rem;
       letter-spacing: -1px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       color: #FFFFFF;
+      max-width: 850px;
     }
 
     .hero-title span.gradient {
@@ -184,7 +212,7 @@
 
     .hero-subtitle {
       max-width: 680px;
-      margin: 0 auto 36px;
+      margin: 0 auto 32px;
       color: var(--text-muted);
       font-size: 1.15rem;
     }
@@ -219,7 +247,8 @@
     /* About Section */
     .section-title-wrap {
       text-align: center;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
+      padding-top: 30px;
     }
 
     .section-tag {
@@ -482,6 +511,9 @@
     
     <!-- HERO SECTION -->
     <section class="hero">
+      <div class="avatar-wrapper">
+        <img src="./assets/profile.jpg" alt="Lady Luz Loayza Rodriguez" class="avatar-img" onerror="this.style.display='none'" />
+      </div>
       <div class="hero-badge">
         <i data-lucide="award" style="width:16px;height:16px;"></i> 1er Puesto Hackathon INSNSB "Crecer Mejor"
       </div>
