@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Lady Luz Loayza Rodriguez — Software Engineer | Backend Python, Análisis de Datos & Accesibilidad Tecnológica. Ganadora Hackathon INSNSB & MINCETUR." />
+  <meta name="description" content="Portafolio Profesional de Lady Luz Loayza Rodriguez | Software Engineer, Data & Accesibilidad Tecnológica." />
   <meta name="author" content="Lady Luz Loayza Rodriguez" />
-  <meta property="og:title" content="Lady Luz Loayza Rodriguez | Software Engineer & Accessibility" />
-  <meta property="og:description" content="Creando software inclusivo, pipelines de datos e IA accesible con propósito y precisión." />
+  <meta property="og:title" content="Lady Luz Loayza Rodriguez | Software & Accessibility" />
+  <meta property="og:description" content="Creando software inclusivo, análisis de datos e inteligencia artificial accesible." />
   <meta property="og:image" content="./assets/profile_hd.png" />
   <meta property="og:type" content="website" />
   <title>Lady Luz Loayza Rodriguez — Software Engineer & Accessibility</title>
@@ -14,43 +14,71 @@
   <!-- Google Fonts & Lucide Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    /* ==========================================================================
+       VARIABLES DE COLOR Y TEMAS (MODO OSCURO Y MODO CLARO CON DEGRADADOS)
+       ========================================================================== */
     :root {
-      /* PALETA DE IDENTIDAD PERSONAL */
-      --c-navy-dark: #03154E;      /* Navy profundo base */
-      --c-turquoise-dark: #013D4B; /* Turquesa oscuro */
-      --c-turquoise-mid: #2B7E84;  /* Turquesa medio */
-      --c-sky-blue: #59A3D6;       /* Celeste / azul claro */
-      --c-lavender-blue: #6E8EE4;  /* Azul lavanda */
-      --c-lavender-light: #C3C6F6; /* Lavanda claro */
+      /* MODO OSCURO (POR DEFECTO) */
+      --bg: #070B19;
+      --bg-surface: rgba(16, 24, 50, 0.75);
+      --bg-surface-hover: rgba(24, 36, 74, 0.9);
+      --bg-subtle: rgba(255, 255, 255, 0.05);
+      
+      --text-main: #FFFFFF;
+      --text-body: #D1D5DB;
+      --text-muted: #9CA3AF;
+      
+      --border: rgba(255, 255, 255, 0.1);
+      --border-accent: rgba(99, 102, 241, 0.4);
 
-      /* Tokens de diseño */
-      --bg: #F8F9FA;
-      --bg-alt: #F1F4F8;
-      --card-bg: #FFFFFF;
-      --text-main: #111827;
-      --text-body: #374151;
-      --text-muted: #5A6A80;
-      --text-light: #8FA0B8;
+      /* Gradientes Principales */
+      --grad-primary: linear-gradient(135deg, #6366F1 0%, #06B6D4 100%);
+      --grad-accent: linear-gradient(135deg, #F59E0B 0%, #EC4899 100%);
+      --grad-card-border: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(6, 182, 212, 0.5));
+      --grad-text: linear-gradient(135deg, #A5B4FC 0%, #38BDF8 50%, #C084FC 100%);
       
-      --accent: var(--c-navy-dark);
-      --border: rgba(3, 21, 78, 0.08);
-      --border-accent: rgba(43, 126, 132, 0.25);
+      --shadow-card: 0 16px 36px -10px rgba(0, 0, 0, 0.4);
+      --shadow-float: 0 25px 60px -15px rgba(99, 102, 241, 0.35);
       
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --radius-sm: 8px;
-      
-      --shadow-sm: 0 2px 8px rgba(3, 21, 78, 0.04);
-      --shadow-card: 0 12px 36px -8px rgba(3, 21, 78, 0.06), 0 0 0 1px rgba(3, 21, 78, 0.03);
-      --shadow-float: 0 28px 60px -15px rgba(3, 21, 78, 0.18), 0 10px 20px -5px rgba(1, 61, 75, 0.06);
-      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      --badge-bg: rgba(99, 102, 241, 0.15);
+      --badge-text: #A5B4FC;
+
+      --font-scale: 1rem;
     }
 
+    [data-theme="light"] {
+      /* MODO CLARO AGRADABLE Y DE ALTO CONTRASTE */
+      --bg: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-surface-hover: #F1F5F9;
+      --bg-subtle: #F1F5F9;
+      
+      --text-main: #0B132B;
+      --text-body: #1E293B;
+      --text-muted: #475569;
+      
+      --border: rgba(11, 19, 43, 0.12);
+      --border-accent: rgba(14, 116, 144, 0.35);
+
+      --grad-primary: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%);
+      --grad-accent: linear-gradient(135deg, #D97706 0%, #BE185D 100%);
+      --grad-card-border: linear-gradient(135deg, rgba(30, 58, 138, 0.3), rgba(14, 116, 144, 0.3));
+      --grad-text: linear-gradient(135deg, #0F172A 0%, #0369A1 60%, #4338CA 100%);
+      
+      --shadow-card: 0 12px 30px -8px rgba(11, 19, 43, 0.08);
+      --shadow-float: 0 20px 45px -12px rgba(15, 23, 42, 0.15);
+      
+      --badge-bg: rgba(14, 116, 144, 0.1);
+      --badge-text: #0E7490;
+    }
+
+    /* ==========================================================================
+       RESET Y TIPOGRAFÍA ACCESIBLE (LETRAS GRANDES Y CÓMODAS)
+       ========================================================================== */
     * {
       margin: 0;
       padding: 0;
@@ -59,1466 +87,1221 @@
 
     html {
       scroll-behavior: smooth;
+      font-size: var(--font-scale);
     }
 
     body {
       background-color: var(--bg);
-      color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-      line-height: 1.7;
+      color: var(--text-body);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem; /* Letra grande y legible */
+      line-height: 1.8;
       overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.3s ease, color 0.3s ease;
       background-image: 
-        radial-gradient(at 10% 10%, rgba(89, 163, 214, 0.12) 0px, transparent 45%),
-        radial-gradient(at 90% 15%, rgba(195, 198, 246, 0.18) 0px, transparent 50%),
-        radial-gradient(at 50% 95%, rgba(43, 126, 132, 0.08) 0px, transparent 60%);
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
       background-attachment: fixed;
     }
 
-    ::selection {
-      background: var(--c-navy-dark);
-      color: var(--c-lavender-light);
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-main);
+      font-weight: 700;
+      line-height: 1.25;
     }
 
-    /* Accessibility Skip Link */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 10px;
-      background: var(--c-navy-dark);
-      color: #fff;
-      padding: 8px 16px;
-      z-index: 1000;
-      border-radius: 4px;
-      transition: top 0.2s ease;
-    }
-    .skip-link:focus {
-      top: 10px;
+    p {
+      margin-bottom: 1.2rem;
     }
 
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--bg);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--c-lavender-light);
-      border-radius: 999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--c-sky-blue);
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     /* Container */
     .container {
-      max-width: 1220px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 32px;
+      padding: 0 24px;
     }
 
-    /* NAVBAR */
+    /* Skip link para lectores de pantalla */
+    .skip-link {
+      position: absolute;
+      top: -50px;
+      left: 16px;
+      background: #6366F1;
+      color: #fff;
+      padding: 10px 20px;
+      font-weight: 700;
+      border-radius: 8px;
+      z-index: 9999;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    /* ==========================================================================
+       NAVBAR RESPONSIVE CON CONTROLES DE ACCESIBILIDAD
+       ========================================================================== */
     header.site-header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(248, 249, 250, 0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      z-index: 1000;
+      background: var(--bg);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
-      padding: 20px 0;
-      transition: var(--transition);
+      padding: 16px 0;
+      transition: all 0.3s ease;
     }
 
     .nav-wrap {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
     }
 
-    .brand-logo {
+    .brand {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--c-navy-dark);
-      text-decoration: none;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    .brand-logo span {
-      font-weight: 400;
-      color: var(--c-turquoise-mid);
-    }
-
-    .nav-menu {
+    .nav-links {
       display: flex;
-      gap: 28px;
+      gap: 22px;
       align-items: center;
       list-style: none;
     }
 
-    .nav-menu a {
+    .nav-links a {
       color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      transition: var(--transition);
-      position: relative;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
     }
 
-    .nav-menu a:hover {
-      color: var(--c-navy-dark);
+    .nav-links a:hover {
+      color: var(--text-main);
     }
 
-    .nav-menu a::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--c-turquoise-mid), var(--c-sky-blue));
-      transition: var(--transition);
-      border-radius: 2px;
-    }
-
-    .nav-menu a:hover::after {
-      width: 100%;
-    }
-
-    /* Buttons */
-    .btn-cal-main {
-      display: inline-flex;
+    .nav-actions {
+      display: flex;
       align-items: center;
       gap: 10px;
-      padding: 12px 24px;
-      background: linear-gradient(135deg, var(--c-navy-dark) 0%, var(--c-turquoise-dark) 100%);
-      color: #FFFFFF !important;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: var(--transition);
-      box-shadow: 0 4px 16px rgba(3, 21, 78, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* Botones de Utilidad (Tema y Letra) */
+    .icon-btn {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
+      font-weight: 700;
+      transition: all 0.2s ease;
     }
 
-    .btn-cal-main:hover {
-      background: linear-gradient(135deg, var(--c-turquoise-dark) 0%, var(--c-turquoise-mid) 100%);
+    .icon-btn:hover {
+      background: var(--bg-surface-hover);
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(43, 126, 132, 0.35);
     }
 
-    .btn-outline-minimal {
+    .btn-cv {
+      background: var(--grad-primary);
+      color: #FFFFFF !important;
+      padding: 9px 20px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 11px 22px;
-      background: #FFFFFF;
-      color: var(--c-navy-dark);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: var(--transition);
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+      transition: all 0.25s ease;
     }
 
-    .btn-outline-minimal:hover {
-      border-color: var(--c-turquoise-mid);
-      color: var(--c-turquoise-mid);
-      background: #FFFFFF;
+    .btn-cv:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(43, 126, 132, 0.12);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
     }
 
-    /* HERO SECTION: Asymmetric 60/40 Split Screen */
-    .hero-section {
-      padding: 85px 0 75px;
-      position: relative;
+    .btn-outline {
+      border: 1px solid var(--border);
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-surface);
+      transition: all 0.2s ease;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--text-main);
+      transform: translateY(-2px);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+    }
+
+    /* ==========================================================================
+       HERO SECTION: FOTO FLOTANTE + TEXTO CLARO Y ORDENADO
+       ========================================================================== */
+    .hero {
+      padding: 60px 0 50px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.18fr 0.82fr;
-      gap: 56px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
       align-items: center;
     }
 
-    .hero-badge-meta {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
+      gap: 8px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.88rem;
       font-weight: 700;
-      color: var(--c-turquoise-mid);
-      margin-bottom: 22px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-accent);
     }
 
-    .hero-badge-meta::before {
-      content: "";
-      width: 32px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--c-turquoise-mid), var(--c-sky-blue));
-      border-radius: 2px;
+    .hero-title {
+      font-size: 3.4rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
     }
 
-    .hero-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.9rem;
-      font-weight: 400;
-      line-height: 1.12;
-      letter-spacing: -0.035em;
-      color: var(--c-navy-dark);
-      margin-bottom: 22px;
-    }
-
-    .hero-heading em {
-      font-style: italic;
-      font-weight: 600;
-      background: linear-gradient(135deg, var(--c-turquoise-mid) 0%, var(--c-sky-blue) 60%, var(--c-lavender-blue) 100%);
+    .hero-title span.grad {
+      background: var(--grad-text);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      padding-right: 4px;
     }
 
-    .hero-desc {
-      font-size: 1.12rem;
-      color: var(--text-muted);
-      font-weight: 400;
-      line-height: 1.8;
-      max-width: 600px;
-      margin-bottom: 34px;
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-body);
+      max-width: 620px;
+      margin-bottom: 32px;
+      line-height: 1.75;
     }
 
-    .hero-desc strong {
-      color: var(--c-navy-dark);
-      font-weight: 600;
-    }
-
-    .hero-actions-wrap {
+    .hero-btns {
       display: flex;
       gap: 14px;
-      align-items: center;
       flex-wrap: wrap;
+      margin-bottom: 32px;
     }
 
-    /* Metric Stats Strip in Hero */
-    .hero-metrics-strip {
+    /* Métricas Rápidas en Hero */
+    .hero-stats-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      margin-top: 36px;
       padding-top: 24px;
       border-top: 1px solid var(--border);
     }
 
-    .metric-box {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .metric-number {
+    .stat-item h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--c-navy-dark);
-      line-height: 1;
+      font-size: 1.7rem;
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2px;
     }
 
-    .metric-label {
-      font-size: 0.78rem;
+    .stat-item p {
+      font-size: 0.88rem;
       color: var(--text-muted);
-      margin-top: 4px;
+      margin: 0;
+      font-weight: 600;
       line-height: 1.35;
     }
 
-    /* Floating Status Pill */
-    .status-badge-inline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-      color: var(--c-turquoise-mid);
-      background: rgba(43, 126, 132, 0.08);
-      border: 1px solid rgba(43, 126, 132, 0.18);
-      padding: 6px 16px;
-      border-radius: 999px;
-      font-weight: 600;
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--c-turquoise-mid);
-      border-radius: 50%;
-      box-shadow: 0 0 0 3px rgba(43, 126, 132, 0.25);
-      animation: pulse-dot 2s infinite;
-    }
-
-    @keyframes pulse-dot {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.2); opacity: 0.7; }
-    }
-
-    /* PHOTO CONTAINER */
-    .hero-photo-column {
+    /* Foto Profesional Flotante */
+    .hero-photo-wrap {
       position: relative;
       display: flex;
       justify-content: center;
-      perspective: 1000px;
     }
 
-    .photo-ambient-blur {
+    .photo-glow {
       position: absolute;
-      width: 95%;
-      height: 95%;
-      background: radial-gradient(circle, rgba(89, 163, 214, 0.35) 0%, rgba(195, 198, 246, 0.4) 50%, rgba(43, 126, 132, 0.2) 100%);
-      border-radius: var(--radius-xl);
-      filter: blur(45px);
+      width: 100%;
+      height: 100%;
+      background: var(--grad-primary);
+      filter: blur(50px);
+      opacity: 0.35;
+      border-radius: 30px;
       z-index: 1;
-      top: 5%;
-      left: 5%;
-      transform: translate3d(0, 10px, 0);
     }
 
-    .photo-outer-frame {
-      position: absolute;
-      width: 102%;
-      height: 102%;
-      border: 1px solid var(--border-accent);
-      border-radius: 32px;
-      top: 14px;
-      right: -10px;
-      z-index: 1;
-      pointer-events: none;
-      background: rgba(255, 255, 255, 0.5);
-      transition: var(--transition);
-    }
-
-    .photo-glass-card {
+    .photo-card {
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 440px;
-      aspect-ratio: 4 / 4.9;
+      max-width: 420px;
+      aspect-ratio: 4 / 4.8;
       border-radius: 28px;
       overflow: hidden;
-      background: #FFFFFF;
+      background: var(--bg-surface);
+      border: 2px solid var(--border);
       box-shadow: var(--shadow-float);
-      border: 1px solid rgba(255, 255, 255, 0.95);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
     }
 
-    .photo-glass-card:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 36px 70px -18px rgba(1, 61, 75, 0.28);
-    }
-
-    .photo-glass-card:hover ~ .photo-outer-frame {
-      transform: translate(-4px, -4px);
-    }
-
-    .photo-glass-card img {
+    .photo-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center top;
       display: block;
-      filter: contrast(101%) brightness(100%);
-      transition: transform 0.6s ease;
     }
 
-    .photo-glass-card:hover img {
-      transform: scale(1.03);
-    }
-
-    /* Floating Trophy Card */
-    .photo-award-dock {
+    .photo-badge-card {
       position: absolute;
-      bottom: 20px;
-      left: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.85);
-      border-radius: 18px;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: rgba(11, 19, 43, 0.88);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
       padding: 14px 18px;
       display: flex;
       align-items: center;
-      gap: 14px;
-      box-shadow: 0 10px 25px rgba(3, 21, 78, 0.1);
-      transition: var(--transition);
-    }
-
-    .award-medal-icon {
-      width: 38px;
-      height: 38px;
-      background: linear-gradient(135deg, var(--c-navy-dark) 0%, var(--c-turquoise-mid) 100%);
-      color: var(--c-lavender-light);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(43, 126, 132, 0.3);
-    }
-
-    .award-dock-title {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--c-navy-dark);
-      line-height: 1.3;
-    }
-
-    .award-dock-sub {
-      font-size: 0.76rem;
-      color: var(--c-turquoise-mid);
-      font-weight: 600;
-    }
-
-    /* MONOTONE TECH STACK */
-    .stack-section-wrap {
-      padding: 44px 0;
-      background: #FFFFFF;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .stack-intro {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .stack-tag {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--c-turquoise-mid);
-      font-weight: 700;
-    }
-
-    .stack-pill-grid {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .tech-pill-quiet {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 9px 20px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      filter: grayscale(100%);
-      opacity: 0.75;
-      transition: var(--transition);
-      cursor: default;
-      user-select: none;
-    }
-
-    .tech-pill-quiet:hover {
-      filter: grayscale(0%);
-      opacity: 1;
-      border-color: var(--c-sky-blue);
-      color: var(--c-navy-dark);
-      background: #FFFFFF;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(89, 163, 214, 0.2);
-    }
-
-    .tech-pill-quiet:hover i {
-      color: var(--c-turquoise-mid);
-    }
-
-    /* GENERAL SECTION HEADINGS */
-    .section-spacing {
-      padding: 95px 0;
-    }
-
-    .editorial-header {
-      margin-bottom: 52px;
-      max-width: 720px;
-    }
-
-    .editorial-counter {
-      font-size: 0.82rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--c-turquoise-mid);
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    .editorial-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.7rem;
-      font-weight: 400;
-      letter-spacing: -0.025em;
-      color: var(--c-navy-dark);
-      line-height: 1.2;
-    }
-
-    /* BENTO EDITORIAL ABOUT */
-    .bento-editorial-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 36px;
-    }
-
-    .bento-bio-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 44px;
-      box-shadow: var(--shadow-card);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-    }
-
-    .bento-bio-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--c-turquoise-mid), var(--c-sky-blue));
-      border-radius: 4px 0 0 4px;
-    }
-
-    .bento-bio-card p {
-      color: var(--text-body);
-      font-size: 1.05rem;
-      line-height: 1.85;
-      margin-bottom: 20px;
-      font-weight: 400;
-    }
-
-    .bento-bio-card p strong {
-      color: var(--c-navy-dark);
-      font-weight: 600;
-    }
-
-    .bento-cards-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .bento-subcard {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-
-    .bento-subcard:hover {
-      border-color: var(--c-turquoise-mid);
-      box-shadow: 0 10px 24px rgba(43, 126, 132, 0.12);
-      transform: translateX(4px);
-    }
-
-    .subcard-head {
-      display: flex;
-      align-items: center;
       gap: 12px;
+      color: #fff;
+    }
+
+    [data-theme="light"] .photo-badge-card {
+      background: rgba(255, 255, 255, 0.94);
+      color: #0B132B;
+      border-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .photo-badge-icon {
+      background: var(--grad-primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       PESTAÑAS DE PROYECTOS Y CASOS DE ESTUDIO (LIMPIO Y ORDENADO)
+       ========================================================================== */
+    .section-wrap {
+      padding: 70px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .section-tag {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 700;
+      color: #06B6D4;
+      display: block;
       margin-bottom: 8px;
     }
 
-    .subcard-icon {
-      color: var(--c-turquoise-mid);
-      background: rgba(43, 126, 132, 0.1);
-      padding: 9px;
-      border-radius: 10px;
-      display: flex;
-    }
-
-    .subcard-title {
-      font-size: 1.02rem;
-      font-weight: 600;
-      color: var(--c-navy-dark);
-    }
-
-    .subcard-text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* CASE STUDIES GRID (Con Métricas de Impacto del CV) */
-    .case-studies-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-      margin-bottom: 48px;
-    }
-
-    .case-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 38px 34px;
-      box-shadow: var(--shadow-card);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: var(--transition);
-      position: relative;
-    }
-
-    .case-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--c-sky-blue);
-      box-shadow: 0 20px 45px -10px rgba(1, 61, 75, 0.14);
-    }
-
-    .case-badge-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 14px;
-      background: rgba(43, 126, 132, 0.1);
-      border: 1px solid rgba(43, 126, 132, 0.2);
-      border-radius: 999px;
-      color: var(--c-turquoise-mid);
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 16px;
-    }
-
-    .case-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--c-navy-dark);
-      margin-bottom: 14px;
-      line-height: 1.25;
-    }
-
-    .case-desc {
-      color: var(--text-body);
-      font-size: 0.96rem;
-      line-height: 1.7;
-      margin-bottom: 22px;
-    }
-
-    .case-metric-highlight {
-      background: var(--bg-alt);
-      border-left: 3px solid var(--c-turquoise-mid);
-      padding: 12px 16px;
-      border-radius: 0 10px 10px 0;
-      font-size: 0.88rem;
-      color: var(--c-navy-dark);
-      font-weight: 600;
-      margin-bottom: 22px;
-    }
-
-    .case-tags-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 22px;
-    }
-
-    .case-tag {
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .case-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
-    }
-
-    /* RECONOCIMIENTOS & TRAYECTORIA TIMELINE */
-    .honors-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin-top: 24px;
-    }
-
-    .honor-item {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-
-    .honor-item:hover {
-      border-color: var(--c-turquoise-mid);
-      transform: translateY(-3px);
-    }
-
-    .honor-badge {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--c-turquoise-mid);
-      letter-spacing: 0.05em;
-    }
-
-    .honor-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--c-navy-dark);
-    }
-
-    .honor-inst {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* GITHUB REPOSITORIES */
-    .projects-grid-quiet {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 28px;
-    }
-
-    .project-card-quiet {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: var(--transition);
-      box-shadow: var(--shadow-card);
-      position: relative;
-    }
-
-    .project-card-quiet:hover {
-      transform: translateY(-6px);
-      border-color: var(--c-sky-blue);
-      box-shadow: 0 20px 40px -10px rgba(1, 61, 75, 0.15);
-    }
-
-    .proj-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
-      font-weight: 600;
-      color: var(--c-navy-dark);
+    .section-title {
+      font-size: 2.6rem;
       margin-bottom: 12px;
     }
 
-    .proj-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.65;
-      margin-bottom: 24px;
-    }
-
-    .proj-footer-quiet {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
-    }
-
-    .proj-link-action {
-      font-weight: 600;
-      color: var(--c-turquoise-mid);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: var(--transition);
-    }
-
-    .proj-link-action:hover {
-      color: var(--c-sky-blue);
-      gap: 9px;
-    }
-
-    /* LINKEDIN POSTS */
-    .linkedin-grid-quiet {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-      justify-items: center;
-    }
-
-    .linkedin-wrapper {
-      width: 100%;
-      max-width: 504px;
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 12px;
-      box-shadow: var(--shadow-card);
+    /* Filtros Interactivos */
+    .filter-pills {
       display: flex;
       justify-content: center;
-      overflow: hidden;
-      transition: var(--transition);
+      gap: 10px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
     }
 
-    .linkedin-wrapper:hover {
+    .filter-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--grad-primary);
+      color: #FFFFFF;
+      border-color: transparent;
+      transform: translateY(-2px);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 28px;
+    }
+
+    .card-project {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .card-project:hover {
+      transform: translateY(-5px);
       border-color: var(--border-accent);
       box-shadow: var(--shadow-float);
     }
 
-    .linkedin-wrapper iframe {
-      border-radius: 14px;
-      width: 100%;
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #06B6D4;
+      margin-bottom: 14px;
     }
 
-    /* CAL.COM CALLOUT */
-    .cal-callout-luxury {
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 75px 48px;
-      text-align: center;
-      box-shadow: var(--shadow-card);
-      position: relative;
-      margin: 30px 0 90px;
-      overflow: hidden;
+    .card-project h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
     }
 
-    .cal-callout-luxury::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--c-turquoise-dark), var(--c-turquoise-mid), var(--c-sky-blue), var(--c-lavender-blue), var(--c-lavender-light));
-    }
-
-    .cal-callout-luxury h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      font-weight: 400;
-      color: var(--c-navy-dark);
-      margin-bottom: 16px;
-    }
-
-    .cal-callout-luxury p {
-      color: var(--text-muted);
-      font-size: 1.15rem;
-      max-width: 580px;
-      margin: 0 auto 36px;
-    }
-
-    /* FOOTER */
-    footer.site-footer {
-      border-top: 1px solid var(--border);
-      padding: 48px 0;
-      background: #FFFFFF;
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-light);
-    }
-
-    .footer-social-links {
-      display: flex;
-      justify-content: center;
-      gap: 28px;
+    .card-project p {
+      font-size: 1.02rem;
+      color: var(--text-body);
+      line-height: 1.7;
       margin-bottom: 18px;
     }
 
-    .footer-social-links a {
-      color: var(--c-navy-dark);
-      text-decoration: none;
-      transition: var(--transition);
+    .metric-highlight {
+      background: var(--bg-subtle);
+      border-left: 4px solid #06B6D4;
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 18px;
+    }
+
+    .tags-row {
       display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag-pill {
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 6px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
       font-weight: 600;
     }
 
-    .footer-social-links a:hover {
-      color: var(--c-turquoise-mid);
+    /* ==========================================================================
+       HABILIDADES Y RECONOCIMIENTOS (ORDENADO EN GRID)
+       ========================================================================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
-    /* RESPONSIVE BREAKPOINTS */
+    .skill-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .skill-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .skill-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+
+    .skill-list {
+      list-style: none;
+    }
+
+    .skill-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.98rem;
+      color: var(--text-body);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .skill-list li::before {
+      content: "✦";
+      color: #06B6D4;
+      font-size: 0.85rem;
+    }
+
+    /* ==========================================================================
+       LINKEDIN EMBEDS & CALLOUT
+       ========================================================================== */
+    .linkedin-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      justify-items: center;
+    }
+
+    .linkedin-box {
+      width: 100%;
+      max-width: 504px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+
+    .linkedin-box iframe {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    /* Banner Cal.com */
+    .cal-banner {
+      background: var(--grad-primary);
+      border-radius: 28px;
+      padding: 60px 40px;
+      text-align: center;
+      color: #FFFFFF;
+      margin: 40px 0 80px;
+      box-shadow: var(--shadow-float);
+    }
+
+    .cal-banner h2 {
+      font-size: 2.8rem;
+      color: #FFFFFF;
+      margin-bottom: 14px;
+    }
+
+    .cal-banner p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .btn-cal-white {
+      background: #FFFFFF;
+      color: #0B132B !important;
+      padding: 14px 34px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    .btn-cal-white:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+
+    .footer-links a {
+      color: var(--text-main);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN (MOBILE & TABLET)
+       ========================================================================== */
     @media (max-width: 992px) {
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 50px;
+        text-align: center;
+        gap: 40px;
       }
-      .hero-photo-column {
+      .hero-photo-wrap {
         order: -1;
       }
-      .photo-glass-card {
-        max-width: 360px;
+      .hero-subtitle {
+        margin: 0 auto 30px;
       }
-      .hero-heading {
-        font-size: 3.2rem;
+      .hero-btns {
+        justify-content: center;
       }
-      .bento-editorial-grid,
-      .case-studies-grid {
+      .hero-stats-row {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .skills-grid {
         grid-template-columns: 1fr;
-      }
-      .nav-menu {
-        display: none;
       }
     }
 
-    @media (max-width: 640px) {
-      .hero-heading {
-        font-size: 2.5rem;
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; /* Se oculta para el menú móvil */
       }
-      .hero-metrics-strip {
-        grid-template-columns: 1fr;
-        gap: 20px;
+      .mobile-menu-toggle {
+        display: flex;
       }
-      .bento-bio-card {
-        padding: 28px;
+      .hero-title {
+        font-size: 2.6rem;
       }
-      .cal-callout-luxury {
-        padding: 45px 24px;
-      }
-      .cal-callout-luxury h3 {
+      .section-title {
         font-size: 2.1rem;
       }
+      .hero-stats-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .cal-banner {
+        padding: 40px 20px;
+      }
+      .cal-banner h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Menú Móvil Desplegable */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 73px;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+      z-index: 999;
+      box-shadow: var(--shadow-card);
+    }
+    .mobile-drawer.open {
+      display: block;
+    }
+    .mobile-drawer ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mobile-drawer a {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
     }
   </style>
 </head>
 <body>
 
-  <!-- Accessibility Skip Link -->
-  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+  <!-- Enlace accesible para lectores de pantalla -->
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-  <!-- NAVBAR -->
+  <!-- ==================== HEADER & NAVBAR ==================== -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <a href="#" class="brand-logo" aria-label="Inicio Lady Luz Loayza">
+      <a href="#" class="brand">
         LADY LUZ <span>LOAYZA</span>
       </a>
-      <ul class="nav-menu">
-        <li><a href="#sobre-mi">Filosofía</a></li>
-        <li><a href="#casos-estudio">Proyectos & Métricas</a></li>
-        <li><a href="#stack">Stack</a></li>
-        <li><a href="#logros">Reconocimientos</a></li>
-        <li><a href="#impacto">Impacto</a></li>
-        <li>
-          <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-cal-main" rel="noopener noreferrer">
-            <i data-lucide="calendar" style="width:16px;height:16px;"></i> Agendar Reunión
-          </a>
-        </li>
+
+      <!-- Menú Desktop -->
+      <ul class="nav-links">
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#reconocimientos">Premios</a></li>
+        <li><a href="#impacto">LinkedIn</a></li>
       </ul>
+
+      <!-- Controles de Accesibilidad & Botón CV -->
+      <div class="nav-actions">
+        <!-- Botón Modo Oscuro / Modo Claro -->
+        <button id="themeToggle" class="icon-btn" aria-label="Cambiar tema claro u oscuro" title="Cambiar Tema">
+          <i data-lucide="sun" id="themeIcon" style="width:18px;height:18px;"></i>
+        </button>
+
+        <!-- Botón Agrandar Letra (Accesibilidad Visual) -->
+        <button id="fontToggle" class="icon-btn" aria-label="Ajustar tamaño de letra" title="Tamaño de Letra">
+          A+
+        </button>
+
+        <!-- Botón Descargar CV -->
+        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="btn-cv" title="Descargar Currículum">
+          <i data-lucide="download" style="width:16px;height:16px;"></i> CV
+        </a>
+
+        <!-- Botón Menú Móvil -->
+        <button id="menuToggle" class="icon-btn mobile-menu-toggle" aria-label="Abrir menú">
+          <i data-lucide="menu" style="width:20px;height:20px;"></i>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main id="contenido-principal" class="container">
+  <!-- Menú Móvil Drawer -->
+  <div id="mobileDrawer" class="mobile-drawer">
+    <ul>
+      <li><a href="#proyectos" onclick="closeMenu()">📂 Proyectos Destacados</a></li>
+      <li><a href="#sobre-mi" onclick="closeMenu()">💡 Sobre Mí & Filosofía</a></li>
+      <li><a href="#habilidades" onclick="closeMenu()">🛠️ Habilidades Técnicas</a></li>
+      <li><a href="#reconocimientos" onclick="closeMenu()">🏆 Premios & Becas</a></li>
+      <li><a href="#impacto" onclick="closeMenu()">🌟 Publicaciones LinkedIn</a></li>
+      <li><a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" style="color:#06B6D4;">📅 Agendar Reunión (Cal.com)</a></li>
+    </ul>
+  </div>
 
-    <!-- HERO SECTION -->
-    <section class="hero-section" aria-label="Introducción profesional">
+  <main id="contenido" class="container">
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero">
       <div class="hero-grid">
         
-        <!-- Left: Text & Pitch -->
-        <div class="hero-content">
-          <div class="hero-badge-meta">
-            Ingeniería de Software • Datos • Accesibilidad
+        <!-- Contenido Izquierda -->
+        <div>
+          <div class="hero-badge">
+            <i data-lucide="sparkles" style="width:16px;height:16px;"></i> Software Inclusivo • Datos • IA Conversacional
           </div>
-          <h1 class="hero-heading">
-            Creando software <em>inclusivo</em> con propósito y precisión.
+          
+          <h1 class="hero-title">
+            Software accesible con <span class="grad">propósito y precisión</span>.
           </h1>
-          <p class="hero-desc">
-            Soy <strong>Lady Luz Loayza Rodriguez</strong>, estudiante de 9.° ciclo de Ingeniería de Software (UTP) con Beca de Excelencia Académica. Desarrollo aplicaciones web accesibles, pipelines de datos y sistemas de IA conversacional orientados a reducir brechas de exclusión y devolver la autonomía a las personas.
+          
+          <p class="hero-subtitle">
+            Hola, soy <strong>Lady Luz Loayza</strong>. Estudiante de 9.° ciclo de Ingeniería de Software (UTP) con Beca de Excelencia. Transformo la tecnología en herramientas de inclusión que devuelven la autonomía a personas con discapacidad.
           </p>
 
-          <div class="hero-actions-wrap">
-            <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-cal-main" style="padding: 13px 28px; font-size: 0.95rem;" rel="noopener noreferrer">
-              <i data-lucide="calendar" style="width:17px;height:17px;"></i> Agendar 30 min en Cal.com
+          <div class="hero-btns">
+            <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-cv" style="padding: 12px 28px; font-size: 1.05rem;">
+              <i data-lucide="calendar"></i> Agendar 30 min (Cal.com)
             </a>
-            <a href="https://github.com/luzylay" target="_blank" class="btn-outline-minimal" rel="noopener noreferrer">
-              <i data-lucide="github" style="width:17px;height:17px;"></i> GitHub
+            
+            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="btn-outline">
+              <i data-lucide="file-down" style="width:18px;height:18px;"></i> Descargar CV
             </a>
-            <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" class="btn-outline-minimal" rel="noopener noreferrer">
-              <i data-lucide="linkedin" style="width:17px;height:17px;"></i> LinkedIn
+
+            <a href="https://github.com/luzylay" target="_blank" class="btn-outline">
+              <i data-lucide="github" style="width:18px;height:18px;"></i> GitHub
+            </a>
+
+            <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" class="btn-outline">
+              <i data-lucide="linkedin" style="width:18px;height:18px;"></i> LinkedIn
             </a>
           </div>
 
           <!-- Métricas Destacadas del CV -->
-          <div class="hero-metrics-strip">
-            <div class="metric-box">
-              <span class="metric-number">1.ᵉʳ Puesto</span>
-              <span class="metric-label">Hackathon INSNSB / PUCP "Crecer Mejor"</span>
+          <div class="hero-stats-row">
+            <div class="stat-item">
+              <h3>1.ᵉʳ Puesto</h3>
+              <p>Hackathon INSNSB "Crecer Mejor"</p>
             </div>
-            <div class="metric-box">
-              <span class="metric-number">Top 3</span>
-              <span class="metric-label">Hackathon Sin Barreras MINCETUR (+66 propuestas)</span>
+            <div class="stat-item">
+              <h3>Top 3</h3>
+              <p>Hackathon Sin Barreras MINCETUR</p>
             </div>
-            <div class="metric-box">
-              <span class="metric-number">+10,000</span>
-              <span class="metric-label">Registros procesados en pipelines ETL de datos</span>
-            </div>
-          </div>
-
-          <div style="margin-top: 24px;">
-            <div class="status-badge-inline">
-              <span class="status-dot"></span> Disponible para proyectos de software, datos y consultoría accesible
+            <div class="stat-item">
+              <h3>+10,000</h3>
+              <p>Registros en Pipelines ETL</p>
             </div>
           </div>
         </div>
 
-        <!-- Right: 3D Floating Portrait Card -->
-        <div class="hero-photo-column">
-          <div class="photo-ambient-blur"></div>
-          <div class="photo-glass-card">
-            <img src="./assets/profile_hd.png" alt="Retrato profesional de Lady Luz Loayza Rodriguez" />
-            <div class="photo-award-dock">
-              <div class="award-medal-icon">
-                <i data-lucide="award" style="width:20px;height:20px;"></i>
+        <!-- Foto Profesional Derecha -->
+        <div class="hero-photo-wrap">
+          <div class="photo-glow"></div>
+          <div class="photo-card">
+            <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez" />
+            <div class="photo-badge-card">
+              <div class="photo-badge-icon">
+                <i data-lucide="award" style="width:22px;height:22px;"></i>
               </div>
               <div>
-                <div class="award-dock-title">Ganadora Hackathon INSNSB</div>
-                <div class="award-dock-sub">PWA Inclusiva CRED • PUCP & ESAN (2026)</div>
+                <strong style="display:block; font-size: 0.95rem;">Ganadora Hackathon INSNSB</strong>
+                <span style="font-size: 0.8rem; opacity: 0.85;">PWA Inclusiva CRED (PUCP / ESAN)</span>
               </div>
             </div>
           </div>
-          <div class="photo-outer-frame"></div>
         </div>
 
       </div>
     </section>
 
-  </main>
-
-  <!-- MONOTONE TECH STACK CAROUSEL -->
-  <section id="stack" class="stack-section-wrap" aria-label="Stack Tecnológico">
-    <div class="container">
-      <div class="stack-intro">
-        <span class="stack-tag">Stack Tecnológico & Herramientas</span>
-      </div>
-      <div class="stack-pill-grid">
-        <div class="tech-pill-quiet">
-          <i data-lucide="terminal" style="width:18px;height:18px;"></i>
-          <span>Python (Flask, Pandas, NumPy)</span>
-        </div>
-        <div class="tech-pill-quiet">
-          <i data-lucide="layout" style="width:18px;height:18px;"></i>
-          <span>React • Vite • JavaScript</span>
-        </div>
-        <div class="tech-pill-quiet">
-          <i data-lucide="database" style="width:18px;height:18px;"></i>
-          <span>SQL • MySQL • PostgreSQL</span>
-        </div>
-        <div class="tech-pill-quiet">
-          <i data-lucide="bot" style="width:18px;height:18px;"></i>
-          <span>IA Conversacional • NLU • FSM</span>
-        </div>
-        <div class="tech-pill-quiet">
-          <i data-lucide="bar-chart-2" style="width:18px;height:18px;"></i>
-          <span>Power BI • Looker Studio</span>
-        </div>
-        <div class="tech-pill-quiet">
-          <i data-lucide="cloud" style="width:18px;height:18px;"></i>
-          <span>Cloudflare Pages</span>
-        </div>
-        <div class="tech-pill-quiet">
-          <i data-lucide="git-branch" style="width:18px;height:18px;"></i>
-          <span>Git & GitHub</span>
-        </div>
-        <div class="tech-pill-quiet">
-          <i data-lucide="accessibility" style="width:18px;height:18px;"></i>
-          <span>WCAG 2.1 (AA/AAA) Universal</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <main class="container">
-
-    <!-- CASOS DE ESTUDIO / PROYECTOS CON RESULTADOS (Del CV) -->
-    <section id="casos-estudio" class="section-spacing">
-      <div class="editorial-header">
-        <span class="editorial-counter">01 / Proyectos con Impacto Medible</span>
-        <h2 class="editorial-title">Soluciones con resultados tangibles.</h2>
+    <!-- ==================== PROYECTOS Y CASOS DE ESTUDIO ==================== -->
+    <section id="proyectos" class="section-wrap">
+      <div class="section-head">
+        <span class="section-tag">01 / Proyectos con Métricas</span>
+        <h2 class="section-title">Casos de Estudio & Código</h2>
+        <p>Soluciones de ingeniería aplicadas a resolver problemas reales de salud, inclusión y datos.</p>
       </div>
 
-      <div class="case-studies-grid">
+      <!-- Filtros de Categorías -->
+      <div class="filter-pills">
+        <button class="filter-btn active" onclick="filterProjects('all')">Todos</button>
+        <button class="filter-btn" onclick="filterProjects('salud')">Accesibilidad & Salud</button>
+        <button class="filter-btn" onclick="filterProjects('ia')">IA & Backend</button>
+        <button class="filter-btn" onclick="filterProjects('datos')">Data & Analytics</button>
+      </div>
+
+      <div class="projects-grid">
         
-        <!-- Caso 1: INSNSB -->
-        <article class="case-card">
+        <!-- Proyecto 1: INSNSB -->
+        <div class="card-project" data-category="salud">
           <div>
-            <div class="case-badge-pill">
-              <i data-lucide="trophy" style="width:14px;height:14px;"></i> 1.ᵉʳ Puesto • Hackathon INSNSB
+            <div class="card-badge">
+              <i data-lucide="trophy" style="width:16px;height:16px;"></i> 1.er Puesto • Hackathon INSNSB
             </div>
-            <h3 class="case-title">PWA Clínica CRED — "Crecer Mejor"</h3>
-            <p class="case-desc">
-              Diseño e implementación de la arquitectura frontend de una Progressive Web App (PWA) accesible y mobile-first para el consultorio CRED infantil (0 a 3 años) en el Instituto Nacional de Salud del Niño San Borja.
-            </p>
-            <div class="case-metric-highlight">
-              📊 Resultado: Digitalización del registro antropométrico eliminando errores manuales de enfermería y reduciendo tiempos de espera en consulta.
-            </div>
-            <div class="case-tags-list">
-              <span class="case-tag">React</span>
-              <span class="case-tag">Vite</span>
-              <span class="case-tag">PWA Mobile-First</span>
-              <span class="case-tag">Git/GitHub</span>
-              <span class="case-tag">Accesibilidad</span>
-            </div>
-          </div>
-          <div class="case-footer">
-            <span style="color: var(--text-muted); font-size: 0.8rem;">INSNSB / PUCP / ESAN • 2026</span>
-            <a href="https://github.com/luzylay" target="_blank" class="proj-link-action" rel="noopener noreferrer">Ver detalles →</a>
-          </div>
-        </article>
-
-        <!-- Caso 2: MINCETUR Helen -->
-        <article class="case-card">
-          <div>
-            <div class="case-badge-pill">
-              <i data-lucide="award" style="width:14px;height:14px;"></i> Top 3 Nacional (Entre 66 propuestas)
-            </div>
-            <h3 class="case-title">Helen — Asistente de IA Accesible</h3>
-            <p class="case-desc">
-              Arquitectura completa del asistente conversacional inclusivo para el sector turismo: backend en Flask, clasificador de intenciones NLU con máquina de estados finitos, API de geolocalización y módulo text-to-speech.
-            </p>
-            <div class="case-metric-highlight">
-              👁️ Resultado: Autonomía turística para usuarios con discapacidad visual, mitigando alucinaciones y asegurando respuestas grounding confiables.
-            </div>
-            <div class="case-tags-list">
-              <span class="case-tag">Python/Flask</span>
-              <span class="case-tag">NLU</span>
-              <span class="case-tag">Text-to-Speech</span>
-              <span class="case-tag">APIs REST</span>
-              <span class="case-tag">IA Ética</span>
-            </div>
-          </div>
-          <div class="case-footer">
-            <span style="color: var(--text-muted); font-size: 0.8rem;">Hackathon Sin Barreras • MINCETUR 2026</span>
-            <a href="https://github.com/luzylay" target="_blank" class="proj-link-action" rel="noopener noreferrer">Ver detalles →</a>
-          </div>
-        </article>
-
-        <!-- Caso 3: Samsung EPEN -->
-        <article class="case-card">
-          <div>
-            <div class="case-badge-pill">
-              <i data-lucide="database" style="width:14px;height:14px;"></i> Big Data & Analytics
-            </div>
-            <h3 class="case-title">Observatorio de Mercado Laboral (EPEN)</h3>
-            <p class="case-desc">
-              Construcción de pipeline ETL integral sobre microdatos oficiales del INEI, aplicando limpieza, validación, modelado relacional y análisis de tendencias de empleo en Lima Metropolitana.
-            </p>
-            <div class="case-metric-highlight">
-              📈 Resultado: Procesamiento automatizado de +10,000 registros y creación de dashboards ejecutivos en Power BI y Looker Studio para 3 audiencias.
-            </div>
-            <div class="case-tags-list">
-              <span class="case-tag">Python (Pandas, NumPy)</span>
-              <span class="case-tag">SQL</span>
-              <span class="case-tag">Power BI</span>
-              <span class="case-tag">Looker Studio</span>
-              <span class="case-tag">ETL</span>
-            </div>
-          </div>
-          <div class="case-footer">
-            <span style="color: var(--text-muted); font-size: 0.8rem;">Samsung Innovation Campus • 2025</span>
-            <a href="https://github.com/luzylay" target="_blank" class="proj-link-action" rel="noopener noreferrer">Ver detalles →</a>
-          </div>
-        </article>
-
-        <!-- Caso 4: IBM E-Commerce -->
-        <article class="case-card">
-          <div>
-            <div class="case-badge-pill">
-              <i data-lucide="shopping-bag" style="width:14px;height:14px;"></i> Business Intelligence
-            </div>
-            <h3 class="case-title">Analítica de Retención & Logística</h3>
-            <p class="case-desc">
-              Análisis exploratorio de datos sobre +5,000 transacciones de comercio electrónico. Mediante correlación estadística se descubrió que la baja satisfacción (2.76/5) provenía de demoras logísticas y no de calidad de producto.
-            </p>
-            <div class="case-metric-highlight">
-              💡 Resultado: Reorientación estratégica del negocio ahorrando semanas de desarrollo e implementando 4 recomendaciones operativas inmediatas.
-            </div>
-            <div class="case-tags-list">
-              <span class="case-tag">Python EDA</span>
-              <span class="case-tag">Matplotlib/Seaborn</span>
-              <span class="case-tag">Jupyter</span>
-              <span class="case-tag">Power BI</span>
-            </div>
-          </div>
-          <div class="case-footer">
-            <span style="color: var(--text-muted); font-size: 0.8rem;">IBM SkillsBuild & Guayerd • 2025</span>
-            <a href="https://github.com/luzylay" target="_blank" class="proj-link-action" rel="noopener noreferrer">Ver detalles →</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- SOBRE MÍ / FILOSOFÍA BENTO SECTION -->
-    <section id="sobre-mi" class="section-spacing" style="padding-top: 0;">
-      <div class="editorial-header">
-        <span class="editorial-counter">02 / Filosofía & Propósito</span>
-        <h2 class="editorial-title">Tecnología concebida para no dejar a nadie atrás.</h2>
-      </div>
-
-      <div class="bento-editorial-grid">
-        <div class="bento-bio-card">
-          <div>
+            <h3>PWA Clínica CRED — "Crecer Mejor"</h3>
             <p>
-              ✨ <strong>¿De qué sirve el avance de la tecnología si deja atrás a quienes más la necesitan?</strong> Como estudiante de Ingeniería de Software apasionada por los datos y el impacto social, mi misión es convertir el código en una herramienta de equidad y empoderamiento real.
+              Desarrollo de Progressive Web App (PWA) accesible para el seguimiento nutricional y antropométrico de infantes (0 a 3 años) en el consultorio CRED del Niño San Borja.
             </p>
+            <div class="metric-highlight">
+              📊 Eliminó riesgos de error manual en recolección de datos y redujo tiempos de espera clínica.
+            </div>
+            <div class="tags-row">
+              <span class="tag-pill">React</span>
+              <span class="tag-pill">Vite</span>
+              <span class="tag-pill">PWA Mobile-First</span>
+              <span class="tag-pill">JavaScript</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span style="color:var(--text-muted);">INSNSB / PUCP / ESAN (2026)</span>
+            <a href="https://github.com/luzylay" target="_blank" style="color:#06B6D4;">Ver código →</a>
+          </div>
+        </div>
+
+        <!-- Proyecto 2: MINCETUR Helen -->
+        <div class="card-project" data-category="ia">
+          <div>
+            <div class="card-badge">
+              <i data-lucide="bot" style="width:16px;height:16px;"></i> Top 3 Nacional (Entre 66 proyectos)
+            </div>
+            <h3>Helen — Asistente de IA Accesible</h3>
             <p>
-              💡 Esta convicción me llevó a obtener el <strong>1er puesto en la Hackathon INSNSB "Crecer Mejor"</strong> y el <strong>Top 3 nacional en la Hackathon Sin Barreras MINCETUR</strong>, desarrollando soluciones diseñadas para reducir activamente la brecha de accesibilidad donde las herramientas convencionales aún no llegan.
+              Arquitectura de asistente de voz con backend en Flask, clasificador de intenciones NLU, máquina de estados finitos y text-to-speech para personas con discapacidad visual en turismo.
             </p>
+            <div class="metric-highlight">
+              👁️ Respuestas con grounding verificado y navegación por voz sin barreras visuales.
+            </div>
+            <div class="tags-row">
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">Flask</span>
+              <span class="tag-pill">NLU</span>
+              <span class="tag-pill">Text-to-Speech</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span style="color:var(--text-muted);">MINCETUR Sin Barreras (2026)</span>
+            <a href="https://github.com/luzylay" target="_blank" style="color:#06B6D4;">Ver código →</a>
+          </div>
+        </div>
+
+        <!-- Proyecto 3: Samsung EPEN -->
+        <div class="card-project" data-category="datos">
+          <div>
+            <div class="card-badge">
+              <i data-lucide="database" style="width:16px;height:16px;"></i> Big Data & Analytics
+            </div>
+            <h3>Observatorio Mercado Laboral (EPEN)</h3>
             <p>
-              🚀 Creo firmemente en la colaboración interdisciplinaria y en la innovación con propósito. Si compartes la visión de una tecnología verdaderamente universal: <strong>¡Conectemos y construyamos soluciones inclusivas juntos!</strong>
+              Pipeline ETL completo sobre microdatos oficiales del INEI, procesando más de 10,000 registros para análisis de tendencias de empleo en Lima Metropolitana.
             </p>
+            <div class="metric-highlight">
+              📈 Dashboards ejecutivos interactivos en Power BI y Looker Studio para 3 audiencias.
+            </div>
+            <div class="tags-row">
+              <span class="tag-pill">Python (Pandas, NumPy)</span>
+              <span class="tag-pill">SQL</span>
+              <span class="tag-pill">Power BI</span>
+              <span class="tag-pill">Looker Studio</span>
+            </div>
           </div>
-          <div style="padding-top: 20px; border-top: 1px solid var(--border); display: flex; gap: 20px; align-items: center;">
-            <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="proj-link-action" style="font-size: 0.95rem;" rel="noopener noreferrer">
-              Agendar conversación directa →
-            </a>
+          <div class="card-footer">
+            <span style="color:var(--text-muted);">Samsung Innovation Campus</span>
+            <a href="https://github.com/luzylay" target="_blank" style="color:#06B6D4;">Ver código →</a>
           </div>
         </div>
 
-        <div class="bento-cards-stack">
-          <div class="bento-subcard">
-            <div class="subcard-head">
-              <div class="subcard-icon"><i data-lucide="sparkles" style="width:18px;height:18px;"></i></div>
-              <h3 class="subcard-title">Accesibilidad por Diseño</h3>
+        <!-- Proyecto 4: IBM E-Commerce -->
+        <div class="card-project" data-category="datos">
+          <div>
+            <div class="card-badge">
+              <i data-lucide="bar-chart-3" style="width:16px;height:16px;"></i> Business Intelligence
             </div>
-            <p class="subcard-text">Estándares internacionales WCAG 2.1 (AA/AAA), lectores de pantalla, interfaces mobile-first y voice-enabled.</p>
+            <h3>Analítica de Retención & Logística</h3>
+            <p>
+              Análisis exploratorio de +5,000 transacciones de e-commerce. Se descubrió mediante correlación que la baja calificación (2.76/5) respondía a ineficiencias logísticas.
+            </p>
+            <div class="metric-highlight">
+              💡 Reorientó el foco del equipo y generó 4 recomendaciones operativas de alto impacto.
+            </div>
+            <div class="tags-row">
+              <span class="tag-pill">Python EDA</span>
+              <span class="tag-pill">Matplotlib</span>
+              <span class="tag-pill">Jupyter</span>
+              <span class="tag-pill">Power BI</span>
+            </div>
           </div>
+          <div class="card-footer">
+            <span style="color:var(--text-muted);">IBM SkillsBuild & Guayerd</span>
+            <a href="https://github.com/luzylay" target="_blank" style="color:#06B6D4;">Ver código →</a>
+          </div>
+        </div>
 
-          <div class="bento-subcard">
-            <div class="subcard-head">
-              <div class="subcard-icon"><i data-lucide="bar-chart-3" style="width:18px;height:18px;"></i></div>
-              <h3 class="subcard-title">Datos & Toma de Decisiones</h3>
-            </div>
-            <p class="subcard-text">Pipelines ETL, modelado analítico y dashboards de inteligencia de negocio para medir impacto real.</p>
-          </div>
+      </div>
+    </section>
 
-          <div class="bento-subcard">
-            <div class="subcard-head">
-              <div class="subcard-icon"><i data-lucide="users" style="width:18px;height:18px;"></i></div>
-              <h3 class="subcard-title">Liderazgo & Gestión</h3>
-            </div>
-            <p class="subcard-text">Deputy Campus Director en Hult Prize y delegada universitaria consecutiva (+9 periodos).</p>
-          </div>
+    <!-- ==================== SOBRE MÍ & FILOSOFÍA ==================== -->
+    <section id="sobre-mi" class="section-wrap" style="padding-top: 0;">
+      <div class="section-head">
+        <span class="section-tag">02 / Propuesta de Valor</span>
+        <h2 class="section-title">Filosofía & Propósito</h2>
+      </div>
+
+      <div class="card-project" style="padding: 40px;">
+        <p style="font-size: 1.2rem; color: var(--text-main); font-weight: 500;">
+          ✨ <strong>¿De qué sirve el avance de la tecnología si deja atrás a quienes más la necesitan?</strong> Como estudiante de Ingeniería de Software apasionada por los datos y el impacto social, mi misión es convertir el código en una herramienta de equidad y empoderamiento real.
+        </p>
+        <p>
+          💡 Esta convicción me llevó a ganar el <strong>1.ᵉʳ puesto en la Hackathon INSNSB "Crecer Mejor"</strong> y ser <strong>finalista Top 3 en la Hackathon Sin Barreras MINCETUR</strong>, creando software accesible e intuitivo que devuelva la autonomía a personas con discapacidad.
+        </p>
+        <p>
+          🚀 Creo firmemente en la colaboración interdisciplinaria y en la innovación con propósito: <strong>¡Conectemos y construyamos soluciones inclusivas juntos!</strong>
+        </p>
+        
+        <div style="margin-top: 10px;">
+          <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-cv">
+            <i data-lucide="calendar"></i> Agendar llamada con Lady (30 min)
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- PREMIOS, BECAS Y CERTIFICACIONES -->
-    <section id="logros" class="section-spacing" style="padding-top: 0;">
-      <div class="editorial-header">
-        <span class="editorial-counter">03 / Reconocimientos Oficiales</span>
-        <h2 class="editorial-title">Premios, Becas & Certificaciones</h2>
+    <!-- ==================== HABILIDADES TÉCNICAS ==================== -->
+    <section id="habilidades" class="section-wrap" style="padding-top: 0;">
+      <div class="section-head">
+        <span class="section-tag">03 / Competencias</span>
+        <h2 class="section-title">Stack & Habilidades Técnicas</h2>
       </div>
 
-      <div class="honors-grid">
-        <div class="honor-item">
-          <span class="honor-badge">🏆 1.ᵉʳ Puesto Nacional</span>
-          <h4 class="honor-title">Hackathon INSNSB "Crecer Mejor"</h4>
-          <span class="honor-inst">Instituto Nacional de Salud del Niño • PUCP & ESAN (2026)</span>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon"><i data-lucide="code-2"></i></div>
+          <h3>Frontend & Accesibilidad</h3>
+          <ul class="skill-list">
+            <li>React & Vite</li>
+            <li>JavaScript ES6+ & HTML5</li>
+            <li>Estándares WCAG 2.1 (AA/AAA)</li>
+            <li>Progressive Web Apps (PWA)</li>
+            <li>Diseño Mobile-First</li>
+          </ul>
         </div>
 
-        <div class="honor-item">
-          <span class="honor-badge">🌟 Finalista Top 3</span>
-          <h4 class="honor-title">Hackathon Sin Barreras</h4>
-          <span class="honor-inst">MINCETUR Perú (Entre 66 propuestas) • 2026</span>
+        <div class="skill-card">
+          <div class="skill-icon"><i data-lucide="terminal"></i></div>
+          <h3>Backend & IA</h3>
+          <ul class="skill-list">
+            <li>Python & Flask</li>
+            <li>IA Conversacional & NLU</li>
+            <li>Máquinas de Estados Finitos</li>
+            <li>Integración de APIs REST</li>
+            <li>Text-to-Speech & Speech-to-Text</li>
+          </ul>
         </div>
 
-        <div class="honor-item">
-          <span class="honor-badge">🎓 Beca de Excelencia</span>
-          <h4 class="honor-title">Beca Académica UTP</h4>
-          <span class="honor-inst">Universidad Tecnológica del Perú • +9 ciclos como delegada</span>
-        </div>
-
-        <div class="honor-item">
-          <span class="honor-badge">💼 Beca de Mentoría</span>
-          <h4 class="honor-title">PolyglotMap Job Coaching</h4>
-          <span class="honor-inst">Mentoría de Liderazgo & Carrera Profesional (2026)</span>
-        </div>
-
-        <div class="honor-item">
-          <span class="honor-badge">📜 Certificación 140+ hrs</span>
-          <h4 class="honor-title">Big Data & Analytics</h4>
-          <span class="honor-inst">Samsung Innovation Campus • 2025</span>
-        </div>
-
-        <div class="honor-item">
-          <span class="honor-badge">🤖 Certificación IA</span>
-          <h4 class="honor-title">Fundamentos de IA</h4>
-          <span class="honor-inst">IBM SkillsBuild & Guayerd • 2025</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- GITHUB REPOSITORIES -->
-    <section id="proyectos" class="section-spacing" style="padding-top: 0;">
-      <div class="editorial-header">
-        <span class="editorial-counter">04 / Código Abierto</span>
-        <h2 class="editorial-title">Proyectos en GitHub</h2>
-      </div>
-
-      <div id="lista-proyectos" class="projects-grid-quiet">
-        <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-light);">
-          <i data-lucide="loader" style="animation: spin 1s linear infinite; margin-bottom: 8px;"></i>
-          <p>Conectando con la API de GitHub (@luzylay)...</p>
+        <div class="skill-card">
+          <div class="skill-icon"><i data-lucide="database"></i></div>
+          <h3>Datos & Analytics</h3>
+          <ul class="skill-list">
+            <li>Pipelines ETL (Pandas, NumPy)</li>
+            <li>SQL (MySQL, PostgreSQL)</li>
+            <li>Power BI & Looker Studio</li>
+            <li>Análisis Exploratorio (EDA)</li>
+            <li>Jupyter Notebooks & Colab</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- LINKEDIN IMPACT -->
-    <section id="impacto" class="section-spacing" style="padding-top: 0;">
-      <div class="editorial-header">
-        <span class="editorial-counter">05 / Trayectoria & Comunidad</span>
-        <h2 class="editorial-title">Publicaciones Destacadas en LinkedIn</h2>
+    <!-- ==================== RECONOCIMIENTOS & PREMIOS ==================== -->
+    <section id="reconocimientos" class="section-wrap" style="padding-top: 0;">
+      <div class="section-head">
+        <span class="section-tag">04 / Trayectoria Oficial</span>
+        <h2 class="section-title">Premios, Becas & Certificaciones</h2>
       </div>
 
-      <div class="linkedin-grid-quiet">
-        <!-- Post 1: Hackathon INSNSB -->
-        <div class="linkedin-wrapper">
+      <div class="projects-grid">
+        <div class="card-project" style="padding: 24px;">
+          <div class="card-badge">🏆 1.er Puesto Nacional</div>
+          <h3 style="font-size: 1.3rem;">Hackathon INSNSB "Crecer Mejor"</h3>
+          <p style="font-size: 0.95rem;">Instituto Nacional de Salud del Niño • PUCP & ESAN (2026)</p>
+        </div>
+
+        <div class="card-project" style="padding: 24px;">
+          <div class="card-badge">🌟 Finalista Top 3</div>
+          <h3 style="font-size: 1.3rem;">Hackathon Sin Barreras MINCETUR</h3>
+          <p style="font-size: 0.95rem;">Seleccionada entre 66 propuestas a nivel nacional (2026)</p>
+        </div>
+
+        <div class="card-project" style="padding: 24px;">
+          <div class="card-badge">🎓 Beca de Excelencia</div>
+          <h3 style="font-size: 1.3rem;">Beca Académica UTP</h3>
+          <p style="font-size: 0.95rem;">+9 ciclos consecutivos como Delegada Universitaria</p>
+        </div>
+
+        <div class="card-project" style="padding: 24px;">
+          <div class="card-badge">💼 Beca de Mentoría</div>
+          <h3 style="font-size: 1.3rem;">PolyglotMap Job Coaching</h3>
+          <p style="font-size: 0.95rem;">Programa de Liderazgo & Carrera Profesional (2026)</p>
+        </div>
+
+        <div class="card-project" style="padding: 24px;">
+          <div class="card-badge">📜 Certificación 140+ hrs</div>
+          <h3 style="font-size: 1.3rem;">Big Data & Analytics</h3>
+          <p style="font-size: 0.95rem;">Samsung Innovation Campus (2025)</p>
+        </div>
+
+        <div class="card-project" style="padding: 24px;">
+          <div class="card-badge">🤖 Certificación IA</div>
+          <h3 style="font-size: 1.3rem;">Fundamentos de IA</h3>
+          <p style="font-size: 0.95rem;">IBM SkillsBuild & Guayerd (2025)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== LINKEDIN EMBEDS ==================== -->
+    <section id="impacto" class="section-wrap" style="padding-top: 0;">
+      <div class="section-head">
+        <span class="section-tag">05 / Comunidad & Liderazgo</span>
+        <h2 class="section-title">Publicaciones en LinkedIn</h2>
+      </div>
+
+      <div class="linkedin-row">
+        <!-- Post 1: INSNSB -->
+        <div class="linkedin-box">
           <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7498032689288073216?collapsed=1"
                   height="627" width="504" frameborder="0" allowfullscreen
                   title="Ganamos el 1er puesto en Hackatón Niño San Borja"></iframe>
         </div>
 
-        <!-- Post 2: Hackathon Sin Barreras MINCETUR -->
-        <div class="linkedin-wrapper">
+        <!-- Post 2: MINCETUR -->
+        <div class="linkedin-box">
           <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7474145608497500161?collapsed=1"
                   height="627" width="504" frameborder="0" allowfullscreen
                   title="Equipo destacado en Hackathon Sin Barreras MINCETUR"></iframe>
         </div>
 
         <!-- Post 3: Hult Prize -->
-        <div class="linkedin-wrapper">
+        <div class="linkedin-box">
           <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7420281179368501248?collapsed=1"
                   height="627" width="504" frameborder="0" allowfullscreen
-                  title="Nuevo rol como Deputy Campus Director en Hult Prize"></iframe>
+                  title="Deputy Campus Director en Hult Prize"></iframe>
         </div>
       </div>
     </section>
 
-    <!-- CAL.COM CALLOUT BANNER -->
-    <section class="cal-callout-luxury" aria-label="Contacto y llamada a la acción">
-      <h3>¿Conversamos sobre tu próximo proyecto?</h3>
-      <p>Hablemos sobre desarrollo de software accesible, analítica de datos o iniciativas de inclusión con impacto tangible.</p>
-      <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-cal-main" style="padding: 15px 36px; font-size: 1.02rem;" rel="noopener noreferrer">
-        <i data-lucide="calendar" style="width:18px;height:18px;"></i> Agendar sesión de 30 minutos en Cal.com
-      </a>
+    <!-- ==================== BANNER CAL.COM ==================== -->
+    <section class="cal-banner">
+      <h2>¿Iniciamos una conversación?</h2>
+      <p>Hablemos sobre desarrollo de software accesible, ingeniería de datos o consultoría inclusiva.</p>
+      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-cal-white">
+          <i data-lucide="calendar"></i> Agendar sesión de 30 min en Cal.com
+        </a>
+        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="btn-cal-white" style="background: rgba(255,255,255,0.2); color:#fff !important; border:1px solid rgba(255,255,255,0.4);">
+          <i data-lucide="download"></i> Descargar CV
+        </a>
+      </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
     <div class="container">
-      <div class="footer-social-links">
-        <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer"><i data-lucide="github" style="width:16px;"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer"><i data-lucide="linkedin" style="width:16px;"></i> LinkedIn</a>
-        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" rel="noopener noreferrer"><i data-lucide="calendar" style="width:16px;"></i> Cal.com</a>
+      <div class="footer-links">
+        <a href="https://github.com/luzylay" target="_blank"><i data-lucide="github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank"><i data-lucide="linkedin"></i> LinkedIn</a>
+        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank"><i data-lucide="calendar"></i> Cal.com</a>
+        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx"><i data-lucide="file-text"></i> CV</a>
       </div>
-      <p>© 2026 Lady Luz Loayza Rodriguez • Portafolio profesional accesible desarrollado con estándares WCAG y estética Quiet Luxury.</p>
+      <p>© 2026 Lady Luz Loayza Rodriguez • Diseñado con accesibilidad visual, modo oscuro/claro y alta responsividad.</p>
     </div>
   </footer>
 
+  <!-- ==================== SCRIPTS ==================== -->
   <script>
     // Inicializar iconos de Lucide
     lucide.createIcons();
 
-    // Fetch dinámico de proyectos de GitHub
-    const username = 'luzylay';
-    const contenedor = document.getElementById('lista-proyectos');
+    // 1. MODO CLARO / MODO OSCURO (Theme Switcher con memoria)
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
 
-    fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`)
-      .then(response => {
-        if (!response.ok) throw new Error('Error al consultar repositorios');
-        return response.json();
-      })
-      .then(repos => {
-        contenedor.innerHTML = '';
-        if (!repos || repos.length === 0) {
-          contenedor.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">No se encontraron repositorios públicos.</p>';
-          return;
+    themeToggle.addEventListener('click', () => {
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      updateThemeIcon(theme);
+    });
+
+    function updateThemeIcon(theme) {
+      if (theme === 'light') {
+        themeIcon.setAttribute('data-lucide', 'moon');
+      } else {
+        themeIcon.setAttribute('data-lucide', 'sun');
+      }
+      lucide.createIcons();
+    }
+
+    // 2. AJUSTADOR DE TAMAÑO DE LETRA (Accesibilidad para la vista)
+    let isLargeFont = localStorage.getItem('largeFont') === 'true';
+    if (isLargeFont) {
+      document.documentElement.style.setProperty('--font-scale', '1.15rem');
+      document.getElementById('fontToggle').innerText = 'A-';
+    }
+
+    document.getElementById('fontToggle').addEventListener('click', () => {
+      isLargeFont = !isLargeFont;
+      if (isLargeFont) {
+        document.documentElement.style.setProperty('--font-scale', '1.15rem');
+        document.getElementById('fontToggle').innerText = 'A-';
+        localStorage.setItem('largeFont', 'true');
+      } else {
+        document.documentElement.style.setProperty('--font-scale', '1rem');
+        document.getElementById('fontToggle').innerText = 'A+';
+        localStorage.setItem('largeFont', 'false');
+      }
+    });
+
+    // 3. MENÚ MÓVIL
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+
+    menuToggle.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('open');
+    });
+
+    function closeMenu() {
+      mobileDrawer.classList.remove('open');
+    }
+
+    // 4. FILTROS DE PROYECTOS
+    function filterProjects(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const cards = document.querySelectorAll('.card-project[data-category]');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
         }
-
-        repos.forEach(repo => {
-          const card = document.createElement('div');
-          card.className = 'project-card-quiet';
-          
-          const language = repo.language || 'Software Dev';
-          const description = repo.description || 'Proyecto de desarrollo de software con arquitectura limpia y enfoque en accesibilidad.';
-          
-          card.innerHTML = `
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                <h3 class="proj-title">${repo.name}</h3>
-                <i data-lucide="folder-git-2" style="color: var(--c-turquoise-mid); width: 20px; height: 20px;"></i>
-              </div>
-              <p class="proj-desc">${description}</p>
-            </div>
-            <div>
-              <div style="margin-bottom: 14px;">
-                <span style="font-size:0.75rem; background:rgba(43, 126, 132, 0.1); color:var(--c-navy-dark); padding:4px 12px; border-radius:999px; border:1px solid rgba(43, 126, 132, 0.2); font-weight:600;">
-                  💻 ${language}
-                </span>
-              </div>
-              <div class="proj-footer-quiet">
-                <div style="display: flex; gap: 12px; color: var(--c-turquoise-mid); font-weight: 500;">
-                  <span>⭐ ${repo.stargazers_count}</span>
-                  <span>🍴 ${repo.forks_count}</span>
-                </div>
-                <a href="${repo.html_url}" target="_blank" class="proj-link-action" rel="noopener noreferrer">
-                  Ver código →
-                </a>
-              </div>
-            </div>
-          `;
-          contenedor.appendChild(card);
-        });
-        lucide.createIcons();
-      })
-      .catch(error => {
-        console.error('Error al obtener repositorios:', error);
-        contenedor.innerHTML = `
-          <div style="grid-column: 1 / -1; text-align: center; padding: 30px; color: var(--text-muted);">
-            <p>Explora todos mis repositorios en <a href="https://github.com/${username}" target="_blank" style="color:var(--c-turquoise-mid); font-weight:600; text-decoration:underline;" rel="noopener noreferrer">GitHub (${username})</a>.</p>
-          </div>
-        `;
       });
+    }
   </script>
 </body>
 </html>
