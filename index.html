@@ -3,71 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portafolio de Lady Luz Loayza Rodriguez | Desarrolladora de Software, Datos & Accesibilidad Tecnológica. Ganadora Hackathon INSNSB & Top 3 MINCETUR." />
+  <meta name="description" content="Portafolio de Lady Luz Loayza Rodriguez — Desarrolladora de Software, Datos & Accesibilidad Tecnológica. Ganadora Hackathon INSNSB & Top 3 MINCETUR." />
   <meta name="author" content="Lady Luz Loayza Rodriguez" />
-  <meta property="og:title" content="Lady Luz Loayza Rodriguez | Portfolio Dev" />
-  <meta property="og:description" content="Desarrollo de software inclusivo, pipelines de datos e IA conversacional." />
+  <meta property="og:title" content="Lady Luz Loayza Rodriguez | Software & Accessibility" />
+  <meta property="og:description" content="Construyendo software accesible, útil y rápido para todo el mundo." />
   <meta property="og:image" content="./assets/profile_hd.png" />
   <meta property="og:type" content="website" />
-  <title>Lady Luz Loayza Rodriguez — Software Engineer & Accessibility</title>
+  <title>Lady Luz Loayza — Desarrolladora de Software & Accesibilidad</title>
 
   <!-- Google Fonts & Lucide Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     /* ==========================================================================
-       VARIABLES Y PALETA DE COLORES (MODO OSCURO / CLARO CON DEGRADADOS SUAVES)
+       VARIABLES DE COLOR Y ESTILOS (MODO OSCURO / CLARO CON DEGRADADOS NATURALES)
        ========================================================================== */
     :root {
-      /* MODO OSCURO (Default) */
-      --bg: #0B0F19;
-      --bg-card: rgba(18, 24, 38, 0.7);
-      --bg-card-hover: rgba(28, 38, 60, 0.85);
-      --bg-pill: rgba(255, 255, 255, 0.06);
-      
-      --text-main: #F8FAFC;
-      --text-body: #CBD5E1;
-      --text-muted: #94A3B8;
-      
+      /* MODO OSCURO (NATURAL & MODERNO) */
+      --ink: #0C0C0F;
+      --ink-surface: #14141A;
+      --ink-surface-hover: #1C1C24;
       --border: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(56, 189, 248, 0.35);
+      --border-focus: rgba(45, 212, 191, 0.4);
 
-      /* Degradados */
-      --grad-primary: linear-gradient(135deg, #38BDF8 0%, #818CF8 50%, #C084FC 100%);
-      --grad-accent: linear-gradient(135deg, #2DD4BF 0%, #38BDF8 100%);
-      --grad-text: linear-gradient(135deg, #FFFFFF 10%, #BAE6FD 60%, #C7D2FE 100%);
-      --grad-btn: linear-gradient(135deg, #0284C7 0%, #4F46E5 100%);
-      
-      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-      --shadow-glow: 0 20px 50px -10px rgba(56, 189, 248, 0.25);
-      
+      --snow: #F4F4F6;
+      --mist: #94A3B8;
+      --subtle: #64748B;
+
+      --accent: #2DD4BF;           /* Turquesa vivo natural */
+      --accent-grad: linear-gradient(135deg, #2DD4BF 0%, #38BDF8 60%, #818CF8 100%);
+      --accent-glow: rgba(45, 212, 191, 0.25);
+      --accent-bg: rgba(45, 212, 191, 0.1);
+
       --font-scale: 1rem;
     }
 
     [data-theme="light"] {
-      /* MODO CLARO AGRADABLE */
-      --bg: #F8FAFC;
-      --bg-card: #FFFFFF;
-      --bg-card-hover: #F1F5F9;
-      --bg-pill: #F1F5F9;
-      
-      --text-main: #0F172A;
-      --text-body: #334155;
-      --text-muted: #64748B;
-      
+      /* MODO CLARO (SUAVE, ALTO CONTRASTE Y DESCANSO VISUAL) */
+      --ink: #F8FAFC;
+      --ink-surface: #FFFFFF;
+      --ink-surface-hover: #F1F5F9;
       --border: rgba(15, 23, 42, 0.1);
-      --border-accent: rgba(2, 132, 199, 0.35);
+      --border-focus: rgba(13, 148, 136, 0.4);
 
-      --grad-primary: linear-gradient(135deg, #0284C7 0%, #4F46E5 100%);
-      --grad-accent: linear-gradient(135deg, #0D9488 0%, #0284C7 100%);
-      --grad-text: linear-gradient(135deg, #0F172A 0%, #0369A1 70%, #3730A3 100%);
-      --grad-btn: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%);
-      
-      --shadow-card: 0 8px 25px -5px rgba(15, 23, 42, 0.08);
-      --shadow-glow: 0 16px 40px -10px rgba(2, 132, 199, 0.15);
+      --snow: #0F172A;
+      --mist: #334155;
+      --subtle: #64748B;
+
+      --accent: #0D9488;
+      --accent-grad: linear-gradient(135deg, #0D9488 0%, #0284C7 60%, #4338CA 100%);
+      --accent-glow: rgba(13, 148, 136, 0.15);
+      --accent-bg: rgba(13, 148, 136, 0.08);
     }
 
     /* ==========================================================================
@@ -85,28 +74,20 @@
     }
 
     body {
-      background-color: var(--bg);
-      color: var(--text-body);
-      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background-color: var(--ink);
+      color: var(--mist);
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 1.1rem;
       line-height: 1.8;
       overflow-x: hidden;
       transition: background-color 0.3s ease, color 0.3s ease;
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 45%),
-        radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.1) 0px, transparent 45%);
-      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
     }
 
     h1, h2, h3, h4 {
-      color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 700;
-      line-height: 1.25;
-    }
-
-    .serif-title {
-      font-family: 'Playfair Display', serif;
+      color: var(--snow);
+      font-weight: 800;
+      line-height: 1.15;
     }
 
     a {
@@ -114,20 +95,24 @@
       text-decoration: none;
     }
 
+    .mono {
+      font-family: 'Fira Code', monospace;
+    }
+
     .container {
-      max-width: 980px; /* Ancho optimizado estilo Midudev / MoureDev */
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* Accessibility Skip Link */
+    /* Skip link para accesibilidad */
     .skip-link {
       position: absolute;
       top: -50px;
       left: 16px;
-      background: #38BDF8;
+      background: var(--accent);
       color: #000;
-      padding: 8px 16px;
+      padding: 8px 18px;
       font-weight: 700;
       border-radius: 6px;
       z-index: 9999;
@@ -138,229 +123,256 @@
     }
 
     /* ==========================================================================
-       NAVBAR MINIMALISTA ESTILO DEV DOCK
+       NAVBAR MINIMALISTA & FLOTANTE
        ========================================================================== */
     header.site-header {
-      position: sticky;
-      top: 16px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 1000;
-      margin: 0 auto;
-      max-width: 980px;
-      padding: 0 24px;
-    }
-
-    .nav-pill-dock {
-      background: var(--bg-card);
+      background: rgba(12, 12, 15, 0.85);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 10px 24px;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      transition: all 0.3s ease;
+    }
+
+    [data-theme="light"] header.site-header {
+      background: rgba(248, 250, 252, 0.88);
+    }
+
+    .nav-wrap {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: var(--shadow-card);
+      gap: 16px;
     }
 
-    .brand-dev {
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      background: var(--grad-text);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .brand-logo {
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--snow);
+      text-decoration: none;
+    }
+
+    .brand-logo span {
+      color: var(--accent);
     }
 
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 28px;
       list-style: none;
       align-items: center;
     }
 
     .nav-links a {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.82rem;
+      color: var(--mist);
+      letter-spacing: 0.04em;
       transition: color 0.2s ease;
     }
 
     .nav-links a:hover {
-      color: var(--text-main);
+      color: var(--accent);
     }
 
-    .nav-actions {
+    .nav-controls {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
     .icon-btn {
-      background: var(--bg-pill);
+      background: var(--ink-surface);
       border: 1px solid var(--border);
-      color: var(--text-main);
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+      color: var(--snow);
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       transition: all 0.2s ease;
     }
 
     .icon-btn:hover {
-      background: var(--bg-card-hover);
+      background: var(--ink-surface-hover);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-cta-nav {
+      background: var(--accent);
+      color: #0C0C0F !important;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-cta-nav:hover {
+      opacity: 0.9;
       transform: translateY(-2px);
     }
 
     /* ==========================================================================
-       HERO SECTION: FOTO FLOTANTE + BADGES & SOCIAL DOCK (MIDUDEV/MOUREDEV)
+       HERO SECTION: ESTRUCTURA INICIAL NATURAL CON SPLIT SCREEN
        ========================================================================== */
-    .hero-section {
-      padding: 60px 0 50px;
+    .hero-wrap {
+      padding-top: 130px;
+      padding-bottom: 70px;
+      position: relative;
     }
 
-    .hero-grid {
+    .hero-split {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
       align-items: center;
     }
 
-    .status-badge {
+    .hero-sub-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 5px 14px;
-      background: rgba(45, 212, 191, 0.12);
-      border: 1px solid rgba(45, 212, 191, 0.3);
-      color: #2DD4BF;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 18px;
+      margin-bottom: 24px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.78rem;
+      color: var(--subtle);
+      letter-spacing: 0.06em;
+      transition: color 0.2s ease;
     }
 
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      background: #2DD4BF;
-      border-radius: 50%;
-      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.3);
-      animation: pulse 2s infinite;
+    .hero-sub-link:hover {
+      color: var(--accent);
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.2); opacity: 0.7; }
-    }
-
-    .hero-name {
-      font-size: 3.2rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
-      line-height: 1.15;
-    }
-
-    .hero-tagline {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #38BDF8;
+    .hero-big-title {
+      font-size: clamp(3rem, 6.5vw, 5.8rem);
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 0.95;
       margin-bottom: 20px;
-      line-height: 1.4;
+      color: var(--snow);
     }
 
-    .hero-bio {
-      font-size: 1.12rem;
-      color: var(--text-body);
+    .hero-big-title span.grad {
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-role-tag {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero-desc-p {
+      font-size: 1.15rem;
+      color: var(--mist);
+      line-height: 1.85;
       margin-bottom: 28px;
-      line-height: 1.8;
     }
 
-    .hero-bio strong {
-      color: var(--text-main);
+    .hero-desc-p strong {
+      color: var(--snow);
       font-weight: 600;
     }
 
-    /* Social Dock Pills (Estilo Midudev / MoureDev) */
-    .social-pills-row {
+    /* Social Pills */
+    .hero-actions-dock {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
     }
 
-    .social-pill {
+    .pill-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 9px 18px;
+      padding: 10px 20px;
       border-radius: 999px;
-      background: var(--bg-card);
+      background: var(--ink-surface);
       border: 1px solid var(--border);
-      color: var(--text-main);
+      color: var(--snow);
       font-size: 0.95rem;
       font-weight: 600;
-      transition: all 0.25s ease;
-      box-shadow: var(--shadow-card);
+      transition: all 0.2s ease;
     }
 
-    .social-pill:hover {
-      border-color: #38BDF8;
-      color: #38BDF8;
-      transform: translateY(-3px);
+    .pill-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
     }
 
-    .social-pill.primary {
-      background: var(--grad-btn);
-      color: #FFFFFF !important;
-      border: none;
+    .pill-btn.primary {
+      background: var(--accent);
+      color: #0C0C0F !important;
+      border-color: transparent;
+      font-weight: 700;
     }
 
-    .social-pill.primary:hover {
-      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.4);
+    .pill-btn.primary:hover {
+      opacity: 0.9;
+      box-shadow: 0 6px 20px var(--accent-glow);
     }
 
-    /* Foto Profesional Flotante (Del Diseño Aprobado) */
-    .hero-photo-wrap {
+    /* Foto Flotante 3D */
+    .hero-photo-container {
       position: relative;
       display: flex;
       justify-content: center;
     }
 
-    .photo-glow-effect {
+    .photo-ambient-glow {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: var(--grad-primary);
-      filter: blur(45px);
-      opacity: 0.35;
+      background: var(--accent-grad);
+      filter: blur(50px);
+      opacity: 0.25;
       border-radius: 28px;
       z-index: 1;
     }
 
-    .photo-frame-card {
+    .photo-frame {
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 380px;
+      max-width: 390px;
       aspect-ratio: 4 / 4.9;
       border-radius: 24px;
       overflow: hidden;
-      background: var(--bg-card);
+      background: var(--ink-surface);
       border: 1px solid var(--border);
-      box-shadow: var(--shadow-glow);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
       transition: transform 0.3s ease;
     }
 
-    .photo-frame-card:hover {
+    .photo-frame:hover {
       transform: translateY(-6px);
     }
 
-    .photo-frame-card img {
+    .photo-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -368,12 +380,12 @@
       display: block;
     }
 
-    .photo-floating-dock {
+    .photo-badge-overlay {
       position: absolute;
       bottom: 14px;
       left: 14px;
       right: 14px;
-      background: rgba(11, 15, 25, 0.9);
+      background: rgba(12, 12, 15, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -385,7 +397,7 @@
       color: #fff;
     }
 
-    [data-theme="light"] .photo-floating-dock {
+    [data-theme="light"] .photo-badge-overlay {
       background: rgba(255, 255, 255, 0.95);
       color: #0F172A;
       border-color: rgba(0, 0, 0, 0.08);
@@ -393,305 +405,367 @@
     }
 
     /* ==========================================================================
-       EXPERIENCIA Y TRAYECTORIA (TIMELINE VERTICAL ESTILO MIDUDEV)
+       SECCIONES Y SECTION LABELS
        ========================================================================== */
     .section-wrap {
       padding: 60px 0;
     }
 
-    .section-title-row {
+    .section-header-line {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 2rem;
+      gap: 14px;
       margin-bottom: 36px;
     }
 
-    .section-title-row i {
-      color: #38BDF8;
-    }
-
-    .timeline {
-      position: relative;
-      padding-left: 32px;
-      border-left: 2px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-
-    .timeline-item {
-      position: relative;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      left: -41px;
-      top: 4px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: #38BDF8;
-      box-shadow: 0 0 0 4px var(--bg);
-    }
-
-    .timeline-date {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: #38BDF8;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-
-    .timeline-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 6px;
-    }
-
-    .timeline-company {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .timeline-desc {
-      font-size: 1.05rem;
-      line-height: 1.75;
-      color: var(--text-body);
-      margin-bottom: 14px;
-    }
-
-    .timeline-metric {
-      background: var(--bg-card);
-      border-left: 3px solid #2DD4BF;
-      padding: 10px 16px;
-      border-radius: 0 8px 8px 0;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text-main);
-      margin-bottom: 14px;
-      border-top: 1px solid var(--border);
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .tech-tags-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tech-tag-pill {
+    .section-label {
       font-family: 'Fira Code', monospace;
-      font-size: 0.82rem;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: var(--bg-pill);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
+      font-size: 0.76rem;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
     }
 
     /* ==========================================================================
-       PROYECTOS DESTACADOS CON PREVIEWS Y LINKS (MOUREDEV / MIDUDEV)
+       01 / SOBRE MÍ & PILARES (DISEÑO NATURAL & HUMANO)
        ========================================================================== */
-    .projects-stack-grid {
+    .about-cards-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 40px;
     }
 
-    .project-card-dev {
-      background: var(--bg-card);
+    .about-box {
+      background: var(--ink-surface);
+      padding: 32px 28px;
+      transition: background 0.2s ease;
+    }
+
+    .about-box:hover {
+      background: var(--ink-surface-hover);
+    }
+
+    .about-box-icon {
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .about-box h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+
+    .about-box p {
+      font-size: 0.98rem;
+      color: var(--mist);
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       02 / EXPERIENCIA & HITOS REALES (DEL CV)
+       ========================================================================== */
+    .exp-list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .exp-row-item {
+      background: var(--ink-surface);
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 80px 1fr 140px;
+      gap: 24px;
+      align-items: start;
+      transition: background 0.2s ease;
+    }
+
+    .exp-row-item:hover {
+      background: var(--ink-surface-hover);
+    }
+
+    .exp-num {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .exp-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .exp-company {
+      font-size: 0.95rem;
+      color: var(--subtle);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .exp-text {
+      font-size: 1.02rem;
+      color: var(--mist);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .exp-metric-pill {
+      display: inline-block;
+      background: var(--accent-bg);
+      border: 1px solid var(--border-focus);
+      color: var(--snow);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .exp-period {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.78rem;
+      color: var(--subtle);
+      text-align: right;
+    }
+
+    /* ==========================================================================
+       03 / PROYECTOS CON FILTROS
+       ========================================================================== */
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.78rem;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: var(--ink-surface);
+      border: 1px solid var(--border);
+      color: var(--subtle);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-pill:hover, .filter-pill.active {
+      background: var(--accent);
+      color: #0C0C0F;
+      border-color: transparent;
+      font-weight: 700;
+    }
+
+    .projects-masonry {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .proj-card {
+      background: var(--ink-surface);
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: var(--shadow-card);
       transition: all 0.25s ease;
     }
 
-    .project-card-dev:hover {
-      transform: translateY(-5px);
-      border-color: var(--border-accent);
-      box-shadow: var(--shadow-glow);
+    .proj-card:hover {
+      border-color: var(--border-focus);
+      transform: translateY(-4px);
     }
 
-    .project-badge-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.8rem;
-      font-weight: 700;
+    .proj-badge {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
       text-transform: uppercase;
-      color: #38BDF8;
-      margin-bottom: 12px;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+      display: block;
     }
 
-    .project-card-dev h3 {
-      font-size: 1.45rem;
+    .proj-card h3 {
+      font-size: 1.4rem;
       margin-bottom: 10px;
     }
 
-    .project-card-dev p {
+    .proj-card p {
       font-size: 1rem;
-      color: var(--text-body);
+      color: var(--mist);
       line-height: 1.7;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
-    .project-card-footer {
+    .proj-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .proj-tag-item {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--subtle);
+    }
+
+    .proj-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding-top: 14px;
       border-top: 1px solid var(--border);
-      font-size: 0.92rem;
+      font-size: 0.88rem;
     }
 
-    .link-btn {
+    .proj-link {
+      color: var(--accent);
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      color: #38BDF8;
-      font-weight: 700;
+      gap: 4px;
       transition: gap 0.2s ease;
     }
 
-    .link-btn:hover {
-      gap: 8px;
+    .proj-link:hover {
+      gap: 7px;
     }
 
     /* ==========================================================================
-       STACK TECNOLÓGICO & HABILIDADES
+       04 / TECNOLOGÍAS EXPLICADAS DE FORMA HUMANA
        ========================================================================== */
-    .skills-cards-grid {
+    .tech-human-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .skill-box-dev {
-      background: var(--bg-card);
+      gap: 1px;
+      background: var(--border);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .tech-item-card {
+      background: var(--ink-surface);
       padding: 24px;
-      box-shadow: var(--shadow-card);
+      transition: background 0.2s ease;
     }
 
-    .skill-box-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
+    .tech-item-card:hover {
+      background: var(--ink-surface-hover);
     }
 
-    .skill-box-head i {
-      color: #38BDF8;
-    }
-
-    .skill-box-dev h4 {
-      font-size: 1.15rem;
-    }
-
-    .skill-box-dev ul {
-      list-style: none;
-    }
-
-    .skill-box-dev li {
-      font-size: 0.98rem;
-      color: var(--text-body);
+    .tech-code {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 700;
       margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
-    .skill-box-dev li::before {
-      content: "▹";
-      color: #38BDF8;
-      font-size: 0.85rem;
+    .tech-item-card h4 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .tech-item-card p {
+      font-size: 0.92rem;
+      color: var(--subtle);
+      line-height: 1.55;
     }
 
     /* ==========================================================================
-       LINKEDIN EMBEDS & CALLOUT
+       05 / LINKEDIN EMBEDS & CALLOUT
        ========================================================================== */
-    .linkedin-grid-dev {
+    .linkedin-row-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
+      gap: 20px;
       justify-items: center;
     }
 
-    .linkedin-card-dev {
+    .linkedin-embed-box {
       width: 100%;
       max-width: 504px;
-      background: var(--bg-card);
+      background: var(--ink-surface);
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 12px;
       overflow: hidden;
-      box-shadow: var(--shadow-card);
     }
 
-    .linkedin-card-dev iframe {
+    .linkedin-embed-box iframe {
       width: 100%;
       border-radius: 12px;
     }
 
-    /* Banner CTA Final */
-    .cta-banner-dev {
-      background: var(--grad-btn);
+    /* ==========================================================================
+       BANNER DE CONTACTO & CAL.COM
+       ========================================================================== */
+    .contact-banner {
+      background: var(--ink-surface);
+      border: 1px solid var(--border);
       border-radius: 24px;
-      padding: 50px 32px;
+      padding: 60px 40px;
       text-align: center;
-      color: #FFFFFF;
-      margin: 40px 0 70px;
-      box-shadow: var(--shadow-glow);
+      margin: 40px 0 80px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .cta-banner-dev h2 {
-      font-size: 2.5rem;
-      color: #FFFFFF;
+    .contact-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent-grad);
+    }
+
+    .contact-banner h2 {
+      font-size: 2.6rem;
       margin-bottom: 12px;
     }
 
-    .cta-banner-dev p {
+    .contact-banner p {
       font-size: 1.15rem;
-      max-width: 580px;
-      margin: 0 auto 28px;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--mist);
+      max-width: 560px;
+      margin: 0 auto 30px;
     }
 
-    .cta-buttons-wrap {
+    .contact-btns {
       display: flex;
       justify-content: center;
       gap: 14px;
       flex-wrap: wrap;
-    }
-
-    .btn-action-white {
-      background: #FFFFFF;
-      color: #0F172A !important;
-      padding: 12px 28px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.2s ease;
-    }
-
-    .btn-action-white:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     }
 
     /* Footer */
@@ -699,19 +773,19 @@
       border-top: 1px solid var(--border);
       padding: 40px 0;
       text-align: center;
-      color: var(--text-muted);
-      font-size: 0.92rem;
+      color: var(--subtle);
+      font-size: 0.9rem;
     }
 
-    .footer-dock {
+    .footer-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 24px;
       margin-bottom: 16px;
     }
 
-    .footer-dock a {
-      color: var(--text-main);
+    .footer-links a {
+      color: var(--snow);
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -719,41 +793,30 @@
     }
 
     /* ==========================================================================
-       RESPONSIVE DESIGN (MÓVIL Y TABLET)
+       RESPONSIVE DESIGN (TABLET & MÓVIL)
        ========================================================================== */
-    @media (max-width: 900px) {
-      .hero-grid {
+    @media (max-width: 860px) {
+      .hero-split {
         grid-template-columns: 1fr;
-        text-align: center;
         gap: 36px;
       }
-      .hero-photo-wrap {
+      .hero-photo-container {
         order: -1;
       }
-      .social-pills-row {
-        justify-content: center;
-      }
-      .projects-stack-grid,
-      .skills-cards-grid {
+      .about-cards-grid,
+      .tech-human-grid,
+      .projects-masonry {
         grid-template-columns: 1fr;
+      }
+      .exp-row-item {
+        grid-template-columns: 48px 1fr;
+        gap: 16px;
+      }
+      .exp-period {
+        display: none;
       }
       .nav-links {
         display: none;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero-name {
-        font-size: 2.5rem;
-      }
-      .section-title-row {
-        font-size: 1.6rem;
-      }
-      .cta-banner-dev {
-        padding: 36px 20px;
-      }
-      .cta-banner-dev h2 {
-        font-size: 2rem;
       }
     }
   </style>
@@ -761,91 +824,94 @@
 <body>
 
   <!-- Accesibilidad Skip Link -->
-  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido</a>
 
-  <!-- ==================== NAVBAR DOCK ==================== -->
+  <!-- ==================== NAVBAR ==================== -->
   <header class="site-header">
-    <nav class="nav-pill-dock" aria-label="Navegación principal">
-      <a href="#" class="brand-dev">Lady Luz Loayza</a>
-      
+    <div class="container nav-wrap">
+      <a href="#" class="brand-logo">
+        lady loayza<span>.</span>
+      </a>
+
       <ul class="nav-links">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
         <li><a href="#experiencia">Experiencia</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#habilidades">Stack</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#tecnologias">Tecnologías</a></li>
         <li><a href="#impacto">LinkedIn</a></li>
       </ul>
 
-      <div class="nav-actions">
-        <!-- Selector Modo Claro / Oscuro -->
+      <div class="nav-controls">
+        <!-- Tema Claro / Oscuro -->
         <button id="themeToggle" class="icon-btn" aria-label="Cambiar tema claro u oscuro" title="Tema">
           <i data-lucide="sun" id="themeIcon" style="width:16px;height:16px;"></i>
         </button>
 
-        <!-- Botón Agrandar Letra Accesible -->
+        <!-- Ajustador de Tamaño de Letra -->
         <button id="fontToggle" class="icon-btn" aria-label="Ajustar tamaño de letra" title="Tamaño Letra">
           A+
         </button>
 
         <!-- Descargar CV -->
-        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="social-pill primary" style="padding: 6px 16px; font-size: 0.88rem;">
+        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="btn-cta-nav">
           <i data-lucide="download" style="width:15px;height:15px;"></i> CV
         </a>
       </div>
-    </nav>
+    </div>
   </header>
 
   <main id="contenido-principal" class="container">
 
-    <!-- ==================== HERO SECTION (SPLIT SCREEN CON FOTO FLOTANTE) ==================== -->
-    <section class="hero-section">
-      <div class="hero-grid">
+    <!-- ==================== HERO SECTION (ESTRUCTURA NATURAL) ==================== -->
+    <section class="hero-wrap">
+      <div class="hero-split">
         
-        <!-- Info Izquierda -->
+        <!-- Izquierda: Estructura de Texto Natural -->
         <div>
-          <div class="status-badge">
-            <span class="pulse-dot"></span> Disponible para trabajar & proyectos
-          </div>
-          
-          <h1 class="hero-name">
-            Lady Luz Loayza
+          <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="hero-sub-link">
+            ¿Tienes un proyecto en mente? Hablemos primero ↗
+          </a>
+
+          <h1 class="hero-big-title">
+            Hola,<br />
+            soy<br />
+            <span class="grad">Lady Luz.</span>
           </h1>
 
-          <div class="hero-tagline">
-            Software Engineer • Backend & IA • Accesibilidad Universal
-          </div>
-
-          <p class="hero-bio">
-            Estudiante de 9.° ciclo de Ingeniería de Software (UTP) con <strong>Beca de Excelencia Académica</strong>. Ganadora del <strong>1.ᵉʳ puesto en la Hackathon INSNSB</strong>. Transformo el código en herramientas de inclusión que reducen brechas y devuelven la autonomía a personas con discapacidad.
+          <p class="hero-role-tag">
+            Desarrolladora de Software & Inclusión Tecnológica
           </p>
 
-          <!-- Social Dock Pills (Estilo Midudev & MoureDev) -->
-          <div class="social-pills-row">
-            <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="social-pill primary" rel="noopener noreferrer">
-              <i data-lucide="calendar" style="width:16px;height:16px;"></i> Agendar Reunión (Cal.com)
+          <p class="hero-desc-p">
+            Construyo aplicaciones web y sistemas de datos que la gente usa cada día. <strong>Útiles, rápidos y accesibles para todo el mundo</strong> — especialmente diseñados para reducir brechas y devolver la autonomía a personas con discapacidad.
+          </p>
+
+          <div class="hero-actions-dock">
+            <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="pill-btn primary" rel="noopener noreferrer">
+              <i data-lucide="calendar" style="width:16px;height:16px;"></i> Agendar 30 min (Cal.com)
             </a>
 
-            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="social-pill">
+            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="pill-btn">
               <i data-lucide="file-down" style="width:16px;height:16px;"></i> Descargar CV
             </a>
 
-            <a href="https://github.com/luzylay" target="_blank" class="social-pill" rel="noopener noreferrer">
+            <a href="https://github.com/luzylay" target="_blank" class="pill-btn" rel="noopener noreferrer">
               <i data-lucide="github" style="width:16px;height:16px;"></i> GitHub
             </a>
 
-            <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" class="social-pill" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" class="pill-btn" rel="noopener noreferrer">
               <i data-lucide="linkedin" style="width:16px;height:16px;"></i> LinkedIn
             </a>
           </div>
         </div>
 
-        <!-- Foto Profesional Flotante Derecha -->
-        <div class="hero-photo-wrap">
-          <div class="photo-glow-effect"></div>
-          <div class="photo-frame-card">
-            <img src="./assets/profile_hd.png" alt="Retrato profesional de Lady Luz Loayza Rodriguez" />
-            <div class="photo-floating-dock">
-              <div style="background:linear-gradient(135deg,#38BDF8,#818CF8); width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; flex-shrink:0;">
+        <!-- Derecha: Foto Flotante 3D -->
+        <div class="hero-photo-container">
+          <div class="photo-ambient-glow"></div>
+          <div class="photo-frame">
+            <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez" />
+            <div class="photo-badge-overlay">
+              <div style="background:var(--accent); width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#0C0C0F; flex-shrink:0;">
                 <i data-lucide="award" style="width:20px;height:20px;"></i>
               </div>
               <div>
@@ -859,323 +925,315 @@
       </div>
     </section>
 
-    <!-- ==================== EXPERIENCIA Y LOGROS (TIMELINE ESTILO MIDUDEV) ==================== -->
-    <section id="experiencia" class="section-wrap">
-      <div class="section-title-row">
-        <i data-lucide="briefcase"></i>
-        <h2>Experiencia & Hitos</h2>
-      </div>
-
-      <div class="timeline">
-        
-        <!-- Experiencia 1: Hackathon INSNSB -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">Agosto 2026 • Primer Puesto</span>
-          <h3 class="timeline-title">Desarrolladora Frontend & Mobile-First (PWA)</h3>
-          <div class="timeline-company">Hackathon INSNSB • PUCP & ESAN</div>
-          <p class="timeline-desc">
-            Diseñé e implementé la arquitectura frontend de una Progressive Web App (PWA) accesible para el consultorio CRED del Instituto Nacional de Salud del Niño San Borja.
-          </p>
-          <div class="timeline-metric">
-            📊 Impacto: Digitalizó el seguimiento nutricional y antropométrico de infantes (0 a 3 años), eliminando errores manuales de enfermería y optimizando la atención médica.
-          </div>
-          <div class="tech-tags-list">
-            <span class="tech-tag-pill">React</span>
-            <span class="tech-tag-pill">Vite</span>
-            <span class="tech-tag-pill">PWA</span>
-            <span class="tech-tag-pill">JavaScript</span>
-            <span class="tech-tag-pill">Git/GitHub</span>
-          </div>
-        </div>
-
-        <!-- Experiencia 2: Hackathon MINCETUR -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">Junio 2026 • Top 3 Nacional (Entre 66 propuestas)</span>
-          <h3 class="timeline-title">Desarrolladora de IA Conversacional & Backend</h3>
-          <div class="timeline-company">Hackathon Sin Barreras • MINCETUR Perú</div>
-          <p class="timeline-desc">
-            Diseñé la arquitectura completa del asistente Helen (backend Flask + NLU + máquina de estados finitos + text-to-speech + geolocalización) para la inclusión de usuarios con discapacidad visual en turismo.
-          </p>
-          <div class="timeline-metric">
-            👁️ Impacto: Grounding verificado sin alucinaciones, garantizando navegación por voz confiable y superando a 63 propuestas competidoras.
-          </div>
-          <div class="tech-tags-list">
-            <span class="tech-tag-pill">Python</span>
-            <span class="tech-tag-pill">Flask</span>
-            <span class="tech-tag-pill">NLU</span>
-            <span class="tech-tag-pill">Text-to-Speech</span>
-            <span class="tech-tag-pill">APIs REST</span>
-          </div>
-        </div>
-
-        <!-- Experiencia 3: Samsung EPEN -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">Mayo – Nov 2025</span>
-          <h3 class="timeline-title">Data Analyst & ETL Engineer (Capstone EPEN)</h3>
-          <div class="timeline-company">Samsung Innovation Campus</div>
-          <p class="timeline-desc">
-            Construcción de pipeline ETL completo sobre microdatos del INEI con extracción, limpieza, validación y dashboards interactivos en Power BI y Looker Studio.
-          </p>
-          <div class="timeline-metric">
-            📈 Impacto: Procesamiento automatizado de más de 10,000 registros para análisis laboral en Lima Metropolitana para 3 audiencias diferenciadas.
-          </div>
-          <div class="tech-tags-list">
-            <span class="tech-tag-pill">Python (Pandas, NumPy)</span>
-            <span class="tech-tag-pill">SQL</span>
-            <span class="tech-tag-pill">Power BI</span>
-            <span class="tech-tag-pill">Looker Studio</span>
-          </div>
-        </div>
-
-        <!-- Experiencia 4: IBM Analytics -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">Sep – Dic 2025</span>
-          <h3 class="timeline-title">Data Analyst — E-Commerce & Retención</h3>
-          <div class="timeline-company">IBM SkillsBuild & Guayerd</div>
-          <p class="timeline-desc">
-            Análisis exploratorio de más de 5,000 transacciones para evaluar inventario, logística y satisfacción de clientes.
-          </p>
-          <div class="timeline-metric">
-            💡 Impacto: Validación mediante correlación estadística de que la calificación baja (2.76/5) respondía a demoras de envíos y no a calidad del producto, ahorrando semanas de desarrollo.
-          </div>
-          <div class="tech-tags-list">
-            <span class="tech-tag-pill">Python EDA</span>
-            <span class="tech-tag-pill">Matplotlib/Seaborn</span>
-            <span class="tech-tag-pill">Jupyter</span>
-            <span class="tech-tag-pill">Power BI</span>
-          </div>
-        </div>
-
-        <!-- Experiencia 5: Hult Prize -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">Ene – Abr 2026</span>
-          <h3 class="timeline-title">Deputy Campus Director</h3>
-          <div class="timeline-company">Hult Prize UTP 2026</div>
-          <p class="timeline-desc">
-            Estandarización de procesos, adaptación de rúbricas oficiales para jueces y coordinación operativa de eventos de innovación y emprendimiento social.
-          </p>
-          <div class="tech-tags-list">
-            <span class="tech-tag-pill">Liderazgo Remoto</span>
-            <span class="tech-tag-pill">Gestión de Eventos</span>
-            <span class="tech-tag-pill">Coordinación Institucional</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ==================== PROYECTOS DESTACADOS ==================== -->
-    <section id="proyectos" class="section-wrap">
-      <div class="section-title-row">
-        <i data-lucide="code-2"></i>
-        <h2>Proyectos & Código</h2>
-      </div>
-
-      <div class="projects-stack-grid">
-        
-        <!-- Card 1 -->
-        <div class="project-card-dev">
-          <div>
-            <div class="project-badge-pill">
-              <i data-lucide="trophy" style="width:15px;height:15px;"></i> Hackathon Winner
-            </div>
-            <h3>PWA CRED "Crecer Mejor"</h3>
-            <p>
-              Aplicación web progresiva móvil para el registro clínico antropométrico de infantes en el INSNSB.
-            </p>
-            <div class="tech-tags-list" style="margin-bottom: 16px;">
-              <span class="tech-tag-pill">React</span>
-              <span class="tech-tag-pill">Vite</span>
-              <span class="tech-tag-pill">PWA</span>
-              <span class="tech-tag-pill">JavaScript</span>
-            </div>
-          </div>
-          <div class="project-card-footer">
-            <span style="color:var(--text-muted); font-size:0.85rem;">INSNSB / PUCP / ESAN</span>
-            <a href="https://github.com/luzylay" target="_blank" class="link-btn" rel="noopener noreferrer">
-              Ver código <i data-lucide="arrow-up-right" style="width:16px;height:16px;"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="project-card-dev">
-          <div>
-            <div class="project-badge-pill">
-              <i data-lucide="bot" style="width:15px;height:15px;"></i> Asistente NLU
-            </div>
-            <h3>Helen — IA Turística Accesible</h3>
-            <p>
-              Asistente conversacional con text-to-speech y geolocalización para personas con discapacidad visual.
-            </p>
-            <div class="tech-tags-list" style="margin-bottom: 16px;">
-              <span class="tech-tag-pill">Python</span>
-              <span class="tech-tag-pill">Flask</span>
-              <span class="tech-tag-pill">NLU</span>
-              <span class="tech-tag-pill">TTS</span>
-            </div>
-          </div>
-          <div class="project-card-footer">
-            <span style="color:var(--text-muted); font-size:0.85rem;">MINCETUR Sin Barreras</span>
-            <a href="https://github.com/luzylay" target="_blank" class="link-btn" rel="noopener noreferrer">
-              Ver código <i data-lucide="arrow-up-right" style="width:16px;height:16px;"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="project-card-dev">
-          <div>
-            <div class="project-badge-pill">
-              <i data-lucide="database" style="width:15px;height:15px;"></i> Data Pipeline
-            </div>
-            <h3>Observatorio Laboral EPEN</h3>
-            <p>
-              Pipeline de datos en Python sobre datasets del INEI y dashboards ejecutivos en Power BI y Looker Studio.
-            </p>
-            <div class="tech-tags-list" style="margin-bottom: 16px;">
-              <span class="tech-tag-pill">Python</span>
-              <span class="tech-tag-pill">SQL</span>
-              <span class="tech-tag-pill">Power BI</span>
-              <span class="tech-tag-pill">Looker</span>
-            </div>
-          </div>
-          <div class="project-card-footer">
-            <span style="color:var(--text-muted); font-size:0.85rem;">Samsung Innovation Campus</span>
-            <a href="https://github.com/luzylay" target="_blank" class="link-btn" rel="noopener noreferrer">
-              Ver código <i data-lucide="arrow-up-right" style="width:16px;height:16px;"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="project-card-dev">
-          <div>
-            <div class="project-badge-pill">
-              <i data-lucide="bar-chart-2" style="width:15px;height:15px;"></i> Analytics
-            </div>
-            <h3>Retención & Logística E-Commerce</h3>
-            <p>
-              Análisis exploratorio de más de 5,000 transacciones para detección de cuellos de botella operativos.
-            </p>
-            <div class="tech-tags-list" style="margin-bottom: 16px;">
-              <span class="tech-tag-pill">Python EDA</span>
-              <span class="tech-tag-pill">Matplotlib</span>
-              <span class="tech-tag-pill">Jupyter</span>
-            </div>
-          </div>
-          <div class="project-card-footer">
-            <span style="color:var(--text-muted); font-size:0.85rem;">IBM & Guayerd</span>
-            <a href="https://github.com/luzylay" target="_blank" class="link-btn" rel="noopener noreferrer">
-              Ver código <i data-lucide="arrow-up-right" style="width:16px;height:16px;"></i>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ==================== HABILIDADES & STACK ==================== -->
-    <section id="habilidades" class="section-wrap">
-      <div class="section-title-row">
-        <i data-lucide="terminal"></i>
-        <h2>Habilidades & Tecnologías</h2>
-      </div>
-
-      <div class="skills-cards-grid">
-        <div class="skill-box-dev">
-          <div class="skill-box-head">
-            <i data-lucide="code" style="width:22px;height:22px;"></i>
-            <h4>Frontend & Accesibilidad</h4>
-          </div>
-          <ul>
-            <li>React & Vite</li>
-            <li>JavaScript ES6+ & HTML5</li>
-            <li>WCAG 2.1 (AA/AAA) Universal</li>
-            <li>Progressive Web Apps (PWA)</li>
-            <li>Diseño Mobile-First</li>
-          </ul>
-        </div>
-
-        <div class="skill-box-dev">
-          <div class="skill-box-head">
-            <i data-lucide="cpu" style="width:22px;height:22px;"></i>
-            <h4>Backend & IA</h4>
-          </div>
-          <ul>
-            <li>Python (Flask) & Java</li>
-            <li>IA Conversacional & NLU</li>
-            <li>Máquinas de Estados Finitos</li>
-            <li>APIs REST & Text-to-Speech</li>
-            <li>Arquitectura Limpia</li>
-          </ul>
-        </div>
-
-        <div class="skill-box-dev">
-          <div class="skill-box-head">
-            <i data-lucide="database" style="width:22px;height:22px;"></i>
-            <h4>Datos & Herramientas</h4>
-          </div>
-          <ul>
-            <li>SQL (MySQL, PostgreSQL)</li>
-            <li>Pandas & NumPy (ETL)</li>
-            <li>Power BI & Looker Studio</li>
-            <li>Git & GitHub Versionado</li>
-            <li>Cloudflare Pages</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== SOBRE MÍ & EDUCACIÓN ==================== -->
+    <!-- ==================== 01 / SOBRE MÍ & PILARES ==================== -->
     <section id="sobre-mi" class="section-wrap">
-      <div class="section-title-row">
-        <i data-lucide="user"></i>
-        <h2>Sobre mí & Formación</h2>
+      <div class="section-header-line">
+        <span class="section-label">01 / Sobre mí</span>
+        <div class="section-rule"></div>
       </div>
 
-      <div class="project-card-dev" style="padding: 36px; margin-bottom: 24px;">
-        <p style="font-size: 1.15rem; color: var(--text-main); font-weight: 500;">
-          ✨ <strong>¿De qué sirve el avance de la tecnología si deja atrás a quienes más la necesitan?</strong> Mi propósito como ingeniera de software es convertir el código en una herramienta de inclusión real y tangible.
-        </p>
-        <p>
-          🎓 <strong>Educación:</strong> Estudiante de 9.° ciclo de Ingeniería de Software en la Universidad Tecnológica del Perú (UTP) • <strong>Beca de Excelencia Académica</strong> • Delegada de clase con más de 9 designaciones consecutivas.
-        </p>
-        <p>
-          📜 <strong>Certificaciones Destacadas:</strong> Big Data (140+ horas, Samsung Innovation Campus) • Fundamentos de IA (IBM SkillsBuild) • Beca Job Coaching PolyglotMap (2026).
-        </p>
+      <div class="about-cards-grid">
+        <div class="about-box">
+          <div class="about-box-icon"><i data-lucide="heart-handshake" style="width:28px;height:28px;"></i></div>
+          <h3>Enfoque Humano</h3>
+          <p>La tecnología solo tiene sentido si resuelve problemas reales. Priorizo la accesibilidad universal (WCAG 2.1) para que ninguna persona quede excluida.</p>
+        </div>
+
+        <div class="about-box">
+          <div class="about-box-icon"><i data-lucide="code" style="width:28px;height:28px;"></i></div>
+          <h3>Código Limpio & Rápido</h3>
+          <p>Desarrollo frontend y backend con arquitecturas mantenibles en React, Vite, Python y Flask, optimizando el rendimiento y la experiencia de usuario.</p>
+        </div>
+
+        <div class="about-box">
+          <div class="about-box-icon"><i data-lucide="database" style="width:28px;height:28px;"></i></div>
+          <h3>Datos con Propósito</h3>
+          <p>Modelado y análisis de datos (SQL, Pandas, Power BI) para entender patrones reales y fundamentar decisiones estratégicas con evidencia comprobada.</p>
+        </div>
       </div>
     </section>
 
-    <!-- ==================== LINKEDIN EMBEDS ==================== -->
-    <section id="impacto" class="section-wrap">
-      <div class="section-title-row">
-        <i data-lucide="share-2"></i>
-        <h2>Publicaciones en LinkedIn</h2>
+    <!-- ==================== 02 / EXPERIENCIA & RESULTADOS ==================== -->
+    <section id="experiencia" class="section-wrap">
+      <div class="section-header-line">
+        <span class="section-label">02 / Experiencia & Logros</span>
+        <div class="section-rule"></div>
       </div>
 
-      <div class="linkedin-grid-dev">
-        <!-- Post 1 -->
-        <div class="linkedin-card-dev">
+      <div class="exp-list-container">
+        
+        <!-- Hito 1: INSNSB -->
+        <div class="exp-row-item">
+          <div class="exp-num">01</div>
+          <div class="exp-content">
+            <h3>Desarrolladora Frontend & PWA (1.ᵉʳ Puesto)</h3>
+            <div class="exp-company">Hackathon INSNSB • PUCP & ESAN</div>
+            <p class="exp-text">
+              Diseño e implementación de la arquitectura frontend de una Progressive Web App (PWA) accesible para el consultorio CRED infantil (0 a 3 años) en el Instituto Nacional de Salud del Niño San Borja.
+            </p>
+            <div class="exp-metric-pill">
+              📊 Eliminó riesgos de error manual en recolección de datos y optimizó tiempos de consulta médica.
+            </div>
+            <div class="proj-tags">
+              <span class="proj-tag-item">React</span>
+              <span class="proj-tag-item">Vite</span>
+              <span class="proj-tag-item">PWA Mobile-First</span>
+              <span class="proj-tag-item">JavaScript</span>
+            </div>
+          </div>
+          <div class="exp-period">Ago 2026</div>
+        </div>
+
+        <!-- Hito 2: MINCETUR -->
+        <div class="exp-row-item">
+          <div class="exp-num">02</div>
+          <div class="exp-content">
+            <h3>Desarrolladora de IA Conversacional (Top 3 Nacional)</h3>
+            <div class="exp-company">Hackathon Sin Barreras • MINCETUR Perú (Entre 66 propuestas)</div>
+            <p class="exp-text">
+              Arquitectura completa del asistente inclusivo "Helen": backend en Flask, clasificador de intenciones NLU, máquina de estados finitos, API de geolocalización y módulo text-to-speech para turismo accesible.
+            </p>
+            <div class="exp-metric-pill">
+              👁️ Autonomía para personas con discapacidad visual y grounding confiable sin alucinaciones.
+            </div>
+            <div class="proj-tags">
+              <span class="proj-tag-item">Python</span>
+              <span class="proj-tag-item">Flask</span>
+              <span class="proj-tag-item">NLU</span>
+              <span class="proj-tag-item">Text-to-Speech</span>
+            </div>
+          </div>
+          <div class="exp-period">Jun 2026</div>
+        </div>
+
+        <!-- Hito 3: Samsung EPEN -->
+        <div class="exp-row-item">
+          <div class="exp-num">03</div>
+          <div class="exp-content">
+            <h3>Data Analyst & ETL Engineer (Capstone EPEN)</h3>
+            <div class="exp-company">Samsung Innovation Campus</div>
+            <p class="exp-text">
+              Construcción de pipeline ETL completo sobre microdatos del INEI con extracción, limpieza, validación y dashboards ejecutivos en Power BI y Looker Studio.
+            </p>
+            <div class="exp-metric-pill">
+              📈 Procesamiento de +10,000 registros para análisis de tendencias de empleo en Lima Metropolitana.
+            </div>
+            <div class="proj-tags">
+              <span class="proj-tag-item">Python</span>
+              <span class="proj-tag-item">SQL</span>
+              <span class="proj-tag-item">Power BI</span>
+              <span class="proj-tag-item">Looker Studio</span>
+            </div>
+          </div>
+          <div class="exp-period">May – Nov 2025</div>
+        </div>
+
+        <!-- Hito 4: IBM Analytics -->
+        <div class="exp-row-item">
+          <div class="exp-num">04</div>
+          <div class="exp-content">
+            <h3>Data Analyst — E-Commerce & Retención</h3>
+            <div class="exp-company">IBM SkillsBuild & Guayerd</div>
+            <p class="exp-text">
+              Análisis exploratorio de más de 5,000 transacciones. Descubrimiento mediante correlación estadística de que la baja satisfacción respondía a demoras logísticas y no al producto.
+            </p>
+            <div class="exp-metric-pill">
+              💡 Ahorro de semanas de desarrollo en hipótesis erróneas y 4 recomendaciones operativas.
+            </div>
+            <div class="proj-tags">
+              <span class="proj-tag-item">Python EDA</span>
+              <span class="proj-tag-item">Matplotlib</span>
+              <span class="proj-tag-item">Power BI</span>
+            </div>
+          </div>
+          <div class="exp-period">Sep – Dic 2025</div>
+        </div>
+
+        <!-- Hito 5: Hult Prize -->
+        <div class="exp-row-item">
+          <div class="exp-num">05</div>
+          <div class="exp-content">
+            <h3>Deputy Campus Director</h3>
+            <div class="exp-company">Hult Prize UTP 2026</div>
+            <p class="exp-text">
+              Liderazgo operativo en entorno 100% remoto y presencial, adaptación de rúbricas internacionales para jueces y coordinación de 25 asistentes y comités de seguridad.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag-item">Liderazgo</span>
+              <span class="proj-tag-item">Gestión de Eventos</span>
+            </div>
+          </div>
+          <div class="exp-period">Ene – Abr 2026</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 03 / PROYECTOS DESTACADOS ==================== -->
+    <section id="proyectos" class="section-wrap">
+      <div class="section-header-line">
+        <span class="section-label">03 / Proyectos</span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-pill active" onclick="filterCategory('all')">Todos</button>
+        <button class="filter-pill" onclick="filterCategory('salud')">Accesibilidad & Salud</button>
+        <button class="filter-pill" onclick="filterCategory('ia')">IA & Backend</button>
+        <button class="filter-pill" onclick="filterCategory('datos')">Data & Analytics</button>
+      </div>
+
+      <div class="projects-masonry">
+        
+        <div class="proj-card" data-cat="salud">
+          <div>
+            <span class="proj-badge">1.er Puesto Hackathon INSNSB</span>
+            <h3>PWA CRED "Crecer Mejor"</h3>
+            <p>Aplicación web progresiva móvil para el seguimiento y registro antropométrico de infantes (0-3 años) en el Niño San Borja.</p>
+            <div class="proj-tags">
+              <span class="proj-tag-item">React</span>
+              <span class="proj-tag-item">Vite</span>
+              <span class="proj-tag-item">PWA</span>
+              <span class="proj-tag-item">JavaScript</span>
+            </div>
+          </div>
+          <div class="proj-footer">
+            <span style="color:var(--subtle); font-size:0.85rem;">PUCP / ESAN (2026)</span>
+            <a href="https://github.com/luzylay" target="_blank" class="proj-link" rel="noopener noreferrer">
+              Ver código ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="proj-card" data-cat="ia">
+          <div>
+            <span class="proj-badge">Top 3 Nacional MINCETUR</span>
+            <h3>Helen — IA Turística Accesible</h3>
+            <p>Asistente conversacional con backend en Flask, clasificador NLU, geolocalización y síntesis de voz para personas con discapacidad visual.</p>
+            <div class="proj-tags">
+              <span class="proj-tag-item">Python</span>
+              <span class="proj-tag-item">Flask</span>
+              <span class="proj-tag-item">NLU</span>
+              <span class="proj-tag-item">TTS</span>
+            </div>
+          </div>
+          <div class="proj-footer">
+            <span style="color:var(--subtle); font-size:0.85rem;">Sin Barreras (2026)</span>
+            <a href="https://github.com/luzylay" target="_blank" class="proj-link" rel="noopener noreferrer">
+              Ver código ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="proj-card" data-cat="datos">
+          <div>
+            <span class="proj-badge">Big Data & Analytics</span>
+            <h3>Observatorio Laboral EPEN</h3>
+            <p>Pipeline ETL automatizado en Python sobre datasets del INEI (+10K registros) y dashboards en Power BI & Looker Studio.</p>
+            <div class="proj-tags">
+              <span class="proj-tag-item">Python</span>
+              <span class="proj-tag-item">SQL</span>
+              <span class="proj-tag-item">Power BI</span>
+              <span class="proj-tag-item">ETL</span>
+            </div>
+          </div>
+          <div class="proj-footer">
+            <span style="color:var(--subtle); font-size:0.85rem;">Samsung Innovation</span>
+            <a href="https://github.com/luzylay" target="_blank" class="proj-link" rel="noopener noreferrer">
+              Ver código ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="proj-card" data-cat="datos">
+          <div>
+            <span class="proj-badge">Business Intelligence</span>
+            <h3>Retención & Logística E-Commerce</h3>
+            <p>Análisis de correlación sobre +5,000 compras online identificando la causa raíz de la satisfacción de usuarios.</p>
+            <div class="proj-tags">
+              <span class="proj-tag-item">Python EDA</span>
+              <span class="proj-tag-item">Jupyter</span>
+              <span class="proj-tag-item">Power BI</span>
+            </div>
+          </div>
+          <div class="proj-footer">
+            <span style="color:var(--subtle); font-size:0.85rem;">IBM & Guayerd</span>
+            <a href="https://github.com/luzylay" target="_blank" class="proj-link" rel="noopener noreferrer">
+              Ver código ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 04 / TECNOLOGÍAS EXPLICADAS DE FORMA HUMANA ==================== -->
+    <section id="tecnologias" class="section-wrap">
+      <div class="section-header-line">
+        <span class="section-label">04 / Tecnologías & Herramientas</span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="tech-human-grid">
+        <div class="tech-item-card">
+          <div class="tech-code">JS / REACT</div>
+          <h4>Frontend Accesible</h4>
+          <p>Construye interfaces rápidas, móviles y fáciles de usar para cualquier persona.</p>
+        </div>
+
+        <div class="tech-item-card">
+          <div class="tech-code">PYTHON / FLASK</div>
+          <h4>Backend & IA</h4>
+          <p>Automatiza tareas, conecta APIs REST y crea asistentes de voz con procesamiento de lenguaje natural.</p>
+        </div>
+
+        <div class="tech-item-card">
+          <div class="tech-code">SQL / PANDAS</div>
+          <h4>Bases de Datos & ETL</h4>
+          <p>Extrae, limpia y modela miles de registros para convertirlos en información útil.</p>
+        </div>
+
+        <div class="tech-item-card">
+          <div class="tech-code">POWER BI / LOOKER</div>
+          <h4>Business Intelligence</h4>
+          <p>Transforma métricas complejas en tableros visuales claros para toma de decisiones.</p>
+        </div>
+
+        <div class="tech-item-card">
+          <div class="tech-code">WCAG 2.1</div>
+          <h4>Accesibilidad Universal</h4>
+          <p>Garantiza que el software funcione con lectores de pantalla, alto contraste y navegación por teclado.</p>
+        </div>
+
+        <div class="tech-item-card">
+          <div class="tech-code">GIT / CLOUDFLARE</div>
+          <h4>Despliegue & Código</h4>
+          <p>Versionado colaborativo seguro y alojamiento global de alta velocidad y disponibilidad.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 05 / LINKEDIN EMBEDS ==================== -->
+    <section id="impacto" class="section-wrap">
+      <div class="section-header-line">
+        <span class="section-label">05 / Trayectoria & LinkedIn</span>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="linkedin-row-container">
+        <div class="linkedin-embed-box">
           <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7498032689288073216?collapsed=1"
                   height="627" width="504" frameborder="0" allowfullscreen
                   title="Ganamos el 1er puesto en Hackatón Niño San Borja"></iframe>
         </div>
 
-        <!-- Post 2 -->
-        <div class="linkedin-card-dev">
+        <div class="linkedin-embed-box">
           <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7474145608497500161?collapsed=1"
                   height="627" width="504" frameborder="0" allowfullscreen
                   title="Equipo destacado en Hackathon Sin Barreras MINCETUR"></iframe>
         </div>
 
-        <!-- Post 3 -->
-        <div class="linkedin-card-dev">
+        <div class="linkedin-embed-box">
           <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7420281179368501248?collapsed=1"
                   height="627" width="504" frameborder="0" allowfullscreen
                   title="Deputy Campus Director en Hult Prize"></iframe>
@@ -1183,18 +1241,18 @@
       </div>
     </section>
 
-    <!-- ==================== BANNER FINAL CAL.COM ==================== -->
-    <section class="cta-banner-dev">
-      <h2>¿Conversamos sobre tu próximo proyecto?</h2>
-      <p>Hablemos sobre desarrollo de software accesible, pipelines de datos o cómo crear tecnología sin barreras.</p>
+    <!-- ==================== BANNER FINAL ==================== -->
+    <section class="contact-banner">
+      <h2>¿Iniciamos una conversación?</h2>
+      <p>Hablemos sobre desarrollo de software accesible, pipelines de datos o cómo construir herramientas inclusivas.</p>
       
-      <div class="cta-buttons-wrap">
-        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-action-white" rel="noopener noreferrer">
-          <i data-lucide="calendar" style="width:18px;height:18px;"></i> Agendar 30 min en Cal.com
+      <div class="contact-btns">
+        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="pill-btn primary" rel="noopener noreferrer">
+          <i data-lucide="calendar" style="width:17px;height:17px;"></i> Agendar 30 min en Cal.com
         </a>
 
-        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="btn-action-white" style="background: rgba(255,255,255,0.15); color:#FFFFFF !important; border:1px solid rgba(255,255,255,0.35);">
-          <i data-lucide="download" style="width:18px;height:18px;"></i> Descargar CV
+        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="pill-btn">
+          <i data-lucide="download" style="width:17px;height:17px;"></i> Descargar CV
         </a>
       </div>
     </section>
@@ -1204,17 +1262,17 @@
   <!-- ==================== FOOTER ==================== -->
   <footer>
     <div class="container">
-      <div class="footer-dock">
-        <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer"><i data-lucide="github" style="width:16px;height:16px;"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer"><i data-lucide="linkedin" style="width:16px;height:16px;"></i> LinkedIn</a>
-        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" rel="noopener noreferrer"><i data-lucide="calendar" style="width:16px;height:16px;"></i> Cal.com</a>
-        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx"><i data-lucide="file-text" style="width:16px;height:16px;"></i> CV</a>
+      <div class="footer-links">
+        <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer"><i data-lucide="github" style="width:16px;"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer"><i data-lucide="linkedin" style="width:16px;"></i> LinkedIn</a>
+        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" rel="noopener noreferrer"><i data-lucide="calendar" style="width:16px;"></i> Cal.com</a>
+        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx"><i data-lucide="file-text" style="width:16px;"></i> CV</a>
       </div>
-      <p>© 2026 Lady Luz Loayza Rodriguez • Diseñado con inspiración en portafolios dev modernos y accesibilidad universal.</p>
+      <p>© 2026 Lady Luz Loayza Rodriguez • Estructura accesible y natural con estándares de diseño moderno.</p>
     </div>
   </footer>
 
-  <!-- ==================== JAVASCRIPT ==================== -->
+  <!-- ==================== SCRIPTS ==================== -->
   <script>
     // Inicializar iconos
     lucide.createIcons();
@@ -1243,7 +1301,7 @@
       lucide.createIcons();
     }
 
-    // 2. AJUSTADOR DE TAMAÑO DE LETRA (Accesibilidad para la vista)
+    // 2. AJUSTADOR DE TAMAÑO DE LETRA (Accesibilidad visual)
     let isLargeFont = localStorage.getItem('largeFont') === 'true';
     if (isLargeFont) {
       document.documentElement.style.setProperty('--font-scale', '1.18rem');
@@ -1262,6 +1320,22 @@
         localStorage.setItem('largeFont', 'false');
       }
     });
+
+    // 3. FILTROS DE CATEGORÍAS
+    function filterCategory(cat) {
+      const pills = document.querySelectorAll('.filter-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const cards = document.querySelectorAll('.proj-card[data-cat]');
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
   </script>
 </body>
 </html>
