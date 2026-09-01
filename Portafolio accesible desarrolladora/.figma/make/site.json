@@ -1,0 +1,10 @@
+{
+  "description": "Showcases a software developer's work with clear, friendly language and visuals to engage non-technical audiences and highlight projects accessibly.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

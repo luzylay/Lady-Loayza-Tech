@@ -3,37 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portafolio profesional de Lady Luz Loayza Rodriguez — Desarrolladora de Software, Datos & Accesibilidad Tecnológica. Ganadora Hackathon INSNSB & Top 3 MINCETUR." />
+  <meta name="description" content="Portafolio profesional de Lady Luz Loayza Rodriguez — Desarrolladora de software, datos y accesibilidad universal. Ganadora 1.er puesto Hackathon INSNSB & Top 3 MINCETUR." />
   <meta name="author" content="Lady Luz Loayza Rodriguez" />
-  <meta property="og:title" content="Lady Luz Loayza Rodriguez | Software Engineer & Accessibility" />
-  <meta property="og:description" content="Construyendo software accesible, útil y rápido para todo el mundo." />
+  <meta property="og:title" content="Lady Luz Loayza Rodriguez | Desarrolladora de Software" />
+  <meta property="og:description" content="Construyo apps y sistemas de software útiles, rápidos y accesibles para todo el mundo." />
   <meta property="og:image" content="./assets/profile_hd.png" />
   <meta property="og:type" content="website" />
   <title>Lady Luz Loayza — Desarrolladora de Software</title>
 
-  <!-- Google Fonts: Outfit (900w) & DM Mono -->
+  <!-- Google Fonts: Outfit (300-900w) & DM Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
-       DESIGN TOKENS & ESTÉTICA DARK MODE ESTRICTA
+       VARIABLES Y DESIGN TOKENS (ESTILO PORTAFOLIO ACCESIBLE DESARROLLADORA)
        ========================================================================== */
     :root {
       --ink: #0c0c0f;
       --ink2: #13131a;
-      --ink3: #1a1a24;
-      --ink-card: #14141c;
+      --ink3: #1c1c26;
       --lime: #c4f135;
-      --lime-soft: rgba(196, 241, 53, 0.12);
-      --lime-glow: rgba(196, 241, 53, 0.25);
       --snow: #f0f0f5;
-      --mist: #8c8c9e;
+      --mist: #72728a;
+      --mist2: #4a4a60;
       --border: #1e1e2e;
-      --border-light: rgba(255, 255, 255, 0.08);
-
-      --font-display: 'Outfit', -apple-system, sans-serif;
+      --font-display: 'Outfit', sans-serif;
       --font-mono: 'DM Mono', monospace;
     }
 
@@ -41,18 +37,21 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      scrollbar-width: thin;
+      scrollbar-color: #252525 transparent;
     }
 
     html {
       scroll-behavior: smooth;
-      background-color: var(--ink);
+      background: var(--ink);
     }
 
     body {
-      background-color: var(--ink);
+      background: var(--ink);
       color: var(--snow);
       font-family: var(--font-display);
-      line-height: 1.65;
+      min-height: 100vh;
+      line-height: 1.6;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
@@ -62,7 +61,6 @@
       color: var(--ink);
     }
 
-    /* Scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -70,263 +68,35 @@
       background: var(--ink);
     }
     ::-webkit-scrollbar-thumb {
-      background: var(--ink3);
+      background: var(--border);
       border-radius: 3px;
     }
     ::-webkit-scrollbar-thumb:hover {
       background: var(--lime);
     }
 
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .mono {
-      font-family: var(--font-mono);
-    }
-
-    /* ==========================================================================
-       SECTION LABELS CON LÍNEA CONTINUA
-       ========================================================================== */
-    .section-label-wrap {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 40px;
-    }
-
-    .section-label-text {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--lime);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      font-weight: 500;
-    }
-
-    .section-label-line {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ==========================================================================
-       NAVBAR MINIMAL
-       ========================================================================== */
-    header.site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(12, 12, 15, 0.88);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-      height: 66px;
-      display: flex;
-      align-items: center;
-      transition: background 0.3s ease;
-    }
-
-    .nav-inner {
-      width: 100%;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand-title {
-      font-size: 1.15rem;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      color: var(--snow);
-      text-decoration: none;
-    }
-
-    .brand-title span {
-      color: var(--lime);
-    }
-
-    .nav-links-row {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-links-row a {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--mist);
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    .nav-links-row a:hover {
-      color: var(--lime);
-    }
-
-    .nav-cta-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn-lime {
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -50px;
+      left: 16px;
       background: var(--lime);
       color: var(--ink);
-      padding: 9px 20px;
-      font-weight: 800;
-      font-size: 0.85rem;
-      text-decoration: none;
-      border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: opacity 0.15s ease, transform 0.15s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-lime:hover {
-      opacity: 0.88;
-      transform: translateY(-1px);
-    }
-
-    .btn-glass {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border);
-      color: var(--snow);
-      padding: 9px 18px;
+      padding: 8px 18px;
       font-weight: 700;
-      font-size: 0.85rem;
-      text-decoration: none;
       border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.15s ease;
-    }
-
-    .btn-glass:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: var(--mist);
-      transform: translateY(-1px);
-    }
-
-    .btn-border {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--mist);
-      padding: 9px 16px;
-      font-weight: 700;
-      font-size: 0.85rem;
+      z-index: 9999;
+      transition: top 0.2s ease;
       text-decoration: none;
-      border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.15s ease;
-    }
-
-    .btn-border:hover {
-      border-color: var(--lime);
-      color: var(--lime);
-      transform: translateY(-1px);
-    }
-
-    .nav-burger-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--snow);
-      cursor: pointer;
-      padding: 6px;
-    }
-
-    /* Mobile Drawer */
-    .mobile-menu-drawer {
-      display: none;
-      position: fixed;
-      top: 66px;
-      left: 0;
-      right: 0;
-      background: var(--ink2);
-      border-bottom: 1px solid var(--border);
-      padding: 24px;
-      z-index: 999;
-    }
-
-    .mobile-menu-drawer.open {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .mobile-menu-drawer a {
       font-family: var(--font-mono);
-      font-size: 0.9rem;
-      color: var(--snow);
-      text-decoration: none;
+      font-size: 0.8rem;
+    }
+    .skip-link:focus {
+      top: 16px;
     }
 
-    /* ==========================================================================
-       HERO FULL-VIEWPORT: FOTO A SANGRE COMPLETA & GRADIENTE EN CAPAS
-       ========================================================================== */
-    .hero-fullscreen {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      overflow: hidden;
-      padding-top: 80px;
-    }
-
-    .hero-bg-photo {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .hero-bg-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 72% top;
-    }
-
-    .hero-gradient-overlay {
-      position: absolute;
-      inset: 0;
-      background: 
-        linear-gradient(105deg, var(--ink) 0%, rgba(12,12,15,0.94) 35%, rgba(26,18,12,0.65) 60%, rgba(58,28,10,0.12) 85%, transparent 100%),
-        linear-gradient(to top, var(--ink) 0%, rgba(12,12,15,0.85) 20%, rgba(12,12,15,0.2) 48%, transparent 75%),
-        linear-gradient(to bottom, rgba(12,12,15,0.6) 0%, transparent 22%);
-    }
-
-    .hero-content-wrap {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 24px 60px;
-      display: flex;
-      align-items: flex-end;
-    }
-
-    .hero-split-layout {
+    /* Utility Layouts */
+    .hero-split {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
@@ -334,1142 +104,711 @@
       width: 100%;
     }
 
-    /* Left Side: Name + Sub-link */
-    .hero-left-col {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .hero-lead-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 24px;
-      text-decoration: none;
-      color: rgba(240, 240, 245, 0.45);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      transition: color 0.15s ease;
-    }
-
-    .hero-lead-link:hover {
-      color: var(--lime);
-    }
-
-    .hero-giant-heading {
-      font-weight: 900;
-      font-size: clamp(3.2rem, 7.2vw, 6.5rem);
-      line-height: 0.88;
-      letter-spacing: -0.05em;
-      color: var(--snow);
-      margin: 0;
-    }
-
-    .hero-giant-heading span {
-      color: var(--lime);
-    }
-
-    /* Right Side: Role, Natural Description, CTAs, Stats */
-    .hero-right-col {
-      display: flex;
-      flex-direction: column;
-      padding-bottom: 6px;
-    }
-
-    .hero-role-label {
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      color: var(--lime);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      font-weight: 500;
-    }
-
-    .hero-narrative {
-      font-size: clamp(0.95rem, 1.6vw, 1.05rem);
-      color: rgba(240, 240, 245, 0.7);
-      line-height: 1.82;
-      margin-bottom: 28px;
-    }
-
-    .hero-narrative strong {
-      color: var(--snow);
-      font-weight: 700;
-    }
-
-    .hero-cta-buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
-    }
-
-    .hero-stats-row {
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-    }
-
-    .stat-metric-num {
-      font-weight: 900;
-      font-size: 1.55rem;
-      color: var(--lime);
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-
-    .stat-metric-desc {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--mist);
-      margin-top: 4px;
-      line-height: 1.35;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    /* ==========================================================================
-       01 / SOBRE MÍ (GRID DE 1PX GAP CON FONDO #1e1e2e)
-       ========================================================================== */
-    .section-wrap {
-      padding: 90px 0;
-    }
-
-    .about-lead-intro {
-      font-size: 1.25rem;
-      color: var(--snow);
-      font-weight: 500;
-      line-height: 1.8;
-      margin-bottom: 36px;
-      max-width: 900px;
-    }
-
-    .table-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
     }
 
-    .grid-cell-card {
-      background: var(--ink-card);
-      padding: 32px 26px;
-      transition: background 0.15s ease;
-    }
-
-    .grid-cell-card:hover {
-      background: var(--ink3);
-    }
-
-    .cell-icon-wrap {
-      color: var(--lime);
-      margin-bottom: 16px;
-    }
-
-    .cell-heading {
-      font-size: 1.18rem;
-      font-weight: 700;
-      color: var(--snow);
-      margin-bottom: 8px;
-    }
-
-    .cell-body-text {
-      font-size: 0.95rem;
-      color: var(--mist);
-      line-height: 1.7;
-    }
-
-    /* ==========================================================================
-       02 / EXPERIENCIA (TABLA NUMERADA 3 COLUMNAS CON 1PX GAP)
-       ========================================================================== */
-    .exp-table-group {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .exp-table-row {
-      background: var(--ink-card);
-      padding: 28px 32px;
+    .exp-row {
       display: grid;
-      grid-template-columns: 72px 1fr 130px;
+      grid-template-columns: 72px 1fr 120px;
       gap: 0 20px;
       align-items: start;
-      transition: background 0.15s ease;
     }
 
-    .exp-table-row:hover {
-      background: var(--ink3);
-    }
+    .exp-period-col { display: block; }
+    .exp-period-inline { display: none; }
 
-    .exp-col-index {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--lime);
-      font-weight: 600;
-    }
-
-    .exp-col-main h3 {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--snow);
-      margin-bottom: 2px;
-    }
-
-    .exp-role-company {
-      font-size: 0.92rem;
-      color: var(--lime);
-      font-weight: 600;
-      margin-bottom: 10px;
-      font-family: var(--font-mono);
-    }
-
-    .exp-role-desc {
-      font-size: 0.98rem;
-      color: var(--mist);
-      line-height: 1.72;
-      margin-bottom: 12px;
-    }
-
-    .exp-metric-highlight {
-      background: var(--lime-soft);
-      border-left: 2px solid var(--lime);
-      padding: 8px 14px;
-      border-radius: 0 4px 4px 0;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--snow);
-      margin-bottom: 12px;
-    }
-
-    .pill-tags-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .tag-mono-pill {
-      font-family: var(--font-mono);
-      font-size: 0.67rem;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: var(--ink3);
-      color: var(--mist);
-      border: 1px solid var(--border);
-      white-space: nowrap;
-    }
-
-    .exp-col-period {
-      font-family: var(--font-mono);
-      font-size: 0.76rem;
-      color: var(--mist);
-      text-align: right;
-    }
-
-    .exp-period-inline {
-      display: none;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--lime);
-      margin-bottom: 6px;
-    }
-
-    /* ==========================================================================
-       03 / PROYECTOS (FILTROS + CARDS CON SCREENSHOT / DEMO)
-       ========================================================================== */
-    .filter-pills-bar {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
-    }
-
-    .category-filter-btn {
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      padding: 6px 16px;
-      border-radius: 999px;
-      background: var(--ink-card);
-      border: 1px solid var(--border);
-      color: var(--mist);
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    .category-filter-btn:hover, .category-filter-btn.active {
-      background: var(--lime);
-      color: var(--ink);
-      border-color: var(--lime);
-      font-weight: 700;
-    }
-
-    .projects-grid-auto {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 16px;
-    }
-
-    .project-card-tile {
-      background: var(--ink-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .project-card-tile:hover {
-      border-color: #4a4a60;
-      transform: translateY(-3px);
-    }
-
-    .proj-badge-mono {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--lime);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .project-card-tile h3 {
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-      color: var(--snow);
-      font-weight: 800;
-    }
-
-    .project-card-tile p {
-      font-size: 0.94rem;
-      color: var(--mist);
-      line-height: 1.68;
-      margin-bottom: 16px;
-    }
-
-    .project-tile-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
-    }
-
-    .proj-code-btn {
-      font-family: var(--font-mono);
-      font-size: 0.76rem;
-      color: var(--lime);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-weight: 600;
-      transition: gap 0.15s ease;
-    }
-
-    .proj-code-btn:hover {
-      gap: 8px;
-    }
-
-    /* ==========================================================================
-       04 / TECNOLOGÍAS (GRID 3 COL CON CÓDIGO MONO EN LIME)
-       ========================================================================== */
-    .tech-table-3col {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .tech-cell {
-      background: var(--ink-card);
-      padding: 24px;
-      transition: background 0.15s ease;
-    }
-
-    .tech-cell:hover {
-      background: var(--ink3);
-    }
-
-    .tech-code-mono {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--lime);
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .tech-cell h4 {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: var(--snow);
-      margin-bottom: 4px;
-    }
-
-    .tech-cell p {
-      font-size: 0.88rem;
-      color: var(--mist);
-      line-height: 1.55;
-    }
-
-    /* ==========================================================================
-       05 / LINKEDIN EMBEDS
-       ========================================================================== */
-    .linkedin-embeds-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 16px;
-      justify-items: center;
-    }
-
-    .linkedin-frame-box {
-      width: 100%;
-      max-width: 504px;
-      background: var(--ink-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px;
-      overflow: hidden;
-    }
-
-    .linkedin-frame-box iframe {
-      width: 100%;
-      border-radius: 6px;
-    }
-
-    /* ==========================================================================
-       06 / CONTACTO (HEADLINE IZQ + BOTONES APILADOS, DER 2X2 INFO GRID)
-       ========================================================================== */
-    .contact-split-layout {
+    .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
       align-items: start;
     }
 
-    .contact-left-col h2 {
-      font-size: 2.8rem;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 1.05;
-      margin-bottom: 14px;
-    }
-
-    .contact-left-col p {
-      font-size: 1.05rem;
-      color: var(--mist);
-      line-height: 1.75;
-      margin-bottom: 28px;
-    }
-
-    .contact-stacked-btns {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 320px;
-    }
-
-    .contact-2x2-grid {
+    .contact-info-panel {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
     }
 
-    .contact-card-cell {
-      background: var(--ink-card);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 130px;
-      transition: background 0.15s ease;
-      text-decoration: none;
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
     }
 
-    .contact-card-cell:hover {
-      background: var(--ink3);
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
     }
 
-    .contact-card-icon {
-      color: var(--lime);
-      margin-bottom: 12px;
+    .nav-links { display: flex; gap: 32px; }
+    .nav-cta { display: inline-block; }
+    .nav-burger { display: none; }
+    .scroll-cue { display: flex; }
+
+    /* Interactive States & Micro-interactions */
+    .project-card {
+      transition: border-color 0.2s, transform 0.22s;
+    }
+    .project-card:hover {
+      border-color: #4a4a60 !important;
+      transform: translateY(-4px);
+    }
+    .project-card:hover .card-img {
+      transform: scale(1.04);
+    }
+    .card-img {
+      transition: transform 0.4s;
+    }
+    .tech-card {
+      transition: background 0.15s;
+    }
+    .tech-card:hover {
+      background: var(--ink3) !important;
+    }
+    .about-card {
+      transition: background 0.15s;
+    }
+    .about-card:hover {
+      background: var(--ink3) !important;
+    }
+    .exp-row-wrap {
+      transition: background 0.15s;
+    }
+    .exp-row-wrap:hover {
+      background: var(--ink2);
+    }
+    .contact-card {
+      transition: background 0.15s;
+    }
+    .contact-card:hover {
+      background: var(--ink3) !important;
     }
 
-    .contact-card-label {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--mist);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+    .dot-pulse {
+      animation: pulse-dot 2s ease-in-out infinite;
     }
 
-    .contact-card-val {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--snow);
-      margin-top: 2px;
-    }
-
-    /* Footer */
-    footer.site-footer {
-      border-top: 1px solid var(--border);
-      padding: 40px 0;
-      margin-top: 60px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--mist);
-      font-family: var(--font-mono);
-    }
-
-    /* ==========================================================================
-       RESPONSIVE DESIGN (REAL MEDIA QUERIES)
-       ========================================================================== */
+    /* Media Queries */
     @media (max-width: 768px) {
-      .hero-split-layout {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-      .table-grid-3,
-      .tech-table-3col,
-      .contact-split-layout {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      .exp-table-row {
-        grid-template-columns: 48px 1fr;
-      }
-      .exp-col-period {
-        display: none;
-      }
-      .exp-period-inline {
-        display: block;
-      }
-      .nav-links-row,
-      .nav-cta-group .btn-glass,
-      .nav-cta-group .btn-border {
-        display: none;
-      }
-      .nav-burger-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .hero-fullscreen {
-        min-height: auto;
-        padding-top: 100px;
-        padding-bottom: 50px;
-      }
-      .hero-giant-heading {
-        font-size: 3.4rem;
-      }
-      .hero-stats-row {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
+      .hero-split { grid-template-columns: 1fr; gap: 28px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .exp-row { grid-template-columns: 48px 1fr; }
+      .exp-period-col { display: none; }
+      .exp-period-inline { display: block; }
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contact-info-panel { grid-template-columns: 1fr 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .tech-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-burger { display: flex; }
+      .scroll-cue { display: none; }
     }
 
     @media (max-width: 480px) {
-      .contact-2x2-grid {
-        grid-template-columns: 1fr;
-      }
-      .projects-grid-auto {
-        grid-template-columns: 1fr;
-      }
+      .tech-grid { grid-template-columns: 1fr; }
+      .contact-info-panel { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ==================== HEADER & NAV ==================== -->
-  <header class="site-header">
-    <div class="nav-inner">
-      <a href="#" class="brand-title">
-        lady loayza<span>.</span>
+  <!-- Enlace accesible para lectores de pantalla -->
+  <a href="#hero" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- ==================== ── NAV ── ==================== -->
+  <header id="siteHeader" style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.3s, border-color 0.3s; background: transparent; border-bottom: 1px solid transparent;">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; alignItems: center; justify-content: space-between; gap: 16px; align-items: center;">
+      <a href="#hero" style="font-weight: 800; font-size: 1.05rem; letter-spacing: -0.02em; text-decoration: none; color: var(--snow); flex-shrink: 0;">
+        lady loayza<span style="color: var(--lime);">.</span>
       </a>
 
-      <nav class="nav-links-row" aria-label="Navegación principal">
-        <a href="#sobre">Sobre mí</a>
-        <a href="#experiencia">Experiencia</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#tecnologias">Tecnologías</a>
-        <a href="#contacto">Contacto</a>
+      <nav class="nav-links">
+        <a href="#sobre" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--mist); text-decoration: none; letter-spacing: 0.04em; transition: color 0.15s;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--lime')" onmouseleave="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Sobre mí</a>
+        <a href="#experiencia" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--mist); text-decoration: none; letter-spacing: 0.04em; transition: color 0.15s;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--lime')" onmouseleave="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Experiencia</a>
+        <a href="#proyectos" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--mist); text-decoration: none; letter-spacing: 0.04em; transition: color 0.15s;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--lime')" onmouseleave="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Proyectos</a>
+        <a href="#tecnologias" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--mist); text-decoration: none; letter-spacing: 0.04em; transition: color 0.15s;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--lime')" onmouseleave="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Tecnologías</a>
+        <a href="#contacto" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--mist); text-decoration: none; letter-spacing: 0.04em; transition: color 0.15s;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--lime')" onmouseleave="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Contacto</a>
       </nav>
 
-      <div class="nav-cta-group">
-        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="btn-glass" title="Descargar Currículum">
-          <!-- Icon FileText SVG stroke 1.8px -->
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          CV
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="nav-cta" style="background: rgba(255,255,255,0.06); border: 1px solid var(--border); color: var(--snow); padding: 8px 14px; font-weight: 700; font-size: 0.78rem; text-decoration: none; border-radius: 7px; transition: background 0.15s;">
+          Descargar CV
         </a>
-        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-lime" rel="noopener noreferrer">
+        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="nav-cta" style="background: var(--lime); color: var(--ink); padding: 9px 18px; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; flex-shrink: 0; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">
           Hablemos
         </a>
-        <button class="nav-burger-btn" id="burgerToggle" aria-label="Abrir menú de navegación">
-          <!-- Icon Menu SVG stroke 1.8px -->
+        <button class="nav-burger" id="burgerBtn" style="background: none; border: none; color: var(--snow); cursor: pointer; padding: 4px; align-items: center; justify-content: center;" aria-label="Abrir menú">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
       </div>
     </div>
 
-    <!-- Mobile Drawer -->
-    <div class="mobile-menu-drawer" id="mobileDrawer">
-      <a href="#sobre" onclick="closeDrawer()">Sobre mí</a>
-      <a href="#experiencia" onclick="closeDrawer()">Experiencia</a>
-      <a href="#proyectos" onclick="closeDrawer()">Proyectos</a>
-      <a href="#tecnologias" onclick="closeDrawer()">Tecnologías</a>
-      <a href="#contacto" onclick="closeDrawer()">Contacto</a>
-      <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" style="color:var(--lime);">Descargar CV (.docx)</a>
+    <!-- Menú Móvil Desplegable -->
+    <div id="mobileDrawer" style="display: none; background: var(--ink2); border-top: 1px solid var(--border); padding: 20px 24px; flex-direction: column; gap: 16px;">
+      <a href="#sobre" onclick="closeDrawer()" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--mist); text-decoration: none;">Sobre mí</a>
+      <a href="#experiencia" onclick="closeDrawer()" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--mist); text-decoration: none;">Experiencia</a>
+      <a href="#proyectos" onclick="closeDrawer()" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--mist); text-decoration: none;">Proyectos</a>
+      <a href="#tecnologias" onclick="closeDrawer()" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--mist); text-decoration: none;">Tecnologías</a>
+      <a href="#contacto" onclick="closeDrawer()" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--mist); text-decoration: none;">Contacto</a>
+      <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--lime); text-decoration: none;">Descargar CV (.docx)</a>
+      <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" style="margin-top: 4px; background: var(--lime); color: var(--ink); padding: 12px 18px; font-weight: 700; font-size: 0.85rem; text-decoration: none; border-radius: 7px; text-align: center;">Hablemos (Cal.com)</a>
     </div>
   </header>
 
-  <!-- ==================== HERO FULL-VIEWPORT ==================== -->
-  <section class="hero-fullscreen">
-    <div class="hero-bg-photo">
-      <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez — Desarrolladora de software" />
-      <div class="hero-gradient-overlay"></div>
+  <!-- ==================== ── HERO ── ==================== -->
+  <section id="hero" style="position: relative; min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end;">
+    <!-- Capas de Gradientes y Foto a Sangre Completa -->
+    <div style="position: absolute; inset: 0; z-index: 0;">
+      <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez trabajando como desarrolladora de software" style="width: 100%; height: 100%; object-fit: cover; object-position: 70% top;" />
+      <div style="position: absolute; inset: 0; background: linear-gradient(105deg, var(--ink) 0%, rgba(12,12,15,0.92) 30%, rgba(20,14,8,0.58) 58%, rgba(58,28,10,0.08) 82%, transparent 100%), linear-gradient(to top, var(--ink) 0%, rgba(12,12,15,0.8) 18%, rgba(12,12,15,0.25) 42%, transparent 70%);"></div>
+      <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 55% 70% at 70% 38%, rgba(165,85,30,0.18) 0%, transparent 65%); mix-blend-mode: screen;"></div>
+      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(12,12,15,0.5) 0%, transparent 20%);"></div>
     </div>
 
-    <div class="hero-content-wrap">
-      <div class="hero-split-layout">
-        
-        <!-- Izquierda: Solo Nombre Gigante + Link Contacto -->
-        <div class="hero-left-col">
-          <a href="#contacto" class="hero-lead-link">
-            ¿Tienes un proyecto? Hablemos primero ↗
+    <div style="position: relative; z-index: 10; width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 24px 64px; display: flex; align-items: flex-end; min-height: 100vh;">
+      <div class="hero-split">
+
+        <!-- LEFT — name -->
+        <div>
+          <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 28px; text-decoration: none; transition: opacity 0.2s;" onmouseenter="this.style.opacity='0.6'" onmouseleave="this.style.opacity='1'">
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: rgba(240,240,245,0.4); letter-spacing: 0.06em;">
+              ¿Tienes un proyecto? Hablemos primero →
+            </span>
           </a>
-          <h1 class="hero-giant-heading">
-            Hola,<br />
-            soy<br />
-            <span>Lady Luz.</span>
+          <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(3rem, 7.5vw, 7rem); lineHeight: 0.87; letter-spacing: -0.05em; color: var(--snow); margin: 0; line-height: 0.9;">
+            Hola,<br />soy<br />
+            <span style="color: var(--lime);">Lady Luz.</span>
           </h1>
         </div>
 
-        <!-- Derecha: Rol en Mono, Descripción, 3 Botones CTA, Stats -->
-        <div class="hero-right-col">
-          <div class="hero-role-label">
-            Desarrolladora de Software & Accesibilidad
-          </div>
-
-          <p class="hero-narrative">
-            Construyo aplicaciones web y sistemas de datos que la gente usa cada día. <strong>Útiles, rápidos y fáciles de entender</strong> — para todo el mundo, especialmente pensados para reducir la brecha de inclusión y devolver la autonomía a personas con discapacidad.
+        <!-- RIGHT — rol, descripción, CTAs, stats -->
+        <div style="display: flex; flex-direction: column; padding-bottom: 4px;">
+          <p style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--mist); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">
+            Desarrolladora de software & Accesibilidad
           </p>
-
-          <div class="hero-cta-buttons">
-            <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-lime" rel="noopener noreferrer">
-              <!-- Icon Calendar SVG stroke 1.8px -->
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Agendar llamada (Cal.com)
+          <p style="font-size: clamp(0.88rem, 1.6vw, 0.98rem); color: rgba(240,240,245,0.58); line-height: 1.82; margin-bottom: 28px;">
+            Construyo apps y páginas web que la gente usa cada día. <strong>Útiles, rápidas y fáciles de entender</strong> — para todo el mundo, no solo para quienes saben programar.
+          </p>
+          
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px;">
+            <a href="#proyectos" style="background: var(--lime); color: var(--ink); padding: 12px 22px; font-weight: 700; font-size: 0.86rem; text-decoration: none; border-radius: 8px; transition: opacity 0.15s; white-space: nowrap;" onmouseenter="this.style.opacity='0.84'" onmouseleave="this.style.opacity='1'">
+              Ver proyectos ↓
             </a>
-
-            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="btn-glass">
-              <!-- Icon Download SVG stroke 1.8px -->
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" style="background: rgba(255,255,255,0.07); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.11); color: var(--snow); padding: 12px 22px; font-weight: 600; font-size: 0.86rem; text-decoration: none; border-radius: 8px; transition: background 0.2s; white-space: nowrap;" onmouseenter="this.style.background='rgba(255,255,255,0.13)'" onmouseleave="this.style.background='rgba(255,255,255,0.07)'">
               Descargar CV
             </a>
-
-            <a href="https://github.com/luzylay" target="_blank" class="btn-border" rel="noopener noreferrer">
-              <!-- Icon Code SVG stroke 1.8px -->
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              GitHub
+            <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: rgba(240,240,245,0.45); padding: 12px 16px; font-weight: 600; font-size: 0.86rem; text-decoration: none; border-radius: 8px; transition: color 0.2s; white-space: nowrap;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.color='rgba(240,240,245,0.45)'">
+              LinkedIn ↗
             </a>
           </div>
 
           <!-- Stats en Lime -->
-          <div class="hero-stats-row">
+          <div style="display: flex; gap: 28px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap;">
             <div>
-              <div class="stat-metric-num">1.ᵉʳ Puesto</div>
-              <div class="stat-metric-desc">Hackathon INSNSB</div>
+              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.85rem; color: var(--lime); line-height: 1;">1.ᵉʳ</div>
+              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: rgba(240,240,245,0.32); margin-top: 5px; letter-spacing: 0.06em;">Hackathon INSNSB</div>
             </div>
             <div>
-              <div class="stat-metric-num">Top 3</div>
-              <div class="stat-metric-desc">Hackathon MINCETUR</div>
+              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.85rem; color: var(--lime); line-height: 1;">Top 3</div>
+              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: rgba(240,240,245,0.32); margin-top: 5px; letter-spacing: 0.06em;">MINCETUR Sin Barreras</div>
             </div>
             <div>
-              <div class="stat-metric-num">+10,000</div>
-              <div class="stat-metric-desc">Datos Procesados</div>
+              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.85rem; color: var(--lime); line-height: 1;">+10K</div>
+              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: rgba(240,240,245,0.32); margin-top: 5px; letter-spacing: 0.06em;">Datos Procesados</div>
             </div>
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <!-- Scroll Cue Indicator -->
+    <div class="scroll-cue" style="position: absolute; bottom: 28px; right: 28px; z-index: 10; flex-direction: column; align-items: center; gap: 8px;">
+      <div style="width: 1px; height: 40px; background: linear-gradient(to bottom, transparent, var(--lime));"></div>
+      <span style="font-family: var(--font-mono); font-size: 0.56rem; color: var(--lime); letter-spacing: 0.14em; writing-mode: vertical-rl; opacity: 0.6;">SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ==================== ── SOBRE MÍ ── ==================== -->
+  <section id="sobre" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
+    <!-- Section Label -->
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
+      <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">01 — Sobre mí</span>
+      <div style="flex: 1; height: 1px; background: var(--border);"></div>
+    </div>
+
+    <div style="margin-bottom: 32px;">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 3.5vw, 2.5rem); letter-spacing: -0.03em; color: var(--snow); margin-bottom: 14px; line-height: 1.1;">
+        ¿Qué hace exactamente una desarrolladora?
+      </h2>
+      <p style="color: var(--mist); line-height: 1.8; font-size: 0.93rem; max-width: 640px;">
+        Imagina que quieres construir una tienda. Necesitas arquitecto, albañil y electricista. Yo hago todo eso, pero en el mundo digital — desde el botón que aprietas hasta el sistema que guarda tu información de forma accesible.
+      </p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-card" style="background: var(--ink2); padding: 28px 24px; display: flex; flex-direction: column; gap: 14px;">
+        <span style="color: var(--lime);">
+          <!-- IconLayers -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </span>
+        <div style="font-weight: 700; color: var(--snow); font-size: 0.93rem; line-height: 1.3;">Diseño lo que ves</div>
+        <div style="color: var(--mist); font-size: 0.84rem; line-height: 1.65;">Colores, botones, menús — todo lo que aparece en pantalla y hace que sea fácil e intuitivo de usar para cualquier persona.</div>
+      </div>
+
+      <div class="about-card" style="background: var(--ink2); padding: 28px 24px; display: flex; flex-direction: column; gap: 14px;">
+        <span style="color: var(--lime);">
+          <!-- IconCode -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </span>
+        <div style="font-weight: 700; color: var(--snow); font-size: 0.93rem; line-height: 1.3;">Construyo lo que no ves</div>
+        <div style="color: var(--mist); font-size: 0.84rem; line-height: 1.65;">La lógica detrás de todo: que tu búsqueda funcione, que los datos se guarden seguros y que las respuestas lleguen al instante.</div>
+      </div>
+
+      <div class="about-card" style="background: var(--ink2); padding: 28px 24px; display: flex; flex-direction: column; gap: 14px;">
+        <span style="color: var(--lime);">
+          <!-- IconWrench -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </span>
+        <div style="font-weight: 700; color: var(--snow); font-size: 0.93rem; line-height: 1.3;">Inclusión & Accesibilidad</div>
+        <div style="color: var(--mist); font-size: 0.84rem; line-height: 1.65;">Adapto interfaces para personas con discapacidad visual o motora, asegurando que nadie quede atrás.</div>
       </div>
     </div>
   </section>
 
-  <main class="container">
-
-    <!-- ==================== SECCIÓN 1: SOBRE MÍ ==================== -->
-    <section id="sobre" class="section-wrap">
-      <div class="section-label-wrap">
-        <span class="section-label-text">01 / Sobre mí</span>
-        <div class="section-label-line"></div>
+  <!-- ==================== ── EXPERIENCIA ── ==================== -->
+  <section id="experiencia" style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
+      <!-- Section Label -->
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
+        <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">02 — Experiencia</span>
+        <div style="flex: 1; height: 1px; background: var(--border);"></div>
       </div>
 
-      <p class="about-lead-intro">
-        Estudiante de 9.° ciclo de Ingeniería de Software (UTP) con <strong>Beca de Excelencia Académica</strong> y más de 9 ciclos como delegada. Mi propósito es transformar el código en herramientas de inclusión real que solucionen problemas cotidianos y devuelvan autonomía a las personas.
-      </p>
-
-      <div class="table-grid-3">
-        <div class="grid-cell-card">
-          <div class="cell-icon-wrap">
-            <!-- Icon Globe SVG stroke 1.8px -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <h3 class="cell-heading">Enfoque Humano</h3>
-          <p class="cell-body-text">
-            Diseño tecnología accesible pensando en usuarios reales, facilitando la inclusión de personas con discapacidad en entornos educativos y laborales.
-          </p>
-        </div>
-
-        <div class="grid-cell-card">
-          <div class="cell-icon-wrap">
-            <!-- Icon Layers SVG stroke 1.8px -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          </div>
-          <h3 class="cell-heading">Software Rápido & Limpio</h3>
-          <p class="cell-body-text">
-            Construyo aplicaciones web progresivas (PWA) y arquitecturas backend (Python/Flask, React) que cargan al instante y son mantenibles.
-          </p>
-        </div>
-
-        <div class="grid-cell-card">
-          <div class="cell-icon-wrap">
-            <!-- Icon Bolt SVG stroke 1.8px -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <h3 class="cell-heading">Datos con Propósito</h3>
-          <p class="cell-body-text">
-            Pipelines ETL y dashboards en Power BI y Looker Studio para fundamentar decisiones con datos comprobables del mundo real.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== SECCIÓN 2: EXPERIENCIA ==================== -->
-    <section id="experiencia" class="section-wrap">
-      <div class="section-label-wrap">
-        <span class="section-label-text">02 / Experiencia & Logros</span>
-        <div class="section-label-line"></div>
-      </div>
-
-      <div class="exp-table-group">
-        
-        <!-- Fila 1: INSNSB -->
-        <div class="exp-table-row">
-          <div class="exp-col-index">01</div>
-          <div class="exp-col-main">
-            <span class="exp-period-inline">Ago 2026</span>
-            <h3>Desarrolladora Frontend & PWA (1.ᵉʳ Puesto)</h3>
-            <div class="exp-role-company">Hackathon INSNSB • PUCP & ESAN</div>
-            <p class="exp-role-desc">
-              Diseñé e implementé la arquitectura frontend de una Progressive Web App (PWA) accesible para el consultorio CRED infantil (0 a 3 años) en el Instituto Nacional de Salud del Niño San Borja.
-            </p>
-            <div class="exp-metric-highlight">
-              Eliminó errores de recolección manual de datos de enfermería y agilizó tiempos de atención médica.
-            </div>
-            <div class="pill-tags-row">
-              <span class="tag-mono-pill">React</span>
-              <span class="tag-mono-pill">Vite</span>
-              <span class="tag-mono-pill">PWA</span>
-              <span class="tag-mono-pill">JavaScript</span>
-              <span class="tag-mono-pill">Git</span>
-            </div>
-          </div>
-          <div class="exp-col-period">Ago 2026</div>
-        </div>
-
-        <!-- Fila 2: MINCETUR -->
-        <div class="exp-table-row">
-          <div class="exp-col-index">02</div>
-          <div class="exp-col-main">
-            <span class="exp-period-inline">Jun 2026</span>
-            <h3>Desarrolladora IA Conversacional & Backend (Top 3)</h3>
-            <div class="exp-role-company">Hackathon Sin Barreras • MINCETUR Perú (Entre 66 propuestas)</div>
-            <p class="exp-role-desc">
-              Diseñé la arquitectura completa del asistente Helen (Flask + clasificador NLU + máquina de estados finitos + text-to-speech + geolocalización) para personas con discapacidad visual en turismo.
-            </p>
-            <div class="exp-metric-highlight">
-              Garantizó grounding verificado sin alucinaciones y superó a 63 propuestas competidoras nacionales.
-            </div>
-            <div class="pill-tags-row">
-              <span class="tag-mono-pill">Python</span>
-              <span class="tag-mono-pill">Flask</span>
-              <span class="tag-mono-pill">NLU</span>
-              <span class="tag-mono-pill">TTS</span>
-              <span class="tag-mono-pill">APIs REST</span>
-            </div>
-          </div>
-          <div class="exp-col-period">Jun 2026</div>
-        </div>
-
-        <!-- Fila 3: Samsung EPEN -->
-        <div class="exp-table-row">
-          <div class="exp-col-index">03</div>
-          <div class="exp-col-main">
-            <span class="exp-period-inline">May – Nov 2025</span>
-            <h3>Data Analyst & ETL Engineer (Capstone EPEN)</h3>
-            <div class="exp-role-company">Samsung Innovation Campus</div>
-            <p class="exp-role-desc">
-              Construcción de pipeline ETL completo sobre microdatos del INEI con extracción, validación y tableros interactivos en Power BI y Looker Studio.
-            </p>
-            <div class="exp-metric-highlight">
-              Procesó más de 10,000 registros para visualización de tendencias de empleo en Lima Metropolitana.
-            </div>
-            <div class="pill-tags-row">
-              <span class="tag-mono-pill">Python</span>
-              <span class="tag-mono-pill">SQL</span>
-              <span class="tag-mono-pill">Power BI</span>
-              <span class="tag-mono-pill">Looker</span>
-            </div>
-          </div>
-          <div class="exp-col-period">May – Nov 2025</div>
-        </div>
-
-        <!-- Fila 4: IBM Analytics -->
-        <div class="exp-table-row">
-          <div class="exp-col-index">04</div>
-          <div class="exp-col-main">
-            <span class="exp-period-inline">Sep – Dic 2025</span>
-            <h3>Data Analyst — E-Commerce & Retención</h3>
-            <div class="exp-role-company">IBM SkillsBuild & Guayerd</div>
-            <p class="exp-role-desc">
-              Análisis exploratorio de más de 5,000 transacciones. Descubrimiento de que la baja satisfacción de clientes respondía a cuellos de botella logísticos.
-            </p>
-            <div class="exp-metric-highlight">
-              Ahorró semanas de desarrollo al equipo y formuló 4 recomendaciones operativas de alto impacto.
-            </div>
-            <div class="pill-tags-row">
-              <span class="tag-mono-pill">Python EDA</span>
-              <span class="tag-mono-pill">Jupyter</span>
-              <span class="tag-mono-pill">Power BI</span>
-            </div>
-          </div>
-          <div class="exp-col-period">Sep – Dic 2025</div>
-        </div>
-
-        <!-- Fila 5: Hult Prize -->
-        <div class="exp-table-row">
-          <div class="exp-col-index">05</div>
-          <div class="exp-col-main">
-            <span class="exp-period-inline">Ene – Abr 2026</span>
-            <h3>Deputy Campus Director</h3>
-            <div class="exp-role-company">Hult Prize UTP 2026</div>
-            <p class="exp-role-desc">
-              Estandarización de procesos operativos remotos, adaptación de rúbricas internacionales para jueces y gestión del evento presencial final.
-            </p>
-            <div class="pill-tags-row">
-              <span class="tag-mono-pill">Liderazgo</span>
-              <span class="tag-mono-pill">Gestión de Eventos</span>
-            </div>
-          </div>
-          <div class="exp-col-period">Ene – Abr 2026</div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ==================== SECCIÓN 3: PROYECTOS ==================== -->
-    <section id="proyectos" class="section-wrap">
-      <div class="section-label-wrap">
-        <span class="section-label-text">03 / Proyectos Destacados</span>
-        <div class="section-label-line"></div>
-      </div>
-
-      <div class="filter-pills-bar">
-        <button class="category-filter-btn active" onclick="filterProjects('all')">Todos</button>
-        <button class="category-filter-btn" onclick="filterProjects('salud')">Accesibilidad & Salud</button>
-        <button class="category-filter-btn" onclick="filterProjects('ia')">IA & Backend</button>
-        <button class="category-filter-btn" onclick="filterProjects('datos')">Data & Analytics</button>
-      </div>
-
-      <div class="projects-grid-auto">
-        
-        <div class="project-card-tile" data-cat="salud">
+      <!-- Fila 1 -->
+      <div class="exp-row-wrap" style="border-bottom: 1px solid var(--border); padding: 6px 10px; border-radius: 8px;">
+        <div class="exp-row" style="padding: 22px 0;">
           <div>
-            <span class="proj-badge-mono">1.er Puesto Hackathon INSNSB</span>
-            <h3>PWA CRED "Crecer Mejor"</h3>
-            <p>Aplicación web progresiva móvil para el registro y seguimiento nutricional de infantes en el Niño San Borja.</p>
-            <div class="pill-tags-row" style="margin-bottom: 16px;">
-              <span class="tag-mono-pill">React</span>
-              <span class="tag-mono-pill">Vite</span>
-              <span class="tag-mono-pill">PWA</span>
-              <span class="tag-mono-pill">JavaScript</span>
-            </div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); letter-spacing: 0.04em;">01</span>
+            <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-top: 8px;">Ago 2026</div>
           </div>
-          <div class="project-tile-footer">
-            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--mist);">PUCP / ESAN</span>
-            <a href="https://github.com/luzylay" target="_blank" class="proj-code-btn" rel="noopener noreferrer">
-              Ver código ↗
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card-tile" data-cat="ia">
           <div>
-            <span class="proj-badge-mono">Top 3 Nacional MINCETUR</span>
-            <h3>Helen — IA Turística Accesible</h3>
-            <p>Asistente conversacional con backend en Flask, clasificador NLU y síntesis de voz para personas con discapacidad visual.</p>
-            <div class="pill-tags-row" style="margin-bottom: 16px;">
-              <span class="tag-mono-pill">Python</span>
-              <span class="tag-mono-pill">Flask</span>
-              <span class="tag-mono-pill">NLU</span>
-              <span class="tag-mono-pill">TTS</span>
+            <div style="font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Desarrolladora Frontend & PWA (1.ᵉʳ Puesto)</div>
+            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--lime); margin-bottom: 4px;">Hackathon INSNSB • PUCP & ESAN</div>
+            <div class="exp-period-inline" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-bottom: 8px;">Ago 2026</div>
+            <p style="color: var(--mist); font-size: 0.86rem; line-height: 1.72; margin: 0 0 10px 0;">Diseño e implementación de Progressive Web App accesible para el consultorio CRED infantil (0 a 3 años) en el Niño San Borja. Digitalizó el seguimiento nutricional y eliminó errores manuales de enfermería.</p>
+            <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">React</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Vite</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">PWA</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">JavaScript</span>
             </div>
           </div>
-          <div class="project-tile-footer">
-            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--mist);">Sin Barreras</span>
-            <a href="https://github.com/luzylay" target="_blank" class="proj-code-btn" rel="noopener noreferrer">
-              Ver código ↗
-            </a>
-          </div>
+          <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-align: right; padding-top: 2px;">Ago 2026</div>
         </div>
+      </div>
 
-        <div class="project-card-tile" data-cat="datos">
+      <!-- Fila 2 -->
+      <div class="exp-row-wrap" style="border-bottom: 1px solid var(--border); padding: 6px 10px; border-radius: 8px;">
+        <div class="exp-row" style="padding: 22px 0;">
           <div>
-            <span class="proj-badge-mono">Big Data & Analytics</span>
-            <h3>Observatorio Laboral EPEN</h3>
-            <p>Pipeline ETL en Python sobre microdatos del INEI (+10K registros) y dashboards interactivos en Power BI y Looker.</p>
-            <div class="pill-tags-row" style="margin-bottom: 16px;">
-              <span class="tag-mono-pill">Python</span>
-              <span class="tag-mono-pill">SQL</span>
-              <span class="tag-mono-pill">Power BI</span>
-              <span class="tag-mono-pill">ETL</span>
-            </div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); letter-spacing: 0.04em;">02</span>
+            <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-top: 8px;">Jun 2026</div>
           </div>
-          <div class="project-tile-footer">
-            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--mist);">Samsung Innovation</span>
-            <a href="https://github.com/luzylay" target="_blank" class="proj-code-btn" rel="noopener noreferrer">
-              Ver código ↗
-            </a>
-          </div>
-        </div>
-
-        <div class="project-card-tile" data-cat="datos">
           <div>
-            <span class="proj-badge-mono">Business Intelligence</span>
-            <h3>Retención & Logística E-Commerce</h3>
-            <p>Análisis de correlación sobre +5,000 transacciones para detección y resolución de ineficiencias operativas.</p>
-            <div class="pill-tags-row" style="margin-bottom: 16px;">
-              <span class="tag-mono-pill">Python EDA</span>
-              <span class="tag-mono-pill">Jupyter</span>
-              <span class="tag-mono-pill">Power BI</span>
+            <div style="font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Desarrolladora IA Conversacional (Top 3 Nacional)</div>
+            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--lime); margin-bottom: 4px;">Hackathon Sin Barreras • MINCETUR (Entre 66 propuestas)</div>
+            <div class="exp-period-inline" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-bottom: 8px;">Jun 2026</div>
+            <p style="color: var(--mist); font-size: 0.86rem; line-height: 1.72; margin: 0 0 10px 0;">Arquitectura del asistente Helen con backend en Flask, clasificador NLU, geolocalización y síntesis de voz para turistas con discapacidad visual.</p>
+            <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Python</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Flask</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">NLU</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">TTS</span>
             </div>
           </div>
-          <div class="project-tile-footer">
-            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--mist);">IBM & Guayerd</span>
-            <a href="https://github.com/luzylay" target="_blank" class="proj-code-btn" rel="noopener noreferrer">
-              Ver código ↗
-            </a>
+          <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-align: right; padding-top: 2px;">Jun 2026</div>
+        </div>
+      </div>
+
+      <!-- Fila 3 -->
+      <div class="exp-row-wrap" style="border-bottom: 1px solid var(--border); padding: 6px 10px; border-radius: 8px;">
+        <div class="exp-row" style="padding: 22px 0;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); letter-spacing: 0.04em;">03</span>
+            <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-top: 8px;">May – Nov 2025</div>
+          </div>
+          <div>
+            <div style="font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Data Analyst & ETL (Capstone EPEN)</div>
+            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--lime); margin-bottom: 4px;">Samsung Innovation Campus</div>
+            <div class="exp-period-inline" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-bottom: 8px;">May – Nov 2025</div>
+            <p style="color: var(--mist); font-size: 0.86rem; line-height: 1.72; margin: 0 0 10px 0;">Pipeline ETL sobre microdatos del INEI con más de 10,000 registros procesados y tableros interactivos en Power BI y Looker Studio.</p>
+            <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Python</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Pandas</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Power BI</span>
+            </div>
+          </div>
+          <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-align: right; padding-top: 2px;">May – Nov 2025</div>
+        </div>
+      </div>
+
+      <!-- Fila 4 -->
+      <div class="exp-row-wrap" style="padding: 6px 10px; border-radius: 8px;">
+        <div class="exp-row" style="padding: 22px 0;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); letter-spacing: 0.04em;">04</span>
+            <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-top: 8px;">Ene – Abr 2026</div>
+          </div>
+          <div>
+            <div style="font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Deputy Campus Director</div>
+            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--lime); margin-bottom: 4px;">Hult Prize UTP 2026</div>
+            <div class="exp-period-inline" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-bottom: 8px;">Ene – Abr 2026</div>
+            <p style="color: var(--mist); font-size: 0.86rem; line-height: 1.72; margin: 0 0 10px 0;">Estandarización de procesos remotos y presenciales, adaptación de rúbricas oficiales y coordinación del evento presencial final.</p>
+            <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Liderazgo</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Gestión</span>
+            </div>
+          </div>
+          <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-align: right; padding-top: 2px;">Ene – Abr 2026</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== ── PROYECTOS ── ==================== -->
+  <section id="proyectos" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
+    <!-- Section Label -->
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
+      <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">03 — Proyectos</span>
+      <div style="flex: 1; height: 1px; background: var(--border);"></div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; flex-wrap: wrap; gap: 12px;">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.2rem); letter-spacing: -0.03em; color: var(--snow); margin: 0; line-height: 1.1;">
+        Lo que he construido
+      </h2>
+      <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="filterBar">
+        <button class="filter-pill-btn" onclick="filterCat('all', this)" style="font-family: var(--font-mono); font-size: 0.7rem; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--lime); background: var(--lime); color: var(--ink); font-weight: 700; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;">Todos</button>
+        <button class="filter-pill-btn" onclick="filterCat('salud', this)" style="font-family: var(--font-mono); font-size: 0.7rem; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--mist); font-weight: 400; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;">Accesibilidad</button>
+        <button class="filter-pill-btn" onclick="filterCat('ia', this)" style="font-family: var(--font-mono); font-size: 0.7rem; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--mist); font-weight: 400; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;">IA & Backend</button>
+        <button class="filter-pill-btn" onclick="filterCat('datos', this)" style="font-family: var(--font-mono); font-size: 0.7rem; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--mist); font-weight: 400; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;">Datos</button>
+      </div>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Proyecto 1 -->
+      <div class="project-card" data-category="salud" style="background: var(--ink2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+        <div style="height: 196px; overflow: hidden; background: var(--ink3); position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&h=420&fit=crop&auto=format" alt="PWA CRED Clínica" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">PWA • Salud</span>
+        </div>
+        <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
+          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">PWA CRED "Crecer Mejor"</h3>
+          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Aplicación web progresiva móvil para el consultorio infantil CRED en el Niño San Borja. 1.er puesto Hackathon INSNSB.</p>
+          <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">React</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Vite</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">PWA</span>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 9px 0; font-weight: 700; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">Ver proyecto →</a>
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Código ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 2 -->
+      <div class="project-card" data-category="ia" style="background: var(--ink2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+        <div style="height: 196px; overflow: hidden; background: var(--ink3); position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=700&h=420&fit=crop&auto=format" alt="Helen IA Conversacional" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">IA • Accesibilidad</span>
+        </div>
+        <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
+          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">Helen — IA Turística Accesible</h3>
+          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Asistente conversacional con voz y geolocalización para personas con discapacidad visual. Top 3 MINCETUR Sin Barreras.</p>
+          <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Flask</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">TTS</span>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 9px 0; font-weight: 700; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">Ver proyecto →</a>
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Código ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proyecto 3 -->
+      <div class="project-card" data-category="datos" style="background: var(--ink2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
+        <div style="height: 196px; overflow: hidden; background: var(--ink3); position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=420&fit=crop&auto=format" alt="Observatorio Laboral EPEN" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">Data • ETL</span>
+        </div>
+        <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
+          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">Observatorio Laboral EPEN</h3>
+          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Pipeline de datos en Python sobre datasets del INEI (+10K registros) y tableros en Power BI y Looker Studio.</p>
+          <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">SQL</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Power BI</span>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 9px 0; font-weight: 700; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">Ver proyecto →</a>
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Código ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ── TECNOLOGÍAS ── ==================== -->
+  <section style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div id="tecnologias" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
+      <!-- Section Label -->
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
+        <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">04 — Tecnologías</span>
+        <div style="flex: 1; height: 1px; background: var(--border);"></div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
+        <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.2rem); letter-spacing: -0.03em; color: var(--snow); margin: 0; line-height: 1.1;">
+          Los idiomas que hablo<br />
+          <span style="color: var(--lime);">con las máquinas</span>
+        </h2>
+        <p style="color: var(--mist); font-size: 0.86rem; max-width: 320px; line-height: 1.72; margin: 0;">
+          Las computadoras tienen sus propios lenguajes — yo aprendí varios para decirles exactamente qué hacer de forma limpia.
+        </p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-card" style="background: var(--ink2); padding: 20px 20px; display: flex; gap: 14px; align-items: flex-start;">
+          <span style="font-family: var(--font-mono); font-size: 0.63rem; color: var(--lime); background: var(--ink3); border: 1px solid var(--border); padding: 4px 8px; border-radius: 5px; flex-shrink: 0; letter-spacing: 0.06em; margin-top: 2px;">JS/RCT</span>
+          <div>
+            <div style="font-weight: 700; color: var(--snow); font-size: 0.87rem; margin-bottom: 4px;">React & JavaScript</div>
+            <div style="color: var(--mist); font-size: 0.79rem; line-height: 1.6;">Hace que los botones, pantallas y páginas web cobren vida de forma rápida.</div>
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <!-- ==================== SECCIÓN 4: TECNOLOGÍAS (HUMAN-READABLE) ==================== -->
-    <section id="tecnologias" class="section-wrap">
-      <div class="section-label-wrap">
-        <span class="section-label-text">04 / Tecnologías</span>
-        <div class="section-label-line"></div>
-      </div>
-
-      <div class="tech-table-3col">
-        <div class="tech-cell">
-          <div class="tech-code-mono">JS / RCT</div>
-          <h4>React & JavaScript</h4>
-          <p>Hace que los botones, pantallas y aplicaciones web cobren vida de forma ágil.</p>
-        </div>
-
-        <div class="tech-cell">
-          <div class="tech-code-mono">PY / FSK</div>
-          <h4>Python & Flask</h4>
-          <p>Automatiza tareas lógicas, conecta APIs y crea asistentes con inteligencia artificial.</p>
-        </div>
-
-        <div class="tech-cell">
-          <div class="tech-code-mono">SQL / DB</div>
-          <h4>Bases de Datos & SQL</h4>
-          <p>Donde vive, se organiza y se consulta de forma segura toda la información de los sistemas.</p>
-        </div>
-
-        <div class="tech-cell">
-          <div class="tech-code-mono">BI / PBI</div>
-          <h4>Power BI & Looker</h4>
-          <p>Transforma datos complejos en gráficos claros para tomar decisiones acertadas.</p>
-        </div>
-
-        <div class="tech-cell">
-          <div class="tech-code-mono">A11Y</div>
-          <h4>Accesibilidad WCAG</h4>
-          <p>Garantiza que cualquier persona pueda usar el software sin importar barreras visuales o motoras.</p>
-        </div>
-
-        <div class="tech-cell">
-          <div class="tech-code-mono">GIT / CLOUD</div>
-          <h4>Git & Cloudflare</h4>
-          <p>Historial seguro de código y alojamiento web global ultra-rápido.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== SECCIÓN 5: LINKEDIN EMBEDS ==================== -->
-    <section id="impacto" class="section-wrap">
-      <div class="section-label-wrap">
-        <span class="section-label-text">05 / Publicaciones en LinkedIn</span>
-        <div class="section-label-line"></div>
-      </div>
-
-      <div class="linkedin-embeds-grid">
-        <div class="linkedin-frame-box">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7498032689288073216?collapsed=1"
-                  height="627" width="504" frameborder="0" allowfullscreen
-                  title="Ganamos el 1er puesto en Hackatón Niño San Borja"></iframe>
-        </div>
-
-        <div class="linkedin-frame-box">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7474145608497500161?collapsed=1"
-                  height="627" width="504" frameborder="0" allowfullscreen
-                  title="Equipo destacado en Hackathon Sin Barreras MINCETUR"></iframe>
-        </div>
-
-        <div class="linkedin-frame-box">
-          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7420281179368501248?collapsed=1"
-                  height="627" width="504" frameborder="0" allowfullscreen
-                  title="Deputy Campus Director en Hult Prize"></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== SECCIÓN 6: CONTACTO ==================== -->
-    <section id="contacto" class="section-wrap">
-      <div class="section-label-wrap">
-        <span class="section-label-text">06 / Contacto</span>
-        <div class="section-label-line"></div>
-      </div>
-
-      <div class="contact-split-layout">
-        <div class="contact-left-col">
-          <h2>¿Iniciamos una conversación?</h2>
-          <p>
-            Hablemos sobre proyectos de software, desarrollo accesible, analítica de datos o posibles sinergias de alto impacto.
-          </p>
-
-          <div class="contact-stacked-btns">
-            <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="btn-lime" rel="noopener noreferrer">
-              <!-- Icon Calendar SVG stroke 1.8px -->
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Agendar 30 min (Cal.com)
-            </a>
-
-            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="btn-glass">
-              <!-- Icon Download SVG stroke 1.8px -->
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Descargar CV (.docx)
-            </a>
+        <div class="tech-card" style="background: var(--ink2); padding: 20px 20px; display: flex; gap: 14px; align-items: flex-start;">
+          <span style="font-family: var(--font-mono); font-size: 0.63rem; color: var(--lime); background: var(--ink3); border: 1px solid var(--border); padding: 4px 8px; border-radius: 5px; flex-shrink: 0; letter-spacing: 0.06em; margin-top: 2px;">PY/FSK</span>
+          <div>
+            <div style="font-weight: 700; color: var(--snow); font-size: 0.87rem; margin-bottom: 4px;">Python & Flask</div>
+            <div style="color: var(--mist); font-size: 0.79rem; line-height: 1.6;">Automatiza tareas lógicas y crea asistentes conversacionales con IA.</div>
           </div>
         </div>
 
-        <!-- 2x2 Info Grid -->
-        <div class="contact-2x2-grid">
-          <a href="mailto:U22221489@utp.edu.pe" class="contact-card-cell">
-            <div class="contact-card-icon">
-              <!-- Icon Mail SVG stroke 1.8px -->
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <div class="contact-card-label">Correo Institucional</div>
-              <div class="contact-card-val">U22221489@utp.edu.pe</div>
-            </div>
+        <div class="tech-card" style="background: var(--ink2); padding: 20px 20px; display: flex; gap: 14px; align-items: flex-start;">
+          <span style="font-family: var(--font-mono); font-size: 0.63rem; color: var(--lime); background: var(--ink3); border: 1px solid var(--border); padding: 4px 8px; border-radius: 5px; flex-shrink: 0; letter-spacing: 0.06em; margin-top: 2px;">SQL/DB</span>
+          <div>
+            <div style="font-weight: 700; color: var(--snow); font-size: 0.87rem; margin-bottom: 4px;">Bases de Datos & SQL</div>
+            <div style="color: var(--mist); font-size: 0.79rem; line-height: 1.6;">Donde vive y se organiza toda la información con máxima seguridad.</div>
+          </div>
+        </div>
+
+        <div class="tech-card" style="background: var(--ink2); padding: 20px 20px; display: flex; gap: 14px; align-items: flex-start;">
+          <span style="font-family: var(--font-mono); font-size: 0.63rem; color: var(--lime); background: var(--ink3); border: 1px solid var(--border); padding: 4px 8px; border-radius: 5px; flex-shrink: 0; letter-spacing: 0.06em; margin-top: 2px;">BI/PBI</span>
+          <div>
+            <div style="font-weight: 700; color: var(--snow); font-size: 0.87rem; margin-bottom: 4px;">Power BI & Analytics</div>
+            <div style="color: var(--mist); font-size: 0.79rem; line-height: 1.6;">Convierte números complejos en gráficos claros para tomar decisiones.</div>
+          </div>
+        </div>
+
+        <div class="tech-card" style="background: var(--ink2); padding: 20px 20px; display: flex; gap: 14px; align-items: flex-start;">
+          <span style="font-family: var(--font-mono); font-size: 0.63rem; color: var(--lime); background: var(--ink3); border: 1px solid var(--border); padding: 4px 8px; border-radius: 5px; flex-shrink: 0; letter-spacing: 0.06em; margin-top: 2px;">WCAG</span>
+          <div>
+            <div style="font-weight: 700; color: var(--snow); font-size: 0.87rem; margin-bottom: 4px;">Accesibilidad Universal</div>
+            <div style="color: var(--mist); font-size: 0.79rem; line-height: 1.6;">Estándares para que lectores de pantalla y navegación por voz funcionen sin barreras.</div>
+          </div>
+        </div>
+
+        <div class="tech-card" style="background: var(--ink2); padding: 20px 20px; display: flex; gap: 14px; align-items: flex-start;">
+          <span style="font-family: var(--font-mono); font-size: 0.63rem; color: var(--lime); background: var(--ink3); border: 1px solid var(--border); padding: 4px 8px; border-radius: 5px; flex-shrink: 0; letter-spacing: 0.06em; margin-top: 2px;">GIT/CLD</span>
+          <div>
+            <div style="font-weight: 700; color: var(--snow); font-size: 0.87rem; margin-bottom: 4px;">Git & Cloudflare</div>
+            <div style="color: var(--mist); font-size: 0.79rem; line-height: 1.6;">Historial de código seguro y alojamiento web global ultra-rápido.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ── LINKEDIN EMBEDS ── ==================== -->
+  <section id="impacto" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
+    <!-- Section Label -->
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
+      <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">05 — Publicaciones en LinkedIn</span>
+      <div style="flex: 1; height: 1px; background: var(--border);"></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; justify-items: center;">
+      <div style="width: 100%; max-width: 504px; background: var(--ink2); border: 1px solid var(--border); border-radius: 8px; padding: 10px; overflow: hidden;">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7498032689288073216?collapsed=1" height="627" width="100%" frameborder="0" allowfullscreen title="Ganamos el 1er puesto en Hackatón Niño San Borja" style="border-radius: 6px;"></iframe>
+      </div>
+      <div style="width: 100%; max-width: 504px; background: var(--ink2); border: 1px solid var(--border); border-radius: 8px; padding: 10px; overflow: hidden;">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7474145608497500161?collapsed=1" height="627" width="100%" frameborder="0" allowfullscreen title="Equipo destacado en Hackathon Sin Barreras MINCETUR" style="border-radius: 6px;"></iframe>
+      </div>
+      <div style="width: 100%; max-width: 504px; background: var(--ink2); border: 1px solid var(--border); border-radius: 8px; padding: 10px; overflow: hidden;">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7420281179368501248?collapsed=1" height="627" width="100%" frameborder="0" allowfullscreen title="Deputy Campus Director en Hult Prize" style="border-radius: 6px;"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ── CONTACTO ── ==================== -->
+  <section id="contacto" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px 96px;">
+    <!-- Section Label -->
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
+      <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">06 — Contacto</span>
+      <div style="flex: 1; height: 1px; background: var(--border);"></div>
+    </div>
+
+    <div class="contact-grid">
+      <div>
+        <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 5.5vw, 4.6rem); letter-spacing: -0.05em; color: var(--snow); line-height: 0.9; margin-bottom: 20px;">
+          ¿Tienes<br />una idea?<br />
+          <span style="color: var(--lime);">Cuéntamela.</span>
+        </h2>
+        <p style="color: var(--mist); font-size: 0.91rem; line-height: 1.8; margin-bottom: 28px;">
+          No importa si tu idea parece pequeña o enorme, ni si sabes nada de tecnología. Me encanta escuchar y ayudar a que las ideas se vuelvan reales y accesibles.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" style="background: var(--lime); color: var(--ink); padding: 14px 22px; font-weight: 700; font-size: 0.9rem; text-decoration: none; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.84'" onmouseleave="this.style.opacity='1'">
+            <!-- IconCalendar -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Agendar 30 min (Cal.com)
           </a>
-
-          <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="contact-card-cell" rel="noopener noreferrer">
-            <div class="contact-card-icon">
-              <!-- Icon Calendar SVG stroke 1.8px -->
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            </div>
-            <div>
-              <div class="contact-card-label">Agendamiento</div>
-              <div class="contact-card-val">Cal.com (30 min)</div>
-            </div>
-          </a>
-
-          <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" class="contact-card-cell" rel="noopener noreferrer">
-            <div class="contact-card-icon">
-              <!-- Icon User SVG stroke 1.8px -->
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-            <div>
-              <div class="contact-card-label">LinkedIn</div>
-              <div class="contact-card-val">/in/ladyloayzarodriguez</div>
-            </div>
-          </a>
-
-          <a href="https://github.com/luzylay" target="_blank" class="contact-card-cell" rel="noopener noreferrer">
-            <div class="contact-card-icon">
-              <!-- Icon Code SVG stroke 1.8px -->
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <div>
-              <div class="contact-card-label">GitHub</div>
-              <div class="contact-card-val">github.com/luzylay</div>
-            </div>
+          <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" style="border: 1px solid var(--border); color: var(--snow); padding: 13px 22px; font-weight: 600; font-size: 0.9rem; text-decoration: none; border-radius: 8px; text-align: center; transition: border-color 0.2s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--lime')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border')">
+            Descargar CV (.docx)
           </a>
         </div>
       </div>
-    </section>
 
-  </main>
+      <div class="contact-info-panel" style="align-self: center;">
+        <a href="mailto:U22221489@utp.edu.pe" class="contact-card" style="background: var(--ink2); padding: 22px 20px; display: flex; flex-direction: column; gap: 14px; text-decoration: none;">
+          <span style="color: var(--lime);">
+            <!-- IconMail -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          <div>
+            <div style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); letter-spacing: 0.04em; margin-bottom: 4px;">Correo Institucional</div>
+            <div style="font-weight: 700; color: var(--snow); font-size: 0.88rem;">U22221489@utp.edu.pe</div>
+          </div>
+        </a>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 Lady Luz Loayza Rodriguez • Diseñado con estética dark mode estricta, Outfit & DM Mono, y accesibilidad universal.</p>
+        <div class="contact-card" style="background: var(--ink2); padding: 22px 20px; display: flex; flex-direction: column; gap: 14px;">
+          <span style="color: var(--lime);">
+            <!-- IconBolt -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </span>
+          <div>
+            <div style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); letter-spacing: 0.04em; margin-bottom: 4px;">Respuesta rápida</div>
+            <div style="font-weight: 700; color: var(--snow); font-size: 0.88rem;">Menos de 24 horas</div>
+          </div>
+        </div>
+
+        <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" class="contact-card" style="background: var(--ink2); padding: 22px 20px; display: flex; flex-direction: column; gap: 14px; text-decoration: none;">
+          <span style="color: var(--lime);">
+            <!-- IconGlobe -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </span>
+          <div>
+            <div style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); letter-spacing: 0.04em; margin-bottom: 4px;">LinkedIn Oficial</div>
+            <div style="font-weight: 700; color: var(--snow); font-size: 0.88rem;">/in/ladyloayzarodriguez</div>
+          </div>
+        </a>
+
+        <div class="contact-card" style="background: var(--ink2); padding: 22px 20px; display: flex; flex-direction: column; gap: 14px;">
+          <span style="color: var(--lime);">
+            <!-- IconChat -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </span>
+          <div>
+            <div style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); letter-spacing: 0.04em; margin-bottom: 4px;">Idiomas</div>
+            <div style="font-weight: 700; color: var(--snow); font-size: 0.88rem;">Español · Inglés (B1)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ── FOOTER ── ==================== -->
+  <footer style="border-top: 1px solid var(--border);">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 22px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <span style="font-weight: 800; letter-spacing: -0.02em;">lady loayza<span style="color: var(--lime);">.</span></span>
+      <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--mist);">Diseñado y construido con accesibilidad · 2026</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-decoration: none; transition: color 0.15s;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--lime')" onmouseleave="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-decoration: none; transition: color 0.15s;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--lime')" onmouseleave="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">LinkedIn ↗</a>
+        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-decoration: none; transition: color 0.15s;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--lime')" onmouseleave="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Cal.com ↗</a>
+      </div>
     </div>
   </footer>
 
-  <!-- ==================== JAVASCRIPT ==================== -->
+  <!-- ==================== ── SCRIPTS ── ==================== -->
   <script>
-    // 1. Menú Hamburguesa Móvil
-    const burgerToggle = document.getElementById('burgerToggle');
-    const mobileDrawer = document.getElementById('mobileDrawer');
+    // 1. Navbar scroll blur
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 48) {
+        header.style.background = 'rgba(12,12,15,0.95)';
+        header.style.borderBottomColor = '#1e1e2e';
+        header.style.backdropFilter = 'blur(16px)';
+      } else {
+        header.style.background = 'transparent';
+        header.style.borderBottomColor = 'transparent';
+        header.style.backdropFilter = 'none';
+      }
+    }, { passive: true });
 
-    burgerToggle.addEventListener('click', () => {
-      mobileDrawer.classList.toggle('open');
+    // 2. Menú Móvil
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    burgerBtn.addEventListener('click', () => {
+      if (mobileDrawer.style.display === 'none' || !mobileDrawer.style.display) {
+        mobileDrawer.style.display = 'flex';
+      } else {
+        mobileDrawer.style.display = 'none';
+      }
     });
 
     function closeDrawer() {
-      mobileDrawer.classList.remove('open');
+      mobileDrawer.style.display = 'none';
     }
 
-    // 2. Filtros de Proyectos
-    function filterProjects(cat) {
-      const buttons = document.querySelectorAll('.category-filter-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+    // 3. Filtros de Proyectos
+    function filterCat(cat, btn) {
+      const buttons = document.querySelectorAll('.filter-pill-btn');
+      buttons.forEach(b => {
+        b.style.background = 'transparent';
+        b.style.color = 'var(--mist)';
+        b.style.borderColor = 'var(--border)';
+        b.style.fontWeight = '400';
+      });
+      btn.style.background = 'var(--lime)';
+      btn.style.color = 'var(--ink)';
+      btn.style.borderColor = 'var(--lime)';
+      btn.style.fontWeight = '700';
 
-      const cards = document.querySelectorAll('.project-card-tile[data-cat]');
+      const cards = document.querySelectorAll('.project-card[data-category]');
       cards.forEach(card => {
-        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
