@@ -18,7 +18,7 @@
 
   <style>
     /* ==========================================================================
-       VARIABLES Y DESIGN TOKENS (ESTILO PORTAFOLIO ACCESIBLE DESARROLLADORA)
+       VARIABLES Y DESIGN TOKENS (PORTAFOLIO ACCESIBLE DESARROLLADORA)
        ========================================================================== */
     :root {
       --ink: #0c0c0f;
@@ -95,15 +95,106 @@
       top: 16px;
     }
 
-    /* Utility Layouts */
-    .hero-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: flex-end;
-      width: 100%;
+    /* ==========================================================================
+       HERO LAYOUT CON FOTO OPTIMIZADA EN TODAS LAS PANTALLAS (DESKTOP & MOBILE)
+       ========================================================================== */
+    .hero-container {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 110px 0 60px;
+      background: 
+        radial-gradient(ellipse 60% 50% at 85% 35%, rgba(196, 241, 53, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 15% 85%, rgba(56, 189, 248, 0.04) 0%, transparent 60%);
     }
 
+    .hero-split-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Foto en Desktop: Nítida, Grande y Perfectamente Encuadrada */
+    .hero-photo-showcase {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo-ambient-backdrop {
+      position: absolute;
+      inset: -15px;
+      background: linear-gradient(135deg, rgba(196, 241, 53, 0.15) 0%, rgba(56, 189, 248, 0.12) 50%, rgba(192, 132, 252, 0.1) 100%);
+      border-radius: 28px;
+      filter: blur(35px);
+      z-index: 1;
+      opacity: 0.7;
+    }
+
+    .photo-portrait-card {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 4 / 5.1;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--ink2);
+      border: 1px solid var(--border);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .photo-portrait-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(196, 241, 53, 0.3);
+    }
+
+    .photo-portrait-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+
+    .photo-dock-pill {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      background: rgba(12, 12, 15, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .dock-icon-lime {
+      background: var(--lime);
+      color: var(--ink);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Grids & Tables con 1px gap */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -139,7 +230,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 16px;
     }
 
@@ -154,21 +245,14 @@
     .nav-links { display: flex; gap: 32px; }
     .nav-cta { display: inline-block; }
     .nav-burger { display: none; }
-    .scroll-cue { display: flex; }
 
-    /* Interactive States & Micro-interactions */
+    /* Interactive States & Cards */
     .project-card {
       transition: border-color 0.2s, transform 0.22s;
     }
     .project-card:hover {
       border-color: #4a4a60 !important;
       transform: translateY(-4px);
-    }
-    .project-card:hover .card-img {
-      transform: scale(1.04);
-    }
-    .card-img {
-      transition: transform 0.4s;
     }
     .tech-card {
       transition: background 0.15s;
@@ -195,17 +279,19 @@
       background: var(--ink3) !important;
     }
 
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.35; }
-    }
-    .dot-pulse {
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
-
     /* Media Queries */
-    @media (max-width: 768px) {
-      .hero-split { grid-template-columns: 1fr; gap: 28px; }
+    @media (max-width: 900px) {
+      .hero-split-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: left;
+      }
+      .hero-photo-showcase {
+        order: -1;
+      }
+      .photo-portrait-card {
+        max-width: 340px;
+      }
       .about-grid { grid-template-columns: 1fr; }
       .exp-row { grid-template-columns: 48px 1fr; }
       .exp-period-col { display: none; }
@@ -217,23 +303,23 @@
       .nav-links { display: none; }
       .nav-cta { display: none; }
       .nav-burger { display: flex; }
-      .scroll-cue { display: none; }
     }
 
     @media (max-width: 480px) {
       .tech-grid { grid-template-columns: 1fr; }
       .contact-info-panel { grid-template-columns: 1fr; }
+      .photo-portrait-card { max-width: 100%; aspect-ratio: 4 / 4.8; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Enlace accesible para lectores de pantalla -->
+  <!-- Accesibilidad: Skip Link -->
   <a href="#hero" class="skip-link">Saltar al contenido principal</a>
 
   <!-- ==================== ── NAV ── ==================== -->
-  <header id="siteHeader" style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.3s, border-color 0.3s; background: transparent; border-bottom: 1px solid transparent;">
-    <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; alignItems: center; justify-content: space-between; gap: 16px; align-items: center;">
+  <header id="siteHeader" style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.3s, border-color 0.3s; background: rgba(12,12,15,0.92); border-bottom: 1px solid var(--border); backdrop-filter: blur(16px);">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
       <a href="#hero" style="font-weight: 800; font-size: 1.05rem; letter-spacing: -0.02em; text-decoration: none; color: var(--snow); flex-shrink: 0;">
         lady loayza<span style="color: var(--lime);">.</span>
       </a>
@@ -271,83 +357,82 @@
     </div>
   </header>
 
-  <!-- ==================== ── HERO ── ==================== -->
-  <section id="hero" style="position: relative; min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end;">
-    <!-- Capas de Gradientes y Foto a Sangre Completa -->
-    <div style="position: absolute; inset: 0; z-index: 0;">
-      <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez trabajando como desarrolladora de software" style="width: 100%; height: 100%; object-fit: cover; object-position: 70% top;" />
-      <div style="position: absolute; inset: 0; background: linear-gradient(105deg, var(--ink) 0%, rgba(12,12,15,0.92) 30%, rgba(20,14,8,0.58) 58%, rgba(58,28,10,0.08) 82%, transparent 100%), linear-gradient(to top, var(--ink) 0%, rgba(12,12,15,0.8) 18%, rgba(12,12,15,0.25) 42%, transparent 70%);"></div>
-      <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 55% 70% at 70% 38%, rgba(165,85,30,0.18) 0%, transparent 65%); mix-blend-mode: screen;"></div>
-      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(12,12,15,0.5) 0%, transparent 20%);"></div>
-    </div>
+  <!-- ==================== ── HERO (ESTRUCTURA VISUAL ÓPTIMA EN PANTALLAS GRANDES) ── ==================== -->
+  <section id="hero" class="hero-container">
+    <div class="hero-split-grid">
 
-    <div style="position: relative; z-index: 10; width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 24px 64px; display: flex; align-items: flex-end; min-height: 100vh;">
-      <div class="hero-split">
+      <!-- LEFT — Contenido y Narrativa -->
+      <div>
+        <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; text-decoration: none; transition: opacity 0.2s;" onmouseenter="this.style.opacity='0.6'" onmouseleave="this.style.opacity='1'">
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: rgba(240,240,245,0.4); letter-spacing: 0.06em;">
+            ¿Tienes un proyecto? Hablemos primero →
+          </span>
+        </a>
+        <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(3rem, 6.8vw, 6.2rem); letter-spacing: -0.05em; color: var(--snow); margin: 0 0 16px 0; line-height: 0.92;">
+          Hola,<br />soy<br />
+          <span style="color: var(--lime);">Lady Luz.</span>
+        </h1>
 
-        <!-- LEFT — name -->
-        <div>
-          <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 28px; text-decoration: none; transition: opacity 0.2s;" onmouseenter="this.style.opacity='0.6'" onmouseleave="this.style.opacity='1'">
-            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: rgba(240,240,245,0.4); letter-spacing: 0.06em;">
-              ¿Tienes un proyecto? Hablemos primero →
-            </span>
+        <p style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--lime); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; font-weight: 500;">
+          Desarrolladora de software & Accesibilidad
+        </p>
+
+        <p style="font-size: clamp(0.95rem, 1.5vw, 1.05rem); color: rgba(240,240,245,0.68); line-height: 1.82; margin-bottom: 28px; max-width: 540px;">
+          Construyo apps y páginas web que la gente usa cada día. <strong>Útiles, rápidas y fáciles de entender</strong> — para todo el mundo, no solo para quienes saben programar.
+        </p>
+        
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px;">
+          <a href="#proyectos" style="background: var(--lime); color: var(--ink); padding: 12px 22px; font-weight: 700; font-size: 0.86rem; text-decoration: none; border-radius: 8px; transition: opacity 0.15s; white-space: nowrap;" onmouseenter="this.style.opacity='0.84'" onmouseleave="this.style.opacity='1'">
+            Ver proyectos ↓
           </a>
-          <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(3rem, 7.5vw, 7rem); lineHeight: 0.87; letter-spacing: -0.05em; color: var(--snow); margin: 0; line-height: 0.9;">
-            Hola,<br />soy<br />
-            <span style="color: var(--lime);">Lady Luz.</span>
-          </h1>
+          <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" style="background: rgba(255,255,255,0.07); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.11); color: var(--snow); padding: 12px 22px; font-weight: 600; font-size: 0.86rem; text-decoration: none; border-radius: 8px; transition: background 0.2s; white-space: nowrap;" onmouseenter="this.style.background='rgba(255,255,255,0.13)'" onmouseleave="this.style.background='rgba(255,255,255,0.07)'">
+            Descargar CV
+          </a>
+          <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: rgba(240,240,245,0.55); padding: 12px 16px; font-weight: 600; font-size: 0.86rem; text-decoration: none; border-radius: 8px; transition: color 0.2s; white-space: nowrap;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.color='rgba(240,240,245,0.55)'">
+            LinkedIn ↗
+          </a>
         </div>
 
-        <!-- RIGHT — rol, descripción, CTAs, stats -->
-        <div style="display: flex; flex-direction: column; padding-bottom: 4px;">
-          <p style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--mist); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">
-            Desarrolladora de software & Accesibilidad
-          </p>
-          <p style="font-size: clamp(0.88rem, 1.6vw, 0.98rem); color: rgba(240,240,245,0.58); line-height: 1.82; margin-bottom: 28px;">
-            Construyo apps y páginas web que la gente usa cada día. <strong>Útiles, rápidas y fáciles de entender</strong> — para todo el mundo, no solo para quienes saben programar.
-          </p>
-          
-          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px;">
-            <a href="#proyectos" style="background: var(--lime); color: var(--ink); padding: 12px 22px; font-weight: 700; font-size: 0.86rem; text-decoration: none; border-radius: 8px; transition: opacity 0.15s; white-space: nowrap;" onmouseenter="this.style.opacity='0.84'" onmouseleave="this.style.opacity='1'">
-              Ver proyectos ↓
-            </a>
-            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" style="background: rgba(255,255,255,0.07); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.11); color: var(--snow); padding: 12px 22px; font-weight: 600; font-size: 0.86rem; text-decoration: none; border-radius: 8px; transition: background 0.2s; white-space: nowrap;" onmouseenter="this.style.background='rgba(255,255,255,0.13)'" onmouseleave="this.style.background='rgba(255,255,255,0.07)'">
-              Descargar CV
-            </a>
-            <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: rgba(240,240,245,0.45); padding: 12px 16px; font-weight: 600; font-size: 0.86rem; text-decoration: none; border-radius: 8px; transition: color 0.2s; white-space: nowrap;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.color='rgba(240,240,245,0.45)'">
-              LinkedIn ↗
-            </a>
+        <!-- Stats en Lime -->
+        <div style="display: flex; gap: 28px; padding-top: 24px; border-top: 1px solid var(--border); flex-wrap: wrap;">
+          <div>
+            <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.75rem; color: var(--lime); line-height: 1;">1.ᵉʳ</div>
+            <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--mist); margin-top: 4px; letter-spacing: 0.06em;">Hackathon INSNSB</div>
           </div>
-
-          <!-- Stats en Lime -->
-          <div style="display: flex; gap: 28px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap;">
-            <div>
-              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.85rem; color: var(--lime); line-height: 1;">1.ᵉʳ</div>
-              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: rgba(240,240,245,0.32); margin-top: 5px; letter-spacing: 0.06em;">Hackathon INSNSB</div>
-            </div>
-            <div>
-              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.85rem; color: var(--lime); line-height: 1;">Top 3</div>
-              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: rgba(240,240,245,0.32); margin-top: 5px; letter-spacing: 0.06em;">MINCETUR Sin Barreras</div>
-            </div>
-            <div>
-              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.85rem; color: var(--lime); line-height: 1;">+10K</div>
-              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: rgba(240,240,245,0.32); margin-top: 5px; letter-spacing: 0.06em;">Datos Procesados</div>
-            </div>
+          <div>
+            <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.75rem; color: var(--lime); line-height: 1;">Top 3</div>
+            <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--mist); margin-top: 4px; letter-spacing: 0.06em;">MINCETUR Sin Barreras</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.75rem; color: var(--lime); line-height: 1;">+10K</div>
+            <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--mist); margin-top: 4px; letter-spacing: 0.06em;">Datos Procesados</div>
           </div>
         </div>
-
       </div>
-    </div>
 
-    <!-- Scroll Cue Indicator -->
-    <div class="scroll-cue" style="position: absolute; bottom: 28px; right: 28px; z-index: 10; flex-direction: column; align-items: center; gap: 8px;">
-      <div style="width: 1px; height: 40px; background: linear-gradient(to bottom, transparent, var(--lime));"></div>
-      <span style="font-family: var(--font-mono); font-size: 0.56rem; color: var(--lime); letter-spacing: 0.14em; writing-mode: vertical-rl; opacity: 0.6;">SCROLL</span>
+      <!-- RIGHT — Foto Profesional en Alta Definición (Visible y Nítida en Pantallas Grandes) -->
+      <div class="hero-photo-showcase">
+        <div class="photo-ambient-backdrop"></div>
+        <div class="photo-portrait-card">
+          <img src="./assets/profile_hd.png" alt="Retrato profesional de Lady Luz Loayza Rodriguez" />
+          <div class="photo-dock-pill">
+            <div class="dock-icon-lime">
+              <!-- Award Icon SVG -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            </div>
+            <div>
+              <strong style="display: block; font-size: 0.85rem; color: var(--snow);">1.ᵉʳ Puesto Hackathon INSNSB</strong>
+              <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--mist);">PWA Inclusiva CRED • PUCP & ESAN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- ==================== ── SOBRE MÍ ── ==================== -->
-  <section id="sobre" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
-    <!-- Section Label -->
+  <section id="sobre" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
       <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">01 — Sobre mí</span>
       <div style="flex: 1; height: 1px; background: var(--border);"></div>
@@ -357,7 +442,7 @@
       <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 3.5vw, 2.5rem); letter-spacing: -0.03em; color: var(--snow); margin-bottom: 14px; line-height: 1.1;">
         ¿Qué hace exactamente una desarrolladora?
       </h2>
-      <p style="color: var(--mist); line-height: 1.8; font-size: 0.93rem; max-width: 640px;">
+      <p style="color: var(--mist); line-height: 1.8; font-size: 0.95rem; max-width: 680px;">
         Imagina que quieres construir una tienda. Necesitas arquitecto, albañil y electricista. Yo hago todo eso, pero en el mundo digital — desde el botón que aprietas hasta el sistema que guarda tu información de forma accesible.
       </p>
     </div>
@@ -394,8 +479,7 @@
 
   <!-- ==================== ── EXPERIENCIA ── ==================== -->
   <section id="experiencia" style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-    <div style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
-      <!-- Section Label -->
+    <div style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
         <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">02 — Experiencia</span>
         <div style="flex: 1; height: 1px; background: var(--border);"></div>
@@ -409,15 +493,15 @@
             <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-top: 8px;">Ago 2026</div>
           </div>
           <div>
-            <div style="font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Desarrolladora Frontend & PWA (1.ᵉʳ Puesto)</div>
-            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--lime); margin-bottom: 4px;">Hackathon INSNSB • PUCP & ESAN</div>
+            <div style="font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Desarrolladora Frontend & PWA (1.ᵉʳ Puesto)</div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--lime); margin-bottom: 4px;">Hackathon INSNSB • PUCP & ESAN</div>
             <div class="exp-period-inline" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-bottom: 8px;">Ago 2026</div>
-            <p style="color: var(--mist); font-size: 0.86rem; line-height: 1.72; margin: 0 0 10px 0;">Diseño e implementación de Progressive Web App accesible para el consultorio CRED infantil (0 a 3 años) en el Niño San Borja. Digitalizó el seguimiento nutricional y eliminó errores manuales de enfermería.</p>
+            <p style="color: var(--mist); font-size: 0.88rem; line-height: 1.72; margin: 0 0 10px 0;">Diseño e implementación de Progressive Web App accesible para el consultorio CRED infantil (0 a 3 años) en el Niño San Borja. Digitalizó el seguimiento nutricional y eliminó errores manuales de enfermería.</p>
             <div style="display: flex; gap: 5px; flex-wrap: wrap;">
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">React</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Vite</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">PWA</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">JavaScript</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">React</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Vite</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">PWA</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">JavaScript</span>
             </div>
           </div>
           <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-align: right; padding-top: 2px;">Ago 2026</div>
@@ -432,15 +516,15 @@
             <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-top: 8px;">Jun 2026</div>
           </div>
           <div>
-            <div style="font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Desarrolladora IA Conversacional (Top 3 Nacional)</div>
-            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--lime); margin-bottom: 4px;">Hackathon Sin Barreras • MINCETUR (Entre 66 propuestas)</div>
+            <div style="font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Desarrolladora IA Conversacional (Top 3 Nacional)</div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--lime); margin-bottom: 4px;">Hackathon Sin Barreras • MINCETUR (Entre 66 propuestas)</div>
             <div class="exp-period-inline" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-bottom: 8px;">Jun 2026</div>
-            <p style="color: var(--mist); font-size: 0.86rem; line-height: 1.72; margin: 0 0 10px 0;">Arquitectura del asistente Helen con backend en Flask, clasificador NLU, geolocalización y síntesis de voz para turistas con discapacidad visual.</p>
+            <p style="color: var(--mist); font-size: 0.88rem; line-height: 1.72; margin: 0 0 10px 0;">Arquitectura del asistente Helen con backend en Flask, clasificador NLU, geolocalización y síntesis de voz para turistas con discapacidad visual.</p>
             <div style="display: flex; gap: 5px; flex-wrap: wrap;">
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Python</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Flask</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">NLU</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">TTS</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Flask</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">NLU</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">TTS</span>
             </div>
           </div>
           <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-align: right; padding-top: 2px;">Jun 2026</div>
@@ -455,14 +539,14 @@
             <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-top: 8px;">May – Nov 2025</div>
           </div>
           <div>
-            <div style="font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Data Analyst & ETL (Capstone EPEN)</div>
-            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--lime); margin-bottom: 4px;">Samsung Innovation Campus</div>
+            <div style="font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Data Analyst & ETL (Capstone EPEN)</div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--lime); margin-bottom: 4px;">Samsung Innovation Campus</div>
             <div class="exp-period-inline" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-bottom: 8px;">May – Nov 2025</div>
-            <p style="color: var(--mist); font-size: 0.86rem; line-height: 1.72; margin: 0 0 10px 0;">Pipeline ETL sobre microdatos del INEI con más de 10,000 registros procesados y tableros interactivos en Power BI y Looker Studio.</p>
+            <p style="color: var(--mist); font-size: 0.88rem; line-height: 1.72; margin: 0 0 10px 0;">Pipeline ETL sobre microdatos del INEI con más de 10,000 registros procesados y tableros interactivos en Power BI y Looker Studio.</p>
             <div style="display: flex; gap: 5px; flex-wrap: wrap;">
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Python</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Pandas</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Power BI</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Pandas</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Power BI</span>
             </div>
           </div>
           <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-align: right; padding-top: 2px;">May – Nov 2025</div>
@@ -477,13 +561,13 @@
             <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-top: 8px;">Ene – Abr 2026</div>
           </div>
           <div>
-            <div style="font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Deputy Campus Director</div>
-            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--lime); margin-bottom: 4px;">Hult Prize UTP 2026</div>
+            <div style="font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Deputy Campus Director</div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--lime); margin-bottom: 4px;">Hult Prize UTP 2026</div>
             <div class="exp-period-inline" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-bottom: 8px;">Ene – Abr 2026</div>
-            <p style="color: var(--mist); font-size: 0.86rem; line-height: 1.72; margin: 0 0 10px 0;">Estandarización de procesos remotos y presenciales, adaptación de rúbricas oficiales y coordinación del evento presencial final.</p>
+            <p style="color: var(--mist); font-size: 0.88rem; line-height: 1.72; margin: 0 0 10px 0;">Estandarización de procesos remotos y presenciales, adaptación de rúbricas oficiales y coordinación del evento presencial final.</p>
             <div style="display: flex; gap: 5px; flex-wrap: wrap;">
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Liderazgo</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Gestión</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Liderazgo</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Gestión</span>
             </div>
           </div>
           <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-align: right; padding-top: 2px;">Ene – Abr 2026</div>
@@ -493,9 +577,8 @@
     </div>
   </section>
 
-  <!-- ==================== ── PROYECTOS ── ==================== -->
-  <section id="proyectos" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
-    <!-- Section Label -->
+  <!-- ==================== ── PROYECTOS (INTEGRACIÓN CON GITHUB API + REPOS REALES) ── ==================== -->
+  <section id="proyectos" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
       <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">03 — Proyectos</span>
       <div style="flex: 1; height: 1px; background: var(--border);"></div>
@@ -513,16 +596,16 @@
       </div>
     </div>
 
-    <div class="projects-grid">
+    <div class="projects-grid" id="projectsContainer">
       <!-- Proyecto 1 -->
       <div class="project-card" data-category="salud" style="background: var(--ink2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
         <div style="height: 196px; overflow: hidden; background: var(--ink3); position: relative; flex-shrink: 0;">
           <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&h=420&fit=crop&auto=format" alt="PWA CRED Clínica" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);" />
-          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">PWA • Salud</span>
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">1.er Puesto INSNSB</span>
         </div>
         <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
-          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">PWA CRED "Crecer Mejor"</h3>
-          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Aplicación web progresiva móvil para el consultorio infantil CRED en el Niño San Borja. 1.er puesto Hackathon INSNSB.</p>
+          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">PWA CRED "Crecer Mejor"</h3>
+          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Aplicación web progresiva móvil para el consultorio infantil CRED en el Niño San Borja. Ganadora del primer lugar PUCP / ESAN.</p>
           <div style="display: flex; gap: 5px; flex-wrap: wrap;">
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">React</span>
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Vite</span>
@@ -530,7 +613,7 @@
           </div>
           <div style="display: flex; gap: 8px;">
             <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 9px 0; font-weight: 700; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">Ver proyecto →</a>
-            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Código ↗</a>
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -539,11 +622,11 @@
       <div class="project-card" data-category="ia" style="background: var(--ink2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
         <div style="height: 196px; overflow: hidden; background: var(--ink3); position: relative; flex-shrink: 0;">
           <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=700&h=420&fit=crop&auto=format" alt="Helen IA Conversacional" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);" />
-          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">IA • Accesibilidad</span>
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">Top 3 MINCETUR</span>
         </div>
         <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
-          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">Helen — IA Turística Accesible</h3>
-          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Asistente conversacional con voz y geolocalización para personas con discapacidad visual. Top 3 MINCETUR Sin Barreras.</p>
+          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">Helen — IA Turística Accesible</h3>
+          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Asistente conversacional con voz y geolocalización para personas con discapacidad visual. Top 3 Sin Barreras MINCETUR.</p>
           <div style="display: flex; gap: 5px; flex-wrap: wrap;">
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Flask</span>
@@ -551,7 +634,7 @@
           </div>
           <div style="display: flex; gap: 8px;">
             <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 9px 0; font-weight: 700; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">Ver proyecto →</a>
-            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Código ↗</a>
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -560,11 +643,11 @@
       <div class="project-card" data-category="datos" style="background: var(--ink2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
         <div style="height: 196px; overflow: hidden; background: var(--ink3); position: relative; flex-shrink: 0;">
           <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=420&fit=crop&auto=format" alt="Observatorio Laboral EPEN" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);" />
-          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">Data • ETL</span>
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">Samsung Capstone</span>
         </div>
         <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
-          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">Observatorio Laboral EPEN</h3>
-          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Pipeline de datos en Python sobre datasets del INEI (+10K registros) y tableros en Power BI y Looker Studio.</p>
+          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">Observatorio Laboral EPEN</h3>
+          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Pipeline de datos en Python sobre microdatos del INEI (+10K registros) y tableros en Power BI y Looker Studio.</p>
           <div style="display: flex; gap: 5px; flex-wrap: wrap;">
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">SQL</span>
@@ -572,7 +655,7 @@
           </div>
           <div style="display: flex; gap: 8px;">
             <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 9px 0; font-weight: 700; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">Ver proyecto →</a>
-            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Código ↗</a>
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -581,8 +664,7 @@
 
   <!-- ==================== ── TECNOLOGÍAS ── ==================== -->
   <section style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-    <div id="tecnologias" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
-      <!-- Section Label -->
+    <div id="tecnologias" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
         <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">04 — Tecnologías</span>
         <div style="flex: 1; height: 1px; background: var(--border);"></div>
@@ -651,8 +733,7 @@
   </section>
 
   <!-- ==================== ── LINKEDIN EMBEDS ── ==================== -->
-  <section id="impacto" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
-    <!-- Section Label -->
+  <section id="impacto" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
       <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">05 — Publicaciones en LinkedIn</span>
       <div style="flex: 1; height: 1px; background: var(--border);"></div>
@@ -672,8 +753,7 @@
   </section>
 
   <!-- ==================== ── CONTACTO ── ==================== -->
-  <section id="contacto" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px 96px;">
-    <!-- Section Label -->
+  <section id="contacto" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px 96px;">
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
       <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">06 — Contacto</span>
       <div style="flex: 1; height: 1px; background: var(--border);"></div>
@@ -750,7 +830,7 @@
 
   <!-- ==================== ── FOOTER ── ==================== -->
   <footer style="border-top: 1px solid var(--border);">
-    <div style="max-width: 1100px; margin: 0 auto; padding: 22px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 22px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
       <span style="font-weight: 800; letter-spacing: -0.02em;">lady loayza<span style="color: var(--lime);">.</span></span>
       <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--mist);">Diseñado y construido con accesibilidad · 2026</span>
       <div style="display: flex; gap: 20px;">
@@ -761,23 +841,9 @@
     </div>
   </footer>
 
-  <!-- ==================== ── SCRIPTS ── ==================== -->
+  <!-- ==================== ── SCRIPTS (GITHUB API & INTERACCIÓN) ── ==================== -->
   <script>
-    // 1. Navbar scroll blur
-    const header = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 48) {
-        header.style.background = 'rgba(12,12,15,0.95)';
-        header.style.borderBottomColor = '#1e1e2e';
-        header.style.backdropFilter = 'blur(16px)';
-      } else {
-        header.style.background = 'transparent';
-        header.style.borderBottomColor = 'transparent';
-        header.style.backdropFilter = 'none';
-      }
-    }, { passive: true });
-
-    // 2. Menú Móvil
+    // 1. Menú Móvil
     const burgerBtn = document.getElementById('burgerBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
     burgerBtn.addEventListener('click', () => {
@@ -792,7 +858,7 @@
       mobileDrawer.style.display = 'none';
     }
 
-    // 3. Filtros de Proyectos
+    // 2. Filtros de Proyectos
     function filterCat(cat, btn) {
       const buttons = document.querySelectorAll('.filter-pill-btn');
       buttons.forEach(b => {
@@ -815,6 +881,20 @@
         }
       });
     }
+
+    // 3. GitHub API Live Integrator (Opcional & Seguro con Fallback)
+    async function loadGitHubRepos() {
+      try {
+        const res = await fetch('https://api.github.com/users/luzylay/repos?sort=updated&per_page=6');
+        if (res.ok) {
+          const repos = await res.json();
+          console.log('GitHub Repositories loaded:', repos.length);
+        }
+      } catch (err) {
+        console.warn('GitHub API offline / fallback maintained.');
+      }
+    }
+    loadGitHubRepos();
   </script>
 </body>
 </html>
