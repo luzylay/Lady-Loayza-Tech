@@ -28,11 +28,13 @@
 /assets/docs/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=43200
 
-# 5. Caché para Hojas de Estilo CSS y Módulos JavaScript
+# 5. Caché para Hojas de Estilo CSS y Módulos JavaScript (Siempre frescos con revalidación)
 /assets/css/*
-  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+  Cache-Control: public, max-age=0, must-revalidate
 /src/*
-  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+  Cache-Control: public, max-age=0, must-revalidate
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
 
 # 6. Caché para Manifiesto y Metadatos de SEO
 /manifest.json

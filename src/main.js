@@ -51,5 +51,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     readmeMedia: readmeMediaService
   });
 
+  // 6. Registro de Service Worker para PWA y control de caché en cliente
+  if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
+    try {
+      const registration = await navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' });
+      registration.addEventListener('updatefound', () => {
+        const installingWorker = registration.installing;
+        if (installingWorker) {
+          installingWorker.addEventListener('statechange', () => {
+            if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              console.info('[PWA] Nueva versión disponible. Actualizando recursos...');
+            }
+          });
+        }
+      });
+    } catch (swErr) {
+      console.warn('[PWA] Service Worker no registrado (modo estándar):', swErr);
+    }
+  }
+
   console.info('[Lady-Loayza-Tech] Clean Architecture & Componentes Data-Driven inicializados.');
 });
+

@@ -4,16 +4,16 @@
    ========================================================================== */
 
 /* 1. Capa de Configuración, Tokens y Reset Global */
-@import './variables.css';
+@import './variables.css?v=2.1.0';
 
 /* 2. Capa de Estructura, Grid y Contenedores */
-@import './layout.css';
+@import './layout.css?v=2.1.0';
 
 /* 3. Capa de Presentación Hero Viewport */
-@import './hero.css';
+@import './hero.css?v=2.1.0';
 
 /* 4. Capa de Componentes Data-Driven, Tarjetas y Breakpoints */
-@import './components.css';
+@import './components.css?v=2.1.0';
 
 /* ==========================================================================
    5. ACCESIBILIDAD UNIVERSAL (WCAG 2.1 AA) & PREFERENCIAS DEL SISTEMA
