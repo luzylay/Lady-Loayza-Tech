@@ -1,8 +1,9 @@
 /**
  * @file linkedin-carousel.component.js
  * @module presentation/linkedin-carousel.component
- * @description Componente de carrusel minimalista, limpio y fluido para publicaciones
- * de LinkedIn, con navegación accesible, gestos táctiles y diseño no recargado.
+ * @description Componente de carrusel responsivo y de alto rendimiento para posts de LinkedIn.
+ * Controles situados en la barra superior para visibilidad inmediata en todos los viewports.
+ * Sincronización bidireccional reactiva con gestos táctiles nativos (scroll-snap).
  */
 
 import { PORTFOLIO_CONTENT } from '../infrastructure/portfolio-content.repository.js';
@@ -23,23 +24,24 @@ export class LinkedInCarouselComponent {
     this.track = null;
     this.dots = [];
     this.counterEl = null;
-    this.touchStartX = 0;
-    this.touchEndX = 0;
+    this.prevBtn = null;
+    this.nextBtn = null;
+    this.scrollTimeout = null;
   }
 
   init() {
     const container = document.getElementById(this.containerId);
     if (!container || this.posts.length === 0) return;
 
-    if (!container.querySelector('.linkedin-minimal-carousel')) {
-      this.renderMinimal(container);
+    if (!container.querySelector('.linkedin-carousel-box')) {
+      this.render(container);
     }
     this.setupElements(container);
     this.attachEvents();
-    this.updateActiveSlide(0);
+    this.updateIndicators(0);
   }
 
-  renderMinimal(container) {
+  render(container) {
     const slidesHtml = this.posts.map((post, idx) => `
       <div class="linkedin-slide" data-slide-index="${idx}" aria-label="Publicación ${idx + 1} de ${this.posts.length}">
         <div class="linkedin-frame-wrapper">
@@ -48,42 +50,43 @@ export class LinkedInCarouselComponent {
             class="linkedin-iframe"
             allowfullscreen=""
             title="${post.title}"
-            loading="lazy">
+            loading="${idx === 0 ? 'eager' : 'lazy'}">
           </iframe>
         </div>
       </div>
     `).join('');
 
     const dotsHtml = this.posts.map((_, idx) => `
-      <button class="linkedin-dot" data-dot-index="${idx}" aria-label="Ir al post ${idx + 1}"></button>
+      <button class="linkedin-dot ${idx === 0 ? 'active' : ''}" data-dot-index="${idx}" aria-label="Ir a publicación ${idx + 1}" aria-selected="${idx === 0}"></button>
     `).join('');
 
     container.innerHTML = `
-      <div class="linkedin-minimal-carousel">
-        <!-- Viewport del Carrusel -->
-        <div class="linkedin-track-viewport">
-          <div id="linkedinTrack" class="linkedin-track" tabindex="0" aria-label="Publicaciones en LinkedIn">
-            ${slidesHtml}
-          </div>
-        </div>
-
-        <!-- Controles Inferiores Minimalistas -->
-        <div class="linkedin-minimal-nav">
-          <div class="linkedin-counter-tag">
-            <span id="linkedinCounter">01 / ${String(this.posts.length).padStart(2, '0')}</span>
+      <div class="linkedin-carousel-box" role="region" aria-label="Carrusel de publicaciones destacadas">
+        <!-- Barra de Controles Superior: Siempre visible en móvil y escritorio -->
+        <div class="linkedin-controls-bar">
+          <div class="linkedin-counter-badge">
+            <span id="linkedinCounter" class="counter-num">01 / ${String(this.posts.length).padStart(2, '0')}</span>
+            <span class="counter-label">Destacados</span>
           </div>
 
-          <div class="linkedin-dots" role="tablist">
+          <div class="linkedin-dots" role="tablist" aria-label="Navegación por páginas">
             ${dotsHtml}
           </div>
 
-          <div class="linkedin-arrow-actions">
-            <button id="linkedinPrevBtn" class="linkedin-nav-arrow" aria-label="Anterior">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          <div class="linkedin-arrow-group">
+            <button id="linkedinPrevBtn" class="linkedin-arrow-btn" aria-label="Publicación anterior">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
             </button>
-            <button id="linkedinNextBtn" class="linkedin-nav-arrow" aria-label="Siguiente">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            <button id="linkedinNextBtn" class="linkedin-arrow-btn" aria-label="Publicación siguiente">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
             </button>
+          </div>
+        </div>
+
+        <!-- Pista de Desplazamiento Fluida -->
+        <div class="linkedin-track-viewport">
+          <div id="linkedinTrack" class="linkedin-track" tabindex="0" aria-label="Publicaciones en LinkedIn">
+            ${slidesHtml}
           </div>
         </div>
       </div>
@@ -99,17 +102,43 @@ export class LinkedInCarouselComponent {
   }
 
   attachEvents() {
-    if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prev());
-    if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.next());
+    if (this.prevBtn) {
+      this.prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.prev();
+      });
+    }
+
+    if (this.nextBtn) {
+      this.nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.next();
+      });
+    }
 
     this.dots.forEach((dot) => {
       dot.addEventListener('click', (e) => {
+        e.preventDefault();
         const index = parseInt(e.currentTarget.getAttribute('data-dot-index'), 10);
         this.goToSlide(index);
       });
     });
 
+    // Sincronización reactiva con scroll nativo / táctil en móvil
     if (this.track) {
+      this.track.addEventListener('scroll', () => {
+        window.clearTimeout(this.scrollTimeout);
+        this.scrollTimeout = setTimeout(() => {
+          const width = this.track.clientWidth || 1;
+          const calculatedIndex = Math.round(this.track.scrollLeft / width);
+          if (calculatedIndex !== this.currentIndex && calculatedIndex >= 0 && calculatedIndex < this.posts.length) {
+            this.currentIndex = calculatedIndex;
+            this.updateIndicators(calculatedIndex);
+          }
+        }, 50);
+      }, { passive: true });
+
+      // Navegación por teclado
       this.track.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
           e.preventDefault();
@@ -119,19 +148,6 @@ export class LinkedInCarouselComponent {
           this.next();
         }
       });
-
-      this.track.addEventListener('touchstart', (e) => {
-        this.touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
-
-      this.track.addEventListener('touchend', (e) => {
-        this.touchEndX = e.changedTouches[0].screenX;
-        const diff = this.touchStartX - this.touchEndX;
-        if (Math.abs(diff) > 40) {
-          if (diff > 0) this.next();
-          else this.prev();
-        }
-      }, { passive: true });
     }
   }
 
@@ -148,10 +164,7 @@ export class LinkedInCarouselComponent {
   goToSlide(index) {
     if (index < 0 || index >= this.posts.length) return;
     this.currentIndex = index;
-    this.updateActiveSlide(index);
-  }
 
-  updateActiveSlide(index) {
     if (this.track) {
       const slideWidth = this.track.clientWidth;
       this.track.scrollTo({
@@ -160,6 +173,10 @@ export class LinkedInCarouselComponent {
       });
     }
 
+    this.updateIndicators(index);
+  }
+
+  updateIndicators(index) {
     if (this.counterEl) {
       const currentFormatted = String(index + 1).padStart(2, '0');
       const totalFormatted = String(this.posts.length).padStart(2, '0');
@@ -167,13 +184,9 @@ export class LinkedInCarouselComponent {
     }
 
     this.dots.forEach((dot, idx) => {
-      if (idx === index) {
-        dot.classList.add('active');
-        dot.setAttribute('aria-selected', 'true');
-      } else {
-        dot.classList.remove('active');
-        dot.setAttribute('aria-selected', 'false');
-      }
+      const isActive = idx === index;
+      dot.classList.toggle('active', isActive);
+      dot.setAttribute('aria-selected', String(isActive));
     });
   }
 }
