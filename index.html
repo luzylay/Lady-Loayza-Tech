@@ -100,7 +100,7 @@
   </script>
 
   <!-- Modular Master Stylesheet (Versionado para invalidación inmediata de caché) -->
-  <link rel="stylesheet" href="./assets/css/main.css?v=2.1.0" />
+  <link rel="stylesheet" href="./assets/css/main.css?v=2.2.0" />
 </head>
 <body>
 
@@ -328,22 +328,38 @@
           <div class="section-line"></div>
         </div>
 
-        <div style="margin-bottom: 32px;">
-          <h2 class="section-title">
-            Impacto y Reconocimientos
-          </h2>
-          <p class="section-desc">
-            Publicaciones y momentos clave de mi trayectoria profesional compartidos en LinkedIn.
-          </p>
-        </div>
+        <div class="linkedin-split-grid">
+          <!-- Columna Izquierda: Información, Logros & Controles -->
+          <div class="linkedin-info-col">
+            <h2 class="section-title" style="margin-bottom: 16px;">
+              Impacto y Reconocimientos
+            </h2>
+            <p class="section-desc" style="margin-bottom: 24px;">
+              Publicaciones y momentos clave de mi trayectoria profesional compartidos en LinkedIn: victorias en hackatones nacionales, soluciones inclusivas e hitos de ingeniería de software.
+            </p>
 
-        <div id="linkedinCarouselContainer">
-          <div class="linkedin-carousel-box" role="region" aria-label="Carrusel de publicaciones destacadas">
-            <!-- Barra de Controles Superior: Siempre visible en móvil y escritorio -->
-            <div class="linkedin-controls-bar">
+            <div class="linkedin-highlights-list">
+              <div class="linkedin-highlight-item">
+                <span class="highlight-emoji">🏆</span>
+                <div>
+                  <strong>1.er Puesto — Hackatón Niño San Borja 2026</strong>
+                  <p>Solución NutriVision para innovación médica y salud infantil.</p>
+                </div>
+              </div>
+              <div class="linkedin-highlight-item">
+                <span class="highlight-emoji">🌟</span>
+                <div>
+                  <strong>Top 3 Nacional — Hackathon Sin Barreras</strong>
+                  <p>Plataforma Huella Accesible premiada por MINCETUR.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel de Controles Integrado y Ordenado -->
+            <div class="linkedin-nav-panel">
               <div class="linkedin-counter-badge">
                 <span id="linkedinCounter" class="counter-num">01 / 05</span>
-                <span class="counter-label">Destacados</span>
+                <span class="counter-label">Publicación</span>
               </div>
 
               <div class="linkedin-dots" role="tablist" aria-label="Navegación por páginas">
@@ -364,7 +380,15 @@
               </div>
             </div>
 
-            <!-- Pista de Desplazamiento Fluida -->
+            <div style="margin-top: 18px;">
+              <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" class="linkedin-profile-btn">
+                Ver perfil completo en LinkedIn ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Tarjeta Showcase de Publicaciones -->
+          <div class="linkedin-showcase-col" id="linkedinCarouselContainer">
             <div class="linkedin-track-viewport">
               <div id="linkedinTrack" class="linkedin-track" tabindex="0" aria-label="Publicaciones en LinkedIn">
                 
@@ -447,7 +471,8 @@
   </footer>
 
   <!-- ==================== ── APPLICATION ENTRY POINT ── ==================== -->
-  <script type="module" src="./src/main.js?v=2.1.0"></script>
+  <script type="module" src="./src/main.js?v=2.2.0"></script>
 </body>
 </html>
+
 
