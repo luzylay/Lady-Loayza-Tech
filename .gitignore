@@ -1,0 +1,16 @@
+# Node / Vite
+node_modules/
+dist/
+.DS_Store
+
+# Environment & Temp
+.env
+.env.local
+*.log
+*.tmp
+repos_data.json
+all_projects.json
+
+# IDEs
+.vscode/
+.idea/
