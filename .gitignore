@@ -3,11 +3,13 @@ node_modules/
 dist/
 .DS_Store
 
-# Environment & Temp
-.env
-.env.local
-*.log
+# Raw camera photos and local scratch
+Fotos-Formales/
+Portafolio accesible desarrolladora/
+masterclass_*.html
+CV-Lady-Loayza-Optimizado.docx
 *.tmp
+*.log
 repos_data.json
 all_projects.json
 
