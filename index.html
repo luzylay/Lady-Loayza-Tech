@@ -3,9 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portafolio profesional de Lady Luz Loayza Rodriguez — Desarrolladora de software, datos y accesibilidad universal. Ganadora 1.er puesto Hackathon INSNSB & Top 3 MINCETUR." />
+  
+  <!-- SEO & Metadatos Canónicos -->
+  <title>Lady Luz Loayza Rodriguez — Desarrolladora de Software, Datos & Accesibilidad Universal</title>
+  <meta name="description" content="Portafolio profesional de Lady Luz Loayza Rodriguez — Desarrolladora de software, ingeniería de datos y accesibilidad universal (WCAG 2.1 AA). 1.er puesto Hackathon INSNSB & Top 3 Nacional MINCETUR." />
+  <meta name="keywords" content="Lady Luz Loayza Rodriguez, Lady Loayza, Desarrolladora de Software, Frontend Developer, Accesibilidad Web, WCAG 2.1, React, TypeScript, Python, Machine Learning, Power BI, Kotlin, Lima Peru" />
   <meta name="author" content="Lady Luz Loayza Rodriguez" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href="https://lady-loayza-tech.pages.dev/" />
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#09090c" />
+  <meta name="geo.region" content="PE-LIM" />
+  <meta name="geo.placename" content="Lima, Perú" />
 
   <!-- Cabeceras de Seguridad y Protección contra Ataques Web (Anti-Clickjacking, Anti-XSS, Anti-MIME Sniffing) -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://avatars.githubusercontent.com https://komarev.com; frame-src 'self' https://www.linkedin.com; connect-src 'self' https://api.github.com; upgrade-insecure-requests;" />
@@ -13,51 +22,80 @@
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
 
-  <!-- Open Graph & Social Cards -->
-  <meta property="og:title" content="Lady Luz Loayza Rodriguez | Desarrolladora de Software" />
-  <meta property="og:description" content="Construyo apps y sistemas de software útiles, rápidos y accesibles para todo el mundo." />
-  <meta property="og:image" content="./assets/images/profile-hd.png" />
+  <!-- Open Graph / Facebook / LinkedIn Cards -->
+  <meta property="og:locale" content="es_PE" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Lady Loayza — Portafolio Profesional" />
+  <meta property="og:title" content="Lady Luz Loayza Rodriguez — Desarrolladora de Software & Accesibilidad" />
+  <meta property="og:description" content="Construyo apps y sistemas de software útiles, rápidos y accesibles para todo el mundo. 1.er puesto Hackathon INSNSB & Top 3 MINCETUR." />
+  <meta property="og:image" content="https://lady-loayza-tech.pages.dev/assets/images/profile-hd.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Retrato formal y credenciales de Lady Luz Loayza Rodriguez" />
   <meta property="og:url" content="https://lady-loayza-tech.pages.dev/" />
-  <meta property="og:type" content="website" />
+
+  <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Lady Luz Loayza Rodriguez | Desarrolladora de Software" />
-  <meta name="twitter:description" content="Construyo apps y sistemas de software útiles, rápidos y accesibles para todo el mundo." />
-  <meta name="twitter:image" content="./assets/images/profile-hd.png" />
+  <meta name="twitter:title" content="Lady Luz Loayza Rodriguez — Desarrolladora de Software & Accesibilidad" />
+  <meta name="twitter:description" content="Construyo apps y sistemas de software útiles, rápidos y accesibles para todo el mundo. 1.er puesto Hackathon INSNSB & Top 3 MINCETUR." />
+  <meta name="twitter:image" content="https://lady-loayza-tech.pages.dev/assets/images/profile-hd.png" />
 
-  <title>Lady Luz Loayza — Desarrolladora de Software</title>
-
-  <!-- Google Fonts: Outfit & DM Mono con Protección Crossorigin Segura -->
+  <!-- Google Fonts: Outfit & DM Mono con Optimización de Renderizado -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" crossorigin="anonymous">
 
-  <!-- Schema.org JSON-LD (SEO & Rich Results) -->
+  <!-- Schema.org JSON-LD Estructurado (Google Knowledge Graph & Rich Snippets) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Lady Luz Loayza Rodriguez",
-    "url": "https://lady-loayza-tech.pages.dev/",
-    "sameAs": [
-      "https://github.com/luzylay",
-      "https://www.linkedin.com/in/ladyloayzarodriguez/",
-      "https://www.kaggle.com/ladyloayza"
-    ],
-    "jobTitle": "Desarrolladora Frontend & Accesibilidad Universal",
-    "knowsAbout": [
-      "Frontend Development",
-      "React",
-      "TypeScript",
-      "PWA",
-      "Web Accessibility (WCAG 2.1)",
-      "Machine Learning",
-      "Python",
-      "Power BI",
-      "Kotlin"
-    ],
-    "award": [
-      "1.er Puesto Hackathon INSNSB (2026)",
-      "Top 3 Nacional Hackathon Sin Barreras MINCETUR (2026)"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://lady-loayza-tech.pages.dev/#website",
+        "url": "https://lady-loayza-tech.pages.dev/",
+        "name": "Lady Loayza Tech — Portafolio Profesional",
+        "description": "Portafolio oficial y soluciones de software de Lady Luz Loayza Rodriguez",
+        "inLanguage": "es"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://lady-loayza-tech.pages.dev/#person",
+        "name": "Lady Luz Loayza Rodriguez",
+        "alternateName": ["Lady Loayza", "luzylay"],
+        "url": "https://lady-loayza-tech.pages.dev/",
+        "image": "https://lady-loayza-tech.pages.dev/assets/images/profile-hd.png",
+        "sameAs": [
+          "https://github.com/luzylay",
+          "https://www.linkedin.com/in/ladyloayzarodriguez/",
+          "https://www.kaggle.com/ladyloayza"
+        ],
+        "jobTitle": "Desarrolladora Frontend & Accesibilidad Universal",
+        "knowsAbout": [
+          "Frontend Development",
+          "Software Engineering",
+          "Clean Architecture",
+          "React",
+          "TypeScript",
+          "PWA (Progressive Web Apps)",
+          "Web Accessibility (WCAG 2.1 AA)",
+          "Machine Learning",
+          "Python",
+          "Power BI",
+          "Kotlin",
+          "PostgreSQL"
+        ],
+        "award": [
+          "1.er Puesto Hackathon INSNSB (2026)",
+          "Top 3 Nacional Hackathon Sin Barreras MINCETUR (2026)"
+        ],
+        "nationality": "Peruvian",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lima",
+          "addressCountry": "PE"
+        }
+      }
     ]
   }
   </script>
@@ -279,7 +317,7 @@
       </div>
 
       <div class="roi-grid" id="roiContainer">
-        <!-- Hidratado por RoiListComponent -->
+        <!-- Hidratado dinámicamente por RoiListComponent -->
       </div>
     </section>
 

@@ -1,0 +1,32 @@
+{
+  "name": "lady-loayza-tech",
+  "version": "2.0.0",
+  "description": "Portafolio profesional y catálogo de soluciones de software, datos y accesibilidad web por Lady Luz Loayza Rodriguez.",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "node --check src/main.js src/domain/*.js src/infrastructure/*.js src/presentation/*.js src/use-cases/*.js",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "portfolio",
+    "software-engineering",
+    "clean-architecture",
+    "accessibility",
+    "wcag",
+    "typescript",
+    "react",
+    "python",
+    "machine-learning",
+    "data-engineering",
+    "web-crypto",
+    "cloudflare-pages"
+  ],
+  "author": "Lady Luz Loayza Rodriguez <https://github.com/luzylay>",
+  "license": "MIT",
+  "homepage": "https://lady-loayza-tech.pages.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luzylay/Lady-Loayza-Tech.git"
+  }
+}

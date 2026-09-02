@@ -1,0 +1,18 @@
+{
+  "name": "Lady Luz Loayza Rodriguez — Portafolio Profesional",
+  "short_name": "Lady Loayza",
+  "description": "Portafolio profesional de Lady Luz Loayza Rodriguez. Ingeniería de software, datos y accesibilidad universal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090c",
+  "theme_color": "#09090c",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "./assets/images/profile-hd.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
