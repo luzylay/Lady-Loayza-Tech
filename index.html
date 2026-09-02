@@ -333,8 +333,30 @@
     }
 
     /* ==========================================================================
-       RESPONSIVE MEDIA QUERIES (MEDIANO & PEQUEÑO)
+       RESPONSIVE MEDIA QUERIES (GRANDE, MEDIANO & PEQUEÑO)
        ========================================================================== */
+    /* PANTALLAS GRANDES / DESKTOP (≥ 1025px): PROPORCIÓN HUMANA NATURAL SIN ZOOM GIGANTE */
+    @media (min-width: 1025px) {
+      .hero-bg-photo {
+        left: auto;
+        right: 4%;
+        top: auto;
+        bottom: 0;
+        width: 44%;
+        max-width: 580px;
+        height: 90vh;
+        max-height: 780px;
+        object-fit: contain;
+        object-position: center bottom;
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 6%, black 20%, black 100%), linear-gradient(to top, transparent 0%, black 12%, black 100%);
+        -webkit-mask-composite: destination-in;
+        mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.2) 6%, black 20%, black 100%);
+      }
+      .hero-gradient-lateral {
+        background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 52%, rgba(12, 12, 15, 0.85) 66%, transparent 100%);
+      }
+    }
+
     /* PANTALLAS MEDIANAS / TABLET (769px a 1024px) */
     @media (max-width: 1024px) and (min-width: 769px) {
       .hero-bg-photo {
