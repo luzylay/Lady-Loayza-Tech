@@ -9,6 +9,8 @@ build/
 .cache/
 .parcel-cache/
 out/
+.wrangler/
+.output/
 
 # 2. Entorno y Variables Sensibles
 .env

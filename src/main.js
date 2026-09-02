@@ -18,6 +18,7 @@ import { telemetryService } from './infrastructure/telemetry.service.js';
 import { globalEventBus } from './infrastructure/event-bus.js';
 import { projectRepository } from './infrastructure/project.repository.js';
 import { PORTFOLIO_CONTENT } from './infrastructure/portfolio-content.repository.js';
+import { readmeMediaService } from './infrastructure/readme-media.service.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   // 1. Inicialización de la capa de Infraestructura & Telemetría
@@ -30,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   new RoiListComponent({ containerId: 'roiContainer' }).init();
   new ContactPanelComponent({ infoPanelId: 'contactInfoPanel', actionsPanelId: 'contactActions' }).init();
 
-  // 3. Inicialización del Catálogo Reactivo de Proyectos
+  // 3. Inicialización del Catálogo Reactivo de Proyectos con Media dinámica de GitHub
   new ProjectListComponent({ containerId: 'projectsContainer' }).init();
   new FilterBarComponent({ buttonsSelector: '.filter-pill-btn' }).init();
 
@@ -44,7 +45,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     eventBus: globalEventBus,
     projectRepository,
     portfolioContent: PORTFOLIO_CONTENT,
-    telemetry: telemetryService
+    telemetry: telemetryService,
+    readmeMedia: readmeMediaService
   });
 
   console.info('[Lady-Loayza-Tech] Clean Architecture & Componentes Data-Driven inicializados.');

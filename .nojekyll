@@ -1,1 +1,9 @@
-# Bypass Jekyll processing for GitHub Pages
+# ==============================================================================
+# GITHUB PAGES - JEKYLL BYPASS CONFIGURATION
+# ==============================================================================
+# Este archivo indica al motor de despliegue de GitHub Pages que desactive
+# el preprocesamiento de Jekyll. Esto es estrictamente necesario para:
+# 1. Servir archivos directos como '_headers' sin que sean ignorados.
+# 2. Permitir el uso directo de ES Modules nativos desde './src/main.js'.
+# 3. Mantener intactas las estructuras de carpetas y metadatos estáticos.
+# ==============================================================================

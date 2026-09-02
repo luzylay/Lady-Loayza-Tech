@@ -1,21 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Cloudflare Workers / Primary Edge URL -->
   <url>
     <loc>https://lady-loayza-tech.lady-loayza.workers.dev/</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://lady-loayza-tech.lady-loayza.workers.dev/assets/images/profile-hd.png</image:loc>
+      <image:title>Lady Luz Loayza Rodriguez — Desarrolladora de Software &amp; Accesibilidad</image:title>
+      <image:caption>Retrato profesional y credenciales de Lady Luz Loayza Rodriguez</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lady-loayza-tech.lady-loayza.workers.dev/assets/images/profile-transparent-opt.png</image:loc>
+      <image:title>Lady Loayza — Hero Editorial</image:title>
+    </image:image>
   </url>
+
+  <!-- Cloudflare Pages URL -->
   <url>
     <loc>https://lady-loayza-tech.pages.dev/</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://lady-loayza-tech.pages.dev/assets/images/profile-hd.png</image:loc>
+      <image:title>Lady Luz Loayza Rodriguez — Portafolio Profesional</image:title>
+    </image:image>
   </url>
+
+  <!-- GitHub Pages Mirror -->
   <url>
     <loc>https://luzylay.github.io/Lady-Loayza-Tech/</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
 </urlset>

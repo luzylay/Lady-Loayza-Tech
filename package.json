@@ -6,9 +6,14 @@
   "main": "src/main.js",
   "scripts": {
     "test": "node --check src/main.js src/domain/*.js src/infrastructure/*.js src/presentation/*.js src/use-cases/*.js",
+    "lint": "node --check src/main.js src/domain/*.js src/infrastructure/*.js src/presentation/*.js src/use-cases/*.js",
+    "validate": "npm test",
     "start": "npx serve .",
     "deploy": "wrangler pages deploy .",
     "preview": "wrangler pages dev ."
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "keywords": [
     "portfolio",
@@ -27,6 +32,9 @@
   "author": "Lady Luz Loayza Rodriguez <https://github.com/luzylay>",
   "license": "MIT",
   "homepage": "https://lady-loayza-tech.pages.dev",
+  "bugs": {
+    "url": "https://github.com/luzylay/Lady-Loayza-Tech/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/luzylay/Lady-Loayza-Tech.git"

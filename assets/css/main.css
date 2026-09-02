@@ -1,8 +1,58 @@
 /* ==========================================================================
-   LADY-LOAYZA-TECH - MASTER STYLESHEET
+   LADY-LOAYZA-TECH — MASTER STYLESHEET
+   Arquitectura de CSS Modular: Variables -> Layout -> Hero -> Components
    ========================================================================== */
 
+/* 1. Capa de Configuración, Tokens y Reset Global */
 @import './variables.css';
+
+/* 2. Capa de Estructura, Grid y Contenedores */
 @import './layout.css';
+
+/* 3. Capa de Presentación Hero Viewport */
 @import './hero.css';
+
+/* 4. Capa de Componentes Data-Driven, Tarjetas y Breakpoints */
 @import './components.css';
+
+/* ==========================================================================
+   5. ACCESIBILIDAD UNIVERSAL (WCAG 2.1 AA) & PREFERENCIAS DEL SISTEMA
+   ========================================================================== */
+
+/* Respeto estricto a usuarios con sensibilidad al movimiento (Vestibular Disorders) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Modo de Alto Contraste Forzado del Sistema Operativo */
+@media (forced-colors: active) {
+  .hero-btn-lime,
+  .nav-btn-contact,
+  .filter-pill-btn[data-filter] {
+    border: 2px solid ButtonText !important;
+  }
+}
+
+/* Optimizaciones de Impresión para Currículum y Referencias */
+@media print {
+  .site-header,
+  .hero-actions-row,
+  .contact-actions-col,
+  .footer-links,
+  #filterBar,
+  #mobileDrawer {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}

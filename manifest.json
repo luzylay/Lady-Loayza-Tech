@@ -1,18 +1,59 @@
 {
+  "$schema": "https://json.schemastore.org/web-manifest.json",
   "name": "Lady Luz Loayza Rodriguez — Portafolio Profesional",
   "short_name": "Lady Loayza",
-  "description": "Portafolio profesional de Lady Luz Loayza Rodriguez. Ingeniería de software, datos y accesibilidad universal.",
-  "start_url": "/",
+  "description": "Portafolio profesional de Lady Luz Loayza Rodriguez. Ingeniería de software, datos y accesibilidad universal (WCAG 2.1 AA).",
+  "id": "lady-loayza-tech-portfolio",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#09090c",
   "theme_color": "#09090c",
-  "lang": "es",
+  "lang": "es-PE",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "productivity",
+    "education",
+    "developer tools"
+  ],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "./assets/images/profile-hd.png",
       "sizes": "192x192 512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/images/profile-transparent-opt.png",
+      "sizes": "460x740",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Ver Proyectos & Repositorios",
+      "short_name": "Proyectos",
+      "description": "Explorar catálogo de soluciones de software y datos",
+      "url": "./index.html#proyectos",
+      "icons": [{ "src": "./assets/images/profile-hd.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Experiencia & Reconocimientos",
+      "short_name": "Experiencia",
+      "description": "Trayectoria profesional y premios en hackathons",
+      "url": "./index.html#experiencia",
+      "icons": [{ "src": "./assets/images/profile-hd.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Agendar Reunión (Cal.com)",
+      "short_name": "Contacto",
+      "description": "Reservar sesión técnica o consultoría",
+      "url": "./index.html#contacto",
+      "icons": [{ "src": "./assets/images/profile-hd.png", "sizes": "192x192" }]
     }
   ]
 }
