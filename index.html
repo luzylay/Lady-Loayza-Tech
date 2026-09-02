@@ -96,7 +96,7 @@
     }
 
     /* ==========================================================================
-       HERO - ESTRUCTURA MODERNA INSPIRADA EN MOUREDEV & PORTFOLIOTEMPLATE
+       HERO - RETRATO PROMINENTE CON EFECTOS DE LUCES CINEMATOGRÁFICAS
        ========================================================================== */
     .hero-section {
       position: relative;
@@ -104,85 +104,125 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 130px 0 80px;
+      padding: 120px 0 64px;
       overflow: hidden;
       background: var(--ink);
     }
 
-    .hero-ambient-glow {
+    /* Sistema de Luces Volumétricas Ambientales */
+    .hero-ambient-lights {
       position: absolute;
       inset: 0;
       pointer-events: none;
       z-index: 0;
     }
-    .hero-ambient-glow .glow-center {
+    .hero-ambient-lights .light-spotlight {
       position: absolute;
-      top: 15%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(196, 241, 53, 0.12) 0%, rgba(56, 189, 248, 0.06) 45%, transparent 70%);
+      right: 2%;
+      top: 8%;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(196, 241, 53, 0.22) 0%, rgba(245, 158, 11, 0.16) 36%, rgba(56, 189, 248, 0.1) 60%, transparent 75%);
+      filter: blur(65px);
+      animation: pulseLight 8s ease-in-out infinite alternate;
+    }
+    .hero-ambient-lights .light-beam {
+      position: absolute;
+      right: 22%;
+      top: -10%;
+      width: 280px;
+      height: 600px;
+      background: linear-gradient(180deg, rgba(196, 241, 53, 0.15) 0%, rgba(56, 189, 248, 0.08) 50%, transparent 100%);
+      filter: blur(45px);
+      transform: rotate(-15deg);
+    }
+    .hero-ambient-lights .light-bottom-accent {
+      position: absolute;
+      left: 10%;
+      bottom: 5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
       filter: blur(60px);
+    }
+
+    @keyframes pulseLight {
+      0% { transform: scale(0.95); opacity: 0.85; }
+      100% { transform: scale(1.08); opacity: 1; }
     }
 
     .hero-container {
       position: relative;
       z-index: 10;
       width: 100%;
-      max-width: 960px;
+      max-width: 1140px;
       margin: 0 auto;
       padding: 0 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
     }
 
-    /* Avatar Capsule */
-    .hero-avatar-row {
-      display: flex;
+    .hero-grid-cinematic {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 48px;
       align-items: center;
-      gap: 18px;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
     }
 
-    .hero-avatar-wrap {
+    /* Escenario de Fotografía con Efectos de Luces y Badges */
+    .hero-stage {
       position: relative;
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      padding: 3px;
-      background: linear-gradient(135deg, var(--lime) 0%, #38bdf8 50%, rgba(196,241,53,0.3) 100%);
-      box-shadow: 0 0 25px rgba(196, 241, 53, 0.35);
-      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
     }
 
-    .hero-avatar-img {
+    /* Disco de luz concentrada tras el sujeto */
+    .hero-stage::before {
+      content: '';
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(196, 241, 53, 0.26) 0%, rgba(245, 158, 11, 0.2) 45%, rgba(56, 189, 248, 0.15) 100%);
+      filter: blur(40px);
+      z-index: 1;
+      bottom: 60px;
+    }
+
+    .hero-cinematic-img {
+      position: relative;
+      z-index: 2;
       width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 10%;
+      max-width: 460px;
+      height: auto;
+      max-height: 740px;
+      object-fit: contain;
       display: block;
-      background: var(--ink2);
+      filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 40px rgba(196, 241, 53, 0.18));
+      -webkit-mask-image: linear-gradient(to bottom, black 84%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 84%, transparent 100%);
     }
 
-    .hero-status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(19, 19, 26, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border);
+    /* Badges Flotantes de Cristal con Luces Neón */
+    .hero-float-badge-top {
+      position: absolute;
+      top: 24px;
+      right: -8px;
+      background: rgba(12, 12, 15, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(196, 241, 53, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(196, 241, 53, 0.15);
       border-radius: 999px;
       padding: 6px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-family: var(--font-mono);
       font-size: 0.72rem;
       color: var(--snow);
+      z-index: 5;
     }
-    .hero-status-pill .pill-dot {
+    .hero-float-badge-top .pulse-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
@@ -190,41 +230,29 @@
       box-shadow: 0 0 0 3px rgba(196, 241, 53, 0.35);
     }
 
-    /* Stats Bento Cards */
-    .hero-stats-bento {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      width: 100%;
-      margin-top: 40px;
-    }
-
-    .hero-bento-card {
-      background: var(--ink2);
+    .hero-float-badge-bottom {
+      position: absolute;
+      bottom: 24px;
+      left: -16px;
+      background: rgba(12, 12, 15, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px 20px;
+      border-radius: 12px;
+      padding: 10px 16px;
       display: flex;
-      flex-direction: column;
-      gap: 6px;
-      transition: border-color 0.2s, transform 0.2s;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(196, 241, 53, 0.12);
+      z-index: 5;
     }
-    .hero-bento-card:hover {
-      border-color: rgba(196, 241, 53, 0.4);
-      transform: translateY(-2px);
-    }
-    .hero-bento-num {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 1.85rem;
-      color: var(--lime);
-      line-height: 1;
-    }
-    .hero-bento-label {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--mist);
-      line-height: 1.4;
+    .hero-float-badge-bottom .trophy-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 4px rgba(196, 241, 53, 0.25);
+      flex-shrink: 0;
     }
 
     /* Botones con contraste garantizado */
@@ -380,15 +408,72 @@
     }
 
     /* ==========================================================================
-       RESPONSIVE MEDIA QUERIES
+       RESPONSIVE MEDIA QUERIES (GRANDE, MEDIANO & PEQUEÑO)
        ========================================================================== */
+    /* PANTALLAS MEDIANAS / TABLETS (769px a 1024px) */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .hero-grid-cinematic {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .hero-cinematic-img {
+        max-width: 350px;
+        max-height: 520px;
+      }
+      .hero-stage::before {
+        width: 300px;
+        height: 300px;
+      }
+      .hero-float-badge-bottom {
+        bottom: 12px;
+        left: -8px;
+        padding: 8px 12px;
+      }
+      .hero-float-badge-top {
+        top: 12px;
+        right: 0;
+      }
+      .nav-links {
+        gap: 20px;
+      }
+    }
+
+    /* PANTALLAS PEQUEÑAS / MÓVILES (≤ 768px) */
     @media (max-width: 768px) {
-      .hero-stats-bento {
+      .hero-grid-cinematic {
         grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .hero-stage {
+        order: -1;
+        margin-bottom: 12px;
+      }
+      .hero-cinematic-img {
+        max-width: 250px;
+        max-height: 330px;
+      }
+      .hero-stage::before {
+        width: 220px;
+        height: 220px;
+        bottom: 30px;
+      }
+      .hero-float-badge-top {
+        top: 6px;
+        right: 50%;
+        transform: translateX(50%);
+        white-space: nowrap;
+      }
+      .hero-float-badge-bottom {
+        bottom: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        padding: 6px 12px;
       }
       .hero-section {
-        padding-top: 100px;
-        padding-bottom: 56px;
+        padding-top: 88px;
+        padding-bottom: 48px;
       }
       .nav-links { display: none; }
       .nav-cta { display: none; }
@@ -407,9 +492,13 @@
     @media (max-width: 480px) {
       .tech-grid { grid-template-columns: 1fr; }
       .contact-info-panel { grid-template-columns: 1fr; }
-      .hero-avatar-wrap {
-        width: 76px;
-        height: 76px;
+      .hero-cinematic-img {
+        max-width: 220px;
+        max-height: 290px;
+      }
+      .hero-stage::before {
+        width: 180px;
+        height: 180px;
       }
     }
   </style>
@@ -459,75 +548,85 @@
     </div>
   </header>
 
-  <!-- ==================== ── HERO VIEWPORT (ESTILO MOUREDEV & PORTFOLIOTEMPLATE) ── ==================== -->
+  <!-- ==================== ── HERO VIEWPORT (RETRATO PROMINENTE CON LUCES CINEMÁTICAS) ── ==================== -->
   <section id="hero" class="hero-section">
-    <div class="hero-ambient-glow">
-      <div class="glow-center"></div>
+    <!-- Luces Volumétricas Ambientales -->
+    <div class="hero-ambient-lights">
+      <div class="light-spotlight"></div>
+      <div class="light-beam"></div>
+      <div class="light-bottom-accent"></div>
     </div>
 
     <div class="hero-container">
-      
-      <!-- Avatar Capsule con Halo Neón y Status -->
-      <div class="hero-avatar-row">
-        <div class="hero-avatar-wrap">
-          <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez" class="hero-avatar-img" />
+      <div class="hero-grid-cinematic">
+
+        <!-- LADO IZQUIERDO: Textos, Acciones y Métricas -->
+        <div>
+          <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; text-decoration: none; transition: opacity 0.2s;" onmouseenter="this.style.opacity='0.6'" onmouseleave="this.style.opacity='1'">
+            <span style="font-family: var(--font-mono); font-size: 0.72rem; color: rgba(240,240,245,0.45); letter-spacing: 0.06em;">
+              ¿Tienes un proyecto? Hablemos primero →
+            </span>
+          </a>
+          
+          <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(2.8rem, 5.5vw, 5.4rem); letter-spacing: -0.05em; color: var(--snow); margin: 0 0 16px 0; line-height: 0.92;">
+            Hola,<br />soy<br />
+            <span style="color: var(--lime);">Lady Luz.</span>
+          </h1>
+
+          <p style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--lime); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; font-weight: 500;">
+            Desarrolladora de software & Accesibilidad
+          </p>
+
+          <p style="font-size: clamp(0.92rem, 1.4vw, 1.02rem); color: rgba(240,240,245,0.68); line-height: 1.82; margin-bottom: 28px; max-width: 490px;">
+            Construyo apps y páginas web que la gente usa cada día. <strong>Útiles, rápidas y fáciles de entender</strong> — para todo el mundo, no solo para quienes saben programar.
+          </p>
+          
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 34px;">
+            <a href="#proyectos" class="hero-btn-lime">
+              Ver proyectos ↓
+            </a>
+            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="hero-btn-glass">
+              Descargar CV
+            </a>
+            <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" class="hero-btn-border">
+              LinkedIn ↗
+            </a>
+          </div>
+
+          <!-- Stats en Lime -->
+          <div style="display: flex; gap: 28px; padding-top: 24px; border-top: 1px solid var(--border); flex-wrap: wrap;">
+            <div>
+              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.75rem; color: var(--lime); line-height: 1;">1.ᵉʳ</div>
+              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--mist); margin-top: 4px; letter-spacing: 0.06em;">Hackathon INSNSB</div>
+            </div>
+            <div>
+              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.75rem; color: var(--lime); line-height: 1;">Top 3</div>
+              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--mist); margin-top: 4px; letter-spacing: 0.06em;">MINCETUR Sin Barreras</div>
+            </div>
+            <div>
+              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.75rem; color: var(--lime); line-height: 1;">+10K</div>
+              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--mist); margin-top: 4px; letter-spacing: 0.06em;">Datos Procesados</div>
+            </div>
+          </div>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 6px;">
-          <div class="hero-status-pill">
-            <span class="pill-dot"></span>
+
+        <!-- LADO DERECHO: Retrato Prominente con Luces Volumétricas y Badges -->
+        <div class="hero-stage">
+          <div class="hero-float-badge-top">
+            <span class="pulse-dot"></span>
             Disponible para trabajar
           </div>
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--mist);">Lima, Perú · Remoto / Presencial</span>
+          <img src="./assets/profile_transparent_opt.png" alt="Lady Luz Loayza Rodriguez" class="hero-cinematic-img" />
+          <div class="hero-float-badge-bottom">
+            <span class="trophy-dot"></span>
+            <div>
+              <strong style="display: block; font-size: 0.82rem; color: var(--snow);">1.ᵉʳ Puesto Hackathon INSNSB</strong>
+              <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--mist);">PWA Inclusiva CRED (PUCP / ESAN)</span>
+            </div>
+          </div>
         </div>
+
       </div>
-
-      <!-- Titular de Gran Impacto -->
-      <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(2.8rem, 6.5vw, 5.6rem); letter-spacing: -0.04em; color: var(--snow); margin: 0 0 14px 0; line-height: 0.95;">
-        Hola, soy <span style="color: var(--lime);">Lady Luz Loayza.</span>
-      </h1>
-
-      <!-- Rol Mono -->
-      <p style="font-family: var(--font-mono); font-size: clamp(0.78rem, 1.4vw, 0.92rem); color: var(--lime); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; font-weight: 500;">
-        Desarrolladora de Software & Accesibilidad Universal
-      </p>
-
-      <!-- Narrativa Clara -->
-      <p style="font-size: clamp(0.98rem, 1.6vw, 1.15rem); color: rgba(240,240,245,0.72); line-height: 1.8; margin-bottom: 32px; max-width: 780px;">
-        Construyo aplicaciones web y sistemas de software <strong>útiles, rápidos y fáciles de entender</strong> — para todo el mundo, no solo para quienes saben programar. Ganadora del 1.ᵉʳ puesto en la Hackathon INSNSB.
-      </p>
-
-      <!-- Botones CTA -->
-      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
-        <a href="#proyectos" class="hero-btn-lime">
-          Ver proyectos ↓
-        </a>
-        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="hero-btn-glass">
-          Descargar CV
-        </a>
-        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="hero-btn-glass">
-          Agendar en Cal.com ↗
-        </a>
-        <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" class="hero-btn-border">
-          LinkedIn ↗
-        </a>
-      </div>
-
-      <!-- Stats Bento Cards -->
-      <div class="hero-stats-bento">
-        <div class="hero-bento-card">
-          <div class="hero-bento-num">1.ᵉʳ</div>
-          <div class="hero-bento-label">Puesto Hackathon INSNSB (PWA CRED Infantil)</div>
-        </div>
-        <div class="hero-bento-card">
-          <div class="hero-bento-num">Top 3</div>
-          <div class="hero-bento-label">Nacional MINCETUR Sin Barreras (Helen IA)</div>
-        </div>
-        <div class="hero-bento-card">
-          <div class="hero-bento-num">+10K</div>
-          <div class="hero-bento-label">Registros Procesados EPEN (Samsung Campus)</div>
-        </div>
-      </div>
-
     </div>
   </section>
 
