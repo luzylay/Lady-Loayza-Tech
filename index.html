@@ -359,30 +359,31 @@
     }
 
     /* ==========================================================================
-       RESPONSIVE MEDIA QUERIES (GRANDE, MEDIANO & PEQUEÑO)
+       RESPONSIVE MEDIA QUERIES (DESKTOP, TABLET & MÓVIL)
        ========================================================================== */
     /* PANTALLAS MEDIANAS / TABLETS (769px a 1024px) */
     @media (max-width: 1024px) and (min-width: 769px) {
       .hero-grid-cinematic {
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 28px;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 32px;
         align-items: center;
       }
       .hero-cinematic-img {
-        max-width: 350px;
-        max-height: 520px;
+        max-width: 340px;
+        max-height: 500px;
+      }
+      .hero-float-badge-top {
+        top: 8px;
+        right: 0;
+        padding: 6px 12px;
       }
       .hero-float-badge-bottom {
         bottom: 12px;
-        left: -8px;
-        padding: 8px 12px;
-      }
-      .hero-float-badge-top {
-        top: 12px;
-        right: 0;
+        left: 0;
+        padding: 8px 14px;
       }
       .nav-links {
-        gap: 20px;
+        gap: 18px;
       }
     }
 
@@ -390,32 +391,39 @@
     @media (max-width: 768px) {
       .hero-grid-cinematic {
         grid-template-columns: 1fr;
-        gap: 28px;
-      }
-      .hero-stage {
-        order: -1;
-        margin-bottom: 12px;
-      }
-      .hero-cinematic-img {
-        max-width: 250px;
-        max-height: 330px;
-      }
-      .hero-float-badge-top {
-        top: 6px;
-        right: 50%;
-        transform: translateX(50%);
-        white-space: nowrap;
-      }
-      .hero-float-badge-bottom {
-        bottom: 6px;
-        left: 50%;
-        transform: translateX(-50%);
-        white-space: nowrap;
-        padding: 6px 12px;
+        gap: 40px;
       }
       .hero-section {
-        padding-top: 88px;
-        padding-bottom: 48px;
+        padding-top: 96px;
+        padding-bottom: 56px;
+      }
+      /* En móvil el texto va primero y la foto debajo de forma limpia y ordenada */
+      .hero-stage {
+        order: 2;
+        margin-top: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      .hero-cinematic-img {
+        max-width: 270px;
+        max-height: 380px;
+        margin: 0 auto;
+      }
+      /* Badges en móvil: ya no flotan tapando la cara, se ubican de forma armónica */
+      .hero-float-badge-top {
+        position: static;
+        margin-bottom: 12px;
+        order: -1;
+      }
+      .hero-float-badge-bottom {
+        position: static;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        justify-content: center;
+        text-align: left;
       }
       .nav-links { display: none; }
       .nav-cta { display: none; }
@@ -435,8 +443,13 @@
       .tech-grid { grid-template-columns: 1fr; }
       .contact-info-panel { grid-template-columns: 1fr; }
       .hero-cinematic-img {
-        max-width: 220px;
-        max-height: 290px;
+        max-width: 240px;
+        max-height: 340px;
+      }
+      .hero-btn-lime, .hero-btn-glass, .hero-btn-border {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
       }
     }
   </style>
