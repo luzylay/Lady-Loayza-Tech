@@ -347,18 +347,18 @@
               </div>
 
               <div class="linkedin-dots" role="tablist" aria-label="Navegación por páginas">
-                <button class="linkedin-dot active" data-dot-index="0" aria-label="Ir a publicación 1" aria-selected="true"></button>
-                <button class="linkedin-dot" data-dot-index="1" aria-label="Ir a publicación 2" aria-selected="false"></button>
-                <button class="linkedin-dot" data-dot-index="2" aria-label="Ir a publicación 3" aria-selected="false"></button>
-                <button class="linkedin-dot" data-dot-index="3" aria-label="Ir a publicación 4" aria-selected="false"></button>
-                <button class="linkedin-dot" data-dot-index="4" aria-label="Ir a publicación 5" aria-selected="false"></button>
+                <button type="button" class="linkedin-dot active" data-dot-index="0" onclick="window.__LINKEDIN_CAROUSEL__?.goToSlide(0)" aria-label="Ir a publicación 1" aria-selected="true"></button>
+                <button type="button" class="linkedin-dot" data-dot-index="1" onclick="window.__LINKEDIN_CAROUSEL__?.goToSlide(1)" aria-label="Ir a publicación 2" aria-selected="false"></button>
+                <button type="button" class="linkedin-dot" data-dot-index="2" onclick="window.__LINKEDIN_CAROUSEL__?.goToSlide(2)" aria-label="Ir a publicación 3" aria-selected="false"></button>
+                <button type="button" class="linkedin-dot" data-dot-index="3" onclick="window.__LINKEDIN_CAROUSEL__?.goToSlide(3)" aria-label="Ir a publicación 4" aria-selected="false"></button>
+                <button type="button" class="linkedin-dot" data-dot-index="4" onclick="window.__LINKEDIN_CAROUSEL__?.goToSlide(4)" aria-label="Ir a publicación 5" aria-selected="false"></button>
               </div>
 
               <div class="linkedin-arrow-group">
-                <button id="linkedinPrevBtn" class="linkedin-arrow-btn" aria-label="Publicación anterior">
+                <button type="button" id="linkedinPrevBtn" class="linkedin-arrow-btn" onclick="window.__LINKEDIN_CAROUSEL__?.prev(event)" aria-label="Publicación anterior">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
                 </button>
-                <button id="linkedinNextBtn" class="linkedin-arrow-btn" aria-label="Publicación siguiente">
+                <button type="button" id="linkedinNextBtn" class="linkedin-arrow-btn" onclick="window.__LINKEDIN_CAROUSEL__?.next(event)" aria-label="Publicación siguiente">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
                 </button>
               </div>

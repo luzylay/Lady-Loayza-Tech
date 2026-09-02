@@ -1,9 +1,11 @@
 /**
  * @file linkedin-carousel.component.js
  * @module presentation/linkedin-carousel.component
- * @description Componente de carrusel responsivo y de alto rendimiento para posts de LinkedIn.
- * Controles situados en la barra superior para visibilidad inmediata en todos los viewports.
- * Sincronización bidireccional reactiva con gestos táctiles nativos (scroll-snap).
+ * @description Componente de carrusel resiliente para posts de LinkedIn.
+ * Integra triple capa de activación:
+ * 1. Listeners de eventos addEventListener.
+ * 2. Puente global window.__LINKEDIN_CAROUSEL__ para ejecución directa.
+ * 3. Navegación compatible con CSS Scroll-Snap y fallback síncrono.
  */
 
 import { PORTFOLIO_CONTENT } from '../infrastructure/portfolio-content.repository.js';
@@ -33,6 +35,9 @@ export class LinkedInCarouselComponent {
     const container = document.getElementById(this.containerId);
     if (!container || this.posts.length === 0) return;
 
+    // Exponer inmediatamente al ámbito global para handlers inline
+    window.__LINKEDIN_CAROUSEL__ = this;
+
     if (!container.querySelector('.linkedin-carousel-box')) {
       this.render(container);
     }
@@ -57,7 +62,14 @@ export class LinkedInCarouselComponent {
     `).join('');
 
     const dotsHtml = this.posts.map((_, idx) => `
-      <button class="linkedin-dot ${idx === 0 ? 'active' : ''}" data-dot-index="${idx}" aria-label="Ir a publicación ${idx + 1}" aria-selected="${idx === 0}"></button>
+      <button
+        type="button"
+        class="linkedin-dot ${idx === 0 ? 'active' : ''}"
+        data-dot-index="${idx}"
+        onclick="window.__LINKEDIN_CAROUSEL__?.goToSlide(${idx})"
+        aria-label="Ir a publicación ${idx + 1}"
+        aria-selected="${idx === 0}">
+      </button>
     `).join('');
 
     container.innerHTML = `
@@ -74,10 +86,20 @@ export class LinkedInCarouselComponent {
           </div>
 
           <div class="linkedin-arrow-group">
-            <button id="linkedinPrevBtn" class="linkedin-arrow-btn" aria-label="Publicación anterior">
+            <button
+              type="button"
+              id="linkedinPrevBtn"
+              class="linkedin-arrow-btn"
+              onclick="window.__LINKEDIN_CAROUSEL__?.prev(event)"
+              aria-label="Publicación anterior">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
             </button>
-            <button id="linkedinNextBtn" class="linkedin-arrow-btn" aria-label="Publicación siguiente">
+            <button
+              type="button"
+              id="linkedinNextBtn"
+              class="linkedin-arrow-btn"
+              onclick="window.__LINKEDIN_CAROUSEL__?.next(event)"
+              aria-label="Publicación siguiente">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
             </button>
           </div>
@@ -103,28 +125,21 @@ export class LinkedInCarouselComponent {
 
   attachEvents() {
     if (this.prevBtn) {
-      this.prevBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.prev();
-      });
+      this.prevBtn.addEventListener('click', (e) => this.prev(e));
     }
 
     if (this.nextBtn) {
-      this.nextBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        this.next();
-      });
+      this.nextBtn.addEventListener('click', (e) => this.next(e));
     }
 
     this.dots.forEach((dot) => {
       dot.addEventListener('click', (e) => {
-        e.preventDefault();
         const index = parseInt(e.currentTarget.getAttribute('data-dot-index'), 10);
         this.goToSlide(index);
       });
     });
 
-    // Sincronización reactiva con scroll nativo / táctil en móvil
+    // Sincronización con gestos táctiles y scroll nativo
     if (this.track) {
       this.track.addEventListener('scroll', () => {
         window.clearTimeout(this.scrollTimeout);
@@ -138,7 +153,7 @@ export class LinkedInCarouselComponent {
         }, 50);
       }, { passive: true });
 
-      // Navegación por teclado
+      // Soporte para flechas de teclado
       this.track.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
           e.preventDefault();
@@ -151,12 +166,14 @@ export class LinkedInCarouselComponent {
     }
   }
 
-  prev() {
+  prev(e) {
+    if (e && e.preventDefault) e.preventDefault();
     const newIndex = (this.currentIndex - 1 + this.posts.length) % this.posts.length;
     this.goToSlide(newIndex);
   }
 
-  next() {
+  next(e) {
+    if (e && e.preventDefault) e.preventDefault();
     const newIndex = (this.currentIndex + 1) % this.posts.length;
     this.goToSlide(newIndex);
   }
@@ -166,11 +183,25 @@ export class LinkedInCarouselComponent {
     this.currentIndex = index;
 
     if (this.track) {
-      const slideWidth = this.track.clientWidth;
-      this.track.scrollTo({
-        left: index * slideWidth,
-        behavior: 'smooth'
-      });
+      const slides = this.track.querySelectorAll('.linkedin-slide');
+      const targetSlide = slides[index];
+
+      if (targetSlide) {
+        const targetLeft = targetSlide.offsetLeft;
+        
+        // Scroll fluido programático
+        this.track.scrollTo({
+          left: targetLeft,
+          behavior: 'smooth'
+        });
+
+        // Fallback síncrono para asegurar posicionamiento exacto ante bloqueos de scroll-snap
+        setTimeout(() => {
+          if (Math.abs(this.track.scrollLeft - targetLeft) > 10) {
+            this.track.scrollLeft = targetLeft;
+          }
+        }, 320);
+      }
     }
 
     this.updateIndicators(index);
