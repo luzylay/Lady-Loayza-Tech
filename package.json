@@ -6,7 +6,9 @@
   "main": "src/main.js",
   "scripts": {
     "test": "node --check src/main.js src/domain/*.js src/infrastructure/*.js src/presentation/*.js src/use-cases/*.js",
-    "start": "npx serve ."
+    "start": "npx serve .",
+    "deploy": "wrangler pages deploy .",
+    "preview": "wrangler pages dev ."
   },
   "keywords": [
     "portfolio",
