@@ -96,7 +96,7 @@
     }
 
     /* ==========================================================================
-       HERO RESPONSIVE (GRANDE, MEDIANO Y PEQUEÑO)
+       HERO RESPONSIVE - SOLUCIÓN B: FUSIÓN DARK ELEGANTE Y FLUIDA
        ========================================================================== */
     .hero-section {
       position: relative;
@@ -105,6 +105,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      background: var(--ink);
     }
 
     .hero-backdrop-layer {
@@ -112,55 +113,51 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
+      overflow: hidden;
     }
 
-    /* Fondo limpio con transición suave del oscuro al blanco luminoso */
-    .hero-light-glow {
+    /* Tu foto profesional integrada a sangre */
+    .hero-bg-photo {
       position: absolute;
-      right: 0;
-      top: 0;
-      width: 55%;
+      inset: 0;
+      width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, var(--ink) 0%, rgba(12, 12, 15, 0.4) 20%, rgba(240, 245, 255, 0.7) 45%, #ffffff 65%, #ffffff 100%);
+      object-fit: cover;
+      object-position: 76% 12%;
       z-index: 1;
     }
 
-    /* Fondo degradado lateral que se queda EXCLUSIVAMENTE en el fondo detrás de la foto */
+    /* Capa 1: Degradado lateral que funde la foto cálidamente con el fondo oscuro del texto */
     .hero-gradient-lateral {
       position: absolute;
-      left: 0;
-      top: 0;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 80%, transparent 100%);
+      inset: 0;
       z-index: 2;
+      background: linear-gradient(105deg, var(--ink) 0%, rgba(12, 12, 15, 0.94) 30%, rgba(20, 14, 8, 0.58) 58%, rgba(58, 28, 10, 0.08) 82%, transparent 100%);
     }
 
-    /* Foto en Desktop: EN EL FRENTE (Z-INDEX 3), SIN SOMBRAS SUCIAS ENCIMA */
-    .hero-bg-photo {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 48%;
-      max-width: 680px;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 8%;
-      z-index: 3;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,0.85) 24%, black 38%, black 100%), linear-gradient(to top, transparent 0%, rgba(0,0,0,0.8) 6%, black 15%, black 100%);
-      -webkit-mask-composite: destination-in;
-      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,0.85) 24%, black 38%, black 100%);
-    }
-
-    /* Degradado de transición inferior sutil */
+    /* Capa 2: Degradado de transición inferior suave */
     .hero-gradient-bottom {
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 120px;
+      inset: 0;
+      z-index: 3;
+      background: linear-gradient(to top, var(--ink) 0%, rgba(12, 12, 15, 0.85) 18%, rgba(12, 12, 15, 0.25) 42%, transparent 70%);
+    }
+
+    /* Capa 3: Resplandor cálido de iluminación cinematográfica */
+    .hero-gradient-warm {
+      position: absolute;
+      inset: 0;
       z-index: 4;
-      background: linear-gradient(to top, var(--ink) 0%, rgba(12,12,15,0.7) 40%, transparent 100%);
+      background: radial-gradient(ellipse 55% 70% at 75% 35%, rgba(165, 85, 30, 0.22) 0%, transparent 65%);
+      mix-blend-mode: screen;
+    }
+
+    /* Capa 4: Sombra superior para el header */
+    .hero-gradient-top {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      background: linear-gradient(to bottom, rgba(12, 12, 15, 0.5) 0%, transparent 20%);
     }
 
     .hero-content-wrapper {
@@ -341,14 +338,10 @@
     /* PANTALLAS MEDIANAS / TABLET (769px a 1024px) */
     @media (max-width: 1024px) and (min-width: 769px) {
       .hero-bg-photo {
-        width: 44%;
-        object-position: center 6%;
+        object-position: 80% 12%;
       }
       .hero-gradient-lateral {
-        background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 56%, rgba(12,12,15,0.75) 72%, transparent 100%);
-      }
-      .hero-light-glow {
-        width: 48%;
+        background: linear-gradient(105deg, var(--ink) 0%, rgba(12, 12, 15, 0.96) 42%, rgba(20, 14, 8, 0.65) 65%, transparent 100%);
       }
       .nav-links {
         gap: 20px;
@@ -361,27 +354,16 @@
         grid-template-columns: 1fr;
         gap: 28px;
       }
-      /* En móvil la foto se adapta a la parte superior con un degradado vertical suave */
       .hero-bg-photo {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        max-width: 100%;
-        height: 100%;
-        object-position: center 12%;
-        opacity: 0.85;
-      }
-      .hero-light-glow {
-        width: 100%;
-        height: 60%;
-        background: radial-gradient(ellipse at center 20%, rgba(255, 255, 255, 0.2) 0%, rgba(165, 85, 30, 0.12) 50%, transparent 80%);
+        object-position: 68% 10%;
+        opacity: 0.9;
       }
       .hero-gradient-lateral {
-        background: linear-gradient(to top, var(--ink) 0%, var(--ink) 55%, rgba(12,12,15,0.88) 75%, rgba(12,12,15,0.3) 100%);
+        background: linear-gradient(to top, var(--ink) 0%, var(--ink) 58%, rgba(12, 12, 15, 0.88) 78%, rgba(12, 12, 15, 0.3) 100%);
       }
       .hero-content-wrapper {
         padding-top: 100px;
-        padding-bottom: 40px;
+        padding-bottom: 44px;
       }
       .about-grid { grid-template-columns: 1fr; }
       .exp-row { grid-template-columns: 48px 1fr; }
@@ -448,14 +430,15 @@
     </div>
   </header>
 
-  <!-- ==================== ── HERO VIEWPORT ── ==================== -->
+  <!-- ==================== ── HERO VIEWPORT (SOLUCIÓN B: FUSIÓN DARK PURA) ── ==================== -->
   <section id="hero" class="hero-section">
-    <!-- Capas de Fondo: Foto + Fondo Blanco Puro + Transición Nítida -->
+    <!-- Capas de Fondo Cinemáticas -->
     <div class="hero-backdrop-layer">
-      <div class="hero-light-glow"></div>
       <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez" class="hero-bg-photo" />
       <div class="hero-gradient-lateral"></div>
       <div class="hero-gradient-bottom"></div>
+      <div class="hero-gradient-warm"></div>
+      <div class="hero-gradient-top"></div>
     </div>
 
     <div class="hero-content-wrapper">
