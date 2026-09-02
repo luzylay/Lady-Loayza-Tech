@@ -114,37 +114,38 @@
       pointer-events: none;
     }
 
-    /* Luz blanca/clara detrás de la foto en el lado derecho */
+    /* Fondo blanco puro y luminoso detrás de la foto en el lado derecho */
     .hero-light-glow {
       position: absolute;
       right: 0;
       top: 0;
-      width: 55%;
+      width: 52%;
       height: 100%;
-      background: radial-gradient(ellipse at 65% 35%, rgba(255, 255, 255, 0.25) 0%, rgba(240, 245, 255, 0.12) 35%, rgba(165, 85, 30, 0.12) 65%, transparent 85%);
-      filter: blur(35px);
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.95) 15%, #ffffff 30%, #ffffff 100%);
       z-index: 1;
     }
 
-    /* Foto en Desktop */
+    /* Foto en Desktop con máscara suave para eliminar cualquier borde cortado */
     .hero-bg-photo {
       position: absolute;
       right: 0;
       top: 0;
-      width: 50%;
+      width: 48%;
       max-width: 680px;
       height: 100%;
       object-fit: cover;
       object-position: center 8%;
       z-index: 2;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 10%, black 25%, black 100%);
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 10%, black 25%, black 100%);
     }
 
-    /* Degradado de sangrado lateral */
+    /* Degradado de transición ultra-limpio desde el fondo oscuro hacia el blanco */
     .hero-gradient-lateral {
       position: absolute;
       inset: 0;
       z-index: 3;
-      background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 48%, rgba(12,12,15,0.7) 62%, rgba(12,12,15,0.1) 80%, transparent 100%);
+      background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 48%, rgba(12, 12, 15, 0.75) 54%, rgba(12, 12, 15, 0.0) 66%, transparent 100%);
     }
 
     /* Degradado de transición inferior */
@@ -152,16 +153,7 @@
       position: absolute;
       inset: 0;
       z-index: 4;
-      background: linear-gradient(to top, var(--ink) 0%, rgba(12,12,15,0.9) 15%, transparent 45%);
-    }
-
-    /* Resplandor cálido */
-    .hero-gradient-warm {
-      position: absolute;
-      inset: 0;
-      z-index: 5;
-      background: radial-gradient(ellipse 55% 70% at 75% 35%, rgba(165,85,30,0.18) 0%, transparent 65%);
-      mix-blend-mode: screen;
+      background: linear-gradient(to top, var(--ink) 0%, rgba(12,12,15,0.92) 12%, transparent 35%);
     }
 
     .hero-content-wrapper {
@@ -451,13 +443,12 @@
 
   <!-- ==================== ── HERO VIEWPORT ── ==================== -->
   <section id="hero" class="hero-section">
-    <!-- Capas de Fondo: Foto + Luz Clara + Degradados en Capas -->
+    <!-- Capas de Fondo: Foto + Fondo Blanco Puro + Transición Nítida -->
     <div class="hero-backdrop-layer">
       <div class="hero-light-glow"></div>
       <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez" class="hero-bg-photo" />
       <div class="hero-gradient-lateral"></div>
       <div class="hero-gradient-bottom"></div>
-      <div class="hero-gradient-warm"></div>
     </div>
 
     <div class="hero-content-wrapper">
