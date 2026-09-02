@@ -271,42 +271,38 @@
     </div>
   </header>
 
-  <!-- ==================== ── HERO ── ==================== -->
-  <section id="hero" style="position: relative; min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end;">
-    <!-- Capas de Gradientes y Foto a Sangre Completa -->
-    <div style="position: absolute; inset: 0; z-index: 0;">
-      <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez trabajando como desarrolladora de software" style="width: 100%; height: 100%; object-fit: cover; object-position: 78% 15%;" />
-      <div style="position: absolute; inset: 0; background: linear-gradient(105deg, var(--ink) 0%, rgba(12,12,15,0.92) 30%, rgba(20,14,8,0.58) 58%, rgba(58,28,10,0.08) 82%, transparent 100%), linear-gradient(to top, var(--ink) 0%, rgba(12,12,15,0.8) 18%, rgba(12,12,15,0.25) 42%, transparent 70%);"></div>
-      <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 55% 70% at 75% 35%, rgba(165,85,30,0.22) 0%, transparent 65%); mix-blend-mode: screen;"></div>
-      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(12,12,15,0.5) 0%, transparent 20%);"></div>
+  <!-- ==================== ── HERO (FOTO PROPORCIONADA & NATURAL EN DESKTOP Y MOBILE) ── ==================== -->
+  <section id="hero" style="position: relative; min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding: 100px 0 60px;">
+    <!-- Resplandores ambientales cálidos y luminosos de fondo -->
+    <div style="position: absolute; inset: 0; z-index: 0; pointer-events: none;">
+      <div style="position: absolute; right: 8%; top: 20%; width: 550px; height: 550px; background: radial-gradient(circle, rgba(196, 241, 53, 0.08) 0%, rgba(165, 85, 30, 0.15) 45%, transparent 70%); filter: blur(45px);"></div>
+      <div style="position: absolute; left: 5%; bottom: 10%; width: 450px; height: 450px; background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%); filter: blur(50px);"></div>
     </div>
 
-    <div style="position: relative; z-index: 10; width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 24px 64px; display: flex; align-items: flex-end; min-height: 100vh;">
-      <div class="hero-split">
+    <div style="position: relative; z-index: 10; width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px;">
+      <div class="hero-split-main" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center;">
 
-        <!-- LEFT — name -->
+        <!-- LEFT — name, role, descripción, CTAs, stats -->
         <div>
-          <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 28px; text-decoration: none; transition: opacity 0.2s;" onmouseenter="this.style.opacity='0.6'" onmouseleave="this.style.opacity='1'">
+          <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; text-decoration: none; transition: opacity 0.2s;" onmouseenter="this.style.opacity='0.6'" onmouseleave="this.style.opacity='1'">
             <span style="font-family: var(--font-mono); font-size: 0.72rem; color: rgba(240,240,245,0.4); letter-spacing: 0.06em;">
               ¿Tienes un proyecto? Hablemos primero →
             </span>
           </a>
-          <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(3rem, 7.5vw, 7rem); lineHeight: 0.87; letter-spacing: -0.05em; color: var(--snow); margin: 0; line-height: 0.9;">
+          <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(3rem, 6.5vw, 5.8rem); letter-spacing: -0.05em; color: var(--snow); margin: 0 0 16px 0; line-height: 0.92;">
             Hola,<br />soy<br />
             <span style="color: var(--lime);">Lady Luz.</span>
           </h1>
-        </div>
 
-        <!-- RIGHT — rol, descripción, CTAs, stats -->
-        <div style="display: flex; flex-direction: column; padding-bottom: 4px;">
-          <p style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--mist); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">
+          <p style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--lime); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; font-weight: 500;">
             Desarrolladora de software & Accesibilidad
           </p>
-          <p style="font-size: clamp(0.88rem, 1.6vw, 0.98rem); color: rgba(240,240,245,0.58); line-height: 1.82; margin-bottom: 28px;">
+
+          <p style="font-size: clamp(0.95rem, 1.5vw, 1.05rem); color: rgba(240,240,245,0.65); line-height: 1.82; margin-bottom: 28px; max-width: 520px;">
             Construyo apps y páginas web que la gente usa cada día. <strong>Útiles, rápidas y fáciles de entender</strong> — para todo el mundo, no solo para quienes saben programar.
           </p>
           
-          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px;">
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px;">
             <a href="#proyectos" style="background: var(--lime); color: var(--ink); padding: 12px 22px; font-weight: 700; font-size: 0.86rem; text-decoration: none; border-radius: 8px; transition: opacity 0.15s; white-space: nowrap;" onmouseenter="this.style.opacity='0.84'" onmouseleave="this.style.opacity='1'">
               Ver proyectos ↓
             </a>
@@ -319,18 +315,33 @@
           </div>
 
           <!-- Stats en Lime -->
-          <div style="display: flex; gap: 28px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap;">
+          <div style="display: flex; gap: 28px; padding-top: 24px; border-top: 1px solid var(--border); flex-wrap: wrap;">
             <div>
-              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.85rem; color: var(--lime); line-height: 1;">1.ᵉʳ</div>
-              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: rgba(240,240,245,0.32); margin-top: 5px; letter-spacing: 0.06em;">Hackathon INSNSB</div>
+              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.75rem; color: var(--lime); line-height: 1;">1.ᵉʳ</div>
+              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--mist); margin-top: 4px; letter-spacing: 0.06em;">Hackathon INSNSB</div>
             </div>
             <div>
-              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.85rem; color: var(--lime); line-height: 1;">Top 3</div>
-              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: rgba(240,240,245,0.32); margin-top: 5px; letter-spacing: 0.06em;">MINCETUR Sin Barreras</div>
+              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.75rem; color: var(--lime); line-height: 1;">Top 3</div>
+              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--mist); margin-top: 4px; letter-spacing: 0.06em;">MINCETUR Sin Barreras</div>
             </div>
             <div>
-              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.85rem; color: var(--lime); line-height: 1;">+10K</div>
-              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: rgba(240,240,245,0.32); margin-top: 5px; letter-spacing: 0.06em;">Datos Procesados</div>
+              <div style="font-family: var(--font-display); font-weight: 900; font-size: 1.75rem; color: var(--lime); line-height: 1;">+10K</div>
+              <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--mist); margin-top: 4px; letter-spacing: 0.06em;">Datos Procesados</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT — Foto Natural y Proporcionada (Sin Zoom Excesivo) -->
+        <div class="hero-photo-showcase" style="position: relative; display: flex; justify-content: center; align-items: center;">
+          <div style="position: absolute; inset: -10px; background: linear-gradient(135deg, rgba(196,241,53,0.18) 0%, rgba(165,85,30,0.2) 60%, transparent 100%); filter: blur(30px); border-radius: 28px; z-index: 1;"></div>
+          <div style="position: relative; z-index: 2; width: 100%; max-width: 380px; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; background: var(--ink2); border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+            <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez" style="width: 100%; height: 100%; object-fit: cover; object-position: center 10%; display: block;" />
+            <div style="position: absolute; bottom: 12px; left: 12px; right: 12px; background: rgba(12,12,15,0.92); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; display: flex; align-items: center; gap: 10px;">
+              <span style="display: inline-block; width: 8px; height: 8px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 0 3px rgba(196,241,53,0.3); flex-shrink: 0;"></span>
+              <div>
+                <strong style="display: block; font-size: 0.82rem; color: var(--snow);">1.ᵉʳ Puesto Hackathon INSNSB</strong>
+                <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--mist);">PWA Inclusiva CRED (PUCP / ESAN)</span>
+              </div>
             </div>
           </div>
         </div>
@@ -339,8 +350,8 @@
     </div>
 
     <!-- Scroll Cue Indicator -->
-    <div class="scroll-cue" style="position: absolute; bottom: 28px; right: 28px; z-index: 10; flex-direction: column; align-items: center; gap: 8px;">
-      <div style="width: 1px; height: 40px; background: linear-gradient(to bottom, transparent, var(--lime));"></div>
+    <div class="scroll-cue" style="position: absolute; bottom: 20px; right: 28px; z-index: 10; flex-direction: column; align-items: center; gap: 8px;">
+      <div style="width: 1px; height: 35px; background: linear-gradient(to bottom, transparent, var(--lime));"></div>
       <span style="font-family: var(--font-mono); font-size: 0.56rem; color: var(--lime); letter-spacing: 0.14em; writing-mode: vertical-rl; opacity: 0.6;">SCROLL</span>
     </div>
   </section>
