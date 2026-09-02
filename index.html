@@ -114,18 +114,29 @@
       pointer-events: none;
     }
 
-    /* Fondo blanco puro y luminoso detrás de la foto en el lado derecho */
+    /* Fondo limpio con transición suave del oscuro al blanco luminoso */
     .hero-light-glow {
       position: absolute;
       right: 0;
       top: 0;
-      width: 52%;
+      width: 55%;
       height: 100%;
-      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.95) 15%, #ffffff 30%, #ffffff 100%);
+      background: linear-gradient(90deg, var(--ink) 0%, rgba(12, 12, 15, 0.4) 20%, rgba(240, 245, 255, 0.7) 45%, #ffffff 65%, #ffffff 100%);
       z-index: 1;
     }
 
-    /* Foto en Desktop con máscara suave para eliminar cualquier borde cortado */
+    /* Fondo degradado lateral que se queda EXCLUSIVAMENTE en el fondo detrás de la foto */
+    .hero-gradient-lateral {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 80%, transparent 100%);
+      z-index: 2;
+    }
+
+    /* Foto en Desktop: EN EL FRENTE (Z-INDEX 3), SIN SOMBRAS SUCIAS ENCIMA */
     .hero-bg-photo {
       position: absolute;
       right: 0;
@@ -135,25 +146,21 @@
       height: 100%;
       object-fit: cover;
       object-position: center 8%;
-      z-index: 2;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 10%, black 25%, black 100%);
-      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 10%, black 25%, black 100%);
-    }
-
-    /* Degradado de transición ultra-limpio desde el fondo oscuro hacia el blanco */
-    .hero-gradient-lateral {
-      position: absolute;
-      inset: 0;
       z-index: 3;
-      background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 48%, rgba(12, 12, 15, 0.75) 54%, rgba(12, 12, 15, 0.0) 66%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,0.85) 24%, black 38%, black 100%), linear-gradient(to top, transparent 0%, rgba(0,0,0,0.8) 6%, black 15%, black 100%);
+      -webkit-mask-composite: destination-in;
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,0.85) 24%, black 38%, black 100%);
     }
 
-    /* Degradado de transición inferior */
+    /* Degradado de transición inferior sutil */
     .hero-gradient-bottom {
       position: absolute;
-      inset: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 120px;
       z-index: 4;
-      background: linear-gradient(to top, var(--ink) 0%, rgba(12,12,15,0.92) 12%, transparent 35%);
+      background: linear-gradient(to top, var(--ink) 0%, rgba(12,12,15,0.7) 40%, transparent 100%);
     }
 
     .hero-content-wrapper {
