@@ -22,25 +22,33 @@ import { PORTFOLIO_CONTENT } from './infrastructure/portfolio-content.repository
 import { readmeMediaService } from './infrastructure/readme-media.service.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // 1. Inicialización de la capa de Infraestructura & Telemetría
-  await telemetryService.initialize();
+  // 1. Hidratación síncrona inmediata de la UI (Data-Driven UI)
+  try { new AboutListComponent({ containerId: 'aboutContainer' }).init(); } catch (e) { console.warn(e); }
+  try { new ExperienceListComponent({ containerId: 'experienceContainer' }).init(); } catch (e) { console.warn(e); }
+  try { new TechListComponent({ containerId: 'techContainer' }).init(); } catch (e) { console.warn(e); }
+  try { new RoiListComponent({ containerId: 'roiContainer' }).init(); } catch (e) { console.warn(e); }
+  try { new LinkedInCarouselComponent({ containerId: 'linkedinCarouselContainer' }).init(); } catch (e) { console.warn(e); }
+  try { new ContactPanelComponent({ infoPanelId: 'contactInfoPanel', actionsPanelId: 'contactActions' }).init(); } catch (e) { console.warn(e); }
 
-  // 2. Hidratación de Componentes de Presentación (Data-Driven UI)
-  new AboutListComponent({ containerId: 'aboutContainer' }).init();
-  new ExperienceListComponent({ containerId: 'experienceContainer' }).init();
-  new TechListComponent({ containerId: 'techContainer' }).init();
-  new RoiListComponent({ containerId: 'roiContainer' }).init();
-  new LinkedInCarouselComponent({ containerId: 'linkedinCarouselContainer' }).init();
-  new ContactPanelComponent({ infoPanelId: 'contactInfoPanel', actionsPanelId: 'contactActions' }).init();
+  // 2. Inicialización del Catálogo Reactivo de Proyectos con Media dinámica de GitHub
+  try {
+    new ProjectListComponent({ containerId: 'projectsContainer' }).init();
+    new FilterBarComponent({ buttonsSelector: '.filter-pill-btn' }).init();
+  } catch (e) { console.warn(e); }
 
-  // 3. Inicialización del Catálogo Reactivo de Proyectos con Media dinámica de GitHub
-  new ProjectListComponent({ containerId: 'projectsContainer' }).init();
-  new FilterBarComponent({ buttonsSelector: '.filter-pill-btn' }).init();
+  // 3. Controladores de Navegación, Accesibilidad y Telemetría
+  try {
+    new NavigationController().init();
+    new ScrollSpyController().init();
+    new ConversionTrackerComponent().init();
+  } catch (e) { console.warn(e); }
 
-  // 4. Controladores de Navegación, Accesibilidad y Telemetría
-  new NavigationController().init();
-  new ScrollSpyController().init();
-  new ConversionTrackerComponent().init();
+  // 4. Inicialización asíncrona de la capa de Infraestructura & Telemetría
+  try {
+    await telemetryService.initialize();
+  } catch (e) {
+    console.warn('[TelemetryService] Modo no crítico:', e);
+  }
 
   // 5. Exposición segura del contenedor de dependencias
   window.__APP_CORE__ = Object.freeze({

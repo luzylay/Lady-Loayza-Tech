@@ -7,11 +7,24 @@
 
 export class CryptoVault {
   static async sha256(message) {
-    const msgUint8 = new TextEncoder().encode(message);
-    const hashBuffer = await window.crypto.subtle.digest('SHA-256', msgUint8);
-    return Array.from(new Uint8Array(hashBuffer))
-      .map((b) => b.toString(16).padStart(2, '0'))
-      .join('');
+    try {
+      if (window.crypto && window.crypto.subtle) {
+        const msgUint8 = new TextEncoder().encode(message);
+        const hashBuffer = await window.crypto.subtle.digest('SHA-256', msgUint8);
+        return Array.from(new Uint8Array(hashBuffer))
+          .map((b) => b.toString(16).padStart(2, '0'))
+          .join('');
+      }
+    } catch {
+      // Fallback
+    }
+    // Fallback hash simple
+    let hash = 0;
+    for (let i = 0; i < message.length; i++) {
+      hash = ((hash << 5) - hash) + message.charCodeAt(i);
+      hash |= 0;
+    }
+    return Math.abs(hash).toString(16);
   }
 
   static generateSecureUUID() {

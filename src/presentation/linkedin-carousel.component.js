@@ -31,7 +31,9 @@ export class LinkedInCarouselComponent {
     const container = document.getElementById(this.containerId);
     if (!container || this.posts.length === 0) return;
 
-    this.renderMinimal(container);
+    if (!container.querySelector('.linkedin-minimal-carousel')) {
+      this.renderMinimal(container);
+    }
     this.setupElements(container);
     this.attachEvents();
     this.updateActiveSlide(0);

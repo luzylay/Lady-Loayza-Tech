@@ -338,7 +338,68 @@
         </div>
 
         <div id="linkedinCarouselContainer">
-          <!-- Hidratado dinámicamente por LinkedInCarouselComponent -->
+          <div class="linkedin-minimal-carousel">
+            <!-- Viewport del Carrusel -->
+            <div class="linkedin-track-viewport">
+              <div id="linkedinTrack" class="linkedin-track" tabindex="0" aria-label="Publicaciones en LinkedIn">
+                
+                <div class="linkedin-slide" data-slide-index="0" aria-label="Publicación 1 de 5">
+                  <div class="linkedin-frame-wrapper">
+                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7498032689288073216?collapsed=1" class="linkedin-iframe" allowfullscreen="" title="1.er Puesto en Hackatón Niño San Borja" loading="lazy"></iframe>
+                  </div>
+                </div>
+
+                <div class="linkedin-slide" data-slide-index="1" aria-label="Publicación 2 de 5">
+                  <div class="linkedin-frame-wrapper">
+                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7474145608497500161?collapsed=1" class="linkedin-iframe" allowfullscreen="" title="Top 3 en Hackathon Sin Barreras MINCETUR" loading="lazy"></iframe>
+                  </div>
+                </div>
+
+                <div class="linkedin-slide" data-slide-index="2" aria-label="Publicación 3 de 5">
+                  <div class="linkedin-frame-wrapper">
+                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7420281179368501248?collapsed=1" class="linkedin-iframe" allowfullscreen="" title="Hito y Proyecto Destacado en LinkedIn" loading="lazy"></iframe>
+                  </div>
+                </div>
+
+                <div class="linkedin-slide" data-slide-index="3" aria-label="Publicación 4 de 5">
+                  <div class="linkedin-frame-wrapper">
+                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7405556732388720640?collapsed=1" class="linkedin-iframe" allowfullscreen="" title="Solución Tecnológica y Aprendizajes" loading="lazy"></iframe>
+                  </div>
+                </div>
+
+                <div class="linkedin-slide" data-slide-index="4" aria-label="Publicación 5 de 5">
+                  <div class="linkedin-frame-wrapper">
+                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7359864691701022720?collapsed=1" class="linkedin-iframe" allowfullscreen="" title="Inclusión Digital & Accesibilidad" loading="lazy"></iframe>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Controles Inferiores Minimalistas -->
+            <div class="linkedin-minimal-nav">
+              <div class="linkedin-counter-tag">
+                <span id="linkedinCounter">01 / 05</span>
+              </div>
+
+              <div class="linkedin-dots" role="tablist">
+                <button class="linkedin-dot active" data-dot-index="0" aria-label="Ir al post 1" aria-selected="true"></button>
+                <button class="linkedin-dot" data-dot-index="1" aria-label="Ir al post 2" aria-selected="false"></button>
+                <button class="linkedin-dot" data-dot-index="2" aria-label="Ir al post 3" aria-selected="false"></button>
+                <button class="linkedin-dot" data-dot-index="3" aria-label="Ir al post 4" aria-selected="false"></button>
+                <button class="linkedin-dot" data-dot-index="4" aria-label="Ir al post 5" aria-selected="false"></button>
+              </div>
+
+              <div class="linkedin-arrow-actions">
+                <button id="linkedinPrevBtn" class="linkedin-nav-arrow" aria-label="Anterior">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button id="linkedinNextBtn" class="linkedin-nav-arrow" aria-label="Siguiente">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
