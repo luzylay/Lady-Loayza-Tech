@@ -381,6 +381,100 @@
   margin: 0;
 }
 
+/* Panel de Telemetría en Tiempo Real (Live Analytics & GitHub Stats) */
+.live-metrics-wrapper {
+  margin-top: 40px;
+  background: var(--ink2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+}
+
+.live-metrics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.live-pulse-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--lime);
+  background: rgba(196, 241, 53, 0.08);
+  border: 1px solid rgba(196, 241, 53, 0.25);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.live-metrics-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--snow);
+  margin: 0;
+}
+
+.live-visitor-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink3);
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.live-visitor-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--mist);
+}
+
+.visitor-badge-img {
+  height: 20px;
+  vertical-align: middle;
+}
+
+.live-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.live-stat-card {
+  background: #15151c;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.live-stat-card:hover {
+  border-color: var(--lime);
+  transform: translateY(-2px);
+}
+
+.live-stat-svg {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  border-radius: 6px;
+}
+
 /* 6. LinkedIn Frame Container */
 .linkedin-container {
   display: flex;
