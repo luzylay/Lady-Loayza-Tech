@@ -96,7 +96,7 @@
     }
 
     /* ==========================================================================
-       HERO - SOLUCIÓN 2: SILUETA PURA CON FONDO TRANSPARENTE
+       HERO - SILUETA TRANSPARENTE CON EFECTO DEGRADADO AMBIENTAL
        ========================================================================== */
     .hero-section {
       position: relative;
@@ -117,11 +117,11 @@
     }
     .hero-ambient-glow .glow-silhouette {
       position: absolute;
-      right: 6%;
-      top: 15%;
-      width: 580px;
-      height: 580px;
-      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(196, 241, 53, 0.15) 0%, rgba(56, 189, 248, 0.08) 45%, transparent 70%);
+      right: 4%;
+      top: 10%;
+      width: 620px;
+      height: 620px;
+      background: radial-gradient(circle, rgba(196, 241, 53, 0.18) 0%, rgba(165, 85, 30, 0.15) 38%, rgba(56, 189, 248, 0.08) 60%, transparent 75%);
       filter: blur(55px);
     }
     .hero-ambient-glow .glow-left {
@@ -150,7 +150,7 @@
       align-items: center;
     }
 
-    /* Silueta Transparente Pura (Solución 2) */
+    /* Silueta Transparente con Halo Degradado Cinemático */
     .hero-silhouette-stage {
       position: relative;
       display: flex;
@@ -158,20 +158,36 @@
       align-items: flex-end;
     }
 
+    .hero-silhouette-stage::before {
+      content: '';
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(196, 241, 53, 0.22) 0%, rgba(165, 85, 30, 0.18) 50%, rgba(56, 189, 248, 0.12) 100%);
+      filter: blur(35px);
+      z-index: 1;
+      bottom: 40px;
+    }
+
     .hero-silhouette-img {
+      position: relative;
+      z-index: 2;
       width: 100%;
       max-width: 440px;
       height: auto;
       max-height: 720px;
       object-fit: contain;
       display: block;
-      filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 45px rgba(196, 241, 53, 0.12));
+      filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 35px rgba(196, 241, 53, 0.16));
+      -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
     }
 
     .hero-silhouette-badge {
       position: absolute;
       bottom: 24px;
-      left: 0;
+      left: -10px;
       background: rgba(12, 12, 15, 0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
@@ -338,23 +354,62 @@
     }
 
     /* ==========================================================================
-       RESPONSIVE MEDIA QUERIES (SOLUCIÓN 2)
+       RESPONSIVE MEDIA QUERIES (GRANDE, MEDIANO & PEQUEÑO)
        ========================================================================== */
-    @media (max-width: 960px) {
+    /* PANTALLAS MEDIANAS / TABLETS (769px a 1024px) */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .hero-grid-silhouette {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .hero-silhouette-img {
+        max-width: 340px;
+        max-height: 520px;
+      }
+      .hero-silhouette-stage::before {
+        width: 280px;
+        height: 280px;
+      }
+      .hero-silhouette-badge {
+        bottom: 12px;
+        left: -10px;
+        padding: 8px 12px;
+      }
+      .nav-links {
+        gap: 20px;
+      }
+    }
+
+    /* PANTALLAS PEQUEÑAS / MÓVILES (≤ 768px) */
+    @media (max-width: 768px) {
       .hero-grid-silhouette {
         grid-template-columns: 1fr;
-        gap: 36px;
+        gap: 28px;
       }
       .hero-silhouette-stage {
         order: -1;
+        margin-bottom: 8px;
       }
       .hero-silhouette-img {
-        max-width: 320px;
-        max-height: 480px;
+        max-width: 230px;
+        max-height: 310px;
+      }
+      .hero-silhouette-stage::before {
+        width: 200px;
+        height: 200px;
+        bottom: 20px;
+      }
+      .hero-silhouette-badge {
+        bottom: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        padding: 6px 12px;
       }
       .hero-section {
-        padding-top: 96px;
-        padding-bottom: 56px;
+        padding-top: 88px;
+        padding-bottom: 48px;
       }
       .nav-links { display: none; }
       .nav-cta { display: none; }
@@ -374,8 +429,12 @@
       .tech-grid { grid-template-columns: 1fr; }
       .contact-info-panel { grid-template-columns: 1fr; }
       .hero-silhouette-img {
-        max-width: 260px;
-        max-height: 400px;
+        max-width: 200px;
+        max-height: 270px;
+      }
+      .hero-silhouette-stage::before {
+        width: 170px;
+        height: 170px;
       }
     }
   </style>
