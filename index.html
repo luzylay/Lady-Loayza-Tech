@@ -93,10 +93,8 @@
     }
     .skip-link:focus {
       top: 16px;
-    }
-
-    /* ==========================================================================
-       HERO - RETRATO PROFESIONAL LIMPIO & CONTACTO DIRECTO
+     /* ==========================================================================
+       HERO - RETRATO PROFESIONAL LIMPIO & RESPONSIVE CON FONDO DEGRADADO EN MÓVIL
        ========================================================================== */
     .hero-section {
       position: relative;
@@ -120,12 +118,17 @@
 
     .hero-grid-cinematic {
       display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 48px;
       align-items: center;
     }
 
-    /* Escenario de Fotografía Nítida sin fondos circulares artificiales */
+    .hero-content-col {
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Escenario de Fotografía Nítida en Desktop */
     .hero-stage {
       position: relative;
       display: flex;
@@ -145,65 +148,6 @@
       filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.75));
       -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
       mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    }
-
-    /* Badge Flotante de Contacto Directo por Correo */
-    .hero-float-badge-top {
-      position: absolute;
-      top: 24px;
-      right: -8px;
-      background: rgba(12, 12, 15, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      border-radius: 999px;
-      padding: 7px 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--snow);
-      text-decoration: none;
-      z-index: 5;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .hero-float-badge-top:hover {
-      border-color: var(--lime);
-      transform: translateY(-2px);
-    }
-    .hero-float-badge-top .mail-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--lime);
-      box-shadow: 0 0 0 3px rgba(196, 241, 53, 0.25);
-    }
-
-    .hero-float-badge-bottom {
-      position: absolute;
-      bottom: 24px;
-      left: -16px;
-      background: rgba(12, 12, 15, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-      z-index: 5;
-    }
-    .hero-float-badge-bottom .trophy-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--lime);
-      box-shadow: 0 0 0 4px rgba(196, 241, 53, 0.25);
-      flex-shrink: 0;
     }
 
     /* Botones con contraste garantizado */
@@ -369,61 +313,51 @@
         align-items: center;
       }
       .hero-cinematic-img {
-        max-width: 340px;
-        max-height: 500px;
-      }
-      .hero-float-badge-top {
-        top: 8px;
-        right: 0;
-        padding: 6px 12px;
-      }
-      .hero-float-badge-bottom {
-        bottom: 12px;
-        left: 0;
-        padding: 8px 14px;
+        max-width: 350px;
+        max-height: 520px;
       }
       .nav-links {
         gap: 18px;
       }
     }
 
-    /* PANTALLAS PEQUEÑAS / MÓVILES (≤ 768px) */
+    /* PANTALLAS PEQUEÑAS / MÓVILES (≤ 768px): FOTO DETRÁS CON TONO DEGRADADO */
     @media (max-width: 768px) {
-      .hero-grid-cinematic {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
       .hero-section {
-        padding-top: 96px;
+        padding-top: 100px;
         padding-bottom: 56px;
       }
-      /* En móvil el texto va primero y la foto debajo de forma limpia y ordenada */
+      .hero-grid-cinematic {
+        display: block;
+        position: relative;
+      }
+      .hero-content-col {
+        position: relative;
+        z-index: 5;
+      }
+      /* La fotografía se posa en el fondo a la derecha con tono degradado */
       .hero-stage {
-        order: 2;
-        margin-top: 12px;
+        position: absolute;
+        right: -15px;
+        bottom: 0;
+        width: 75%;
+        max-width: 320px;
+        height: 75%;
+        z-index: 1;
+        pointer-events: none;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
+        justify-content: flex-end;
+        align-items: flex-end;
       }
       .hero-cinematic-img {
-        max-width: 270px;
-        max-height: 380px;
-        margin: 0 auto;
-      }
-      /* Badges en móvil: ya no flotan tapando la cara, se ubican de forma armónica */
-      .hero-float-badge-top {
-        position: static;
-        margin-bottom: 12px;
-        order: -1;
-      }
-      .hero-float-badge-bottom {
-        position: static;
         width: 100%;
-        max-width: 320px;
-        margin: 0 auto;
-        justify-content: center;
-        text-align: left;
+        height: 100%;
+        object-fit: contain;
+        object-position: right bottom;
+        opacity: 0.28;
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 50%), linear-gradient(to top, transparent 0%, black 40%);
+        -webkit-mask-composite: destination-in;
+        mask-image: linear-gradient(to right, transparent 0%, black 50%), linear-gradient(to top, transparent 0%, black 40%);
       }
       .nav-links { display: none; }
       .nav-cta { display: none; }
@@ -442,9 +376,10 @@
     @media (max-width: 480px) {
       .tech-grid { grid-template-columns: 1fr; }
       .contact-info-panel { grid-template-columns: 1fr; }
-      .hero-cinematic-img {
-        max-width: 240px;
-        max-height: 340px;
+      .hero-stage {
+        width: 85%;
+        max-width: 280px;
+        height: 65%;
       }
       .hero-btn-lime, .hero-btn-glass, .hero-btn-border {
         width: 100%;
@@ -505,7 +440,7 @@
       <div class="hero-grid-cinematic">
 
         <!-- LADO IZQUIERDO: Textos, Acciones y Métricas -->
-        <div>
+        <div class="hero-content-col">
           <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; text-decoration: none; transition: opacity 0.2s;" onmouseenter="this.style.opacity='0.6'" onmouseleave="this.style.opacity='1'">
             <span style="font-family: var(--font-mono); font-size: 0.72rem; color: rgba(240,240,245,0.45); letter-spacing: 0.06em;">
               ¿Tienes un proyecto o consulta? Escríbeme directamente →
@@ -529,10 +464,7 @@
             <a href="#contacto" class="hero-btn-lime">
               Escríbeme un mensaje ↓
             </a>
-            <a href="mailto:luzylayloayza@gmail.com" class="hero-btn-glass">
-              luzylayloayza@gmail.com ✉
-            </a>
-            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="hero-btn-border">
+            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="hero-btn-glass">
               Descargar CV
             </a>
             <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" class="hero-btn-border">
@@ -557,20 +489,9 @@
           </div>
         </div>
 
-        <!-- LADO DERECHO: Retrato Prominente Nítido con Acceso a Contacto -->
+        <!-- LADO DERECHO: Retrato Prominente Nítido (en Desktop) / Detrás con degradado (en Móvil) -->
         <div class="hero-stage">
-          <a href="mailto:luzylayloayza@gmail.com" class="hero-float-badge-top">
-            <span class="mail-dot"></span>
-            luzylayloayza@gmail.com ✉
-          </a>
           <img src="./assets/profile_transparent_opt.png" alt="Lady Luz Loayza Rodriguez" class="hero-cinematic-img" />
-          <div class="hero-float-badge-bottom">
-            <span class="trophy-dot"></span>
-            <div>
-              <strong style="display: block; font-size: 0.82rem; color: var(--snow);">1.ᵉʳ Puesto Hackathon INSNSB</strong>
-              <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--mist);">PWA Inclusiva CRED (PUCP / ESAN)</span>
-            </div>
-          </div>
         </div>
 
       </div>
