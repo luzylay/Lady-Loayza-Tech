@@ -18,7 +18,7 @@
 
   <style>
     /* ==========================================================================
-       VARIABLES Y DESIGN TOKENS (ESTILO PORTAFOLIO ACCESIBLE DESARROLLADORA)
+       VARIABLES Y DESIGN TOKENS
        ========================================================================== */
     :root {
       --ink: #0c0c0f;
@@ -95,15 +95,156 @@
       top: 16px;
     }
 
-    /* Utility Layouts */
+    /* ==========================================================================
+       HERO RESPONSIVE (GRANDE, MEDIANO Y PEQUEÑO)
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .hero-backdrop-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Luz blanca/clara detrás de la foto en el lado derecho */
+    .hero-light-glow {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 55%;
+      height: 100%;
+      background: radial-gradient(ellipse at 65% 35%, rgba(255, 255, 255, 0.25) 0%, rgba(240, 245, 255, 0.12) 35%, rgba(165, 85, 30, 0.12) 65%, transparent 85%);
+      filter: blur(35px);
+      z-index: 1;
+    }
+
+    /* Foto en Desktop */
+    .hero-bg-photo {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50%;
+      max-width: 680px;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 8%;
+      z-index: 2;
+    }
+
+    /* Degradado de sangrado lateral */
+    .hero-gradient-lateral {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 48%, rgba(12,12,15,0.7) 62%, rgba(12,12,15,0.1) 80%, transparent 100%);
+    }
+
+    /* Degradado de transición inferior */
+    .hero-gradient-bottom {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      background: linear-gradient(to top, var(--ink) 0%, rgba(12,12,15,0.9) 15%, transparent 45%);
+    }
+
+    /* Resplandor cálido */
+    .hero-gradient-warm {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      background: radial-gradient(ellipse 55% 70% at 75% 35%, rgba(165,85,30,0.18) 0%, transparent 65%);
+      mix-blend-mode: screen;
+    }
+
+    .hero-content-wrapper {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px 64px;
+      display: flex;
+      align-items: flex-end;
+      min-height: 100vh;
+    }
+
     .hero-split {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 48px;
       align-items: flex-end;
       width: 100%;
     }
 
+    /* Botones con contraste garantizado */
+    .hero-btn-lime {
+      background: var(--lime);
+      color: var(--ink);
+      padding: 12px 22px;
+      font-weight: 700;
+      font-size: 0.86rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: opacity 0.15s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-btn-lime:hover {
+      opacity: 0.84;
+    }
+
+    .hero-btn-glass {
+      background: rgba(30, 30, 42, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      color: var(--snow);
+      padding: 12px 22px;
+      font-weight: 600;
+      font-size: 0.86rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.2s, border-color 0.2s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-btn-glass:hover {
+      background: rgba(45, 45, 60, 0.95);
+      border-color: var(--mist2);
+    }
+
+    .hero-btn-border {
+      background: rgba(20, 20, 28, 0.6);
+      border: 1px solid var(--border);
+      color: var(--mist);
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 0.86rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-btn-border:hover {
+      color: var(--snow);
+      border-color: var(--mist2);
+    }
+
+    /* Grids de contenido */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -156,7 +297,7 @@
     .nav-burger { display: none; }
     .scroll-cue { display: flex; }
 
-    /* Interactive States & Micro-interactions */
+    /* Interactive States & Cards */
     .project-card {
       transition: border-color 0.2s, transform 0.22s;
     }
@@ -195,17 +336,54 @@
       background: var(--ink3) !important;
     }
 
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.35; }
-    }
-    .dot-pulse {
-      animation: pulse-dot 2s ease-in-out infinite;
+    /* ==========================================================================
+       RESPONSIVE MEDIA QUERIES (MEDIANO & PEQUEÑO)
+       ========================================================================== */
+    /* PANTALLAS MEDIANAS / TABLET (769px a 1024px) */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .hero-bg-photo {
+        width: 44%;
+        object-position: center 6%;
+      }
+      .hero-gradient-lateral {
+        background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 56%, rgba(12,12,15,0.75) 72%, transparent 100%);
+      }
+      .hero-light-glow {
+        width: 48%;
+      }
+      .nav-links {
+        gap: 20px;
+      }
     }
 
-    /* Media Queries */
+    /* PANTALLAS PEQUEÑAS / MÓVILES (≤ 768px) */
     @media (max-width: 768px) {
-      .hero-split { grid-template-columns: 1fr; gap: 28px; }
+      .hero-split {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      /* En móvil la foto se adapta a la parte superior con un degradado vertical suave */
+      .hero-bg-photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        object-position: center 12%;
+        opacity: 0.85;
+      }
+      .hero-light-glow {
+        width: 100%;
+        height: 60%;
+        background: radial-gradient(ellipse at center 20%, rgba(255, 255, 255, 0.2) 0%, rgba(165, 85, 30, 0.12) 50%, transparent 80%);
+      }
+      .hero-gradient-lateral {
+        background: linear-gradient(to top, var(--ink) 0%, var(--ink) 55%, rgba(12,12,15,0.88) 75%, rgba(12,12,15,0.3) 100%);
+      }
+      .hero-content-wrapper {
+        padding-top: 100px;
+        padding-bottom: 40px;
+      }
       .about-grid { grid-template-columns: 1fr; }
       .exp-row { grid-template-columns: 48px 1fr; }
       .exp-period-col { display: none; }
@@ -228,12 +406,12 @@
 </head>
 <body>
 
-  <!-- Enlace accesible para lectores de pantalla -->
+  <!-- Accesibilidad: Skip link -->
   <a href="#hero" class="skip-link">Saltar al contenido principal</a>
 
-  <!-- ==================== ── NAV ── ==================== -->
-  <header id="siteHeader" style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.3s, border-color 0.3s; background: transparent; border-bottom: 1px solid transparent;">
-    <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; alignItems: center; justify-content: space-between; gap: 16px; align-items: center;">
+  <!-- ==================== ── NAV (CON FONDO OSCURO SIEMPRE LEGIBLE) ── ==================== -->
+  <header id="siteHeader" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(12, 12, 15, 0.94); border-bottom: 1px solid var(--border); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
       <a href="#hero" style="font-weight: 800; font-size: 1.05rem; letter-spacing: -0.02em; text-decoration: none; color: var(--snow); flex-shrink: 0;">
         lady loayza<span style="color: var(--lime);">.</span>
       </a>
@@ -247,7 +425,7 @@
       </nav>
 
       <div style="display: flex; align-items: center; gap: 10px;">
-        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="nav-cta" style="background: rgba(255,255,255,0.06); border: 1px solid var(--border); color: var(--snow); padding: 8px 14px; font-weight: 700; font-size: 0.78rem; text-decoration: none; border-radius: 7px; transition: background 0.15s;">
+        <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="nav-cta" style="background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border); color: var(--snow); padding: 8px 14px; font-weight: 700; font-size: 0.78rem; text-decoration: none; border-radius: 7px; transition: all 0.15s;">
           Descargar CV
         </a>
         <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="nav-cta" style="background: var(--lime); color: var(--ink); padding: 9px 18px; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; flex-shrink: 0; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">
@@ -271,37 +449,28 @@
     </div>
   </header>
 
-  <!-- ==================== ── HERO (DEGRADADO FLUIDO + FOTO A LA DERECHA CON LUZ CLARA DETRÁS, SIN CUADRADOS) ── ==================== -->
-  <section id="hero" style="position: relative; min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end;">
-    <!-- Capas de Fondo: Foto a la derecha con luz clara detrás y degradado fluido sangrado -->
-    <div style="position: absolute; inset: 0; z-index: 0; pointer-events: none;">
-      <!-- Luz clara / blanca brillante detrás de la foto en el lado derecho -->
-      <div style="position: absolute; right: 0; top: 0; width: 55%; height: 100%; background: radial-gradient(ellipse at 65% 35%, rgba(255, 255, 255, 0.22) 0%, rgba(240, 245, 255, 0.12) 35%, rgba(165, 85, 30, 0.12) 65%, transparent 85%); filter: blur(30px); z-index: 1;"></div>
-      
-      <!-- Tu foto profesional fusionada orgánicamente en el lado derecho (SIN MARCO NI CUADRADOS) -->
-      <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez" style="position: absolute; right: 0; top: 0; width: 50%; max-width: 680px; height: 100%; object-fit: cover; object-position: center 10%; z-index: 2;" />
-      
-      <!-- Degradado de sangrado: oscuro y nítido a la izquierda para el texto, traslúcido y claro a la derecha -->
-      <div style="position: absolute; inset: 0; z-index: 3; background: linear-gradient(90deg, var(--ink) 0%, rgba(12,12,15,0.96) 40%, rgba(12,12,15,0.6) 55%, rgba(12,12,15,0.1) 75%, transparent 100%);"></div>
-      
-      <!-- Degradado inferior para transición suave a la siguiente sección -->
-      <div style="position: absolute; inset: 0; z-index: 4; background: linear-gradient(to top, var(--ink) 0%, rgba(12,12,15,0.85) 15%, transparent 45%);"></div>
-      
-      <!-- Resplandor cálido sutil -->
-      <div style="position: absolute; inset: 0; z-index: 5; background: radial-gradient(ellipse 55% 70% at 75% 35%, rgba(165,85,30,0.18) 0%, transparent 65%); mix-blend-mode: screen;"></div>
+  <!-- ==================== ── HERO VIEWPORT ── ==================== -->
+  <section id="hero" class="hero-section">
+    <!-- Capas de Fondo: Foto + Luz Clara + Degradados en Capas -->
+    <div class="hero-backdrop-layer">
+      <div class="hero-light-glow"></div>
+      <img src="./assets/profile_hd.png" alt="Lady Luz Loayza Rodriguez" class="hero-bg-photo" />
+      <div class="hero-gradient-lateral"></div>
+      <div class="hero-gradient-bottom"></div>
+      <div class="hero-gradient-warm"></div>
     </div>
 
-    <div style="position: relative; z-index: 10; width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px 64px; display: flex; align-items: flex-end; min-height: 100vh;">
+    <div class="hero-content-wrapper">
       <div class="hero-split">
 
-        <!-- LEFT — name, role, descripción, CTAs, stats -->
+        <!-- LEFT — Textos & Acciones -->
         <div>
           <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; text-decoration: none; transition: opacity 0.2s;" onmouseenter="this.style.opacity='0.6'" onmouseleave="this.style.opacity='1'">
             <span style="font-family: var(--font-mono); font-size: 0.72rem; color: rgba(240,240,245,0.45); letter-spacing: 0.06em;">
               ¿Tienes un proyecto? Hablemos primero →
             </span>
           </a>
-          <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(3rem, 7.2vw, 6.8rem); letter-spacing: -0.05em; color: var(--snow); margin: 0 0 16px 0; line-height: 0.9;">
+          <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(2.8rem, 6.5vw, 6.2rem); letter-spacing: -0.05em; color: var(--snow); margin: 0 0 16px 0; line-height: 0.92;">
             Hola,<br />soy<br />
             <span style="color: var(--lime);">Lady Luz.</span>
           </h1>
@@ -310,18 +479,18 @@
             Desarrolladora de software & Accesibilidad
           </p>
 
-          <p style="font-size: clamp(0.92rem, 1.5vw, 1.02rem); color: rgba(240,240,245,0.65); line-height: 1.82; margin-bottom: 28px; max-width: 500px;">
+          <p style="font-size: clamp(0.92rem, 1.5vw, 1.02rem); color: rgba(240,240,245,0.68); line-height: 1.82; margin-bottom: 28px; max-width: 490px;">
             Construyo apps y páginas web que la gente usa cada día. <strong>Útiles, rápidas y fáciles de entender</strong> — para todo el mundo, no solo para quienes saben programar.
           </p>
           
           <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 34px;">
-            <a href="#proyectos" style="background: var(--lime); color: var(--ink); padding: 12px 22px; font-weight: 700; font-size: 0.86rem; text-decoration: none; border-radius: 8px; transition: opacity 0.15s; white-space: nowrap;" onmouseenter="this.style.opacity='0.84'" onmouseleave="this.style.opacity='1'">
+            <a href="#proyectos" class="hero-btn-lime">
               Ver proyectos ↓
             </a>
-            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" style="background: rgba(255,255,255,0.07); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.11); color: var(--snow); padding: 12px 22px; font-weight: 600; font-size: 0.86rem; text-decoration: none; border-radius: 8px; transition: background 0.2s; white-space: nowrap;" onmouseenter="this.style.background='rgba(255,255,255,0.13)'" onmouseleave="this.style.background='rgba(255,255,255,0.07)'">
+            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="hero-btn-glass">
               Descargar CV
             </a>
-            <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: rgba(240,240,245,0.45); padding: 12px 16px; font-weight: 600; font-size: 0.86rem; text-decoration: none; border-radius: 8px; transition: color 0.2s; white-space: nowrap;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.color='rgba(240,240,245,0.45)'">
+            <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" class="hero-btn-border">
               LinkedIn ↗
             </a>
           </div>
@@ -343,7 +512,7 @@
           </div>
         </div>
 
-        <!-- RIGHT — Espacio libre en el grid que deja ver la foto fusionada en el fondo -->
+        <!-- RIGHT — Espacio libre que muestra la foto fusionada en Desktop -->
         <div></div>
 
       </div>
@@ -357,8 +526,7 @@
   </section>
 
   <!-- ==================== ── SOBRE MÍ ── ==================== -->
-  <section id="sobre" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
-    <!-- Section Label -->
+  <section id="sobre" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
       <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">01 — Sobre mí</span>
       <div style="flex: 1; height: 1px; background: var(--border);"></div>
@@ -368,7 +536,7 @@
       <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 3.5vw, 2.5rem); letter-spacing: -0.03em; color: var(--snow); margin-bottom: 14px; line-height: 1.1;">
         ¿Qué hace exactamente una desarrolladora?
       </h2>
-      <p style="color: var(--mist); line-height: 1.8; font-size: 0.93rem; max-width: 640px;">
+      <p style="color: var(--mist); line-height: 1.8; font-size: 0.95rem; max-width: 680px;">
         Imagina que quieres construir una tienda. Necesitas arquitecto, albañil y electricista. Yo hago todo eso, pero en el mundo digital — desde el botón que aprietas hasta el sistema que guarda tu información de forma accesible.
       </p>
     </div>
@@ -405,8 +573,7 @@
 
   <!-- ==================== ── EXPERIENCIA ── ==================== -->
   <section id="experiencia" style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-    <div style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
-      <!-- Section Label -->
+    <div style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
         <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">02 — Experiencia</span>
         <div style="flex: 1; height: 1px; background: var(--border);"></div>
@@ -420,15 +587,15 @@
             <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-top: 8px;">Ago 2026</div>
           </div>
           <div>
-            <div style="font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Desarrolladora Frontend & PWA (1.ᵉʳ Puesto)</div>
-            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--lime); margin-bottom: 4px;">Hackathon INSNSB • PUCP & ESAN</div>
+            <div style="font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Desarrolladora Frontend & PWA (1.ᵉʳ Puesto)</div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--lime); margin-bottom: 4px;">Hackathon INSNSB • PUCP & ESAN</div>
             <div class="exp-period-inline" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-bottom: 8px;">Ago 2026</div>
-            <p style="color: var(--mist); font-size: 0.86rem; line-height: 1.72; margin: 0 0 10px 0;">Diseño e implementación de Progressive Web App accesible para el consultorio CRED infantil (0 a 3 años) en el Niño San Borja. Digitalizó el seguimiento nutricional y eliminó errores manuales de enfermería.</p>
+            <p style="color: var(--mist); font-size: 0.88rem; line-height: 1.72; margin: 0 0 10px 0;">Diseño e implementación de Progressive Web App accesible para el consultorio CRED infantil (0 a 3 años) en el Niño San Borja. Digitalizó el seguimiento nutricional y eliminó errores manuales de enfermería.</p>
             <div style="display: flex; gap: 5px; flex-wrap: wrap;">
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">React</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Vite</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">PWA</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">JavaScript</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">React</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Vite</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">PWA</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">JavaScript</span>
             </div>
           </div>
           <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-align: right; padding-top: 2px;">Ago 2026</div>
@@ -443,15 +610,15 @@
             <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-top: 8px;">Jun 2026</div>
           </div>
           <div>
-            <div style="font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Desarrolladora IA Conversacional (Top 3 Nacional)</div>
-            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--lime); margin-bottom: 4px;">Hackathon Sin Barreras • MINCETUR (Entre 66 propuestas)</div>
+            <div style="font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Desarrolladora IA Conversacional (Top 3 Nacional)</div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--lime); margin-bottom: 4px;">Hackathon Sin Barreras • MINCETUR (Entre 66 propuestas)</div>
             <div class="exp-period-inline" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-bottom: 8px;">Jun 2026</div>
-            <p style="color: var(--mist); font-size: 0.86rem; line-height: 1.72; margin: 0 0 10px 0;">Arquitectura del asistente Helen con backend en Flask, clasificador NLU, geolocalización y síntesis de voz para turistas con discapacidad visual.</p>
+            <p style="color: var(--mist); font-size: 0.88rem; line-height: 1.72; margin: 0 0 10px 0;">Arquitectura del asistente Helen con backend en Flask, clasificador NLU, geolocalización y síntesis de voz para turistas con discapacidad visual.</p>
             <div style="display: flex; gap: 5px; flex-wrap: wrap;">
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Python</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Flask</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">NLU</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">TTS</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Flask</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">NLU</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">TTS</span>
             </div>
           </div>
           <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-align: right; padding-top: 2px;">Jun 2026</div>
@@ -466,14 +633,14 @@
             <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-top: 8px;">May – Nov 2025</div>
           </div>
           <div>
-            <div style="font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Data Analyst & ETL (Capstone EPEN)</div>
-            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--lime); margin-bottom: 4px;">Samsung Innovation Campus</div>
+            <div style="font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Data Analyst & ETL (Capstone EPEN)</div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--lime); margin-bottom: 4px;">Samsung Innovation Campus</div>
             <div class="exp-period-inline" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-bottom: 8px;">May – Nov 2025</div>
-            <p style="color: var(--mist); font-size: 0.86rem; line-height: 1.72; margin: 0 0 10px 0;">Pipeline ETL sobre microdatos del INEI con más de 10,000 registros procesados y tableros interactivos en Power BI y Looker Studio.</p>
+            <p style="color: var(--mist); font-size: 0.88rem; line-height: 1.72; margin: 0 0 10px 0;">Pipeline ETL sobre microdatos del INEI con más de 10,000 registros procesados y tableros interactivos en Power BI y Looker Studio.</p>
             <div style="display: flex; gap: 5px; flex-wrap: wrap;">
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Python</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Pandas</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Power BI</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Pandas</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Power BI</span>
             </div>
           </div>
           <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-align: right; padding-top: 2px;">May – Nov 2025</div>
@@ -488,13 +655,13 @@
             <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-top: 8px;">Ene – Abr 2026</div>
           </div>
           <div>
-            <div style="font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Deputy Campus Director</div>
-            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--lime); margin-bottom: 4px;">Hult Prize UTP 2026</div>
+            <div style="font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin-bottom: 3px;">Deputy Campus Director</div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--lime); margin-bottom: 4px;">Hult Prize UTP 2026</div>
             <div class="exp-period-inline" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); margin-bottom: 8px;">Ene – Abr 2026</div>
-            <p style="color: var(--mist); font-size: 0.86rem; line-height: 1.72; margin: 0 0 10px 0;">Estandarización de procesos remotos y presenciales, adaptación de rúbricas oficiales y coordinación del evento presencial final.</p>
+            <p style="color: var(--mist); font-size: 0.88rem; line-height: 1.72; margin: 0 0 10px 0;">Estandarización de procesos remotos y presenciales, adaptación de rúbricas oficiales y coordinación del evento presencial final.</p>
             <div style="display: flex; gap: 5px; flex-wrap: wrap;">
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Liderazgo</span>
-              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border); letter-spacing: 0.03em; white-space: nowrap;">Gestión</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Liderazgo</span>
+              <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Gestión</span>
             </div>
           </div>
           <div class="exp-period-col" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-align: right; padding-top: 2px;">Ene – Abr 2026</div>
@@ -505,8 +672,7 @@
   </section>
 
   <!-- ==================== ── PROYECTOS ── ==================== -->
-  <section id="proyectos" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
-    <!-- Section Label -->
+  <section id="proyectos" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
       <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">03 — Proyectos</span>
       <div style="flex: 1; height: 1px; background: var(--border);"></div>
@@ -524,16 +690,16 @@
       </div>
     </div>
 
-    <div class="projects-grid">
+    <div class="projects-grid" id="projectsContainer">
       <!-- Proyecto 1 -->
       <div class="project-card" data-category="salud" style="background: var(--ink2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
         <div style="height: 196px; overflow: hidden; background: var(--ink3); position: relative; flex-shrink: 0;">
           <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&h=420&fit=crop&auto=format" alt="PWA CRED Clínica" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);" />
-          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">PWA • Salud</span>
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">1.er Puesto INSNSB</span>
         </div>
         <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
-          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">PWA CRED "Crecer Mejor"</h3>
-          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Aplicación web progresiva móvil para el consultorio infantil CRED en el Niño San Borja. 1.er puesto Hackathon INSNSB.</p>
+          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">PWA CRED "Crecer Mejor"</h3>
+          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Aplicación web progresiva móvil para el consultorio infantil CRED en el Niño San Borja. Ganadora del primer lugar PUCP / ESAN.</p>
           <div style="display: flex; gap: 5px; flex-wrap: wrap;">
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">React</span>
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Vite</span>
@@ -541,7 +707,7 @@
           </div>
           <div style="display: flex; gap: 8px;">
             <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 9px 0; font-weight: 700; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">Ver proyecto →</a>
-            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Código ↗</a>
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -550,11 +716,11 @@
       <div class="project-card" data-category="ia" style="background: var(--ink2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
         <div style="height: 196px; overflow: hidden; background: var(--ink3); position: relative; flex-shrink: 0;">
           <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=700&h=420&fit=crop&auto=format" alt="Helen IA Conversacional" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);" />
-          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">IA • Accesibilidad</span>
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">Top 3 MINCETUR</span>
         </div>
         <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
-          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">Helen — IA Turística Accesible</h3>
-          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Asistente conversacional con voz y geolocalización para personas con discapacidad visual. Top 3 MINCETUR Sin Barreras.</p>
+          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">Helen — IA Turística Accesible</h3>
+          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Asistente conversacional con voz y geolocalización para personas con discapacidad visual. Top 3 Sin Barreras MINCETUR.</p>
           <div style="display: flex; gap: 5px; flex-wrap: wrap;">
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Flask</span>
@@ -562,7 +728,7 @@
           </div>
           <div style="display: flex; gap: 8px;">
             <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 9px 0; font-weight: 700; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">Ver proyecto →</a>
-            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Código ↗</a>
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -571,11 +737,11 @@
       <div class="project-card" data-category="datos" style="background: var(--ink2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
         <div style="height: 196px; overflow: hidden; background: var(--ink3); position: relative; flex-shrink: 0;">
           <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=420&fit=crop&auto=format" alt="Observatorio Laboral EPEN" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);" />
-          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">Data • ETL</span>
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">Samsung Capstone</span>
         </div>
         <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
-          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.02rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">Observatorio Laboral EPEN</h3>
-          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Pipeline de datos en Python sobre datasets del INEI (+10K registros) y tableros en Power BI y Looker Studio.</p>
+          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">Observatorio Laboral EPEN</h3>
+          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Pipeline de datos en Python sobre microdatos del INEI (+10K registros) y tableros en Power BI y Looker Studio.</p>
           <div style="display: flex; gap: 5px; flex-wrap: wrap;">
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">SQL</span>
@@ -583,7 +749,7 @@
           </div>
           <div style="display: flex; gap: 8px;">
             <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 9px 0; font-weight: 700; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">Ver proyecto →</a>
-            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Código ↗</a>
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -592,8 +758,7 @@
 
   <!-- ==================== ── TECNOLOGÍAS ── ==================== -->
   <section style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-    <div id="tecnologias" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
-      <!-- Section Label -->
+    <div id="tecnologias" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
         <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">04 — Tecnologías</span>
         <div style="flex: 1; height: 1px; background: var(--border);"></div>
@@ -662,8 +827,7 @@
   </section>
 
   <!-- ==================== ── LINKEDIN EMBEDS ── ==================== -->
-  <section id="impacto" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px;">
-    <!-- Section Label -->
+  <section id="impacto" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
       <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">05 — Publicaciones en LinkedIn</span>
       <div style="flex: 1; height: 1px; background: var(--border);"></div>
@@ -683,8 +847,7 @@
   </section>
 
   <!-- ==================== ── CONTACTO ── ==================== -->
-  <section id="contacto" style="max-width: 1100px; margin: 0 auto; padding: 80px 24px 96px;">
-    <!-- Section Label -->
+  <section id="contacto" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px 96px;">
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
       <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">06 — Contacto</span>
       <div style="flex: 1; height: 1px; background: var(--border);"></div>
@@ -761,7 +924,7 @@
 
   <!-- ==================== ── FOOTER ── ==================== -->
   <footer style="border-top: 1px solid var(--border);">
-    <div style="max-width: 1100px; margin: 0 auto; padding: 22px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 22px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
       <span style="font-weight: 800; letter-spacing: -0.02em;">lady loayza<span style="color: var(--lime);">.</span></span>
       <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--mist);">Diseñado y construido con accesibilidad · 2026</span>
       <div style="display: flex; gap: 20px;">
@@ -774,21 +937,7 @@
 
   <!-- ==================== ── SCRIPTS ── ==================== -->
   <script>
-    // 1. Navbar scroll blur
-    const header = document.getElementById('siteHeader');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 48) {
-        header.style.background = 'rgba(12,12,15,0.95)';
-        header.style.borderBottomColor = '#1e1e2e';
-        header.style.backdropFilter = 'blur(16px)';
-      } else {
-        header.style.background = 'transparent';
-        header.style.borderBottomColor = 'transparent';
-        header.style.backdropFilter = 'none';
-      }
-    }, { passive: true });
-
-    // 2. Menú Móvil
+    // 1. Menú Móvil
     const burgerBtn = document.getElementById('burgerBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
     burgerBtn.addEventListener('click', () => {
@@ -803,7 +952,7 @@
       mobileDrawer.style.display = 'none';
     }
 
-    // 3. Filtros de Proyectos
+    // 2. Filtros de Proyectos
     function filterCat(cat, btn) {
       const buttons = document.querySelectorAll('.filter-pill-btn');
       buttons.forEach(b => {
