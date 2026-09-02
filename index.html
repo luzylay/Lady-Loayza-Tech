@@ -96,7 +96,7 @@
     }
 
     /* ==========================================================================
-       HERO - RETRATO PROMINENTE CON EFECTOS DE LUCES CINEMATOGRÁFICAS
+       HERO - RETRATO PROFESIONAL LIMPIO & CONTACTO DIRECTO
        ========================================================================== */
     .hero-section {
       position: relative;
@@ -107,48 +107,6 @@
       padding: 120px 0 64px;
       overflow: hidden;
       background: var(--ink);
-    }
-
-    /* Sistema de Luces Volumétricas Ambientales */
-    .hero-ambient-lights {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .hero-ambient-lights .light-spotlight {
-      position: absolute;
-      right: 2%;
-      top: 8%;
-      width: 650px;
-      height: 650px;
-      background: radial-gradient(circle, rgba(196, 241, 53, 0.22) 0%, rgba(245, 158, 11, 0.16) 36%, rgba(56, 189, 248, 0.1) 60%, transparent 75%);
-      filter: blur(65px);
-      animation: pulseLight 8s ease-in-out infinite alternate;
-    }
-    .hero-ambient-lights .light-beam {
-      position: absolute;
-      right: 22%;
-      top: -10%;
-      width: 280px;
-      height: 600px;
-      background: linear-gradient(180deg, rgba(196, 241, 53, 0.15) 0%, rgba(56, 189, 248, 0.08) 50%, transparent 100%);
-      filter: blur(45px);
-      transform: rotate(-15deg);
-    }
-    .hero-ambient-lights .light-bottom-accent {
-      position: absolute;
-      left: 10%;
-      bottom: 5%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
-      filter: blur(60px);
-    }
-
-    @keyframes pulseLight {
-      0% { transform: scale(0.95); opacity: 0.85; }
-      100% { transform: scale(1.08); opacity: 1; }
     }
 
     .hero-container {
@@ -167,25 +125,12 @@
       align-items: center;
     }
 
-    /* Escenario de Fotografía con Efectos de Luces y Badges */
+    /* Escenario de Fotografía Nítida sin fondos circulares artificiales */
     .hero-stage {
       position: relative;
       display: flex;
       justify-content: center;
       align-items: flex-end;
-    }
-
-    /* Disco de luz concentrada tras el sujeto */
-    .hero-stage::before {
-      content: '';
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(196, 241, 53, 0.26) 0%, rgba(245, 158, 11, 0.2) 45%, rgba(56, 189, 248, 0.15) 100%);
-      filter: blur(40px);
-      z-index: 1;
-      bottom: 60px;
     }
 
     .hero-cinematic-img {
@@ -197,37 +142,43 @@
       max-height: 740px;
       object-fit: contain;
       display: block;
-      filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 40px rgba(196, 241, 53, 0.18));
-      -webkit-mask-image: linear-gradient(to bottom, black 84%, transparent 100%);
-      mask-image: linear-gradient(to bottom, black 84%, transparent 100%);
+      filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.75));
+      -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     }
 
-    /* Badges Flotantes de Cristal con Luces Neón */
+    /* Badge Flotante de Contacto Directo por Correo */
     .hero-float-badge-top {
       position: absolute;
       top: 24px;
       right: -8px;
-      background: rgba(12, 12, 15, 0.88);
+      background: rgba(12, 12, 15, 0.92);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(196, 241, 53, 0.35);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(196, 241, 53, 0.15);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
       border-radius: 999px;
-      padding: 6px 14px;
+      padding: 7px 16px;
       display: flex;
       align-items: center;
       gap: 8px;
       font-family: var(--font-mono);
       font-size: 0.72rem;
       color: var(--snow);
+      text-decoration: none;
       z-index: 5;
+      transition: border-color 0.2s, transform 0.2s;
     }
-    .hero-float-badge-top .pulse-dot {
+    .hero-float-badge-top:hover {
+      border-color: var(--lime);
+      transform: translateY(-2px);
+    }
+    .hero-float-badge-top .mail-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: var(--lime);
-      box-shadow: 0 0 0 3px rgba(196, 241, 53, 0.35);
+      box-shadow: 0 0 0 3px rgba(196, 241, 53, 0.25);
     }
 
     .hero-float-badge-bottom {
@@ -243,7 +194,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(196, 241, 53, 0.12);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
       z-index: 5;
     }
     .hero-float-badge-bottom .trophy-dot {
@@ -421,10 +372,6 @@
         max-width: 350px;
         max-height: 520px;
       }
-      .hero-stage::before {
-        width: 300px;
-        height: 300px;
-      }
       .hero-float-badge-bottom {
         bottom: 12px;
         left: -8px;
@@ -452,11 +399,6 @@
       .hero-cinematic-img {
         max-width: 250px;
         max-height: 330px;
-      }
-      .hero-stage::before {
-        width: 220px;
-        height: 220px;
-        bottom: 30px;
       }
       .hero-float-badge-top {
         top: 6px;
@@ -496,10 +438,6 @@
         max-width: 220px;
         max-height: 290px;
       }
-      .hero-stage::before {
-        width: 180px;
-        height: 180px;
-      }
     }
   </style>
 </head>
@@ -527,8 +465,8 @@
         <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="nav-cta" style="background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border); color: var(--snow); padding: 8px 14px; font-weight: 700; font-size: 0.78rem; text-decoration: none; border-radius: 7px; transition: all 0.15s;">
           Descargar CV
         </a>
-        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" class="nav-cta" style="background: var(--lime); color: var(--ink); padding: 9px 18px; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; flex-shrink: 0; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">
-          Hablemos
+        <a href="#contacto" class="nav-cta" style="background: var(--lime); color: var(--ink); padding: 9px 18px; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; flex-shrink: 0; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">
+          Contactar
         </a>
         <button class="nav-burger" id="burgerBtn" style="background: none; border: none; color: var(--snow); cursor: pointer; padding: 4px; align-items: center; justify-content: center;" aria-label="Abrir menú">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -544,19 +482,12 @@
       <a href="#tecnologias" onclick="closeDrawer()" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--mist); text-decoration: none;">Tecnologías</a>
       <a href="#contacto" onclick="closeDrawer()" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--mist); text-decoration: none;">Contacto</a>
       <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--lime); text-decoration: none;">Descargar CV (.docx)</a>
-      <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" style="margin-top: 4px; background: var(--lime); color: var(--ink); padding: 12px 18px; font-weight: 700; font-size: 0.85rem; text-decoration: none; border-radius: 7px; text-align: center;">Hablemos (Cal.com)</a>
+      <a href="mailto:luzylayloayza@gmail.com" style="margin-top: 4px; background: var(--lime); color: var(--ink); padding: 12px 18px; font-weight: 700; font-size: 0.85rem; text-decoration: none; border-radius: 7px; text-align: center;">Escribir a mi correo</a>
     </div>
   </header>
 
-  <!-- ==================== ── HERO VIEWPORT (RETRATO PROMINENTE CON LUCES CINEMÁTICAS) ── ==================== -->
+  <!-- ==================== ── HERO VIEWPORT (RETRATO LIMPIO Y CONTACTO DIRECTO) ── ==================== -->
   <section id="hero" class="hero-section">
-    <!-- Luces Volumétricas Ambientales -->
-    <div class="hero-ambient-lights">
-      <div class="light-spotlight"></div>
-      <div class="light-beam"></div>
-      <div class="light-bottom-accent"></div>
-    </div>
-
     <div class="hero-container">
       <div class="hero-grid-cinematic">
 
@@ -564,7 +495,7 @@
         <div>
           <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; text-decoration: none; transition: opacity 0.2s;" onmouseenter="this.style.opacity='0.6'" onmouseleave="this.style.opacity='1'">
             <span style="font-family: var(--font-mono); font-size: 0.72rem; color: rgba(240,240,245,0.45); letter-spacing: 0.06em;">
-              ¿Tienes un proyecto? Hablemos primero →
+              ¿Tienes un proyecto o consulta? Escríbeme directamente →
             </span>
           </a>
           
@@ -582,10 +513,13 @@
           </p>
           
           <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 34px;">
-            <a href="#proyectos" class="hero-btn-lime">
-              Ver proyectos ↓
+            <a href="#contacto" class="hero-btn-lime">
+              Escríbeme un mensaje ↓
             </a>
-            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="hero-btn-glass">
+            <a href="mailto:luzylayloayza@gmail.com" class="hero-btn-glass">
+              luzylayloayza@gmail.com ✉
+            </a>
+            <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" class="hero-btn-border">
               Descargar CV
             </a>
             <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" class="hero-btn-border">
@@ -610,12 +544,12 @@
           </div>
         </div>
 
-        <!-- LADO DERECHO: Retrato Prominente con Luces Volumétricas y Badges -->
+        <!-- LADO DERECHO: Retrato Prominente Nítido con Acceso a Contacto -->
         <div class="hero-stage">
-          <div class="hero-float-badge-top">
-            <span class="pulse-dot"></span>
-            Disponible para trabajar
-          </div>
+          <a href="mailto:luzylayloayza@gmail.com" class="hero-float-badge-top">
+            <span class="mail-dot"></span>
+            luzylayloayza@gmail.com ✉
+          </a>
           <img src="./assets/profile_transparent_opt.png" alt="Lady Luz Loayza Rodriguez" class="hero-cinematic-img" />
           <div class="hero-float-badge-bottom">
             <span class="trophy-dot"></span>
