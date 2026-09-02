@@ -1,0 +1,222 @@
+/* ==========================================================================
+   LAYOUT & ESTRUCTURA GLOBAL
+   ========================================================================== */
+
+/* Contenedores de Sección */
+.site-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  color: var(--lime);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  letter-spacing: -0.03em;
+  color: var(--snow);
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  color: var(--mist);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+/* Header & Barra de Navegación */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(12, 12, 15, 0.94);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: box-shadow 0.25s ease;
+}
+
+.site-header-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo-brand {
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--snow);
+  flex-shrink: 0;
+}
+
+.logo-accent {
+  color: var(--lime);
+}
+
+.nav-link-item {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--mist);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.15s ease;
+}
+
+.nav-link-item:hover,
+.nav-link-item:focus-visible {
+  color: var(--lime);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-btn-cv {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  color: var(--snow);
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-decoration: none;
+  border-radius: 7px;
+  transition: all 0.15s ease;
+}
+.nav-btn-cv:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-btn-contact {
+  background: var(--lime);
+  color: var(--ink);
+  padding: 9px 18px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-decoration: none;
+  border-radius: 7px;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease;
+}
+.nav-btn-contact:hover {
+  opacity: 0.85;
+}
+
+.burger-button {
+  background: none;
+  border: none;
+  color: var(--snow);
+  cursor: pointer;
+  padding: 4px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Menú Móvil Desplegable */
+.mobile-drawer {
+  display: none;
+  background: var(--ink2);
+  border-top: 1px solid var(--border);
+  padding: 20px 24px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.drawer-link {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--mist);
+  text-decoration: none;
+}
+
+.drawer-link-cv {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--lime);
+  text-decoration: none;
+}
+
+.drawer-btn-contact {
+  margin-top: 4px;
+  background: var(--lime);
+  color: var(--ink);
+  padding: 12px 18px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-radius: 7px;
+  text-align: center;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+}
+
+.site-footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--mist);
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-link {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--mist);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-link:hover {
+  color: var(--lime);
+}

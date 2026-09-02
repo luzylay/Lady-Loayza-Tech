@@ -1,18 +1,67 @@
-# Node / Vite
+# ==========================================================================
+# GITIGNORE - LADY-LOAYZA-TECH
+# ==========================================================================
+
+# 1. Dependencias y Builds
 node_modules/
 dist/
-.DS_Store
+build/
+.cache/
+.parcel-cache/
+out/
 
-# Raw camera photos and local scratch
+# 2. Entorno y Variables Sensibles
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+
+# 3. Logs y Depuración
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+*.tmp
+*.bak
+
+# 4. Archivos Temporales de Sistema Operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+$RECYCLE.BIN/
+
+# 5. IDEs y Editores de Código
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# 6. Archivos Locales Temporales / Scraping
 Fotos-Formales/
 Portafolio accesible desarrolladora/
 masterclass_*.html
 CV-Lady-Loayza-Optimizado.docx
-*.tmp
-*.log
 repos_data.json
 all_projects.json
-
-# IDEs
-.vscode/
-.idea/
+scratch/
