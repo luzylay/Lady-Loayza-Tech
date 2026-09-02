@@ -35,5 +35,6 @@ User-agent: *
 Allow: /
 
 # Sitemaps oficiales
+Sitemap: https://lady-loayza-tech.lady-loayza.workers.dev/sitemap.xml
 Sitemap: https://lady-loayza-tech.pages.dev/sitemap.xml
 Sitemap: https://luzylay.github.io/Lady-Loayza-Tech/sitemap.xml
