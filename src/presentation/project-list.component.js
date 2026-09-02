@@ -1,11 +1,22 @@
 /**
  * @file project-list.component.js
  * @module presentation/project-list.component
- * @description Componente de lista de proyectos reactivo a eventos del EventBus.
+ * @description Componente de lista de proyectos reactivo a eventos del EventBus
+ * con validación de seguridad de URLs y mitigación de XSS.
  */
 
 import { globalEventBus } from '../infrastructure/event-bus.js';
 import { projectRepository } from '../infrastructure/project.repository.js';
+
+function isSafeUrl(url) {
+  if (!url) return false;
+  try {
+    const parsed = new URL(url, window.location.origin);
+    return parsed.protocol === 'https:' || parsed.protocol === 'http:';
+  } catch (e) {
+    return false;
+  }
+}
 
 export class ProjectListComponent {
   constructor({ containerId = 'projectsContainer' } = {}) {
@@ -43,12 +54,12 @@ export class ProjectListComponent {
       const techTags = proj.techStack.map((t) => `<span class="tag-badge-item">${t}</span>`).join('');
       
       let actionButtons = '';
-      if (proj.liveUrl) {
+      if (proj.liveUrl && isSafeUrl(proj.liveUrl)) {
         actionButtons += `
           <a href="${proj.liveUrl}" target="_blank" rel="noopener noreferrer" data-track-conversion="DEMO_VIEW" data-track-target="${proj.id.toUpperCase()}_LIVE" class="card-btn-primary">${proj.liveLabel}</a>
         `;
       }
-      if (proj.repoUrl) {
+      if (proj.repoUrl && isSafeUrl(proj.repoUrl)) {
         const buttonClass = proj.liveUrl ? 'card-btn-secondary' : 'card-btn-primary';
         const buttonLabel = proj.liveUrl ? 'GitHub ↗' : 'Ver repositorio ↗';
         actionButtons += `

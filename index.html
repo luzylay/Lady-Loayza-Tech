@@ -7,6 +7,12 @@
   <meta name="author" content="Lady Luz Loayza Rodriguez" />
   <link rel="canonical" href="https://lady-loayza-tech.pages.dev/" />
 
+  <!-- Cabeceras de Seguridad y Protección contra Ataques Web (Anti-Clickjacking, Anti-XSS, Anti-MIME Sniffing) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; frame-src 'self' https://www.linkedin.com; connect-src 'self'; upgrade-insecure-requests;" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+
   <!-- Open Graph & Social Cards -->
   <meta property="og:title" content="Lady Luz Loayza Rodriguez | Desarrolladora de Software" />
   <meta property="og:description" content="Construyo apps y sistemas de software útiles, rápidos y accesibles para todo el mundo." />
@@ -20,10 +26,10 @@
 
   <title>Lady Luz Loayza — Desarrolladora de Software</title>
 
-  <!-- Google Fonts: Outfit (300-900w) & DM Mono -->
+  <!-- Google Fonts: Outfit & DM Mono con Protección Crossorigin Segura -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" crossorigin="anonymous">
 
   <!-- Schema.org JSON-LD (SEO & Rich Results) -->
   <script type="application/ld+json">
@@ -185,7 +191,7 @@
       </div>
 
       <div class="about-grid" id="aboutContainer">
-        <!-- Hidratado por AboutListComponent -->
+        <!-- Hidratado de forma segura por AboutListComponent -->
       </div>
     </section>
 
@@ -198,7 +204,7 @@
         </div>
 
         <div id="experienceContainer">
-          <!-- Hidratado por ExperienceListComponent -->
+          <!-- Hidratado de forma segura por ExperienceListComponent -->
         </div>
       </div>
     </section>
@@ -296,10 +302,10 @@
 
         <div class="linkedin-container">
           <div class="linkedin-card-box">
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7498032689288073216?collapsed=1" class="linkedin-iframe" allowfullscreen title="Ganamos el 1er puesto en Hackatón Niño San Borja" loading="lazy"></iframe>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7498032689288073216?collapsed=1" class="linkedin-iframe" allowfullscreen title="Ganamos el 1er puesto en Hackatón Niño San Borja" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
           </div>
           <div class="linkedin-card-box">
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7474145608497500161?collapsed=1" class="linkedin-iframe" allowfullscreen title="Equipo destacado en Hackathon Sin Barreras MINCETUR" loading="lazy"></iframe>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7474145608497500161?collapsed=1" class="linkedin-iframe" allowfullscreen title="Equipo destacado en Hackathon Sin Barreras MINCETUR" loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
           </div>
         </div>
       </div>
@@ -322,12 +328,12 @@
             No importa si tu proyecto es una idea inicial, una oportunidad laboral o una iniciativa de accesibilidad. Agenda una reunión técnica o conecta en LinkedIn y construyamos algo extraordinario juntos.
           </p>
           <div class="contact-actions-col" id="contactActions">
-            <!-- Hidratado por ContactPanelComponent -->
+            <!-- Hidratado de forma segura por ContactPanelComponent -->
           </div>
         </div>
 
         <div class="contact-info-panel" id="contactInfoPanel">
-          <!-- Hidratado por ContactPanelComponent -->
+          <!-- Hidratado de forma segura por ContactPanelComponent -->
         </div>
       </div>
     </section>

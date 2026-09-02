@@ -1,5 +1,39 @@
+# ==========================================================================
+# ROBOTS.TXT - LADY-LOAYZA-TECH
+# ==========================================================================
+
+# 1. Buscadores Legítimos (SEO y Visibilidad)
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+User-agent: facebot
+User-agent: facebookexternalhit
+User-agent: Twitterbot
+User-agent: LinkedInBot
+User-agent: Applebot
+Allow: /
+
+# 2. Bloqueo de Scrapers Agresivos y Escáneres de Vulnerabilidades
+User-agent: SemrushBot
+User-agent: AhrefsBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: BLEXBot
+User-agent: PetalBot
+User-agent: Bytespider
+User-agent: Scrapy
+User-agent: masscan
+User-agent: zgrab
+User-agent: Nikto
+Disallow: /
+
+# 3. Regla por defecto para el resto
 User-agent: *
 Allow: /
 
+# Sitemaps oficiales
 Sitemap: https://lady-loayza-tech.pages.dev/sitemap.xml
 Sitemap: https://luzylay.github.io/Lady-Loayza-Tech/sitemap.xml
