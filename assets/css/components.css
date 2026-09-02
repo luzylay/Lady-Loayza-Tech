@@ -444,35 +444,189 @@
   vertical-align: middle;
 }
 
-.live-stats-grid {
+.live-telemetry-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  align-items: stretch;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
 
-.live-stat-card {
-  background: #15151c;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px;
+.live-loading-state {
+  grid-column: 1 / -1;
+  padding: 32px;
+  text-align: center;
+  color: var(--mist);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  overflow: hidden;
-  transition: border-color 0.2s, transform 0.2s;
-}
-.live-stat-card:hover {
-  border-color: var(--lime);
-  transform: translateY(-2px);
+  justify-content: center;
+  gap: 10px;
 }
 
-.live-stat-svg {
+.live-stat-card-box {
+  background: var(--ink3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.live-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.live-kpi-item {
+  background: var(--ink2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.live-kpi-val {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: var(--lime);
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.live-kpi-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  color: var(--mist);
+  letter-spacing: 0.03em;
+}
+
+.live-block-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--snow);
+  margin: 0 0 14px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.live-lang-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.live-lang-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.live-lang-info {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.live-lang-name {
+  color: var(--snow);
+  font-weight: 500;
+}
+
+.live-lang-pct {
+  color: var(--lime);
+}
+
+.live-progress-bar-bg {
   width: 100%;
-  height: auto;
-  max-width: 100%;
-  display: block;
-  border-radius: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.live-progress-bar-fill {
+  height: 100%;
+  background: var(--lime);
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+.live-repos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.live-repo-badge {
+  background: var(--ink2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.live-repo-badge:hover {
+  background: var(--ink1);
+  border-color: var(--lime);
+}
+
+.live-repo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.live-repo-name {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--snow);
+}
+
+.live-repo-lang {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--lime);
+  background: rgba(196, 241, 53, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.live-repo-desc {
+  color: var(--mist);
+  font-size: 0.76rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.live-verified-badge {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--mist);
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.live-verified-badge svg {
+  color: var(--lime);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .live-telemetry-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* 6. LinkedIn Frame Container */
