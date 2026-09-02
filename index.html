@@ -372,28 +372,67 @@
     .scroll-cue { display: flex; }
 
     /* ==========================================================================
-       RESPONSIVE MEDIA QUERIES (DESKTOP, TABLET & MÓVIL)
+       MAPEO EXHAUSTIVO DE TODOS LOS TAMAÑOS DE PANTALLA (RESPONSIVE MASTER)
        ========================================================================== */
-    /* PANTALLAS MEDIANAS / TABLETS (769px a 1024px) */
-    @media (max-width: 1024px) and (min-width: 769px) {
-      .hero-grid-cinematic {
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 32px;
-        align-items: center;
+
+    /* 1. ULTRA-WIDE & PANTALLAS GRANDES (≥ 1440px) */
+    @media (min-width: 1440px) {
+      .hero-container, #sobre, #experiencia > div, #proyectos, #tecnologias > div, #linkedin-actividad, #contacto, footer > div {
+        max-width: 1200px;
       }
-      .hero-cinematic-img {
-        max-width: 350px;
-        max-height: 520px;
-      }
-      .about-grid { grid-template-columns: 1fr; }
-      .tech-grid { grid-template-columns: 1fr 1fr; }
-      .nav-links {
-        gap: 18px;
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
       }
     }
 
-    /* PANTALLAS PEQUEÑAS / MÓVILES (≤ 768px): FOTO DETRÁS CON TONO DEGRADADO */
-    @media (max-width: 768px) {
+    /* 2. LAPTOPS Y ESCRITORIO ESTÁNDAR (1025px a 1439px) */
+    @media (max-width: 1439px) and (min-width: 1025px) {
+      .hero-grid-cinematic {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 40px;
+      }
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* 3. TABLETS HORIZONTAL / MEDIUM SCREENS (901px a 1024px) */
+    @media (max-width: 1024px) and (min-width: 901px) {
+      .hero-grid-cinematic {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .hero-cinematic-img {
+        max-width: 340px;
+        max-height: 490px;
+      }
+      .about-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .tech-grid { grid-template-columns: repeat(3, 1fr); }
+      .nav-links { gap: 16px; }
+    }
+
+    /* 4. TABLETS VERTICAL / IPADS (769px a 900px) */
+    @media (max-width: 900px) and (min-width: 769px) {
+      .hero-grid-cinematic {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 24px;
+        align-items: center;
+      }
+      .hero-cinematic-img {
+        max-width: 300px;
+        max-height: 440px;
+      }
+      .about-grid { grid-template-columns: 1fr; gap: 12px; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .tech-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { gap: 14px; }
+    }
+
+    /* 5. PHABLETS Y MÓVILES GRANDES (481px a 768px) */
+    @media (max-width: 768px) and (min-width: 481px) {
       .hero-section {
         padding-top: 100px;
         padding-bottom: 56px;
@@ -406,12 +445,11 @@
         position: relative;
         z-index: 5;
       }
-      /* La fotografía se posa en el fondo a la derecha con tono degradado */
       .hero-stage {
         position: absolute;
-        right: -15px;
+        right: -10px;
         bottom: 0;
-        width: 75%;
+        width: 65%;
         max-width: 320px;
         height: 75%;
         z-index: 1;
@@ -440,18 +478,59 @@
       .exp-period-inline { display: block; }
       .contact-grid { grid-template-columns: 1fr; gap: 32px; }
       .contact-info-panel { grid-template-columns: 1fr 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; gap: 16px; }
       .tech-grid { grid-template-columns: 1fr 1fr; }
     }
 
+    /* 6. MÓVILES COMPACTOS (≤ 480px, incluyendo 320px-375px) */
     @media (max-width: 480px) {
-      .tech-grid { grid-template-columns: 1fr; }
-      .contact-info-panel { grid-template-columns: 1fr; }
-      .hero-stage {
-        width: 85%;
-        max-width: 280px;
-        height: 65%;
+      .hero-section {
+        padding-top: 88px;
+        padding-bottom: 48px;
       }
+      .hero-grid-cinematic {
+        display: block;
+        position: relative;
+      }
+      .hero-content-col {
+        position: relative;
+        z-index: 5;
+      }
+      .hero-stage {
+        position: absolute;
+        right: -15px;
+        bottom: 0;
+        width: 75%;
+        max-width: 260px;
+        height: 60%;
+        z-index: 1;
+        pointer-events: none;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+      }
+      .hero-cinematic-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: right bottom;
+        opacity: 0.22;
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 50%), linear-gradient(to top, transparent 0%, black 40%);
+        -webkit-mask-composite: destination-in;
+        mask-image: linear-gradient(to right, transparent 0%, black 50%), linear-gradient(to top, transparent 0%, black 40%);
+      }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-burger { display: flex; }
+      .scroll-cue { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .exp-row { grid-template-columns: 36px 1fr; gap: 0 12px; }
+      .exp-period-col { display: none; }
+      .exp-period-inline { display: block; }
+      .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+      .contact-info-panel { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; gap: 16px; }
+      .tech-grid { grid-template-columns: 1fr; }
       .hero-btn-lime, .hero-btn-glass, .hero-btn-border {
         width: 100%;
         justify-content: center;
@@ -714,177 +793,420 @@
     </div>
   </section>
 
-  <!-- ==================== ── PROYECTOS ── ==================== -->
+  <!-- ==================== ── PROYECTOS (CATÁLOGO COMPLETO DE REPOSITORIOS) ── ==================== -->
   <section id="proyectos" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
-      <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">03 — Proyectos</span>
+      <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">03 — Proyectos & Repositorios</span>
       <div style="flex: 1; height: 1px; background: var(--border);"></div>
     </div>
 
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; flex-wrap: wrap; gap: 12px;">
-      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.2rem); letter-spacing: -0.03em; color: var(--snow); margin: 0; line-height: 1.1;">
-        Lo que he construido
-      </h2>
+      <div>
+        <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.2rem); letter-spacing: -0.03em; color: var(--snow); margin: 0 0 6px 0; line-height: 1.1;">
+          Proyectos & Soluciones
+        </h2>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--mist); margin: 0;">
+          Explora proyectos premiados, modelos de machine learning, aplicaciones móviles y plataformas accesibles.
+        </p>
+      </div>
       <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="filterBar">
-        <button class="filter-pill-btn" onclick="filterCat('all', this)" style="font-family: var(--font-mono); font-size: 0.7rem; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--lime); background: var(--lime); color: var(--ink); font-weight: 700; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;">Todos</button>
-        <button class="filter-pill-btn" onclick="filterCat('salud', this)" style="font-family: var(--font-mono); font-size: 0.7rem; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--mist); font-weight: 400; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;">Accesibilidad</button>
-        <button class="filter-pill-btn" onclick="filterCat('ia', this)" style="font-family: var(--font-mono); font-size: 0.7rem; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--mist); font-weight: 400; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;">IA & Backend</button>
-        <button class="filter-pill-btn" onclick="filterCat('datos', this)" style="font-family: var(--font-mono); font-size: 0.7rem; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--mist); font-weight: 400; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;">Datos</button>
+        <button class="filter-pill-btn" onclick="filterCat('all', this)" style="font-family: var(--font-mono); font-size: 0.72rem; padding: 7px 16px; border-radius: 999px; border: 1px solid var(--lime); background: var(--lime); color: var(--ink); font-weight: 700; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;">Todos (14)</button>
+        <button class="filter-pill-btn" onclick="filterCat('featured', this)" style="font-family: var(--font-mono); font-size: 0.72rem; padding: 7px 16px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--mist); font-weight: 500; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;">🏆 Destacados</button>
+        <button class="filter-pill-btn" onclick="filterCat('frontend', this)" style="font-family: var(--font-mono); font-size: 0.72rem; padding: 7px 16px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--mist); font-weight: 500; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;">Frontend & PWA</button>
+        <button class="filter-pill-btn" onclick="filterCat('datos', this)" style="font-family: var(--font-mono); font-size: 0.72rem; padding: 7px 16px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--mist); font-weight: 500; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;">Data & IA</button>
+        <button class="filter-pill-btn" onclick="filterCat('software', this)" style="font-family: var(--font-mono); font-size: 0.72rem; padding: 7px 16px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--mist); font-weight: 500; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em;">Mobile & Software</button>
       </div>
     </div>
 
     <div class="projects-grid" id="projectsContainer">
-      <!-- Proyecto 1 -->
-      <div class="project-card" data-category="salud" style="background: var(--ink2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
-        <div style="height: 196px; overflow: hidden; background: var(--ink3); position: relative; flex-shrink: 0;">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&h=420&fit=crop&auto=format" alt="PWA CRED Clínica" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);" />
-          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">1.er Puesto INSNSB</span>
+
+      <!-- 1. NutriCRED-PWA (1.er Puesto Hackathon) -->
+      <div class="project-card" data-category="featured frontend salud">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&h=420&fit=crop&auto=format" alt="NutriCRED PWA" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--lime); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--lime); font-weight: 700; backdrop-filter: blur(8px);">🏆 1.ᵉʳ Puesto Hackathon</span>
         </div>
-        <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
-          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">PWA CRED "Crecer Mejor"</h3>
-          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Aplicación web progresiva móvil para el consultorio infantil CRED en el Niño San Borja. Ganadora del primer lugar PUCP / ESAN.</p>
-          <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">Health Tech · PWA</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">NutriCRED — Monitoreo Infantil</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Plataforma inteligente de monitoreo nutricional infantil para consultorios CRED. Combate la anemia y conecta en tiempo real a las familias con su equipo médico. Offline-first.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">TypeScript</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">PWA Offline</span>
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">React</span>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://nutricred-crecer-mejor-nutrivision.vercel.app/" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Demo en vivo ↗</a>
+            <a href="https://github.com/luzylay/NutriCRED-PWA" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--snow); padding: 10px 0; font-weight: 600; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. predict-customer-churn-luzylay (Top 28% Kaggle) -->
+      <div class="project-card" data-category="featured datos ia">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=420&fit=crop&auto=format" alt="Customer Churn Prediction" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--lime); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); font-weight: 700; backdrop-filter: blur(8px);">⭐ Top 28% Kaggle</span>
+        </div>
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">Machine Learning · Analytics</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">Predicción de Churn (XGBoost)</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Modelo predictivo de fuga de clientes con XGBoost, optimización de hiperparámetros y explicabilidad SHAP. Posicionado en el Top 28% en Kaggle Competitions.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">XGBoost</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Scikit-Learn</span>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://www.kaggle.com/ladyloayza" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Kaggle Perfil ↗</a>
+            <a href="https://github.com/luzylay/predict-customer-churn-luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--snow); padding: 10px 0; font-weight: 600; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. datamart-palta-hass-bi (Business Intelligence) -->
+      <div class="project-card" data-category="featured datos">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=700&h=420&fit=crop&auto=format" alt="Data Mart Palta Hass" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--lime); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); font-weight: 700; backdrop-filter: blur(8px);">BI & Data Mart</span>
+        </div>
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">Data Engineering · Power BI</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">Data Mart Palta Hass BI</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Arquitectura Data Mart dimensional (2016-2024) para análisis de rentabilidad y exportaciones agroindustriales. Pipeline ETL con PostgreSQL y tableros en Power BI.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Power BI</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">PostgreSQL</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">ETL</span>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://github.com/luzylay/datamart-palta-hass-bi" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Ver repositorio ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Cryptography-Interactive-Learning -->
+      <div class="project-card" data-category="featured frontend software">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=700&h=420&fit=crop&auto=format" alt="Cryptography Interactive Learning" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--lime); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); font-weight: 700; backdrop-filter: blur(8px);">Security & EduTech</span>
+        </div>
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">TypeScript · Web Interactiva</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">Cryptography Interactive Learning</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Plataforma interactiva para aprender criptografía moderna de forma visual. Ejecución y visualización de algoritmos y cifrados directamente en el navegador.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">TypeScript</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Criptografía</span>
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Vite</span>
-            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">PWA</span>
           </div>
-          <div style="display: flex; gap: 8px;">
-            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 9px 0; font-weight: 700; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">Ver proyecto →</a>
-            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">GitHub ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Proyecto 2 -->
-      <div class="project-card" data-category="ia" style="background: var(--ink2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
-        <div style="height: 196px; overflow: hidden; background: var(--ink3); position: relative; flex-shrink: 0;">
-          <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=700&h=420&fit=crop&auto=format" alt="Helen IA Conversacional" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);" />
-          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">Top 3 MINCETUR</span>
-        </div>
-        <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
-          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">Helen — IA Turística Accesible</h3>
-          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Asistente conversacional con voz y geolocalización para personas con discapacidad visual. Top 3 Sin Barreras MINCETUR.</p>
-          <div style="display: flex; gap: 5px; flex-wrap: wrap;">
-            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
-            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Flask</span>
-            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">TTS</span>
-          </div>
-          <div style="display: flex; gap: 8px;">
-            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 9px 0; font-weight: 700; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">Ver proyecto →</a>
-            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">GitHub ↗</a>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://luzylay.github.io/Cryptography-Interactive-Learning/" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Demo en vivo ↗</a>
+            <a href="https://github.com/luzylay/Cryptography-Interactive-Learning" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--snow); padding: 10px 0; font-weight: 600; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">GitHub ↗</a>
           </div>
         </div>
       </div>
 
-      <!-- Proyecto 3 -->
-      <div class="project-card" data-category="datos" style="background: var(--ink2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column;">
-        <div style="height: 196px; overflow: hidden; background: var(--ink3); position: relative; flex-shrink: 0;">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=420&fit=crop&auto=format" alt="Observatorio Laboral EPEN" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75);" />
-          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.62rem; background: rgba(12,12,15,0.88); color: var(--lime); padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">Samsung Capstone</span>
+      <!-- 5. App-School-Homework (⭐ 1 Star · Kotlin Android) -->
+      <div class="project-card" data-category="featured software">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&h=420&fit=crop&auto=format" alt="App School Homework" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--lime); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); font-weight: 700; backdrop-filter: blur(8px);">⭐ 1 Star · Kotlin</span>
         </div>
-        <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
-          <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--snow); letter-spacing: -0.02em; margin: 0;">Observatorio Laboral EPEN</h3>
-          <p style="color: var(--mist); font-size: 0.84rem; line-height: 1.65; margin: 0; flex: 1;">Pipeline de datos en Python sobre microdatos del INEI (+10K registros) y tableros en Power BI y Looker Studio.</p>
-          <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">Android Nativo · Mobile</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">App School Homework</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Aplicación móvil nativa en Kotlin para gestión y seguimiento escolar de tareas académicas, agenda diaria y comunicación entre docentes y alumnos.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Kotlin</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Android SDK</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Mobile UI</span>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://github.com/luzylay/App-School-Homework" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Ver en GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Helen — IA Turística Accesible (Top 3 MINCETUR) -->
+      <div class="project-card" data-category="featured ia salud">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=700&h=420&fit=crop&auto=format" alt="Helen IA Turística" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--lime); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--lime); font-weight: 700; backdrop-filter: blur(8px);">🏆 Top 3 MINCETUR</span>
+        </div>
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">IA Conversacional · Accesibilidad</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">Helen — Asistente IA Turístico</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Asistente conversacional con voz y geolocalización para personas con discapacidad visual. Seleccionado Top 3 entre 66 propuestas en la Hackathon Sin Barreras.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
-            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">SQL</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Flask NLU</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">TTS Voz</span>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Ver proyecto →</a>
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--snow); padding: 10px 0; font-weight: 600; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Observatorio Laboral EPEN (Samsung Capstone) -->
+      <div class="project-card" data-category="featured datos">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&h=420&fit=crop&auto=format" alt="Observatorio Laboral EPEN" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--lime); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); font-weight: 700; backdrop-filter: blur(8px);">Samsung Capstone</span>
+        </div>
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">Data Pipeline · +10K Registros</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">Observatorio Laboral EPEN</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Pipeline de datos en Python sobre microdatos del INEI con más de 10,000 registros procesados y tableros interactivos en Power BI y Looker Studio.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Pandas</span>
             <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Power BI</span>
           </div>
-          <div style="display: flex; gap: 8px;">
-            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 9px 0; font-weight: 700; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.82'" onmouseleave="this.style.opacity='1'">Ver proyecto →</a>
-            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--mist); padding: 9px 0; font-weight: 600; font-size: 0.8rem; text-decoration: none; border-radius: 7px; text-align: center; transition: all 0.15s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--mist2');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--snow')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border');this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">GitHub ↗</a>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Ver detalles →</a>
           </div>
         </div>
       </div>
+
+      <!-- 8. guayerd-ibm-ecommerce-shipping-customer-reviews-analysis -->
+      <div class="project-card" data-category="datos">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=700&h=420&fit=crop&auto=format" alt="IBM E-Commerce Logistics Analysis" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--snow); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">IBM / Guayerd</span>
+        </div>
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">Data Analytics · Logística</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">IBM E-Commerce Logistics & Reviews</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Análisis de e-commerce: relación entre stock, tiempos de entrega y reputación a partir de análisis de reseñas con Python, Power BI y Jupyter Notebooks.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Jupyter</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python ETL</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Power BI</span>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://github.com/luzylay/guayerd-ibm-ecommerce-shipping-customer-reviews-analysis" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Ver repositorio ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. sap-abap-fiori-dev-Learning (Java & QA Testing) -->
+      <div class="project-card" data-category="software">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=700&h=420&fit=crop&auto=format" alt="Java QA Enterprise" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--snow); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">Enterprise QA</span>
+        </div>
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">Backend · Testing & QA</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">Enterprise Backend & QA Testing</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Arquitectura con Java, MS SQL Server, modelado UML con Visual Paradigm, pruebas unitarias con JUnit y automatización funcional con Selenium.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Java</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">JUnit</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Selenium</span>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://github.com/luzylay/sap-abap-fiori-dev-Learning" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Ver repositorio ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Lady-Loayza-Tech (Portal Inclusivo) -->
+      <div class="project-card" data-category="frontend salud">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=700&h=420&fit=crop&auto=format" alt="Lady Loayza Tech" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--lime); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">Cloudflare Edge</span>
+        </div>
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">Accesibilidad Web · UI/UX</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">Lady Loayza Tech — Portal Inclusivo</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Portal de herramientas, servicios y recursos accesibles para personas con discapacidad, diseñado con arquitectura web ultraligera y rendimiento 100/100.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">HTML5/CSS3</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">WCAG 2.1</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Cloudflare</span>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://lady-loayza-tech.pages.dev/" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Demo en vivo ↗</a>
+            <a href="https://github.com/luzylay/Lady-Loayza-Tech" target="_blank" rel="noopener noreferrer" style="flex: 1; border: 1px solid var(--border); color: var(--snow); padding: 10px 0; font-weight: 600; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. learning-platform-PIPD (EduTech) -->
+      <div class="project-card" data-category="frontend">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=700&h=420&fit=crop&auto=format" alt="PIPD Learning Platform" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--snow); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">EduTech Inclusiva</span>
+        </div>
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">TypeScript · Plataforma</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">PIPD Learning Platform</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Plataforma interactiva orientada a la formación continua, inclusión y educación digital accesible con componentes modulares en TypeScript.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">TypeScript</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Frontend</span>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://github.com/luzylay/learning-platform-PIPD" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Ver repositorio ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. La-taberna (Sistema de Gestión) -->
+      <div class="project-card" data-category="software">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=700&h=420&fit=crop&auto=format" alt="La Taberna de Roly" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--snow); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">Desktop Software</span>
+        </div>
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">Java · POO</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">La Taberna de Roly — Sistema de Gestión</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Sistema de escritorio para control de inventarios, pedidos y punto de venta comercial con arquitectura orientada a objetos en Java.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Java</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">POO</span>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://github.com/luzylay/La-taberna" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Ver repositorio ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 13. Game-Gato & Transformaciones Matriciales -->
+      <div class="project-card" data-category="software">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=700&h=420&fit=crop&auto=format" alt="Game Gato y Gráficos" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--snow); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">C# / Algoritmos</span>
+        </div>
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">C# · Gráficos & Algoritmos</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">Game Gato & Transformaciones 2D/3D</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Desarrollo de lógica de juego interactiva y algoritmos de rotación, traslación y transformación matricial en entorno C# .NET.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">C#</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">.NET</span>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://github.com/luzylay/Game-Gato" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Ver en GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14. Sistemas-operativos-Grupo1 (Simulador de Procesos) -->
+      <div class="project-card" data-category="software">
+        <div style="height: 190px; overflow: hidden; background: #151520; position: relative; flex-shrink: 0;">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&h=420&fit=crop&auto=format" alt="Sistemas Operativos" class="card-img" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72);" />
+          <span style="position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 0.65rem; background: rgba(9,9,12,0.92); color: var(--snow); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); backdrop-filter: blur(8px);">Sistemas Operativos</span>
+        </div>
+        <div style="padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--lime); text-transform: uppercase;">Python · Concurrencia</span>
+            <h3 style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--snow); margin: 4px 0 0;">Simulador de Planificación de CPU</h3>
+          </div>
+          <p style="color: var(--mist); font-size: 0.85rem; line-height: 1.65; margin: 0; flex: 1;">Simulación y análisis de algoritmos de planificación de procesos de CPU (Round Robin, FCFS, SJF) y gestión concurrente de recursos.</p>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Python</span>
+            <span style="font-family: var(--font-mono); font-size: 0.67rem; padding: 4px 10px; border-radius: 999px; background: var(--ink3); color: var(--mist); border: 1px solid var(--border);">Algoritmos OS</span>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <a href="https://github.com/luzylay/Sistemas-operativos-Grupo1" target="_blank" rel="noopener noreferrer" style="flex: 1; background: var(--lime); color: var(--ink); padding: 10px 0; font-weight: 700; font-size: 0.82rem; text-decoration: none; border-radius: 7px; text-align: center;">Ver repositorio ↗</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- ==================== ── TECNOLOGÍAS ── ==================== -->
-  <section style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-    <div id="tecnologias" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
+  <section id="tecnologias" style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.01);">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
         <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">04 — Tecnologías</span>
         <div style="flex: 1; height: 1px; background: var(--border);"></div>
       </div>
 
-      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
-        <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.2rem); letter-spacing: -0.03em; color: var(--snow); margin: 0; line-height: 1.1;">
-          Los idiomas que hablo<br />
-          <span style="color: var(--lime);">con las máquinas</span>
+      <div style="margin-bottom: 32px;">
+        <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.2rem); letter-spacing: -0.03em; color: var(--snow); margin-bottom: 8px;">
+          Herramientas con las que construyo
         </h2>
-        <p style="color: var(--mist); font-size: 0.86rem; max-width: 320px; line-height: 1.72; margin: 0;">
-          Las computadoras tienen sus propios lenguajes — yo aprendí varios para decirles exactamente qué hacer de forma limpia.
+        <p style="color: var(--mist); font-size: 0.92rem;">
+          Stack moderno orientado a rendimiento, accesibilidad universal y análisis de datos.
         </p>
       </div>
 
       <div class="tech-grid">
-        <div class="tech-card" style="background: var(--ink2); padding: 20px 20px; display: flex; gap: 14px; align-items: flex-start;">
-          <span style="font-family: var(--font-mono); font-size: 0.63rem; color: var(--lime); background: var(--ink3); border: 1px solid var(--border); padding: 4px 8px; border-radius: 5px; flex-shrink: 0; letter-spacing: 0.06em; margin-top: 2px;">JS/RCT</span>
-          <div>
-            <div style="font-weight: 700; color: var(--snow); font-size: 0.87rem; margin-bottom: 4px;">React & JavaScript</div>
-            <div style="color: var(--mist); font-size: 0.79rem; line-height: 1.6;">Hace que los botones, pantallas y páginas web cobren vida de forma rápida.</div>
-          </div>
+        <div class="tech-card">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--lime); margin-bottom: 8px; text-transform: uppercase;">01 / Frontend & Mobile</div>
+          <div style="font-weight: 700; color: var(--snow); font-size: 1.05rem; margin-bottom: 6px;">React, TypeScript, Kotlin</div>
+          <div style="color: var(--mist); font-size: 0.83rem; line-height: 1.6;">PWA offline-first, Vite, Next.js, HTML5 semántico, Tailwind CSS y Android Nativo en Kotlin.</div>
         </div>
 
-        <div class="tech-card" style="background: var(--ink2); padding: 20px 20px; display: flex; gap: 14px; align-items: flex-start;">
-          <span style="font-family: var(--font-mono); font-size: 0.63rem; color: var(--lime); background: var(--ink3); border: 1px solid var(--border); padding: 4px 8px; border-radius: 5px; flex-shrink: 0; letter-spacing: 0.06em; margin-top: 2px;">PY/FSK</span>
-          <div>
-            <div style="font-weight: 700; color: var(--snow); font-size: 0.87rem; margin-bottom: 4px;">Python & Flask</div>
-            <div style="color: var(--mist); font-size: 0.79rem; line-height: 1.6;">Automatiza tareas lógicas y crea asistentes conversacionales con IA.</div>
-          </div>
+        <div class="tech-card">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--lime); margin-bottom: 8px; text-transform: uppercase;">02 / Data & IA</div>
+          <div style="font-weight: 700; color: var(--snow); font-size: 1.05rem; margin-bottom: 6px;">Python, XGBoost, Power BI</div>
+          <div style="color: var(--mist); font-size: 0.83rem; line-height: 1.6;">Pipelines ETL, Pandas, Scikit-Learn, PostgreSQL, Data Marts y visualizaciones en Looker Studio.</div>
         </div>
 
-        <div class="tech-card" style="background: var(--ink2); padding: 20px 20px; display: flex; gap: 14px; align-items: flex-start;">
-          <span style="font-family: var(--font-mono); font-size: 0.63rem; color: var(--lime); background: var(--ink3); border: 1px solid var(--border); padding: 4px 8px; border-radius: 5px; flex-shrink: 0; letter-spacing: 0.06em; margin-top: 2px;">SQL/DB</span>
-          <div>
-            <div style="font-weight: 700; color: var(--snow); font-size: 0.87rem; margin-bottom: 4px;">Bases de Datos & SQL</div>
-            <div style="color: var(--mist); font-size: 0.79rem; line-height: 1.6;">Donde vive y se organiza toda la información con máxima seguridad.</div>
-          </div>
-        </div>
-
-        <div class="tech-card" style="background: var(--ink2); padding: 20px 20px; display: flex; gap: 14px; align-items: flex-start;">
-          <span style="font-family: var(--font-mono); font-size: 0.63rem; color: var(--lime); background: var(--ink3); border: 1px solid var(--border); padding: 4px 8px; border-radius: 5px; flex-shrink: 0; letter-spacing: 0.06em; margin-top: 2px;">BI/PBI</span>
-          <div>
-            <div style="font-weight: 700; color: var(--snow); font-size: 0.87rem; margin-bottom: 4px;">Power BI & Analytics</div>
-            <div style="color: var(--mist); font-size: 0.79rem; line-height: 1.6;">Convierte números complejos en gráficos claros para tomar decisiones.</div>
-          </div>
-        </div>
-
-        <div class="tech-card" style="background: var(--ink2); padding: 20px 20px; display: flex; gap: 14px; align-items: flex-start;">
-          <span style="font-family: var(--font-mono); font-size: 0.63rem; color: var(--lime); background: var(--ink3); border: 1px solid var(--border); padding: 4px 8px; border-radius: 5px; flex-shrink: 0; letter-spacing: 0.06em; margin-top: 2px;">WCAG</span>
-          <div>
-            <div style="font-weight: 700; color: var(--snow); font-size: 0.87rem; margin-bottom: 4px;">Accesibilidad Universal</div>
-            <div style="color: var(--mist); font-size: 0.79rem; line-height: 1.6;">Estándares para que lectores de pantalla y navegación por voz funcionen sin barreras.</div>
-          </div>
-        </div>
-
-        <div class="tech-card" style="background: var(--ink2); padding: 20px 20px; display: flex; gap: 14px; align-items: flex-start;">
-          <span style="font-family: var(--font-mono); font-size: 0.63rem; color: var(--lime); background: var(--ink3); border: 1px solid var(--border); padding: 4px 8px; border-radius: 5px; flex-shrink: 0; letter-spacing: 0.06em; margin-top: 2px;">GIT/CLD</span>
-          <div>
-            <div style="font-weight: 700; color: var(--snow); font-size: 0.87rem; margin-bottom: 4px;">Git & Cloudflare</div>
-            <div style="color: var(--mist); font-size: 0.79rem; line-height: 1.6;">Historial de código seguro y alojamiento web global ultra-rápido.</div>
-          </div>
+        <div class="tech-card">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--lime); margin-bottom: 8px; text-transform: uppercase;">03 / Accesibilidad & Cloud</div>
+          <div style="font-weight: 700; color: var(--snow); font-size: 1.05rem; margin-bottom: 6px;">WCAG 2.1, Cloudflare, QA</div>
+          <div style="color: var(--mist); font-size: 0.83rem; line-height: 1.6;">Estándares de accesibilidad universal, lectores de pantalla, pruebas con JUnit y Selenium, Git y despliegue CI/CD.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== ── LINKEDIN EMBEDS ── ==================== -->
-  <section id="impacto" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
+  <!-- ==================== ── LINKEDIN / ACTIVIDAD DESTACADA ── ==================== -->
+  <section id="linkedin-actividad" style="max-width: 1120px; margin: 0 auto; padding: 80px 24px;">
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 40px;">
-      <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">05 — Publicaciones en LinkedIn</span>
+      <span style="font-family: var(--font-mono); font-size: 0.67rem; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;">05 — Trayectoria & Comunidad</span>
       <div style="flex: 1; height: 1px; background: var(--border);"></div>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; justify-items: center;">
-      <div style="width: 100%; max-width: 504px; background: var(--ink2); border: 1px solid var(--border); border-radius: 8px; padding: 10px; overflow: hidden;">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7498032689288073216?collapsed=1" height="627" width="100%" frameborder="0" allowfullscreen title="Ganamos el 1er puesto en Hackatón Niño San Borja" style="border-radius: 6px;"></iframe>
+    <div style="margin-bottom: 32px;">
+      <h2 style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.2rem); letter-spacing: -0.03em; color: var(--snow); margin-bottom: 8px;">
+        Impacto y Reconocimientos
+      </h2>
+      <p style="color: var(--mist); font-size: 0.92rem;">
+        Publicaciones y momentos clave de mi trayectoria profesional compartidos en LinkedIn.
+      </p>
+    </div>
+
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+      <div style="width: 100%; max-width: 504px; background: var(--ink2); border: 1px solid var(--border); border-radius: 12px; padding: 12px; overflow: hidden;">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7498032689288073216?collapsed=1" height="627" width="100%" frameborder="0" allowfullscreen title="Ganamos el 1er puesto en Hackatón Niño San Borja" style="border-radius: 8px;"></iframe>
       </div>
-      <div style="width: 100%; max-width: 504px; background: var(--ink2); border: 1px solid var(--border); border-radius: 8px; padding: 10px; overflow: hidden;">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7474145608497500161?collapsed=1" height="627" width="100%" frameborder="0" allowfullscreen title="Equipo destacado en Hackathon Sin Barreras MINCETUR" style="border-radius: 6px;"></iframe>
-      </div>
-      <div style="width: 100%; max-width: 504px; background: var(--ink2); border: 1px solid var(--border); border-radius: 8px; padding: 10px; overflow: hidden;">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7420281179368501248?collapsed=1" height="627" width="100%" frameborder="0" allowfullscreen title="Deputy Campus Director en Hult Prize" style="border-radius: 6px;"></iframe>
+      <div style="width: 100%; max-width: 504px; background: var(--ink2); border: 1px solid var(--border); border-radius: 12px; padding: 12px; overflow: hidden;">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7474145608497500161?collapsed=1" height="627" width="100%" frameborder="0" allowfullscreen title="Equipo destacado en Hackathon Sin Barreras MINCETUR" style="border-radius: 8px;"></iframe>
       </div>
     </div>
   </section>
@@ -900,80 +1222,81 @@
       <div>
         <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 5.5vw, 4.6rem); letter-spacing: -0.05em; color: var(--snow); line-height: 0.9; margin-bottom: 20px;">
           ¿Tienes<br />una idea?<br />
-          <span style="color: var(--lime);">Cuéntamela.</span>
+          <span style="background: linear-gradient(135deg, var(--lime) 0%, #a3e635 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hablemos.</span>
         </h2>
-        <p style="color: var(--mist); font-size: 0.91rem; line-height: 1.8; margin-bottom: 28px;">
-          No importa si tu idea parece pequeña o enorme, ni si sabes nada de tecnología. Me encanta escuchar y ayudar a que las ideas se vuelvan reales y accesibles.
+        <p style="color: var(--mist); font-size: 0.92rem; line-height: 1.8; margin-bottom: 28px;">
+          No importa si tu proyecto es una idea inicial, una oportunidad laboral o una iniciativa de accesibilidad. Escríbeme y construyamos algo extraordinario juntos.
         </p>
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" style="background: var(--lime); color: var(--ink); padding: 14px 22px; font-weight: 700; font-size: 0.9rem; text-decoration: none; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity 0.15s;" onmouseenter="this.style.opacity='0.84'" onmouseleave="this.style.opacity='1'">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="mailto:luzylayloayza@gmail.com" style="background: var(--lime); color: var(--ink); padding: 14px 22px; font-weight: 700; font-size: 0.9rem; text-decoration: none; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; transition: opacity 0.15s; box-shadow: 0 4px 18px rgba(196, 241, 53, 0.22);" onmouseenter="this.style.opacity='0.86'" onmouseleave="this.style.opacity='1'">
+            <!-- IconMail -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Escríbeme a luzylayloayza@gmail.com ✉
+          </a>
+          <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--snow); padding: 13px 22px; font-weight: 600; font-size: 0.9rem; text-decoration: none; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 10px; transition: border-color 0.2s;" onmouseenter="this.style.borderColor='var(--lime)'" onmouseleave="this.style.borderColor='var(--border)'">
             <!-- IconCalendar -->
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Agendar 30 min (Cal.com)
           </a>
-          <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" style="border: 1px solid var(--border); color: var(--snow); padding: 13px 22px; font-weight: 600; font-size: 0.9rem; text-decoration: none; border-radius: 8px; text-align: center; transition: border-color 0.2s;" onmouseenter="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--lime')" onmouseleave="this.style.borderColor=getComputedStyle(document.documentElement).getPropertyValue('--border')">
+          <a href="./assets/CV-Lady-Loayza-Optimizado.docx" download="CV-Lady-Loayza-Rodriguez.docx" style="border: 1px solid var(--border); color: var(--mist); padding: 12px 22px; font-weight: 600; font-size: 0.88rem; text-decoration: none; border-radius: 8px; text-align: center; transition: color 0.2s;" onmouseenter="this.style.color='var(--snow)'" onmouseleave="this.style.color='var(--mist)'">
             Descargar CV (.docx)
           </a>
         </div>
       </div>
 
       <div class="contact-info-panel" style="align-self: center;">
-        <a href="mailto:U22221489@utp.edu.pe" class="contact-card" style="background: var(--ink2); padding: 22px 20px; display: flex; flex-direction: column; gap: 14px; text-decoration: none;">
+        <a href="mailto:luzylayloayza@gmail.com" class="contact-card" style="display: flex; flex-direction: column; gap: 14px; text-decoration: none;">
           <span style="color: var(--lime);">
-            <!-- IconMail -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </span>
           <div>
-            <div style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); letter-spacing: 0.04em; margin-bottom: 4px;">Correo Institucional</div>
-            <div style="font-weight: 700; color: var(--snow); font-size: 0.88rem;">U22221489@utp.edu.pe</div>
+            <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--mist); letter-spacing: 0.04em; margin-bottom: 4px;">Correo Directo</div>
+            <div style="font-weight: 700; color: var(--snow); font-size: 0.88rem; word-break: break-all;">luzylayloayza@gmail.com</div>
           </div>
         </a>
 
-        <div class="contact-card" style="background: var(--ink2); padding: 22px 20px; display: flex; flex-direction: column; gap: 14px;">
+        <div class="contact-card" style="display: flex; flex-direction: column; gap: 14px;">
           <span style="color: var(--lime);">
-            <!-- IconBolt -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </span>
           <div>
-            <div style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); letter-spacing: 0.04em; margin-bottom: 4px;">Respuesta rápida</div>
+            <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--mist); letter-spacing: 0.04em; margin-bottom: 4px;">Respuesta rápida</div>
             <div style="font-weight: 700; color: var(--snow); font-size: 0.88rem;">Menos de 24 horas</div>
           </div>
         </div>
 
-        <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" class="contact-card" style="background: var(--ink2); padding: 22px 20px; display: flex; flex-direction: column; gap: 14px; text-decoration: none;">
+        <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" class="contact-card" style="display: flex; flex-direction: column; gap: 14px; text-decoration: none;">
           <span style="color: var(--lime);">
-            <!-- IconGlobe -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </span>
           <div>
-            <div style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); letter-spacing: 0.04em; margin-bottom: 4px;">LinkedIn Oficial</div>
-            <div style="font-weight: 700; color: var(--snow); font-size: 0.88rem;">/in/ladyloayzarodriguez</div>
+            <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--mist); letter-spacing: 0.04em; margin-bottom: 4px;">LinkedIn Oficial</div>
+            <div style="font-weight: 700; color: var(--snow); font-size: 0.88rem;">/in/ladyloayzarodriguez ↗</div>
           </div>
         </a>
 
-        <div class="contact-card" style="background: var(--ink2); padding: 22px 20px; display: flex; flex-direction: column; gap: 14px;">
+        <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" class="contact-card" style="display: flex; flex-direction: column; gap: 14px; text-decoration: none;">
           <span style="color: var(--lime);">
-            <!-- IconChat -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           </span>
           <div>
-            <div style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); letter-spacing: 0.04em; margin-bottom: 4px;">Idiomas</div>
-            <div style="font-weight: 700; color: var(--snow); font-size: 0.88rem;">Español · Inglés (B1)</div>
+            <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--mist); letter-spacing: 0.04em; margin-bottom: 4px;">GitHub Repositorios</div>
+            <div style="font-weight: 700; color: var(--snow); font-size: 0.88rem;">github.com/luzylay ↗</div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ==================== ── FOOTER ── ==================== -->
   <footer style="border-top: 1px solid var(--border);">
-    <div style="max-width: 1120px; margin: 0 auto; padding: 22px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 24px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
       <span style="font-weight: 800; letter-spacing: -0.02em;">lady loayza<span style="color: var(--lime);">.</span></span>
-      <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--mist);">Diseñado y construido con accesibilidad · 2026</span>
+      <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--mist);">Desarrollo accesible · Lima, Perú · 2026</span>
       <div style="display: flex; gap: 20px;">
-        <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-decoration: none; transition: color 0.15s;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--lime')" onmouseleave="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-decoration: none; transition: color 0.15s;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--lime')" onmouseleave="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">LinkedIn ↗</a>
-        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--mist); text-decoration: none; transition: color 0.15s;" onmouseenter="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--lime')" onmouseleave="this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--mist')">Cal.com ↗</a>
+        <a href="https://github.com/luzylay" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--mist); text-decoration: none; transition: color 0.15s;" onmouseenter="this.style.color='var(--lime)'" onmouseleave="this.style.color='var(--mist)'">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/ladyloayzarodriguez/" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--mist); text-decoration: none; transition: color 0.15s;" onmouseenter="this.style.color='var(--lime)'" onmouseleave="this.style.color='var(--mist)'">LinkedIn ↗</a>
+        <a href="https://cal.com/lady-loayza-incyug/30min" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--mist); text-decoration: none; transition: color 0.15s;" onmouseenter="this.style.color='var(--lime)'" onmouseleave="this.style.color='var(--mist)'">Cal.com ↗</a>
       </div>
     </div>
   </footer>
@@ -995,14 +1318,14 @@
       mobileDrawer.style.display = 'none';
     }
 
-    // 2. Filtros de Proyectos
+    // 2. Filtros Dinámicos Multi-categoría de Proyectos
     function filterCat(cat, btn) {
       const buttons = document.querySelectorAll('.filter-pill-btn');
       buttons.forEach(b => {
         b.style.background = 'transparent';
         b.style.color = 'var(--mist)';
         b.style.borderColor = 'var(--border)';
-        b.style.fontWeight = '400';
+        b.style.fontWeight = '500';
       });
       btn.style.background = 'var(--lime)';
       btn.style.color = 'var(--ink)';
@@ -1011,7 +1334,8 @@
 
       const cards = document.querySelectorAll('.project-card[data-category]');
       cards.forEach(card => {
-        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+        const cats = card.getAttribute('data-category').split(' ');
+        if (cat === 'all' || cats.includes(cat)) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
