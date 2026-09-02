@@ -13,6 +13,7 @@ import { FilterBarComponent } from './presentation/filter-bar.component.js';
 import { TechListComponent } from './presentation/tech-list.component.js';
 import { RoiListComponent } from './presentation/roi-list.component.js';
 import { ContactPanelComponent } from './presentation/contact-panel.component.js';
+import { LinkedInCarouselComponent } from './presentation/linkedin-carousel.component.js';
 import { ConversionTrackerComponent } from './presentation/conversion-tracker.component.js';
 import { telemetryService } from './infrastructure/telemetry.service.js';
 import { globalEventBus } from './infrastructure/event-bus.js';
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   new ExperienceListComponent({ containerId: 'experienceContainer' }).init();
   new TechListComponent({ containerId: 'techContainer' }).init();
   new RoiListComponent({ containerId: 'roiContainer' }).init();
+  new LinkedInCarouselComponent({ containerId: 'linkedinCarouselContainer' }).init();
   new ContactPanelComponent({ infoPanelId: 'contactInfoPanel', actionsPanelId: 'contactActions' }).init();
 
   // 3. Inicialización del Catálogo Reactivo de Proyectos con Media dinámica de GitHub

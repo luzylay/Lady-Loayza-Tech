@@ -100,6 +100,39 @@ export const PORTFOLIO_CONTENT = Object.freeze({
     }
   ]),
 
+  LINKEDIN_POSTS: Object.freeze([
+    {
+      id: 'post-hackathon-insnsb',
+      title: '1.er Puesto en Hackatón Niño San Borja',
+      embedUrl: 'https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7498032689288073216?collapsed=1',
+      tag: '1.er Puesto · INSNSB'
+    },
+    {
+      id: 'post-hackathon-mincetur',
+      title: 'Top 3 en Hackathon Sin Barreras MINCETUR',
+      embedUrl: 'https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7474145608497500161?collapsed=1',
+      tag: 'Top 3 Nacional · MINCETUR'
+    },
+    {
+      id: 'post-featured-1',
+      title: 'Hito y Proyecto Destacado en LinkedIn',
+      embedUrl: 'https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7420281179368501248?collapsed=1',
+      tag: 'Destacado · Comunidad'
+    },
+    {
+      id: 'post-featured-2',
+      title: 'Solución Tecnológica y Aprendizajes',
+      embedUrl: 'https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7405556732388720640?collapsed=1',
+      tag: 'Destacado · Trayectoria'
+    },
+    {
+      id: 'post-featured-3',
+      title: 'Inclusión Digital & Accesibilidad',
+      embedUrl: 'https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7359864691701022720?collapsed=1',
+      tag: 'Destacado · Accesibilidad'
+    }
+  ]),
+
   CONTACT_CHANNELS: Object.freeze([
     {
       id: 'cal',
@@ -137,3 +170,4 @@ export const PORTFOLIO_CONTENT = Object.freeze({
     }
   ])
 });
+
