@@ -266,6 +266,65 @@
   align-items: flex-end;
 }
 
+.hero-photo-halo {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(340px, 48vw, 560px);
+  height: clamp(340px, 48vw, 560px);
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-radar-glow {
+  position: absolute;
+  inset: 10%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196, 241, 53, 0.48) 0%, rgba(163, 230, 53, 0.24) 40%, rgba(16, 185, 129, 0.08) 60%, transparent 75%);
+  filter: blur(35px);
+  animation: pulseRadarGlow 5s ease-in-out infinite alternate;
+}
+
+.hero-radar-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-radar-ring-1 {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(196, 241, 53, 0.18);
+}
+
+.hero-radar-ring-2 {
+  width: 74%;
+  height: 74%;
+  border: 1px solid rgba(196, 241, 53, 0.26);
+  box-shadow: inset 0 0 25px rgba(196, 241, 53, 0.08);
+}
+
+.hero-radar-ring-3 {
+  width: 48%;
+  height: 48%;
+  border: 1px dashed rgba(196, 241, 53, 0.35);
+}
+
+@keyframes pulseRadarGlow {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
 .hero-cinematic-img {
   position: relative;
   z-index: 2;
@@ -377,7 +436,8 @@
   .hero-mesh-canvas,
   .hero-gradient-orb-1,
   .hero-gradient-orb-2,
-  .hero-gradient-orb-3 {
+  .hero-gradient-orb-3,
+  .hero-radar-glow {
     animation: none !important;
   }
 }
