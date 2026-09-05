@@ -100,7 +100,7 @@
   </script>
 
   <!-- Modular Master Stylesheet (Versionado para invalidación inmediata de caché) -->
-  <link rel="stylesheet" href="./assets/css/main.css?v=2.4.2" />
+  <link rel="stylesheet" href="./assets/css/main.css?v=2.4.3" />
 </head>
 <body>
 
@@ -116,10 +116,15 @@
 
       <nav class="nav-links" aria-label="Navegación principal">
         <a href="#sobre" class="nav-link-item">Sobre mí</a>
+        <span class="nav-sep" aria-hidden="true">|</span>
         <a href="#experiencia" class="nav-link-item">Experiencia</a>
+        <span class="nav-sep" aria-hidden="true">|</span>
         <a href="#proyectos" class="nav-link-item">Proyectos</a>
+        <span class="nav-sep" aria-hidden="true">|</span>
         <a href="#tecnologias" class="nav-link-item">Tecnologías</a>
+        <span class="nav-sep" aria-hidden="true">|</span>
         <a href="#impacto-negocio" class="nav-link-item">Impacto & ROI</a>
+        <span class="nav-sep" aria-hidden="true">|</span>
         <a href="#contacto" class="nav-link-item">Contacto</a>
       </nav>
 
@@ -172,7 +177,7 @@
             
             <h1 class="hero-heading">
               <span class="hero-greeting-sub">Hola, soy</span>
-              <span class="hero-name-main">LADY <span class="hero-lime-solid">LUZ</span></span>
+              <span class="hero-name-main">LADY <span class="hero-name-accent">LUZ<svg class="hero-underline-svg" viewBox="0 0 150 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 12C45 4 105 4 146 12" stroke="#c4f135" stroke-width="4.5" stroke-linecap="round"/><path d="M4 12C45 4 105 4 146 12" stroke="#c4f135" stroke-width="7" stroke-linecap="round" opacity="0.45" filter="blur(2.5px)"/></svg></span></span>
             </h1>
 
             <p class="hero-role-tag">
@@ -180,7 +185,7 @@
             </p>
 
             <p class="hero-lead-text">
-              Construyo apps y páginas web que la gente usa cada día. <strong>Útiles, rápidas y fáciles de entender</strong> — para todo el mundo, no solo para quienes saben programar.
+              Construyo experiencias web útiles, rápidas y accesibles para todas las personas.
             </p>
             
             <div class="hero-actions-row">
@@ -195,29 +200,40 @@
               </a>
             </div>
 
-            <!-- Stats -->
-            <div class="hero-stats-row">
-              <div>
-                <div class="hero-stat-val">1.er</div>
-                <div class="hero-stat-lbl">Hackathon INSNSB</div>
+            <!-- Stats Cards en Formato Cuadrícula / Tarjetas -->
+            <div class="hero-stats-cards">
+              <div class="hero-stat-card">
+                <div class="hero-stat-card-top">
+                  <svg class="hero-stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H7c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h10c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-2c-.55 0-1-.45-1-1v-2.34"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                  <span class="hero-stat-val">1.er</span>
+                </div>
+                <span class="hero-stat-lbl">Hackathon</span>
               </div>
-              <div>
-                <div class="hero-stat-val">Top 3</div>
-                <div class="hero-stat-lbl">MINCETUR Sin Barreras</div>
+
+              <div class="hero-stat-card">
+                <div class="hero-stat-card-top">
+                  <svg class="hero-stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <span class="hero-stat-val">Top 3</span>
+                </div>
+                <span class="hero-stat-lbl">MINCETUR</span>
               </div>
-              <div>
-                <div class="hero-stat-val">+10K</div>
-                <div class="hero-stat-lbl">Datos Procesados</div>
+
+              <div class="hero-stat-card">
+                <div class="hero-stat-card-top">
+                  <svg class="hero-stat-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                  <span class="hero-stat-val">+10K</span>
+                </div>
+                <span class="hero-stat-lbl">Procesados</span>
               </div>
             </div>
           </div>
 
           <div class="hero-stage">
-            <div class="hero-photo-halo" aria-hidden="true">
-              <div class="hero-radar-ring hero-radar-ring-1"></div>
-              <div class="hero-radar-ring hero-radar-ring-2"></div>
-              <div class="hero-radar-ring hero-radar-ring-3"></div>
-              <div class="hero-radar-glow"></div>
+            <div class="hero-photo-backdrop" aria-hidden="true">
+              <div class="hero-photo-glow"></div>
+              <div class="hero-glass-card">
+                <div class="hero-card-grid"></div>
+              </div>
             </div>
             <img src="./assets/images/profile-transparent-opt.png" alt="Retrato profesional de Lady Luz Loayza Rodriguez" class="hero-cinematic-img" width="460" height="740" decoding="async" fetchpriority="high" />
           </div>
@@ -496,7 +512,7 @@
   </footer>
 
   <!-- ==================== ── APPLICATION ENTRY POINT ── ==================== -->
-  <script type="module" src="./src/main.js?v=2.4.2"></script>
+  <script type="module" src="./src/main.js?v=2.4.3"></script>
 </body>
 </html>
 

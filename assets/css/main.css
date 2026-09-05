@@ -4,19 +4,19 @@
    ========================================================================== */
 
 /* 1. Capa de Configuración, Tokens y Reset Global */
-@import './variables.css?v=2.4.2';
+@import './variables.css?v=2.4.3';
 
 /* 2. Capa de Estructura, Grid y Contenedores */
-@import './layout.css?v=2.4.2';
+@import './layout.css?v=2.4.3';
 
 /* 3. Capa de Presentación Hero Viewport */
-@import './hero.css?v=2.4.2';
+@import './hero.css?v=2.4.3';
 
 /* 4. Capa de Componentes Data-Driven, Tarjetas y Breakpoints */
-@import './components.css?v=2.4.2';
+@import './components.css?v=2.4.3';
 
 /* 5. Capa de Tipografía en Mosaicos con Gradiente (Segmented Neon Tiles) */
-@import './gradient-letters.css?v=2.4.2';
+@import './gradient-letters.css?v=2.4.3';
 
 
 

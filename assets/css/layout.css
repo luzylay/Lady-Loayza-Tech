@@ -89,7 +89,13 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 14px;
+}
+
+.nav-sep {
+  color: rgba(255, 255, 255, 0.18);
+  font-size: 0.72rem;
+  user-select: none;
 }
 
 .nav-link-item {
