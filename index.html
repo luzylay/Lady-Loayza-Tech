@@ -100,7 +100,7 @@
   </script>
 
   <!-- Modular Master Stylesheet (Versionado para invalidación inmediata de caché) -->
-  <link rel="stylesheet" href="./assets/css/main.css?v=2.3.0" />
+  <link rel="stylesheet" href="./assets/css/main.css?v=2.4.0" />
 </head>
 <body>
 
@@ -152,6 +152,15 @@
   <main>
     <!-- ==================== ── HERO VIEWPORT ── ==================== -->
     <section id="hero" class="hero-section" aria-label="Presentación principal">
+      <!-- Gradiente animado dinámico con la paleta de colores -->
+      <div class="hero-bg-gradient-layer" aria-hidden="true">
+        <div class="hero-mesh-canvas"></div>
+        <div class="hero-gradient-orb hero-gradient-orb-1"></div>
+        <div class="hero-gradient-orb hero-gradient-orb-2"></div>
+        <div class="hero-gradient-orb hero-gradient-orb-3"></div>
+        <div class="hero-grid-pattern"></div>
+      </div>
+
       <div class="hero-container">
         <div class="hero-grid-cinematic">
 
@@ -162,8 +171,21 @@
             </a>
             
             <h1 class="hero-heading">
-              Hola,<br />soy<br />
-              <span class="hero-gradient-text">Lady Luz.</span>
+              <span class="hero-greeting-sub">Hola, soy</span>
+              <div class="hero-tiles-brand" aria-label="Lady Luz">
+                <div class="gl-hero-row">
+                  <span class="gl-tile gl-tile-hero" aria-hidden="true"><span class="gl-char">L</span></span>
+                  <span class="gl-tile gl-tile-hero" aria-hidden="true"><span class="gl-char">A</span></span>
+                  <span class="gl-tile gl-tile-hero" aria-hidden="true"><span class="gl-char">D</span></span>
+                  <span class="gl-tile gl-tile-hero" aria-hidden="true"><span class="gl-char">Y</span></span>
+                </div>
+                <div class="gl-hero-row">
+                  <span class="gl-tile gl-tile-hero" aria-hidden="true"><span class="gl-char">L</span></span>
+                  <span class="gl-tile gl-tile-hero" aria-hidden="true"><span class="gl-char">U</span></span>
+                  <span class="gl-tile gl-tile-hero" aria-hidden="true"><span class="gl-char">Z</span></span>
+                  <span class="gl-tile gl-tile-hero gl-tile-dot" aria-hidden="true"><span class="gl-char">.</span></span>
+                </div>
+              </div>
             </h1>
 
             <p class="hero-role-tag">

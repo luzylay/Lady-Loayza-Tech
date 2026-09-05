@@ -4,7 +4,7 @@
  * Estrategia: Network-First para código/HTML (siempre lo más reciente) y Cache-First para multimedia pesada.
  */
 
-const CACHE_VERSION = 'lady-loayza-tech-v2.3.0';
+const CACHE_VERSION = 'lady-loayza-tech-v2.4.0';
 const STATIC_CACHE_NAME = `static-${CACHE_VERSION}`;
 const MEDIA_CACHE_NAME = `media-${CACHE_VERSION}`;
 
@@ -17,6 +17,7 @@ const CORE_ASSETS = [
   './assets/css/layout.css',
   './assets/css/hero.css',
   './assets/css/components.css',
+  './assets/css/gradient-letters.css',
   './assets/images/profile-hd.png',
   './assets/images/profile-transparent-opt.png',
   './src/main.js',

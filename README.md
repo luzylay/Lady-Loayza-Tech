@@ -88,6 +88,15 @@ Para consultar la política de seguridad y reporte técnico, revise [SECURITY.md
 
 ---
 
+## Si este proyecto te fue de utilidad, aprendiste algo nuevo o te pareció interesante:
+
+1. Ve a la **esquina superior derecha** de esta página en GitHub.
+2. Haz clic en el botón **`⭐ Star`** (Estrella).
+
+> **¡Muchísimas gracias de corazón!** ✨
+
+---
+
 ## Licencia
 
 Este proyecto está licenciado bajo los términos de la Licencia MIT. Consulte el archivo [LICENSE](LICENSE) para más información.
