@@ -200,19 +200,37 @@
 
 /* Tipografía del Hero */
 .hero-heading {
+  margin: 0 0 16px 0;
+  line-height: 1;
+}
+
+.hero-greeting-sub {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  letter-spacing: -0.025em;
+  color: var(--snow);
+  margin-bottom: 6px;
+  opacity: 0.95;
+}
+
+.hero-name-main {
+  display: block;
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(2.9rem, 6vw, 5.6rem);
+  font-size: clamp(3.2rem, 7vw, 5.8rem);
   letter-spacing: -0.045em;
-  color: var(--snow);
-  margin: 0 0 16px 0;
-  line-height: 0.93;
+  color: #ffffff;
+  line-height: 0.95;
+}
+
+.hero-lime-solid {
+  color: var(--lime);
 }
 
 .hero-gradient-text {
-  background: linear-gradient(135deg, var(--lime) 0%, #a3e635 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--lime);
 }
 
 .hero-role-tag {

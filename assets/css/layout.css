@@ -17,8 +17,10 @@
 }
 
 .section-label {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-mono);
-  font-size: 0.67rem;
+  font-size: 0.72rem;
   color: var(--lime);
   letter-spacing: 0.12em;
   text-transform: uppercase;
