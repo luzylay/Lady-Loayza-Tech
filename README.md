@@ -39,7 +39,7 @@ src/
 ├── presentation/                    # Componentes Data-Driven reactivos y controladores de interfaz
 └── main.js                          # Composition Root (Inyección e hidratación de dependencias)
 ```
-
+---
 ### Pilares de Ingeniería Implementados:
 
 1. **Búsqueda & Filtrado en Tiempo Constante ($\mathcal{O}(1)$):**  
@@ -54,7 +54,7 @@ src/
 > [!NOTE]
 > Para consultar la especificación técnica y diagramas arquitectónicos completos, visita [ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
-
+---
 
 ## Canales Oficiales de Contacto
 
@@ -65,7 +65,7 @@ src/
 - 🐙 **Perfil de GitHub:** [github.com/luzylay](https://github.com/luzylay)
 - ⏱️ **Tiempo promedio de respuesta:** Menos de 24 horas.
 
-
+---
 > [!IMPORTANT]
 > ### ⭐ ¿Te pareció útil o interesante este proyecto?
 > Si este repositorio te sirvió como referencia de arquitectura, aprendiste algo nuevo o te inspiró:
@@ -73,7 +73,7 @@ src/
 > 2. Haz clic en el botón **`⭐ Star`** (Estrella).
 > 
 > *¡Muchísimas gracias por apoyar el desarrollo de software accesible y de alto rendimiento!* ✨
-
+---
 
 ## Seguridad y Reportes
 
