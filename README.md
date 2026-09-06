@@ -10,16 +10,19 @@
 [![Clean Architecture](https://img.shields.io/badge/Architecture-Clean%20%2F%20DDD-c4f135?style=for-the-badge&logo=codefactor&logoColor=black)](docs/ARCHITECTURE.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-38bdf8?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
 
+<br />
 
 <p align="center">
-  <a href="https://lady-loayza-tech.lady-loayza.workers.dev/"><strong> Explorar Portafolio en Vivo »</strong></a>
+  <a href="https://lady-loayza-tech.lady-loayza.workers.dev/"><strong>🌐 Explorar Portafolio en Vivo »</strong></a>
   <br />
   <br />
-  <a href="#-arquitectura-de-software--ingeniería">Arquitectura</a> •
-  <a href="#-catálogo-de-proyectos-y-soluciones">Proyectos</a> •
-  <a href="#-stack-tecnológico">Stack</a> •
-  <a href="#-canales-oficiales-de-contacto">Contacto</a>
+  <a href="#arquitectura-de-software--ingeniería">Arquitectura</a> •
+  <a href="#canales-oficiales-de-contacto">Contacto</a> •
+  <a href="#seguridad-y-reportes">Seguridad</a> •
+  <a href="#licencia">Licencia</a>
 </p>
+
+</div>
 
 ---
 
@@ -39,7 +42,9 @@ src/
 ├── presentation/                    # Componentes Data-Driven reactivos y controladores de interfaz
 └── main.js                          # Composition Root (Inyección e hidratación de dependencias)
 ```
+
 ---
+
 ### Pilares de Ingeniería Implementados:
 
 1. **Búsqueda & Filtrado en Tiempo Constante ($\mathcal{O}(1)$):**  
@@ -66,6 +71,7 @@ src/
 - ⏱️ **Tiempo promedio de respuesta:** Menos de 24 horas.
 
 ---
+
 > [!IMPORTANT]
 > ### ⭐ ¿Te pareció útil o interesante este proyecto?
 > Si este repositorio te sirvió como referencia de arquitectura, aprendiste algo nuevo o te inspiró:
@@ -73,6 +79,7 @@ src/
 > 2. Haz clic en el botón **`⭐ Star`** (Estrella).
 > 
 > *¡Muchísimas gracias por apoyar el desarrollo de software accesible y de alto rendimiento!* ✨
+
 ---
 
 ## Seguridad y Reportes
