@@ -286,7 +286,7 @@
 
 .hero-stat-card {
   flex: 1;
-  min-width: 105px;
+  min-width: 0;
   background: rgba(255, 255, 255, 0.028);
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 12px;
@@ -335,53 +335,52 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  width: 100%;
+  max-width: 400px;
+  min-height: 480px;
+  margin: 0 auto;
 }
 
 .hero-photo-backdrop {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  max-width: 480px;
-  max-height: 600px;
+  inset: 0;
   pointer-events: none;
   z-index: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 }
 
 .hero-photo-glow {
   position: absolute;
-  top: 45%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: clamp(280px, 42vw, 480px);
-  height: clamp(280px, 42vw, 480px);
+  width: 85%;
+  height: 85%;
+  max-width: 320px;
+  max-height: 320px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(196, 241, 53, 0.52) 0%, rgba(163, 230, 53, 0.28) 40%, rgba(16, 185, 129, 0.08) 60%, transparent 74%);
-  filter: blur(40px);
+  background: radial-gradient(circle, rgba(196, 241, 53, 0.42) 0%, rgba(163, 230, 53, 0.18) 40%, rgba(16, 185, 129, 0.05) 65%, transparent 75%);
+  filter: blur(35px);
   animation: pulsePhotoGlow 6s ease-in-out infinite alternate;
 }
 
 .hero-glass-card {
   position: absolute;
-  top: 48%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(290px, 40vw, 440px);
-  height: clamp(340px, 48vw, 530px);
-  background: rgba(255, 255, 255, 0.022);
-  border: 1px solid rgba(255, 255, 255, 0.13);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 14%;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 24px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 
     inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    0 16px 45px rgba(0, 0, 0, 0.6),
-    0 0 30px rgba(196, 241, 53, 0.08);
+    0 20px 45px rgba(0, 0, 0, 0.55),
+    0 0 30px rgba(196, 241, 53, 0.07);
   overflow: hidden;
 }
 
@@ -389,9 +388,9 @@
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(196, 241, 53, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(196, 241, 53, 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
+    linear-gradient(rgba(196, 241, 53, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 241, 53, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
   opacity: 0.7;
 }
 
@@ -401,7 +400,7 @@
     opacity: 0.8;
   }
   100% {
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(1.08);
     opacity: 1;
   }
 }
@@ -410,12 +409,13 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 460px;
+  max-width: 380px;
   height: auto;
-  max-height: 740px;
+  max-height: 500px;
   object-fit: contain;
+  object-position: bottom center;
   display: block;
-  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.85));
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.85));
   -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
   transition: transform 0.3s ease;
@@ -497,3 +497,183 @@
     animation: none !important;
   }
 }
+
+/* Responsive Media Queries del Hero — Modo Fondo en Pantallas Medianas y Pequeñas */
+@media (max-width: 900px) {
+  .hero-section {
+    padding-top: 108px;
+    padding-bottom: 56px;
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  .hero-grid-cinematic {
+    position: relative;
+    display: block;
+  }
+
+  .hero-content-col {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 620px;
+    text-align: left;
+  }
+
+  .hero-lead-text {
+    max-width: 500px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  }
+
+  /* La foto se convierte en capa de fondo escénico integrada a la derecha */
+  .hero-stage {
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    width: clamp(260px, 45vw, 390px);
+    height: 90%;
+    max-height: 520px;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-height: 0;
+  }
+
+  /* Se oculta la tarjeta con bordes duros para una integración orgánica y limpia */
+  .hero-glass-card {
+    display: none;
+  }
+
+  .hero-photo-backdrop {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-photo-glow {
+    width: 100%;
+    height: 100%;
+    max-width: 320px;
+    max-height: 320px;
+    opacity: 0.6;
+    filter: blur(50px);
+  }
+
+  .hero-cinematic-img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: right bottom;
+    opacity: 0.38;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.9));
+    -webkit-mask-image: 
+      linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.6) 35%, black 80%),
+      linear-gradient(to top, transparent 0%, black 35%);
+    -webkit-mask-composite: destination-in;
+    mask-image: 
+      linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.6) 35%, black 80%),
+      linear-gradient(to top, transparent 0%, black 35%);
+    mask-composite: intersect;
+  }
+
+  .hero-stats-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    position: relative;
+    z-index: 5;
+  }
+}
+
+@media (max-width: 580px) {
+  .hero-section {
+    padding-top: 92px;
+    padding-bottom: 48px;
+  }
+
+  .hero-heading {
+    margin-bottom: 12px;
+  }
+
+  .hero-greeting-sub {
+    font-size: 1.35rem;
+  }
+
+  .hero-name-main {
+    font-size: clamp(2.8rem, 11vw, 3.8rem);
+  }
+
+  /* Posicionamiento armónico a la derecha en móviles */
+  .hero-stage {
+    right: -35px;
+    bottom: -10px;
+    width: clamp(210px, 56vw, 260px);
+    height: 72%;
+    max-height: 400px;
+  }
+
+  .hero-cinematic-img {
+    opacity: 0.24;
+    -webkit-mask-image: 
+      linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.5) 45%, black 85%),
+      linear-gradient(to top, transparent 0%, black 40%);
+    mask-image: 
+      linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.5) 45%, black 85%),
+      linear-gradient(to top, transparent 0%, black 40%);
+  }
+
+  .hero-actions-row {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .hero-btn-lime,
+  .hero-btn-glass,
+  .hero-btn-border {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 12px 18px;
+    font-size: 0.86rem;
+  }
+
+  .hero-btn-glass {
+    background: rgba(18, 18, 23, 0.88);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .hero-btn-border {
+    background: rgba(12, 12, 16, 0.75);
+  }
+
+  .hero-stats-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .hero-stat-card {
+    padding: 10px 8px;
+    background: rgba(15, 15, 20, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .hero-stat-val {
+    font-size: 1.1rem;
+  }
+
+  .hero-stat-lbl {
+    font-size: 0.62rem;
+  }
+}
+

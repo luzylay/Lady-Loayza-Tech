@@ -1121,10 +1121,6 @@
 
 /* 2. LAPTOPS Y ESCRITORIO ESTÁNDAR (1025px a 1439px) */
 @media (max-width: 1439px) and (min-width: 1025px) {
-  .hero-grid-cinematic {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 40px;
-  }
   .projects-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1135,15 +1131,6 @@
 
 /* 3. TABLETS HORIZONTAL (901px a 1024px) */
 @media (max-width: 1024px) and (min-width: 901px) {
-  .hero-grid-cinematic {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 28px;
-    align-items: center;
-  }
-  .hero-cinematic-img {
-    max-width: 340px;
-    max-height: 490px;
-  }
   .about-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .roi-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
@@ -1153,15 +1140,6 @@
 
 /* 4. TABLETS VERTICAL (769px a 900px) */
 @media (max-width: 900px) and (min-width: 769px) {
-  .hero-grid-cinematic {
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 24px;
-    align-items: center;
-  }
-  .hero-cinematic-img {
-    max-width: 300px;
-    max-height: 440px;
-  }
   .about-grid { grid-template-columns: 1fr; gap: 12px; }
   .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .roi-grid { grid-template-columns: 1fr; gap: 14px; }
@@ -1171,41 +1149,6 @@
 
 /* 5. PHABLETS Y MÓVILES GRANDES (481px a 768px) */
 @media (max-width: 768px) and (min-width: 481px) {
-  .hero-section {
-    padding-top: 100px;
-    padding-bottom: 56px;
-  }
-  .hero-grid-cinematic {
-    display: block;
-    position: relative;
-  }
-  .hero-content-col {
-    position: relative;
-    z-index: 5;
-  }
-  .hero-stage {
-    position: absolute;
-    right: -10px;
-    bottom: 0;
-    width: 65%;
-    max-width: 320px;
-    height: 75%;
-    z-index: 1;
-    pointer-events: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-  }
-  .hero-cinematic-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: right bottom;
-    opacity: 0.28;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 50%), linear-gradient(to top, transparent 0%, black 40%);
-    -webkit-mask-composite: destination-in;
-    mask-image: linear-gradient(to right, transparent 0%, black 50%), linear-gradient(to top, transparent 0%, black 40%);
-  }
   .nav-links { display: none; }
   .nav-actions .nav-btn-cv, .nav-actions .nav-btn-contact { display: none; }
   .burger-button { display: flex; }
@@ -1222,41 +1165,6 @@
 
 /* 6. MÓVILES COMPACTOS (≤ 480px, incluyendo 320px-375px) */
 @media (max-width: 480px) {
-  .hero-section {
-    padding-top: 88px;
-    padding-bottom: 48px;
-  }
-  .hero-grid-cinematic {
-    display: block;
-    position: relative;
-  }
-  .hero-content-col {
-    position: relative;
-    z-index: 5;
-  }
-  .hero-stage {
-    position: absolute;
-    right: -15px;
-    bottom: 0;
-    width: 75%;
-    max-width: 260px;
-    height: 60%;
-    z-index: 1;
-    pointer-events: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-  }
-  .hero-cinematic-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: right bottom;
-    opacity: 0.22;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 50%), linear-gradient(to top, transparent 0%, black 40%);
-    -webkit-mask-composite: destination-in;
-    mask-image: linear-gradient(to right, transparent 0%, black 50%), linear-gradient(to top, transparent 0%, black 40%);
-  }
   .nav-links { display: none; }
   .nav-actions .nav-btn-cv, .nav-actions .nav-btn-contact { display: none; }
   .burger-button { display: flex; }
@@ -1269,9 +1177,5 @@
   .projects-grid { grid-template-columns: 1fr; gap: 16px; }
   .roi-grid { grid-template-columns: 1fr; gap: 14px; }
   .tech-grid { grid-template-columns: 1fr; }
-  .hero-btn-lime, .hero-btn-glass, .hero-btn-border {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
 }
+
